@@ -148,7 +148,7 @@ sourceSets {
         // ext.refMap = 'mixins.' + archives_base_name + '.refmap.json'
 
         java {
-            srcDirs = ['src/main/java']
+            srcDirs = ['src/main/java', 'src/api/java']
         }
 
         resources {
