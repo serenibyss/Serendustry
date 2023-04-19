@@ -1,16 +1,11 @@
-[
-{
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+[{
+  "modid": "dandustry",
+  "name": "Dandustry",
+  "description": "some sussy description idk",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["CleanroomMC"],
-  "credits": "Authors of this project",
+  "authorList": ["dan"],
+  "credits": "The many other projects relating to GT5u and GTCEu providing endless inspiration",
   "logoFile": "",
-  "screenshots": [],
   "dependencies": []
-}
-]
+}]
