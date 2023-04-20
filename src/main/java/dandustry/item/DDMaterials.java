@@ -2,18 +2,29 @@ package dandustry.item;
 
 import gregtech.api.GTValues;
 import gregtech.api.fluids.fluidType.FluidTypes;
+/*
 import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.BlastProperty.GasTier;
 import gregtech.api.unification.material.properties.PropertyKey;
-import gregtech.api.unification.material.properties.ToolProperty;
-import net.minecraft.init.Enchantments;
+import gregtech.api.unification.material.properties.WireProperty;
+import gregtech.api.unification.material.properties.DustProperty;
+import gregtech.api.unification.material.properties.IngotProperty;*/
+import static gregtech.api.unification.material.*;
+import gregtech.api.unification.material.info.MaterialFlags;
+
+/*
+import gregtech.api.GTValues;
+import gregtech.api.fluids.fluidType.FluidTypes;
+import gregtech.api.unification.material.Material.;
+import gregtech.api.unification.material.Materials.*;
+import gregtech.api.unification.material.properties.BlastProperty.GasTier;
+import gregtech.api.unification.material.properties.PropertyKey;
+import gregtech.api.unification.material.properties.WireProperty;
 import gregtech.api.unification.material.properties.DustProperty;
 import gregtech.api.unification.material.properties.IngotProperty;
-
-import static gregtech.api.GTValues.*;
-import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static gregtech.api.unification.material.info.MaterialIconSet.*;
+*/
 
 public class DDMaterials {
 
@@ -46,27 +57,27 @@ public class DDMaterials {
 
     public static void init() {
 		
-		Materials.Oxygen.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Hydrogen.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Water.setProperty(PropertyKey.DUST, new DustProperty());
+		Oxygen.setProperty(PropertyKey.DUST, new DustProperty());
+		Hydrogen.setProperty(PropertyKey.DUST, new DustProperty());
+		Water.setProperty(PropertyKey.DUST, new DustProperty());
 		
-		Materials.Einsteinium.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Fermium.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Mendelevium.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Rutherfordium.setProperty(PropertyKey.DUST, new DustProperty());
-		Materials.Oganesson.setProperty(PropertyKey.DUST, new DustProperty());
+		Einsteinium.setProperty(PropertyKey.DUST, new DustProperty());
+		Fermium.setProperty(PropertyKey.DUST, new DustProperty());
+		Mendelevium.setProperty(PropertyKey.DUST, new DustProperty());
+		Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
+		Rutherfordium.setProperty(PropertyKey.DUST, new DustProperty());
+		Oganesson.setProperty(PropertyKey.DUST, new DustProperty());
 		
-		Materials.Oxygen.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Hydrogen.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Water.setProperty(PropertyKey.INGOT, new DustProperty());
+		Oxygen.setProperty(PropertyKey.INGOT, new DustProperty());
+		Hydrogen.setProperty(PropertyKey.INGOT, new DustProperty());
+		Water.setProperty(PropertyKey.INGOT, new DustProperty());
 		
-		Materials.Einsteinium.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Fermium.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Mendelevium.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Dubnium.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Rutherfordium.setProperty(PropertyKey.INGOT, new DustProperty());
-		Materials.Oganesson.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Einsteinium.setProperty(PropertyKey.INGOT, new DustProperty());
+		Fermium.setProperty(PropertyKey.INGOT, new DustProperty());
+		Mendelevium.setProperty(PropertyKey.INGOT, new DustProperty());
+		Dubnium.setProperty(PropertyKey.INGOT, new DustProperty());
+		Rutherfordium.setProperty(PropertyKey.INGOT, new DustProperty());
+		Oganesson.setProperty(PropertyKey.INGOT, new IngotProperty());
 		
         animalWaste = new Material.Builder(19000, "animal_waste")
                 .ingot().fluid().color(0x7B5C00)
