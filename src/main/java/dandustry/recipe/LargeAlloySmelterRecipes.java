@@ -10,11 +10,17 @@ import static gregtech.api.recipes.RecipeMaps.FUSION_RECIPES;
 public class LargeAlloySmelterRecipes {
 
     public static void init() {
+
 		FUSION_RECIPES.recipeBuilder()
-				.fluidInputs(Gold.getFluid(128)).fluidInputs(Duranium.getFluid(128))
+				.fluidInputs(Gold.getFluid(128)).fluidInputs(Thaumium.getFluid(128))
                 .fluidOutputs(InfusedGold.getFluid(64))
-                .duration(50).EUt(VA[LuV]).EUToStart(150_000_000).buildAndRegister();
-				
+                .duration(50).EUt(VA[LuV]).EUToStart(640_000_000).buildAndRegister();
+
+		FUSION_RECIPES.recipeBuilder()
+				.fluidInputs(Water.getFluid(128)).fluidInputs(TinAlloy.getFluid(64))
+				.fluidOutputs(Water.getPlasma(64))
+				.duration(100).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
+
 		FUSION_RECIPES.recipeBuilder()
 				.fluidInputs(Aluminium.getFluid(128)).fluidInputs(Neutronium.getFluid(128))
                 .fluidOutputs(Aluminum.getFluid(64))

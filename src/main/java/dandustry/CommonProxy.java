@@ -8,5 +8,7 @@ public class CommonProxy {
     public void preLoad() {
         RecipeMaps.MIXER_RECIPES.setMaxInputs(9);
         RecipeMaps.CENTRIFUGE_RECIPES.setMaxOutputs(9);
+        RecipeMaps.BLAST_RECIPES.setMaxFluidInputs(2);
+        RecipeMaps.BLAST_RECIPES.setMaxFluidOutputs(2);
     }
 }

@@ -36,7 +36,7 @@ public class MagnetoResonaticRecipes {
 
         LASER_ENGRAVER_RECIPES.recipeBuilder()
                 .input(MAGNETO_RESONATIC_WAFER)
-                .notConsumable(craftingLens, MagnetoResonatic)
+                .notConsumable(lens, MagnetoResonatic)
                 .output(RESONANCE_WAFER)
                 .cleanroom(CleanroomType.CLEANROOM)
                 .duration(900).EUt(VA[HV]).buildAndRegister();
@@ -99,8 +99,9 @@ public class MagnetoResonaticRecipes {
                 .input(GOOD_CIRCUIT_BOARD)
                 .input(RESONANCE_CHIP, 2)
                 .input(foil, Oxygen)
-                .input(foil, EglinSteel)
+                .input(foil, RealCupronickel)
                 .input(wireFine, TinAlloy)
+                .input(ring, GalliumYttrium)
                 .fluidInputs(MagnetoResonatic.getFluid(72))
                 .output(MAGNETO_RESONATIC_ULV, 8)
                 .duration(100).EUt(VA[LV]).buildAndRegister();

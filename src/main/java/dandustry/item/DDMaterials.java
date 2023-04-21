@@ -6,11 +6,9 @@ import gregtech.api.unification.material.*;
 import static gregtech.api.unification.material.Materials.*;
 
 import static gregtech.api.unification.material.info.MaterialIconSet.*;
+
+import gregtech.api.unification.material.properties.*;
 import gregtech.api.unification.material.properties.BlastProperty.GasTier;
-import gregtech.api.unification.material.properties.GemProperty;
-import gregtech.api.unification.material.properties.PropertyKey;
-import gregtech.api.unification.material.properties.DustProperty;
-import gregtech.api.unification.material.properties.IngotProperty;
 
 import static gregtech.api.unification.material.info.MaterialFlags.*;
 
@@ -61,6 +59,8 @@ public class DDMaterials {
 	public static Material Bedrockium;
 	public static Material ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst;
 	public static Material Jasper;
+	public static Material ArceusAlloy2B;
+	public static Material AssemblyLine;
 	public static Material Quantum;
 	public static Material Quantium;
 	public static Material CallistoIce;
@@ -69,6 +69,10 @@ public class DDMaterials {
 	public static Material QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus;
 	public static Material MultiversalAlloy;
 	public static Material MutatedLivingSolder;
+	public static Material Thaumium;
+	public static Material GalliumYttrium;
+	public static Material Magic2;
+	public static Material RealCupronickel;
 
 	public static void init() {
 		
@@ -123,6 +127,12 @@ public class DDMaterials {
 		TinAlloy.addFlags(GENERATE_FINE_WIRE);
 		Oxygen.addFlags(GENERATE_FOIL);
 		RutheniumTriniumAmericiumNeutronate.addFlags(GENERATE_FINE_WIRE);
+		Europium.addFlags(GENERATE_SPRING_SMALL);
+
+		Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+
+		/*Cupronickel.addFlags(DISABLE_DECOMPOSITION);
+		Cupronickel.setFormula("Cu40Ni22Fe1Mn1");*/
 		
         animalWaste = new Material.Builder(19000, "animal_waste")
                 .ingot().fluid().color(0x7B5C00)
@@ -148,7 +158,7 @@ public class DDMaterials {
 		
 		Amogus = new Material.Builder(19003, "amogus")
                 .ingot(3).fluid()
-                .color(0xFEE13F).iconSet(SHINY)
+                .color(0x15703F).iconSet(SHINY)
                 .flags(STD_METAL, GENERATE_FINE_WIRE)
                 .components(Americium, 1, Oganesson, 1, Uranium238, 1, Sulfur, 1)
                 .blastTemp(7000, GasTier.HIGH, VA[UV], 5000)
@@ -180,7 +190,8 @@ public class DDMaterials {
                 .components(Technetium, 22)
                 .blastTemp(9000, GasTier.HIGH, VA[ULV], 120000)
                 .fluidTemp(10000)
-                .build();
+                .build()
+				.setFormula("Tc-22", false);
 				
 		Zeron100 = new Material.Builder(19007, "zeron_100")
                 .ingot(3).fluid()
@@ -272,7 +283,7 @@ public class DDMaterials {
 		Lafium = new Material.Builder(19017, "lafium")
                 .ingot(3).fluid()
                 .color(0x0D0D60).iconSet(SHINY)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_RING, GENERATE_ROUND, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_RING, GENERATE_ROUND, GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_BOLT_SCREW)
                 .components(HastelloyN, 8, Nickel, 8, Aluminum, 6, Naquadah, 4, Tungsten, 4, Samarium, 2, Carbon, 2, Argon, 2)
 				.cableProperties(VA[UEV], 2, 2048)
 				.fluidPipeProperties(65000, 5000, true, true, true, true)
@@ -362,7 +373,7 @@ public class DDMaterials {
 		Signalium = new Material.Builder(19028, "signalium")
 				.ingot(3).fluid()
 				.color(0xFF9300).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD)
+				.flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(Lumiium, 3, Aluminum, 2, FluxedElectrum, 1, Phosphate, 1)
 				.blastTemp(11000, GasTier.HIGHER, VA[UHV], 3500)
 				.fluidTemp(35000)
@@ -456,7 +467,7 @@ public class DDMaterials {
 		Infinity = new Material.Builder(19038, "infinity")
 				.ingot(3).fluid()
 				.color(0xFFFFFF).iconSet(BRIGHT)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_FOIL, GENERATE_FINE_WIRE)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SPRING)
 				.components(InfinityCatalyst, 1)
 				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 12000)
 				.fluidTemp(500000)
@@ -497,7 +508,7 @@ public class DDMaterials {
 		Bedrockium = new Material.Builder(19042, "bedrockium")
 				.ingot(3).fluid()
 				.color(0x262626).iconSet(BRIGHT)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_FOIL)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(SiliconDioxide, 384)
 				.cableProperties(VA[UXV], 2, 32768)
 				.blastTemp(9000, GasTier.HIGHER, VA[UIV], 6000)
@@ -521,19 +532,37 @@ public class DDMaterials {
 				.build()
 				.setFormula("?");
 
-		Quantum = new Material.Builder(19045, "quantum")
+		ArceusAlloy2B = new Material.Builder(19045, "arceus_alloy_2_b")
+				.ingot(3).fluid()
+				.color(0xC4A415).iconSet(SHINY)
+				.flags(STD_METAL)
+				.components(Trinium, 3, HSSS, 4, TungstenCarbide, 2, Osmiridium, 1, Strontium, 1)
+				.blastTemp(10200, GasTier.HIGHER, VA[UXV], 7000)
+				.fluidTemp(41000)
+				.build();
+
+		AssemblyLine = new Material.Builder(19046, "assembly_line")
+				.fluid().plasma()
+				.color(0x6C6D7A).iconSet(DULL)
+				.flags(DISABLE_DECOMPOSITION)
+				.components(Iron, 1)
+				.fluidTemp(32768)
+				.build()
+				.setFormula("Assembly Line");
+
+		Quantum = new Material.Builder(19047, "quantum")
 				.ingot(3).fluid()
 				.color(0x353535).iconSet(SHINY)
-				.flags(STD_METAL, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_BOLT_SCREW)
-				.components(StellarAlloy, 15, Lafium, 10, Jasper, 5, Americium, 5, Pikyonium, 5, Germanium, 5)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_BOLT_SCREW)
+				.components(StellarAlloy, 15, ArceusAlloy2B, 10, Lafium, 10, Jasper, 5, Americium, 5, Pikyonium, 5, Germanium, 5, SiliconCarbide, 5, AssemblyLine, 1)
 				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 8000)
 				.fluidTemp(48000)
 				.build();
 
-		Quantium = new Material.Builder(19046, "quantium")
+		Quantium = new Material.Builder(19048, "quantium")
 				.ingot(3).fluid()
 				.color(0x00D100).iconSet(BRIGHT)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(Quantum, 1)
 				.itemPipeProperties(16, 256)
 				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 9500)
@@ -542,7 +571,7 @@ public class DDMaterials {
 				.build()
 				.setFormula("Qt");
 
-		CallistoIce = new Material.Builder(19047, "callisto_ice")
+		CallistoIce = new Material.Builder(19049, "callisto_ice")
 				.ingot(3).fluid()
 				.color(0x00D1FF).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_ROUND, GENERATE_RING, GENERATE_BOLT_SCREW)
@@ -553,7 +582,7 @@ public class DDMaterials {
 				.build()
 				.setFormula("(SpH2O)");
 
-		Ledox = new Material.Builder(19048, "ledox")
+		Ledox = new Material.Builder(19050, "ledox")
 				.ingot(3).fluid()
 				.color(0x1B2FE2).iconSet(DULL)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD)
@@ -563,7 +592,7 @@ public class DDMaterials {
 				.build()
 				.setFormula("(SpPb)");
 
-		NaquadriaticTaranium = new Material.Builder(19049, "naquadriatic_taranium")
+		NaquadriaticTaranium = new Material.Builder(19051, "naquadriatic_taranium")
 				.ingot(3).fluid()
 				.color(0x000000).iconSet(DULL)
 				.flags(STD_METAL)
@@ -572,7 +601,7 @@ public class DDMaterials {
 				.fluidTemp(55000)
 				.build();
 
-		QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus = new Material.Builder(19050, "quantum_awakened_draconium_ledox_enderiiium_infinity_naquadriatic_taranium_amogus")
+		QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus = new Material.Builder(19052, "quantum_awakened_draconium_ledox_enderiiium_infinity_naquadriatic_taranium_amogus")
 				.ingot(3).fluid()
 				.color(0x597C8C).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE)
@@ -582,7 +611,7 @@ public class DDMaterials {
 				.fluidTemp(90000)
 				.build();
 
-		MultiversalAlloy = new Material.Builder(19051, "multiversal_alloy")
+		MultiversalAlloy = new Material.Builder(19053, "multiversal_alloy")
 				.ingot(3).fluid()
 				.color(0xE04A2C).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
@@ -591,7 +620,7 @@ public class DDMaterials {
 				.fluidTemp(130000)
 				.build();
 
-		MutatedLivingSolder = new Material.Builder(19052, "mutated_living_solder")
+		MutatedLivingSolder = new Material.Builder(19054, "mutated_living_solder")
 				.ingot(3).fluid()
 				.color(0x785B7E).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION)
@@ -600,5 +629,42 @@ public class DDMaterials {
 				.fluidTemp(25000)
 				.build()
 				.setFormula("?");
+
+		Thaumium = new Material.Builder(19055, "thaumium")
+				.ingot(3).fluid()
+				.color(0x802BA8).iconSet(BRIGHT)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(SolderingAlloy, 1)
+				.blastTemp(6000, GasTier.HIGHER, VA[UV], 5000)
+				.fluidTemp(25000)
+				.build()
+				.setFormula("DsMa");
+
+		GalliumYttrium = new Material.Builder(19056, "gallium_yttrium")
+				.ingot(3).fluid()
+				.color(0x6D0054).iconSet(DULL)
+				.flags(STD_METAL, GENERATE_RING)
+				.components(Gallium, 1, Yttrium, 1)
+				.blastTemp(3000, GasTier.MID, VA[HV], 1000)
+				.fluidTemp(12000)
+				.build();
+
+		Magic2 = new Material.Builder(19057, "magic_2")
+				.fluid()
+				.color(0x6D0054).iconSet(DULL)
+				.flags(DISABLE_DECOMPOSITION)
+				.components(Iron, 1)
+				.fluidTemp(0)
+				.build()
+				.setFormula("Ma");
+
+		RealCupronickel = new Material.Builder(19058, "real_cupronickel")
+				.ingot(3).fluid()
+				.color(0xDCDCFF).iconSet(DULL)
+				.flags(STD_METAL, GENERATE_FOIL)
+				.components(Copper, 40, Nickel, 22, Iron, 1, Manganese, 1)
+				.fluidTemp(1100)
+				.build()
+				.setFormula("(Cu40Ni22Fe1Mn1)");
     }
 }

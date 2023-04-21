@@ -97,8 +97,12 @@ dependencies {
     // Hard Dependencies
     // the CCL deobf jar uses very old MCP mappings, making it error at runtime in runClient/runServer
     // therefore we manually deobf the regular jar
+	
+	// The files inclusion is because the other one didn't work for me (maybe it was because curse maven was down at the time?). Don't forget to swap to the normal one before making a commit.
     implementation (files("libs/gregtech-1.12.2-2.6.1-beta-deobf.jar"))
     implementation (files("libs/CodeChickenLib-1.12.2-3.2.3-358-deobf.jar"))
+	//implementation fg.deobf("curse.maven:codechicken-lib-1-8-${ccl_pid}:${ccl_fid}")
+    //implementation fg.deobf("curse.maven:gregtech-ce-unofficial-${gt_pid}:${gt_fid}")
 
     // Soft Dependencies
     implementation "mezz.jei:jei_1.12.2:${project.jei_version}"

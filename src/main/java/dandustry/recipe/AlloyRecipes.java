@@ -10,6 +10,8 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.QUANTUM_MAINFRAME_ZPM;
 import static gregtech.common.items.MetaItems.STEM_CELLS;
+import static gregtech.common.metatileentities.MetaTileEntities.ASSEMBLY_LINE;
+import static gregtech.common.metatileentities.MetaTileEntities.ELECTROLYZER;
 
 public class AlloyRecipes {
 
@@ -195,12 +197,12 @@ public class AlloyRecipes {
 				.duration(180).EUt(VA[UV]).buildAndRegister();
 
 		FORMING_PRESS_RECIPES.recipeBuilder()
-				.input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64)
+				.input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64)
 				.output(dust, Bedrockium)
 				.duration(1050).EUt(VA[UV]).buildAndRegister();
 
 		FORMING_PRESS_RECIPES.recipeBuilder()
-				.input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64).input(dust, Stone, 64)
+				.input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64).input(dust, SiliconDioxide, 64)
 				.output(dust, Jasper)
 				.duration(500).EUt(VA[ZPM]).buildAndRegister();
 
@@ -208,22 +210,44 @@ public class AlloyRecipes {
 				.input(dust, Silicon).input(dust, Carbon)
 				.fluidInputs(Argon.getFluid(200))
 				.output(dust, SiliconCarbide, 2)
-				.duration(600).EUt(VA[UV]).blastFurnaceTemp(6000).buildAndRegister();
+				.duration(100).EUt(VA[UV]).blastFurnaceTemp(6000).buildAndRegister();
 
 		MIXER_RECIPES.recipeBuilder()
-				.input(dust, StellarAlloy, 15).input(dust, Jasper, 5).input(dust, Gallium, 5).input(dust, Americium, 5).input(dust, Palladium, 5).input(dust, Bismuth, 5).input(dust, Germanium, 5).input(dust, SiliconCarbide, 5)
-				.output(dust, Quantum, 50)
-				.duration(4000).EUt(VA[UV]).buildAndRegister();
+				.input(dust, Trinium, 3).input(dust, HSSS, 4).input(dust, TungstenCarbide, 2).input(dust, Osmiridium).input(dust, Strontium)
+				.output(dust, ArceusAlloy2B, 11)
+				.duration(600).EUt(VA[LuV]).buildAndRegister();
+
+		EXTRACTOR_RECIPES.recipeBuilder()
+				.input(ASSEMBLY_LINE)
+				.fluidOutputs(AssemblyLine.getFluid(100))
+				.duration(1000).EUt(VA[ZPM]).buildAndRegister();
+
+		BLAST_RECIPES.recipeBuilder()
+				.fluidInputs(AssemblyLine.getFluid(100), LiquidHelium.getFluid(100))
+				.fluidOutputs(AssemblyLine.getPlasma(100), Helium.getPlasma(100))
+				.duration(1200).EUt(VA[ZPM]).buildAndRegister();
+
+		MIXER_RECIPES.recipeBuilder()
+				.input(dust, StellarAlloy, 15).input(dust, ArceusAlloy2B, 10).input(dust, Lafium, 10).input(dust, Jasper, 5).input(dust, Americium, 5).input(dust, Pikyonium, 5).input(dust, Germanium, 5).input(dust, SiliconCarbide, 5)
+				.fluidInputs(AssemblyLine.getPlasma(144))
+				.output(dust, Quantum, 60)
+				.duration(4800).EUt(VA[UV]).buildAndRegister();
+
+		CENTRIFUGE_RECIPES.recipeBuilder()
+				.input(dust, Quantum, 60)
+				.output(dust, StellarAlloy, 15).output(dust, ArceusAlloy2B, 10).output(dust, Lafium, 10).output(dust, Jasper, 5).output(dust, Americium, 5).output(dust, Pikyonium, 5).output(dust, Germanium, 5).output(dust, SiliconCarbide, 5)
+				.fluidOutputs(AssemblyLine.getPlasma(144))
+				.duration(1000).EUt(VA[UV]).buildAndRegister();
 
 		CHEMICAL_BATH_RECIPES.recipeBuilder()
 				.input(QUANTUM_MAINFRAME_ZPM)
-				.fluidInputs(Quantum.getFluid(432))
+				.fluidInputs(Quantum.getFluid(288))
 				.output(dust, Quantium)
 				.duration(200).EUt(VA[UV]).buildAndRegister();
 
 		CHEMICAL_RECIPES.recipeBuilder()
 				.input(dust, Hydrogen, 64).input(dust, Oxygen, 32)
-				.fluidInputs(Water.getFluid(64000))
+				.fluidInputs(Water.getPlasma(1000))
 				.output(dust, CallistoIce)
 				.duration(3000).EUt(VA[UV]).buildAndRegister();
 
@@ -262,13 +286,35 @@ public class AlloyRecipes {
 		MIXER_RECIPES.recipeBuilder()
 				.input(STEM_CELLS, 8).input(dust, SolderingAlloy, 4).input(dust, NetherStar, 1)
 				.fluidInputs(Iron.getPlasma(144), Nickel.getPlasma(144))
-				.output(dust, MutatedLivingSolder, 4)
+				.fluidOutputs(MutatedLivingSolder.getFluid(576))
 				.duration(600).EUt(VA[UV]).buildAndRegister();
 
 		CENTRIFUGE_RECIPES.recipeBuilder()
-				.input(dust, MutatedLivingSolder, 4)
-				.output(STEM_CELLS, 8).output(dust, SolderingAlloy, 4).output(dust, NetherStar, 1)
+				.fluidInputs(MutatedLivingSolder.getFluid(576))
+				.output(STEM_CELLS, 4).output(dust, SolderingAlloy, 4).output(dust, NetherStar, 1)
 				.fluidOutputs(Iron.getPlasma(144), Nickel.getPlasma(144))
 				.duration(150).EUt(VA[UV]).buildAndRegister();
+
+		CHEMICAL_BATH_RECIPES.recipeBuilder()
+				.input(dust, Darmstadtium)
+				.fluidInputs(Magic2.getFluid(100))
+				.output(dust, Thaumium)
+				.duration(300).EUt(VA[ZPM]).buildAndRegister();
+
+		EXTRACTOR_RECIPES.recipeBuilder()
+				.input(ELECTROLYZER[UV])
+				.fluidOutputs(Magic2.getFluid(5000))
+				.duration(1000).EUt(VA[ZPM]).buildAndRegister();
+
+		MIXER_RECIPES.recipeBuilder()
+				.input(dust, Copper, 40).input(dust, Nickel, 22).input(dust, Iron, 1).input(dust, Manganese, 1)
+				.circuitMeta(2)
+				.output(dust, RealCupronickel, 64)
+				.duration(6400).EUt(24).buildAndRegister();
+
+		/*CENTRIFUGE_RECIPES.recipeBuilder()
+				.input(dust, Cupronickel, 64)
+				.output(dust, Copper, 40).output(dust, Nickel, 22).output(dust, Iron, 1).output(dust, Manganese, 1)
+				.duration(1600).EUt(24).buildAndRegister();*/
     }
 }

@@ -99,7 +99,7 @@ public class Dandustry {
         MAGNETO_RESONATIC_UEV = items.addItem(13, "magneto_resonatic_uev").setUnificationData(OrePrefix.circuit, Tier.UEV);
         MAGNETO_RESONATIC_UIV = items.addItem(14, "magneto_resonatic_uiv").setUnificationData(OrePrefix.circuit, Tier.UIV);
         MAGNETO_RESONATIC_UXV = items.addItem(15, "magneto_resonatic_uxv").setUnificationData(OrePrefix.circuit, Tier.UXV);
-		 MAGNETO_RESONATIC_OpV = items.addItem(16, "magneto_resonatic_opv").setUnificationData(OrePrefix.circuit, Tier.OpV);
+		MAGNETO_RESONATIC_OpV = items.addItem(16, "magneto_resonatic_opv").setUnificationData(OrePrefix.circuit, Tier.OpV);
         MAGNETO_RESONATIC_MAX = items.addItem(17, "magneto_resonatic_max").setUnificationData(OrePrefix.circuit, Tier.MAX);
         MAGNETO_RESONATIC_BOULE = items.addItem(18, "magneto_resonatic_boule");
         MAGNETO_RESONATIC_WAFER = items.addItem(19, "magneto_resonatic_wafer");
@@ -118,8 +118,10 @@ public class Dandustry {
 		AlloyRecipes.init();
         DragonEggRecipes.init();
 		HTComponentRecipes.init();
+        HTMachineRecipes.init();
 		LargeAlloySmelterRecipes.init();
         MagnetoResonaticRecipes.init();
+        PlasmaFuels.init();
 		SmallFusionReactorRecipes.init();
         WasteFluidRecipes.init();
     }
