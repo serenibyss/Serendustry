@@ -73,6 +73,15 @@ public class DDMaterials {
 	public static Material GalliumYttrium;
 	public static Material Magic2;
 	public static Material RealCupronickel;
+	public static Material Xenoxene;
+	public static Material RawRadox;
+	public static Material LightRadox;
+	public static Material HeavyRadox;
+	public static Material CrackedLightRadox;
+	public static Material CrackedHeavyRadox;
+	public static Material PurifiedRadox;
+	public static Material RadoxPolymer;
+	public static Material Floppa;
 
 	public static void init() {
 		
@@ -141,7 +150,7 @@ public class DDMaterials {
 		InfusedGold = new Material.Builder(19001, "infused_gold")
                 .ingot().fluid()
                 .color(0xA59030).iconSet(SHINY)
-                .flags(STD_METAL)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Gold, 4)
                 .build()
 				.setFormula("(Au4Ma)", true);
@@ -149,9 +158,9 @@ public class DDMaterials {
 		FluxedElectrum = new Material.Builder(19002, "fluxed_electrum")
                 .ingot(3).fluid()
                 .color(0xFFE049).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW)
                 .components(RoseGold, 1, SterlingSilver, 1, Electrum, 2, InfusedGold, 2, Naquadria, 4, SolderingAlloy, 10)
-                .blastTemp(8000, GasTier.HIGH, VA[UV], 8000)
+                .blastTemp(8000, GasTier.HIGHEST, VA[UV], 8000)
 				.cableProperties(VA[UEV], 2, 512, false, 3)
                 .fluidTemp(8000)
                 .build();
@@ -159,34 +168,34 @@ public class DDMaterials {
 		Amogus = new Material.Builder(19003, "amogus")
                 .ingot(3).fluid()
                 .color(0x15703F).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FINE_WIRE)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(Americium, 1, Oganesson, 1, Uranium238, 1, Sulfur, 1)
-                .blastTemp(7000, GasTier.HIGH, VA[UV], 5000)
+                .blastTemp(7000, GasTier.HIGHEST, VA[UV], 5000)
                 .fluidTemp(6000)
                 .build();
 
 		HastelloyX78 = new Material.Builder(19004, "hastelloyx_78")
                 .ingot(3).fluid()
                 .color(0x5F90C9).iconSet(SHINY)
-                .flags(STD_METAL)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(NaquadahAlloy, 10, Rhenium, 5, Naquadria, 4, Polonium, 3, Rutherfordium, 2, Fermium, 1)
-                .blastTemp(8500, GasTier.HIGH, VA[UV], 10000)
+                .blastTemp(8500, GasTier.HIGHEST, VA[UV], 10000)
                 .fluidTemp(7500)
                 .build();
 				
 		HastelloyK243 = new Material.Builder(19005, "hastelloyk_243")
                 .ingot(3).fluid()
                 .color(0x9FEC60).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FRAME, GENERATE_RING, GENERATE_FINE_WIRE, GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FRAME, GENERATE_RING, GENERATE_FINE_WIRE, GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
                 .components(HastelloyX78, 5, Tritanium, 4, TungstenCarbide, 4, Promethium, 4, NiobiumNitride, 2, Mendelevium, 1)
-                .blastTemp(9000, GasTier.HIGHER, VA[UHV], 12000)
+                .blastTemp(9000, GasTier.HIGHEST, VA[UHV], 12000)
                 .fluidTemp(8500)
                 .build();
 				
 		Technetium22 = new Material.Builder(19006, "technetium_22")
                 .ingot(3).fluid()
                 .color(0xC6AA14).iconSet(SHINY)
-                .flags(STD_METAL)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Technetium, 22)
                 .blastTemp(9000, GasTier.HIGH, VA[ULV], 120000)
                 .fluidTemp(10000)
@@ -196,7 +205,7 @@ public class DDMaterials {
 		Zeron100 = new Material.Builder(19007, "zeron_100")
                 .ingot(3).fluid()
                 .color(0xA8A813).iconSet(SHINY)
-                .flags(STD_METAL)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(Steel, 20, Chrome, 13, Copper, 10, Nickel, 3, Molybdenum, 2, Tungsten, 2)
                 .blastTemp(3000, GasTier.HIGH, VA[IV], 1000)
                 .fluidTemp(5000)
@@ -205,9 +214,9 @@ public class DDMaterials {
 		Cinobite = new Material.Builder(19008, "cinobite")
                 .ingot(3).fluid()
                 .color(0x010101).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FOIL)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Zeron100, 8, Titanium, 6, Naquadria, 4, Gadolinium, 3, Osmiridium, 1, Mercury, 1)
-                .blastTemp(2500, GasTier.HIGHER, VA[ZPM], 2000)
+                .blastTemp(2500, GasTier.HIGHEST, VA[UV], 2000)
 				.fluidPipeProperties(30000, 3500, true, true, true, true)
                 .fluidTemp(6000)
                 .build();
@@ -215,7 +224,7 @@ public class DDMaterials {
 		Inconel792 = new Material.Builder(19009, "inconel_792")
                 .ingot(3).fluid()
                 .color(0x66E370).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_BOLT_SCREW)
                 .components(Nickel, 2, Aluminium, 2, Niobium, 1, Nichrome, 1)
                 .blastTemp(1500, GasTier.MID, VA[EV], 800)
                 .fluidTemp(4000)
@@ -224,7 +233,7 @@ public class DDMaterials {
 		EglinSteel = new Material.Builder(19010, "eglin_steel")
                 .ingot(3).fluid()
                 .color(0x733910).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FOIL)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Invar, 5, Iron, 4, Kanthal, 1, Sulfur, 1, Silicon, 1, Carbon, 1)
                 .blastTemp(1200, GasTier.MID, VA[EV], 800)
                 .fluidTemp(4500)
@@ -248,7 +257,7 @@ public class DDMaterials {
 		Onionium = new Material.Builder(19013, "onionium")
 				.ingot(3).fluid()
 				.color(0xFE82A3).iconSet(SHINY)
-				.flags(STD_METAL)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
 				.components(Antimony, 2, Platinium, 2, Ytterbium, 1, Nichrome, 1, SiliconCarbide, 1)
 				.blastTemp(3500, GasTier.HIGHER, VA[ZPM], 2000)
 				.fluidTemp(3000)
@@ -257,9 +266,9 @@ public class DDMaterials {
 		Pikyonium = new Material.Builder(19014, "pikyonium")
                 .ingot(3).fluid()
                 .color(0x3160AE).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_SMALL_GEAR)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_SMALL_GEAR)
                 .components(Inconel792, 8, EglinSteel, 5, NaquadahEnriched, 4, TungstenSteel, 4, Cerium, 3, Onionium, 7)
-                .blastTemp(9000, GasTier.HIGHER, VA[ZPM], 2000)
+                .blastTemp(9000, GasTier.HIGHEST, VA[UV], 2000)
 				.cableProperties(VA[UHV], 2, 512)
                 .fluidTemp(6000)
                 .build();
@@ -267,7 +276,7 @@ public class DDMaterials {
 		HastelloyN = new Material.Builder(19015, "hastelloyn")
                 .ingot(3).fluid()
                 .color(0xB3B3B3).iconSet(SHINY)
-                .flags(STD_METAL)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(Nickel, 15, Molybdenum, 4, Yttrium, 2, Chrome, 2, Titanium, 2)
                 .blastTemp(1200, GasTier.MID, VA[EV], 600)
                 .fluidTemp(3000)
@@ -276,7 +285,7 @@ public class DDMaterials {
 		Aluminum = new Material.Builder(19016, "aluminum")
                 .ingot().fluid()
                 .color(0x80C8F0).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD)
                 .components(Aluminium, 1)
                 .build();
 
@@ -287,16 +296,16 @@ public class DDMaterials {
                 .components(HastelloyN, 8, Nickel, 8, Aluminum, 6, Naquadah, 4, Tungsten, 4, Samarium, 2, Carbon, 2, Argon, 2)
 				.cableProperties(VA[UEV], 2, 2048)
 				.fluidPipeProperties(65000, 5000, true, true, true, true)
-                .blastTemp(1800, GasTier.MID, VA[IV], 900)
+                .blastTemp(1800, GasTier.HIGHEST, VA[UHV], 900)
                 .fluidTemp(3450)
                 .build();
 				
 		EnrichedNaquadahAlloy = new Material.Builder(19018, "enriched_naquadah_alloy")
                 .ingot(3).fluid()
                 .color(0x3C3C3A).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_LONG_ROD)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_LONG_ROD)
                 .components(NaquadahEnriched, 4, Rhodium, 2, Ruthenium, 2, Rubidium, 2, Dubnium, 1, Einsteinium, 1)
-                .blastTemp(6000, GasTier.HIGHER, VA[UV], 1800)
+                .blastTemp(6000, GasTier.HIGHEST, VA[UV], 1800)
                 .fluidTemp(8000)
                 .build();
 		
@@ -329,19 +338,19 @@ public class DDMaterials {
 		HighDurabilityCompoundSteel = new Material.Builder(19023, "high_durability_compound_steel")
                 .ingot(3).fluid()
                 .color(0x304030).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FRAME, GENERATE_RING, GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FRAME, GENERATE_RING, GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
                 .components(TungstenSteel, 12, HSSS, 9, HSSG, 6, Ruridit, 3, MagnetoResonatic, 2, Plutonium239, 1)
-                .blastTemp(5000, GasTier.HIGHER, VA[ZPM], 1200)
+                .blastTemp(5000, GasTier.HIGHEST, VA[ZPM], 1200)
                 .fluidTemp(6000)
                 .build();
 				
 		MagnetoResonaticCinobitePikyoniumAluminum = new Material.Builder(19024, "magneto_resonatic_cinobite_pikyonium_aluminum")
                 .ingot().fluid()
                 .color(0x9B46BA).iconSet(BRIGHT)
-                .flags(DECOMPOSITION_BY_ELECTROLYZING, GENERATE_FINE_WIRE)
+                .flags(DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(MagnetoResonatic, 3, Cinobite, 1, Pikyonium, 1, Aluminum, 1)
                 .cableProperties(VA[UEV], 24, 0, true, 3)
-                .blastTemp(11000, GasTier.HIGHER, VA[UHV], 2000)
+                .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 2000)
                 .fluidTemp(26000)
                 .build();
 				
@@ -349,8 +358,8 @@ public class DDMaterials {
                 .ingot().fluid()
                 .color(0x3E1446).iconSet(BRIGHT)
                 .components(Neutronium, 1)
-				.flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD, GENERATE_ROTOR)
-                .blastTemp(14000, GasTier.HIGHER, VA[UHV], 8000)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD, GENERATE_ROTOR)
+                .blastTemp(14000, GasTier.HIGHEST, VA[UHV], 8000)
                 .fluidTemp(50000)
                 .build()
 				.setFormula("Nt:tooth:", true);
@@ -364,18 +373,18 @@ public class DDMaterials {
 		Lumiium = new Material.Builder(19027, "lumiium")
 				.ingot(3).fluid()
 				.color(0xFFE100).iconSet(SHINY)
-				.flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD)
 				.components(Luminessence, 2, TinAlloy, 1, RoseGold, 1, Phosphate, 1)
-				.blastTemp(11000, GasTier.HIGHER, VA[UHV], 3000)
+				.blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3000)
 				.fluidTemp(30000)
 				.build();
 
 		Signalium = new Material.Builder(19028, "signalium")
 				.ingot(3).fluid()
 				.color(0xFF9300).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD, GENERATE_SPRING, GENERATE_SPRING_SMALL)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(Lumiium, 3, Aluminum, 2, FluxedElectrum, 1, Phosphate, 1)
-				.blastTemp(11000, GasTier.HIGHER, VA[UHV], 3500)
+				.blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3500)
 				.fluidTemp(35000)
 				.cableProperties(VA[UIV], 2, 8192)
 				.build();
@@ -383,18 +392,18 @@ public class DDMaterials {
 		EnderiiumBase = new Material.Builder(19029, "enderiium_base")
 				.ingot(3).fluid()
 				.color(0x3B7A9F).iconSet(DULL)
-				.flags(STD_METAL, GENERATE_ROTOR)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_ROTOR)
 				.components(Signalium, 4, EnderPearl, 2, TastyNeutronium, 2, Phosphate, 1)
-				.blastTemp(11000, GasTier.HIGHER, VA[UHV], 3800)
+				.blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3800)
 				.fluidTemp(40000)
 				.build();
 
 		Enderiiium = new Material.Builder(19030, "enderiiium")
 				.ingot(3).fluid()
 				.color(0x408587).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_FRAME, GENERATE_BOLT_SCREW)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_FRAME, GENERATE_BOLT_SCREW)
 				.components(EnderiiumBase, 4, InfusedGold, 1, Phosphate, 1)
-				.blastTemp(11000, GasTier.HIGHER, VA[UHV], 4200)
+				.blastTemp(11000, GasTier.HIGHEST, VA[UHV], 4200)
 				.fluidTemp(50000)
 				.build();
 
@@ -403,45 +412,45 @@ public class DDMaterials {
 				.color(0x5ACE92).iconSet(BRIGHT)
 				.flags(STD_METAL)
 				.components(Iron, 1, EnderPearl, 1, Uraninite, 1)
-				.blastTemp(6000, GasTier.HIGHER, VA[UV], 2500)
+				.blastTemp(6000, GasTier.HIGHER, VA[IV], 2500)
 				.fluidTemp(5000)
 				.build();
 
 		EnergeticAlloy = new Material.Builder(19032, "energetic_alloy")
 				.ingot(3).fluid()
 				.color(0xFF8752).iconSet(BRIGHT)
-				.flags(STD_METAL)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
 				.components(PulsatingIron, 4, Zeolite, 1, GarnetSand, 1, HSSS, 1, Mercury, 1)
-				.blastTemp(6500, GasTier.HIGHER, VA[UV], 2800)
+				.blastTemp(6500, GasTier.HIGHER, VA[LuV], 2800)
 				.fluidTemp(5500)
 				.build();
 
 		VibrantAlloy = new Material.Builder(19033, "vibrant_alloy")
 				.ingot(3).fluid()
 				.color(0x75FF66).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR)
 				.components(EnergeticAlloy, 5, Zeolite, 1, BasalticMineralSand, 1, GraniticMineralSand, 1)
-				.blastTemp(7000, GasTier.HIGHER, VA[UV], 3000)
+				.blastTemp(7000, GasTier.HIGHEST, VA[UV], 3000)
 				.fluidTemp(5850)
 				.build();
 
 		StellarAlloy = new Material.Builder(19034, "stellar_alloy")
 				.ingot(3).fluid()
 				.color(0xFFFFFF).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_RING, GENERATE_ROUND, GENERATE_FINE_WIRE, GENERATE_BOLT_SCREW)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_RING, GENERATE_ROUND, GENERATE_FINE_WIRE, GENERATE_BOLT_SCREW)
 				.components(VibrantAlloy, 8, TastyNeutronium, 2, Aluminum, 2, AluminiumSulfite, 1)
 				.fluidPipeProperties(80000, 7500, true, true, true, true)
-				.blastTemp(8000, GasTier.HIGHER, VA[UHV], 4000)
+				.blastTemp(8000, GasTier.HIGHEST, VA[UHV], 4000)
 				.fluidTemp(12000)
 				.build();
 
 		VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase = new Material.Builder(19035, "vibrant_alloy_naquadria_fluxed_electrum_enderiium_base")
 				.ingot(3).fluid()
 				.color(0xFF66A3).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_FINE_WIRE)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
 				.components(VibrantAlloy, 3, Naquadria, 2, FluxedElectrum, 2, EnderiiumBase, 2)
 				.cableProperties(VA[UIV], 24, 0, true)
-				.blastTemp(8500, GasTier.HIGHER, VA[UHV], 6000)
+				.blastTemp(8500, GasTier.HIGHEST, VA[UHV], 6000)
 				.fluidTemp(50000)
 				.build();
 
@@ -450,7 +459,7 @@ public class DDMaterials {
 				.color(0x8EFFE6).iconSet(NETHERSTAR)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD, GENERATE_FOIL)
 				.components(Diamond, 1, NetherStar, 1)
-				.blastTemp(8800, GasTier.HIGHER, VA[UHV], 8000)
+				.blastTemp(8800, GasTier.HIGHEST, VA[UHV], 8000)
 				.fluidTemp(45000)
 				.build();
 
@@ -459,7 +468,7 @@ public class DDMaterials {
 				.color(0xFFFFFF).iconSet(NETHERSTAR)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_ROTOR, GENERATE_FRAME)
 				.components(CrystalMatrix, 8, Neutronium, 8)
-				.blastTemp(8800, GasTier.HIGHER, VA[UEV], 8000)
+				.blastTemp(8800, GasTier.HIGHEST, VA[UEV], 8000)
 				.fluidTemp(75000)
 				.build()
 				.setFormula("If");
@@ -469,7 +478,7 @@ public class DDMaterials {
 				.color(0xFFFFFF).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SPRING)
 				.components(InfinityCatalyst, 1)
-				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 12000)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 12000)
 				.fluidTemp(500000)
 				.build()
 				.setFormula("If*", true);
@@ -479,7 +488,7 @@ public class DDMaterials {
 				.color(0x8E52E6).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_SMALL_GEAR)
 				.components(TinAlloy, 8)
-				.blastTemp(8800, GasTier.HIGHER, VA[UEV], 7000)
+				.blastTemp(8800, GasTier.HIGHEST, VA[UEV], 7000)
 				.fluidTemp(30000)
 				.build()
 				.setFormula("Dc", true);
@@ -490,7 +499,7 @@ public class DDMaterials {
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW, GENERATE_FOIL)
 				.components(Draconium, 1)
 				.fluidPipeProperties(95000, 9000, true, true, true, true)
-				.blastTemp(8850, GasTier.HIGHER, VA[UEV], 7500)
+				.blastTemp(8850, GasTier.HIGHEST, VA[UEV], 7500)
 				.fluidTemp(35000)
 				.build()
 				.setFormula("Dc+", true);
@@ -500,7 +509,7 @@ public class DDMaterials {
 				.color(0xDD520C).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_BOLT_SCREW)
 				.components(Draconium, 1)
-				.blastTemp(8950, GasTier.HIGHER, VA[UIV], 8500)
+				.blastTemp(8950, GasTier.HIGHEST, VA[UIV], 8500)
 				.fluidTemp(65000)
 				.build()
 				.setFormula("Dc*", true);
@@ -511,17 +520,17 @@ public class DDMaterials {
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(SiliconDioxide, 384)
 				.cableProperties(VA[UXV], 2, 32768)
-				.blastTemp(9000, GasTier.HIGHER, VA[UIV], 6000)
+				.blastTemp(9000, GasTier.HIGHEST, VA[UIV], 6000)
 				.fluidTemp(45000)
 				.build();
 
 		ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst = new Material.Builder(19043, "charged_draconium_stellar_alloy_luminessence_infinity_catalyst")
 				.ingot(3).fluid()
 				.color(0xFF4F4F).iconSet(BRIGHT)
-				.flags(STD_METAL, GENERATE_FINE_WIRE)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
 				.components(ChargedDraconium, 4, StellarAlloy, 4, Luminessence, 3, InfinityCatalyst, 2)
 				.cableProperties(VA[UXV], 24, 0, true)
-				.blastTemp(10000, GasTier.HIGHER, VA[UIV], 7000)
+				.blastTemp(10000, GasTier.HIGHEST, VA[UIV], 7000)
 				.fluidTemp(48000)
 				.build();
 
@@ -535,9 +544,9 @@ public class DDMaterials {
 		ArceusAlloy2B = new Material.Builder(19045, "arceus_alloy_2_b")
 				.ingot(3).fluid()
 				.color(0xC4A415).iconSet(SHINY)
-				.flags(STD_METAL)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
 				.components(Trinium, 3, HSSS, 4, TungstenCarbide, 2, Osmiridium, 1, Strontium, 1)
-				.blastTemp(10200, GasTier.HIGHER, VA[UXV], 7000)
+				.blastTemp(10200, GasTier.HIGHER, VA[LuV], 7000)
 				.fluidTemp(41000)
 				.build();
 
@@ -555,7 +564,7 @@ public class DDMaterials {
 				.color(0x353535).iconSet(SHINY)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_BOLT_SCREW)
 				.components(StellarAlloy, 15, ArceusAlloy2B, 10, Lafium, 10, Jasper, 5, Americium, 5, Pikyonium, 5, Germanium, 5, SiliconCarbide, 5, AssemblyLine, 1)
-				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 8000)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 8000)
 				.fluidTemp(48000)
 				.build();
 
@@ -565,7 +574,7 @@ public class DDMaterials {
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(Quantum, 1)
 				.itemPipeProperties(16, 256)
-				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 9500)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 9500)
 				.cableProperties(VA[OpV], 2, 131072)
 				.fluidTemp(70000)
 				.build()
@@ -577,27 +586,27 @@ public class DDMaterials {
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_ROUND, GENERATE_RING, GENERATE_BOLT_SCREW)
 				.components(Water, 1)
 				.fluidPipeProperties(800000, 15000, true, true, true, true)
-				.blastTemp(273, GasTier.HIGHER, VA[UXV], 2000)
+				.blastTemp(273, GasTier.HIGHEST, VA[UXV], 2000)
 				.fluidTemp(0)
 				.build()
-				.setFormula("(SpH2O)");
+				.setFormula("(SpH2O)", true);
 
 		Ledox = new Material.Builder(19050, "ledox")
 				.ingot(3).fluid()
 				.color(0x1B2FE2).iconSet(DULL)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD)
 				.components(Lead, 1)
-				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 7000)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 7000)
 				.fluidTemp(50000)
 				.build()
-				.setFormula("(SpPb)");
+				.setFormula("(SpPb)", true);
 
 		NaquadriaticTaranium = new Material.Builder(19051, "naquadriatic_taranium")
 				.ingot(3).fluid()
 				.color(0x000000).iconSet(DULL)
-				.flags(STD_METAL)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
 				.components(Naquadria, 4, CoalTar, 1)
-				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 8000)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 8000)
 				.fluidTemp(55000)
 				.build();
 
@@ -606,7 +615,7 @@ public class DDMaterials {
 				.color(0x597C8C).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE)
 				.components(Quantum, 5, AwakenedDraconium, 3, Ledox, 3, Enderiiium, 3, Infinity, 3, NaquadriaticTaranium, 3, Amogus, 2)
-				.blastTemp(10800, GasTier.HIGHER, VA[UXV], 11000)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 11000)
 				.cableProperties(VA[OpV], 24, 0, true)
 				.fluidTemp(90000)
 				.build();
@@ -616,7 +625,7 @@ public class DDMaterials {
 				.color(0xE04A2C).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
 				.components(Infinity, 5, Quantium, 3, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2, StellarAlloy, 2, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 1, TastyNeutronium, 1, Quantum, 1)
-				.blastTemp(10800, GasTier.HIGHER, VA[OpV], 16000)
+				.blastTemp(10800, GasTier.HIGHEST, VA[OpV], 16000)
 				.fluidTemp(130000)
 				.build();
 
@@ -625,7 +634,7 @@ public class DDMaterials {
 				.color(0x785B7E).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION)
 				.components(SolderingAlloy, 1)
-				.blastTemp(6000, GasTier.HIGHER, VA[UV], 5000)
+				.blastTemp(6000, GasTier.HIGHEST, VA[UV], 5000)
 				.fluidTemp(25000)
 				.build()
 				.setFormula("?");
@@ -661,10 +670,61 @@ public class DDMaterials {
 		RealCupronickel = new Material.Builder(19058, "real_cupronickel")
 				.ingot(3).fluid()
 				.color(0xDCDCFF).iconSet(DULL)
-				.flags(STD_METAL, GENERATE_FOIL)
+				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
 				.components(Copper, 40, Nickel, 22, Iron, 1, Manganese, 1)
 				.fluidTemp(1100)
 				.build()
-				.setFormula("(Cu40Ni22Fe1Mn1)");
+				.setFormula("(Cu40Ni22Fe1Mn1)", true);
+
+		Xenoxene = new Material.Builder(19059, "xenoxene")
+				.fluid()
+				.color(0x828282)
+				.build();
+
+		RawRadox = new Material.Builder(19060, "raw_radox")
+				.fluid()
+				.color(0x8914AD)
+				.build();
+
+		LightRadox = new Material.Builder(19061, "light_radox")
+				.fluid()
+				.color(0xA42CE0)
+				.build();
+
+		HeavyRadox = new Material.Builder(19062, "heavy_radox")
+				.fluid()
+				.color(0x631B87)
+				.build();
+
+		CrackedLightRadox = new Material.Builder(19063, "cracked_light_radox")
+				.fluid()
+				.color(0xA464C4)
+				.build();
+
+		CrackedHeavyRadox = new Material.Builder(19064, "cracked_heavy_radox")
+				.fluid()
+				.color(0x663F7A)
+				.build();
+
+		PurifiedRadox = new Material.Builder(19065, "purified_radox")
+				.fluid()
+				.color(0xBB71E0)
+				.build();
+
+		RadoxPolymer = new Material.Builder(19066, "radox_polymer")
+				.polymer(3)
+				.color(0xBB2BE0)
+				.flags(GENERATE_FOIL, GENERATE_RING, GENERATE_DENSE)
+				.fluidPipeProperties(8000, 5000, true, true, true, false)
+				.build();
+
+		Floppa = new Material.Builder(19067, "floppa")
+				.ingot(3).fluid()
+				.color(0x6D0054).iconSet(DULL) // change color
+				.flags(STD_METAL, GENERATE_DENSE)
+				.components(Flerovium, 1, Oxygen, 1, Phosphorus, 1, Protactinium, 1) // add recipes for these components
+				.blastTemp(10800, GasTier.HIGHEST, VA[OpV], 50000)
+				.fluidTemp(12000)
+				.build();
     }
 }

@@ -39,34 +39,46 @@ public class DandustryEventHandler {
         appendToComponent(GTValues.UV, CABLE_TIER_UP, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
 
         // Pipes
-        appendToComponent(PIPE_NORMAL, pipeNormalFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, Quantium);
-        appendToComponent(PIPE_LARGE, pipeLargeFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, Quantium);
+        appendToComponent(PIPE_NORMAL, pipeNormalFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, CallistoIce);
+        appendToComponent(PIPE_LARGE, pipeLargeFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, CallistoIce);
 
         // Glass
-        // todo
+        // todo: add chromatic glass?
 
         // Plates
-        appendToComponent(PLATE, plate, EnrichedNaquadahAlloy, TastyNeutronium, Signalium, Bedrockium, Quantium);
-        appendToComponent(DOUBLE_PLATE, plateDouble, EnrichedNaquadahAlloy, TastyNeutronium, Signalium, Bedrockium, Quantium);
-        appendToComponent(HULL_PLATE, plate, HastelloyK243, Enderiiium, AwakenedDraconium, Quantium);
+        appendToComponent(GTValues.UEV, PLATE, plate, HastelloyK243, Enderiiium, AwakenedDraconium, Quantum);
+        appendToComponent(GTValues.UEV, DOUBLE_PLATE, plateDouble, HastelloyK243, Enderiiium, AwakenedDraconium, Quantum);
+        appendToComponent(GTValues.UEV, HULL_PLATE, plate, RadoxPolymer);
+        appendToComponent(GTValues.UIV, HULL_PLATE, plateDouble, RadoxPolymer, RadoxPolymer);
+        appendToComponent(GTValues.OpV, HULL_PLATE, plateDense, RadoxPolymer);
+        appendToComponent(GTValues.MAX, HULL_PLATE, plateDense, Floppa);
 
         // Rotor
         appendToComponent(ROTOR, rotor, EnrichedNaquadahAlloy, TastyNeutronium, EnderiiumBase, InfinityCatalyst, Quantium);
 
         // Coils
-        // todo
+        appendToComponent(COIL_HEATING, wireGtDouble, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
 
         // Sticks
-        // todo
+        // todo: magnetic rods past samarium
+        // STICK_MAGNETIC, STICK_ELECTROMAGNETIC, STICK_RADIOACTIVE
+        appendToComponent(STICK_DISTILLATION, spring, Lafium, Signalium, Bedrockium, Quantium, Infinity);
 
-        // Pipe reactor
-        // todo
+        // Reactor Pipe
+        appendToComponent(GTValues.UHV, PIPE_REACTOR, pipeTinyFluid, RadoxPolymer);
+        appendToComponent(GTValues.UEV, PIPE_REACTOR, pipeSmallFluid, RadoxPolymer);
+        appendToComponent(GTValues.UIV, PIPE_REACTOR, pipeNormalFluid, RadoxPolymer);
+        appendToComponent(GTValues.UXV, PIPE_REACTOR, pipeLargeFluid, RadoxPolymer);
+        appendToComponent(GTValues.OpV, PIPE_REACTOR, pipeHugeFluid, RadoxPolymer);
+
+        // Power Component
+        // Add something past UHPIC?
 
         // Voltage Coil
         // todo
 
         // Spring
-        appendToComponent(GTValues.UEV, SPRING, spring, Lafium, Signalium, Bedrockium, Quantium, Infinity);
+        appendToComponent(GTValues.UEV, SPRING, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
     }
 
     private static void appendToComponent(Component component, OrePrefix prefix, Material... materials) {

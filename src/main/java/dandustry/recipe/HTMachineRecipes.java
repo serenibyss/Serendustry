@@ -175,6 +175,8 @@ public class HTMachineRecipes {
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.OpV])
                 .duration(200).EUt(VA[GTValues.OpV]).buildAndRegister();
 
+        // TODO: Diode block recipe replacement to use Supreme SMD Diodes
+        
         // 4A Energy Hatches
         /*
         ASSEMBLER_RECIPES.recipeBuilder()

@@ -122,6 +122,7 @@ public class Dandustry {
 		LargeAlloySmelterRecipes.init();
         MagnetoResonaticRecipes.init();
         PlasmaFuels.init();
+        RadoxChain.init();
 		SmallFusionReactorRecipes.init();
         WasteFluidRecipes.init();
     }

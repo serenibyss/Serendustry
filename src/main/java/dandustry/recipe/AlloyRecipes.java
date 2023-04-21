@@ -1,5 +1,6 @@
 package dandustry.recipe;
 
+import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
 import static gregtech.api.GTValues.*;
 import gregtech.api.unification.material.Materials;
 import net.minecraft.init.Blocks;
@@ -89,7 +90,7 @@ public class AlloyRecipes {
 				.input(dust, Lafium, 36)
 				.output(dust, HastelloyN, 8).output(dust, Nickel, 8).output(dust, Aluminum, 6).output(dust, Naquadah, 4).output(dust, Tungsten, 4).output(dust, Samarium, 2).output(dust, Carbon, 2)
 				.fluidOutputs(Materials.Argon.getFluid(2000))
-				.duration(600).EUt(VA[UV]).buildAndRegister();
+				.duration(3960).EUt(60).buildAndRegister();
 				
 		MIXER_RECIPES.recipeBuilder()
                .input(dust, NaquadahEnriched, 4).input(dust, Rhodium, 2).input(dust, Ruthenium, 2).input(dust, Rubidium, 2).input(dust, Dubnium, 1).input(dust, Einsteinium, 1)
@@ -222,10 +223,10 @@ public class AlloyRecipes {
 				.fluidOutputs(AssemblyLine.getFluid(100))
 				.duration(1000).EUt(VA[ZPM]).buildAndRegister();
 
-		BLAST_RECIPES.recipeBuilder()
+		LABORATORY_RECIPES.recipeBuilder()
 				.fluidInputs(AssemblyLine.getFluid(100), LiquidHelium.getFluid(100))
 				.fluidOutputs(AssemblyLine.getPlasma(100), Helium.getPlasma(100))
-				.duration(1200).EUt(VA[ZPM]).buildAndRegister();
+				.duration(1200).EUt(VA[UV]).buildAndRegister();
 
 		MIXER_RECIPES.recipeBuilder()
 				.input(dust, StellarAlloy, 15).input(dust, ArceusAlloy2B, 10).input(dust, Lafium, 10).input(dust, Jasper, 5).input(dust, Americium, 5).input(dust, Pikyonium, 5).input(dust, Germanium, 5).input(dust, SiliconCarbide, 5)
@@ -237,15 +238,15 @@ public class AlloyRecipes {
 				.input(dust, Quantum, 60)
 				.output(dust, StellarAlloy, 15).output(dust, ArceusAlloy2B, 10).output(dust, Lafium, 10).output(dust, Jasper, 5).output(dust, Americium, 5).output(dust, Pikyonium, 5).output(dust, Germanium, 5).output(dust, SiliconCarbide, 5)
 				.fluidOutputs(AssemblyLine.getPlasma(144))
-				.duration(1000).EUt(VA[UV]).buildAndRegister();
+				.duration(7200).EUt(60).buildAndRegister();
 
-		CHEMICAL_BATH_RECIPES.recipeBuilder()
+		LABORATORY_RECIPES.recipeBuilder()
 				.input(QUANTUM_MAINFRAME_ZPM)
 				.fluidInputs(Quantum.getFluid(288))
 				.output(dust, Quantium)
 				.duration(200).EUt(VA[UV]).buildAndRegister();
 
-		CHEMICAL_RECIPES.recipeBuilder()
+		LABORATORY_RECIPES.recipeBuilder()
 				.input(dust, Hydrogen, 64).input(dust, Oxygen, 32)
 				.fluidInputs(Water.getPlasma(1000))
 				.output(dust, CallistoIce)
@@ -271,7 +272,7 @@ public class AlloyRecipes {
 		CENTRIFUGE_RECIPES.recipeBuilder()
 				.input(dust, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 23)
 				.output(dust, Quantum, 5).output(dust, Ledox, 4).output(dust, AwakenedDraconium, 3).output(dust, Enderiiium, 3).output(dust, Infinity, 3).output(dust, NaquadriaticTaranium, 3).output(dust, Amogus, 2)
-				.duration(625).EUt(VA[UV]).buildAndRegister();
+				.duration(2760).EUt(60).buildAndRegister();
 
 		MIXER_RECIPES.recipeBuilder()
 				.input(dust, Infinity, 5).input(dust, Quantium, 3).input(dust, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2).input(dust, StellarAlloy, 2).input(dust, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 1).input(dust, TastyNeutronium).input(dust, Quantum)
@@ -281,19 +282,13 @@ public class AlloyRecipes {
 		CENTRIFUGE_RECIPES.recipeBuilder()
 				.input(dust, MultiversalAlloy, 13)
 				.output(dust, Infinity, 5).output(dust, Quantium, 3).output(dust, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2).output(dust, StellarAlloy, 2).output(dust, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 1).output(dust, TastyNeutronium).output(dust, Quantum)
-				.duration(1000).EUt(VA[UV]).buildAndRegister();
+				.duration(1820).EUt(60).buildAndRegister();
 
-		MIXER_RECIPES.recipeBuilder()
+		LABORATORY_RECIPES.recipeBuilder()
 				.input(STEM_CELLS, 8).input(dust, SolderingAlloy, 4).input(dust, NetherStar, 1)
 				.fluidInputs(Iron.getPlasma(144), Nickel.getPlasma(144))
 				.fluidOutputs(MutatedLivingSolder.getFluid(576))
 				.duration(600).EUt(VA[UV]).buildAndRegister();
-
-		CENTRIFUGE_RECIPES.recipeBuilder()
-				.fluidInputs(MutatedLivingSolder.getFluid(576))
-				.output(STEM_CELLS, 4).output(dust, SolderingAlloy, 4).output(dust, NetherStar, 1)
-				.fluidOutputs(Iron.getPlasma(144), Nickel.getPlasma(144))
-				.duration(150).EUt(VA[UV]).buildAndRegister();
 
 		CHEMICAL_BATH_RECIPES.recipeBuilder()
 				.input(dust, Darmstadtium)

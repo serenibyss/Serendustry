@@ -50,7 +50,7 @@ public class MagnetoResonaticRecipes {
 
     private static void boardRecipes() {
         CHEMICAL_RECIPES.recipeBuilder()
-                .input(plate, EnrichedNaquadahAlloy, 2)
+                .input(plate, RadoxPolymer)
                 .input(foil, TastyNeutronium, 4)
                 .fluidInputs(MagnetoResonatic.getFluid(144))
                 .output(COSMIC_CIRCUIT_BOARD)
@@ -62,35 +62,35 @@ public class MagnetoResonaticRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(dust, EnderiiumBase)
                 .input(wireFine, AwakenedDraconium, 4)
-                .fluidInputs(InfinityCatalyst.getFluid(288))
+                .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_RESISTOR, 8)
                 .EUt(VA[UV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(foil, ChargedDraconium)
                 .input(wireFine, StellarAlloy, 8)
-                .fluidInputs(InfinityCatalyst.getFluid(288))
+                .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_TRANSISTOR, 8)
                 .EUt(VA[UV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(foil, Bedrockium, 2)
                 .input(foil, CrystalMatrix)
-                .fluidInputs(InfinityCatalyst.getFluid(288))
+                .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_CAPACITOR, 8)
                 .EUt(VA[UV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(dust, AwakenedDraconium)
                 .input(wireFine, ChargedDraconium, 4)
-                .fluidInputs(InfinityCatalyst.getFluid(288))
+                .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_DIODE, 8)
                 .EUt(VA[UV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ring, ChargedDraconium)
                 .input(wireFine, Bedrockium, 4)
-                .fluidInputs(InfinityCatalyst.getFluid(288))
+                .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_INDUCTOR, 8)
                 .EUt(VA[UV]).duration(320).buildAndRegister();
     }
