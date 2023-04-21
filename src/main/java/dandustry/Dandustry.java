@@ -3,6 +3,7 @@ package dandustry;
 import dandustry.item.DDMaterials;
 import dandustry.item.behavior.WasteExtractorBehavior;
 
+import dandustry.machine.DandustryMetaTileEntities;
 import dandustry.recipe.*;
 
 import gregtech.api.GTValues;
@@ -14,6 +15,7 @@ import gregtech.api.unification.ore.OrePrefix;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -65,6 +67,10 @@ public class Dandustry {
     public static MetaItem<?>.MetaValueItem SUPREME_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem SUPREME_SMD_INDUCTOR;
 
+    public static ResourceLocation ID(String path) {
+        return new ResourceLocation(ID, path);
+    }
+
     @EventHandler
     public void onConstruction(FMLConstructionEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
@@ -79,6 +85,8 @@ public class Dandustry {
 
         items = new StandardMetaItem();
         items.setRegistryName("dandustry_item");
+
+        DandustryMetaTileEntities.init();
     }
 
     @SubscribeEvent

@@ -1,13 +1,18 @@
 package dandustry;
 
+import dandustry.machine.LaboratoryProperty;
 import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.api.event.HighTierEvent;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.loaders.recipe.CraftingComponent;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.HashMap;
@@ -19,6 +24,13 @@ import static gregtech.loaders.recipe.CraftingComponent.*;
 
 @Mod.EventBusSubscriber(modid = Dandustry.ID)
 public class DandustryEventHandler {
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void registerAllowedLaboratoryMachines(RegistryEvent.Register<IRecipe> event) {
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.CHEMICAL_REACTOR);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.CHEMICAL_BATH);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.ELECTROLYZER);
+    }
 
     @SubscribeEvent
 	public static void enableHighTierEvent(HighTierEvent event) {
