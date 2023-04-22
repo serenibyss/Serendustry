@@ -14,7 +14,7 @@ public class LargeAlloySmelterRecipes {
 		FUSION_RECIPES.recipeBuilder()
 				.fluidInputs(Gold.getFluid(128)).fluidInputs(Thaumium.getFluid(128))
                 .fluidOutputs(InfusedGold.getFluid(64))
-                .duration(50).EUt(VA[LuV]).EUToStart(640_000_000).buildAndRegister();
+                .duration(50).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
 		FUSION_RECIPES.recipeBuilder()
 				.fluidInputs(Water.getFluid(128)).fluidInputs(TinAlloy.getFluid(64))
@@ -27,18 +27,23 @@ public class LargeAlloySmelterRecipes {
                 .duration(200).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 				
 		FUSION_RECIPES.recipeBuilder()
-				.fluidInputs(Uranium238.getFluid(128)).fluidInputs(Neutronium.getFluid(128))
+				.fluidInputs(Uranium238.getFluid(128)).fluidInputs(Neutronium.getFluid(64))
                 .fluidOutputs(TastyNeutronium.getFluid(32))
-                .duration(320).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
+                .duration(260).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
 		FUSION_RECIPES.recipeBuilder()
-				.fluidInputs(ChargedDraconium.getFluid(128)).fluidInputs(TastyNeutronium.getFluid(128))
-				.fluidOutputs(AwakenedDraconium.getFluid(64))
-				.duration(360).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
+				.fluidInputs(ChargedDraconium.getFluid(64)).fluidInputs(TastyNeutronium.getFluid(64))
+				.fluidOutputs(AwakenedDraconium.getFluid(32))
+				.duration(260).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
 		FUSION_RECIPES.recipeBuilder()
 				.fluidInputs(InfinityCatalyst.getFluid(128)).fluidInputs(TastyNeutronium.getFluid(128))
 				.fluidOutputs(Infinity.getFluid(32))
-				.duration(3600).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
+				.duration(400).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
+
+		FUSION_RECIPES.recipeBuilder()
+				.fluidInputs(Infinity.getFluid(64)).fluidInputs(Quantium.getFluid(128))
+				.fluidOutputs(Shirabon.getFluid(32))
+				.duration(600).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
     }
 }
