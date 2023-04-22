@@ -10,6 +10,13 @@ public class PlasmaFuels {
 
     public static void init() {
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(OmniversalLubricant.getPlasma(1))
+                .fluidOutputs(OmniversalLubricant.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
                 .fluidInputs(Water.getPlasma(1))
                 .fluidOutputs(Water.getFluid(1))
                 .duration(64)
@@ -47,7 +54,7 @@ public class PlasmaFuels {
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
                 .fluidInputs(RedMatter.getPlasma(1))
                 .fluidOutputs(RedMatter.getFluid(1))
-                .duration(96)
+                .duration(72)
                 .EUt((int) V[EV])
                 .buildAndRegister();
     }

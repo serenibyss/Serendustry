@@ -67,7 +67,7 @@ public class DDMaterials {
 	public static Material Ledox;
 	public static Material NaquadriaticTaranium;
 	public static Material QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus;
-	public static Material MultiversalAlloy;
+	// EMPTY ID
 	public static Material MutatedLivingSolder;
 	public static Material Thaumium;
 	public static Material GalliumYttrium;
@@ -95,9 +95,23 @@ public class DDMaterials {
 	public static Material EnrichedTeflon;
 	public static Material OmniversalRedstone;
 	public static Material OmniversalLubricant;
+	public static Material Alkalis;
+	public static Material RefractoryMetals;
+	public static Material LightTransitionMetals;
+	public static Material PreciousMetals;
+	public static Material PostTransitionMetals;
+	public static Material Lanthanoids;
+	public static Material Actinoids;
+	public static Material SuperheavyLAlloy;
+	public static Material SuperheavyHAlloy;
+	public static Material NonMetals;
+	public static Material NobleGases;
+	public static Material Periodicium;
+	public static Material MultiversalAlloy;
 
 	public static void init() {
-		
+
+		// This should probably be a loop, but I never intended for it to get this big; it just kind of slowly grew over time, and now it's too late for me to want to change it
 		Oxygen.setProperty(PropertyKey.DUST, new DustProperty());
 		Hydrogen.setProperty(PropertyKey.DUST, new DustProperty());
 		Water.setProperty(PropertyKey.DUST, new DustProperty());
@@ -116,13 +130,42 @@ public class DDMaterials {
 		Scandium.setProperty(PropertyKey.DUST, new DustProperty());
 		Protactinium.setProperty(PropertyKey.DUST, new DustProperty());
 		Holmium.setProperty(PropertyKey.DUST, new DustProperty());
+		Radium.setProperty(PropertyKey.DUST, new DustProperty());
+		Francium.setProperty(PropertyKey.DUST, new DustProperty());
+		Terbium.setProperty(PropertyKey.DUST, new DustProperty());
+		Thulium.setProperty(PropertyKey.DUST, new DustProperty());
+		Erbium.setProperty(PropertyKey.DUST, new DustProperty());
+		Dysprosium.setProperty(PropertyKey.DUST, new DustProperty());
+		Praseodymium.setProperty(PropertyKey.DUST, new DustProperty());
+		Actinium.setProperty(PropertyKey.DUST, new DustProperty());
+		Curium.setProperty(PropertyKey.DUST, new DustProperty());
+		Berkelium.setProperty(PropertyKey.DUST, new DustProperty());
+		Neptunium.setProperty(PropertyKey.DUST, new DustProperty());
+		Californium.setProperty(PropertyKey.DUST, new DustProperty());
+		Iodine.setProperty(PropertyKey.DUST, new DustProperty());
+		Hafnium.setProperty(PropertyKey.DUST, new DustProperty());
+		Thallium.setProperty(PropertyKey.DUST, new DustProperty());
+		Selenium.setProperty(PropertyKey.DUST, new DustProperty());
+		Astatine.setProperty(PropertyKey.DUST, new DustProperty());
 
 		Einsteinium.setProperty(PropertyKey.DUST, new DustProperty());
 		Fermium.setProperty(PropertyKey.DUST, new DustProperty());
 		Mendelevium.setProperty(PropertyKey.DUST, new DustProperty());
-		Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
+		Nobelium.setProperty(PropertyKey.DUST, new DustProperty());
+		Lawrencium.setProperty(PropertyKey.DUST, new DustProperty());
 		Rutherfordium.setProperty(PropertyKey.DUST, new DustProperty());
+		Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
+		Seaborgium.setProperty(PropertyKey.DUST, new DustProperty());
+		Bohrium.setProperty(PropertyKey.DUST, new DustProperty());
+		Hassium.setProperty(PropertyKey.DUST, new DustProperty());
+		Meitnerium.setProperty(PropertyKey.DUST, new DustProperty());
+		Roentgenium.setProperty(PropertyKey.DUST, new DustProperty());
+		Copernicium.setProperty(PropertyKey.DUST, new DustProperty());
+		Nihonium.setProperty(PropertyKey.DUST, new DustProperty());
 		Flerovium.setProperty(PropertyKey.DUST, new DustProperty());
+		Moscovium.setProperty(PropertyKey.DUST, new DustProperty());
+		Livermorium.setProperty(PropertyKey.DUST, new DustProperty());
+		Tennessine.setProperty(PropertyKey.DUST, new DustProperty());
 		Oganesson.setProperty(PropertyKey.DUST, new DustProperty());
 		
 		Oxygen.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -143,20 +186,61 @@ public class DDMaterials {
 		Scandium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Protactinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Holmium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Radium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Francium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Terbium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Thulium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Erbium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Dysprosium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Praseodymium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Actinium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Curium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Berkelium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Neptunium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Californium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Iodine.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Hafnium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Thallium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Selenium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Astatine.setProperty(PropertyKey.INGOT, new IngotProperty());
 		
 		Einsteinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Fermium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Mendelevium.setProperty(PropertyKey.INGOT, new IngotProperty());
-		Dubnium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Nobelium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Lawrencium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Rutherfordium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Dubnium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Seaborgium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Bohrium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Hassium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Meitnerium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Roentgenium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Copernicium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Nihonium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Flerovium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Moscovium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Livermorium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Tennessine.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Oganesson.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+		Lutetium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
 		Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
 
 		Sodium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Rubidium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Caesium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Francium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Polonium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Praseodymium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Ytterbium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Bromine.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Neptunium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Mendelevium.setProperty(PropertyKey.FLUID, new FluidProperty());
+		Einsteinium.setProperty(PropertyKey.FLUID, new FluidProperty());
 
-		TinAlloy.addFlags(GENERATE_FINE_WIRE);
+		TinAlloy.addFlags(GENERATE_FINE_WIRE, GENERATE_FOIL);
 		Oxygen.addFlags(GENERATE_FOIL);
 		RutheniumTriniumAmericiumNeutronate.addFlags(GENERATE_FINE_WIRE);
 		Europium.addFlags(GENERATE_SPRING_SMALL);
@@ -306,7 +390,7 @@ public class DDMaterials {
 		
 		Aluminum = new Material.Builder(19016, "aluminum")
                 .ingot().fluid()
-                .color(0x80C8F0).iconSet(SHINY)
+                .color(0x80C8F0).iconSet(DULL)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD)
                 .components(Aluminium, 1)
                 .build();
@@ -350,9 +434,9 @@ public class DDMaterials {
                 .build();
 				
 		MagnetoResonatic = new Material.Builder(19022, "magneto_resonatic")
-                .gem().fluid()
+				.gem().fluid()
                 .color(0xD37DD3).iconSet(MAGNETIC)
-                .flags(STD_METAL, NO_SMASHING, NO_SMELTING, GENERATE_LENS, GENERATE_FOIL)
+                .flags(STD_METAL, NO_SMASHING, NO_SMELTING, GENERATE_LENS)
                 .components(BismuthTellurite, 4, Prasiolite, 3, CubicZirconia, 1, SamariumMagnetic, 1)
                 .fluidTemp(500)
                 .build();
@@ -500,7 +584,7 @@ public class DDMaterials {
 		Infinity = new Material.Builder(19038, "infinity")
 				.ingot(3).fluid()
 				.color(0xFFFFFF).iconSet(BRIGHT)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SPRING)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SPRING)
 				.components(InfinityCatalyst, 1)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 12000)
 				.fluidTemp(500000)
@@ -588,7 +672,7 @@ public class DDMaterials {
 		Quantum = new Material.Builder(19047, "quantum")
 				.ingot(3).fluid()
 				.color(0x353535).iconSet(SHINY)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_BOLT_SCREW)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_FRAME)
 				.components(StellarAlloy, 15, ArceusAlloy2B, 10, Lafium, 10, Jasper, 5, Americium, 5, Pikyonium, 5, Germanium, 5, SiliconCarbide, 5, AssemblyLine, 1)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 8000)
 				.toolStats(ToolProperty.Builder.of(220.0F, 125.0F, 65535, 9)
@@ -599,7 +683,7 @@ public class DDMaterials {
 		Quantium = new Material.Builder(19048, "quantium")
 				.ingot(3).fluid()
 				.color(0x00D100).iconSet(BRIGHT)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_SPRING, GENERATE_SPRING_SMALL)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FOIL)
 				.components(Quantum, 1)
 				.itemPipeProperties(16, 256)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 9500)
@@ -646,15 +730,6 @@ public class DDMaterials {
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 11000)
 				.cableProperties(V[OpV], 24, 0, true)
 				.fluidTemp(90000)
-				.build();
-
-		MultiversalAlloy = new Material.Builder(19053, "multiversal_alloy")
-				.ingot(3).fluid()
-				.color(0xE04A2C).iconSet(BRIGHT)
-				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
-				.components(Infinity, 5, Quantium, 3, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2, StellarAlloy, 2, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 1, TastyNeutronium, 1, Quantum, 1)
-				.blastTemp(10800, GasTier.HIGHEST, VA[OpV], 16000)
-				.fluidTemp(130000)
 				.build();
 
 		MutatedLivingSolder = new Material.Builder(19054, "mutated_living_solder")
@@ -789,10 +864,10 @@ public class DDMaterials {
 				.color(0xEC4E42)
 				.build();
 
-		ChromaticGlass = new Material.Builder(19074, "chromatic_glass") // TODO: add recipe
+		ChromaticGlass = new Material.Builder(19074, "chromatic_glass")
 				.ingot(3).fluid()
 				.color(0xFFFFFF).iconSet(GLASS) // TODO: Give it animated rainbow colors
-				.flags(STD_METAL)
+				.flags(STD_METAL, GENERATE_FOIL)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UV], 6000)
 				.fluidTemp(35000)
 				.build();
@@ -839,8 +914,121 @@ public class DDMaterials {
 				.color(0x97D344)
 				.build();
 
+		Alkalis = new Material.Builder(19081, "alkalis")
+				.ingot(3).fluid()
+				.color(0x75CE6D).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Beryllium, 1, Magnesium, 1, Calcium, 1, Strontium, 1, Barium, 1, Radium, 1, Scandium, 1, Yttrium, 1, Lithium, 1, Sodium, 1, Potassium, 1, Rubidium, 1, Caesium, 1, Francium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
 
-		// TODO: Periodicium
-		// TODO: Quantum Anomaly recipe (for Chromatic Glass & etc)
+		RefractoryMetals = new Material.Builder(19082, "refractory_metals")
+				.ingot(3).fluid()
+				.color(0x4141CC).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Zirconium, 1, Hafnium, 1, Niobium, 1, Tantalum, 1, Molybdenum, 1, Tungsten, 1, Technetium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		LightTransitionMetals = new Material.Builder(19083, "light_transition_metals")
+				.ingot(3).fluid()
+				.color(0xCC9A3D).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Titanium, 1, Vanadium, 1, Manganese, 1, Chrome, 1, Iron, 1, Nickel, 1, Cobalt, 1, Copper, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		PreciousMetals = new Material.Builder(19084, "precious_metals")
+				.ingot(3).fluid()
+				.color(0xCAC9CC).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Ruthenium, 1, Rhodium, 1, Palladium, 1, Silver, 1, Rhenium, 1, Osmium, 1, Iridium, 1, Platinum, 1, Gold, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		PostTransitionMetals = new Material.Builder(19085, "post_transition_metals")
+				.ingot(3).fluid()
+				.color(0xCC8F9F).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Zinc, 1, Cadmium, 1, Aluminum, 1, Silicon, 1, Germanium, 1, Antimony, 1, Thallium, 1, Lead, 1, Mercury, 1, Tin, 1, Gallium, 1, Indium, 1, Bismuth, 1, Polonium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		Lanthanoids = new Material.Builder(19086, "lanthanoids")
+				.ingot(3).fluid()
+				.color(0x5DCCA3).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Samarium, 1, Gadolinium, 1, Terbium, 1, Thulium, 1, Holmium, 1, Lutetium, 1, Promethium, 1, Erbium, 1, Dysprosium, 1, Lanthanum, 1, Cerium, 1, Praseodymium, 1, Neodymium, 1, Europium, 1, Ytterbium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		Actinoids = new Material.Builder(19087, "actinoids")
+				.ingot(3).fluid()
+				.color(0xC9CC7A).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Actinium, 1, Thorium, 1, Protactinium, 1, Uranium235, 1, Americium, 1, Curium, 1, Berkelium, 1, Fermium, 1, Californium, 1, Neptunium, 1, Plutonium241, 1, Mendelevium, 1, Einsteinium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		SuperheavyLAlloy = new Material.Builder(19088, "superheavy_l_alloy")
+				.ingot(3).fluid()
+				.color(0xCC0A00).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Nobelium, 1, Lawrencium, 1, Rutherfordium, 1, Dubnium, 1, Seaborgium, 1, Bohrium, 1, Hassium, 1, Meitnerium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		SuperheavyHAlloy = new Material.Builder(19089, "superheavy_h_alloy")
+				.ingot(3).fluid()
+				.color(0x223388).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Darmstadtium, 1, Roentgenium, 1, Copernicium, 1, Nihonium, 1, Flerovium, 1, Moscovium, 1, Livermorium, 1, Tennessine, 1, Oganesson, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		NonMetals = new Material.Builder(19090, "non_metals")
+				.ingot(3).fluid()
+				.color(0xCC2AB9).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Boron, 1, Carbon, 1, Phosphorus, 1, Sulfur, 1, Arsenic, 1, Selenium, 1, Tellurium, 1, Iodine, 1, Astatine, 1, Oxygen, 1, Nitrogen, 1, Hydrogen, 1, Fluorine, 1, Chlorine, 1, Bromine, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		NobleGases = new Material.Builder(19091, "noble_gases")
+				.ingot(3).fluid()
+				.color(0x70CC2E).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Helium, 1, Neon, 1, Argon, 1, Krypton, 1, Xenon, 1, Radon, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		Periodicium = new Material.Builder(19092, "periodicium")
+				.ingot(3).fluid()
+				.color(0x1111FF).iconSet(SHINY)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION)
+				.components(Alkalis, 1, RefractoryMetals, 1, LightTransitionMetals, 1, PreciousMetals, 1, PostTransitionMetals, 1, Lanthanoids, 1, Actinoids, 1, SuperheavyLAlloy, 1, SuperheavyHAlloy, 1, NonMetals, 1, NobleGases, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+				.fluidTemp(6000)
+				.build();
+
+		MultiversalAlloy = new Material.Builder(19093, "multiversal_alloy")
+				.ingot(3).fluid()
+				.color(0xE04A2C).iconSet(BRIGHT)
+				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
+				.components(Infinity, 5, Quantium, 3, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2, StellarAlloy, 2, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 1, Quantum, 1, Actinoids, 1, Lanthanoids, 1, Periodicium, 1)
+				.blastTemp(10800, GasTier.HIGHEST, VA[OpV], 16000)
+				.fluidTemp(130000)
+				.build();
     }
 }

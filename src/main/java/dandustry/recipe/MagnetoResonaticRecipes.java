@@ -23,12 +23,12 @@ public class MagnetoResonaticRecipes {
 
         LATHE_RECIPES.recipeBuilder()
                 .input(plate, animalWaste)
-                .output(lens, animalWaste)
+                .output(lens, animalWaste).output(dustSmall, animalWaste)
                 .duration(1200).EUt(120).buildAndRegister();
 
         LATHE_RECIPES.recipeBuilder()
                 .input(plate, PolyvinylChloride)
-                .output(lens, PolyvinylChloride)
+                .output(lens, PolyvinylChloride).output(dustSmall, PolyvinylChloride)
                 .duration(1200).EUt(120).buildAndRegister();
 
         BLAST_RECIPES.recipeBuilder()
@@ -64,8 +64,8 @@ public class MagnetoResonaticRecipes {
     private static void boardRecipes() {
         CHEMICAL_RECIPES.recipeBuilder()
                 .input(plate, RadoxPolymer)
-                .input(foil, TastyNeutronium, 4)
-                .fluidInputs(MagnetoResonatic.getFluid(144)).fluidInputs(EnrichedHolmium.getFluid(144))
+                .input(foil, ChromaticGlass, 4)
+                .fluidInputs(MagnetoResonatic.getFluid(144), EnrichedHolmium.getFluid(144), Teflon.getFluid(288))
                 .output(COSMIC_CIRCUIT_BOARD)
                 .EUt(VA[UV]).duration(400).buildAndRegister();
     }
@@ -261,6 +261,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
+                .input(plate, PreciousMetals, 4)
                 .input(ring, Teflon, 32)
                 .input(ADVANCED_SMD_RESISTOR, 64)
                 .input(ADVANCED_SMD_TRANSISTOR, 64)
@@ -281,7 +282,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
-                .input(wireFine, TinAlloy, 32)
+                .input(plate, SuperheavyLAlloy, 4)
                 .input(ring, Teflon, 48)
                 .input(SUPREME_SMD_RESISTOR, 24)
                 .input(SUPREME_SMD_TRANSISTOR, 24)
@@ -295,14 +296,14 @@ public class MagnetoResonaticRecipes {
                 .duration(150).EUt(VA[OpV]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(frameGt, Infinity)
+                .input(frameGt, Quantum)
                 .input(COSMIC_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_UXV)
                 .input(RESONANCE_CHIP, 32)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
-                .input(wireFine, TinAlloy, 64)
+                .input(plate, SuperheavyHAlloy, 6)
                 .input(ring, Teflon, 64)
                 .input(SUPREME_SMD_RESISTOR, 32)
                 .input(SUPREME_SMD_TRANSISTOR, 32)
@@ -319,9 +320,9 @@ public class MagnetoResonaticRecipes {
                 .input(frameGt, MultiversalAlloy)
                 .input(COSMIC_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_OpV)
+                .input(plate, Periodicium, 4)
                 .input(plate, MultiversalAlloy, 8)
                 .input(RESONANCE_CHIP, 64)
-                .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
@@ -335,7 +336,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(MagnetoResonatic.getFluid(144 * 128))
                 .fluidInputs(TinAlloy.getFluid(144 * 64))
                 .fluidInputs(animalWaste.getFluid(144 * 64))
-                .fluidInputs(MultiversalAlloy.getFluid(144 * 8))
+                .fluidInputs(Shirabon.getFluid(144 * 8))
                 .output(MAGNETO_RESONATIC_MAX)
                 .duration(1500).EUt(VA[MAX]).buildAndRegister();
     }

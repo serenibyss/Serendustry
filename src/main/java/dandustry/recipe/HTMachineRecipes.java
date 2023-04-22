@@ -25,6 +25,37 @@ public class HTMachineRecipes {
         ModHandler.addShapedRecipe(true, "casing_uiv", MACHINE_CASING.getItemVariant(UIV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, Enderiiium));
         ModHandler.addShapedRecipe(true, "casing_uxv", MACHINE_CASING.getItemVariant(UXV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, AwakenedDraconium));
         ModHandler.addShapedRecipe(true, "casing_opv", MACHINE_CASING.getItemVariant(OpV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, Quantum));
+        ModHandler.addShapedRecipe(true, "casing_max", MACHINE_CASING.getItemVariant(MAX), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plateDense, Floppa));
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, HastelloyK243, 8)
+                .circuitMeta(8)
+                .outputs(MACHINE_CASING.getItemVariant(UEV))
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, Enderiiium, 8)
+                .circuitMeta(8)
+                .outputs(MACHINE_CASING.getItemVariant(UIV))
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, AwakenedDraconium, 8)
+                .circuitMeta(8)
+                .outputs(MACHINE_CASING.getItemVariant(UXV))
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, Quantum, 8)
+                .circuitMeta(8)
+                .outputs(MACHINE_CASING.getItemVariant(OpV))
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plateDense, Floppa, 8)
+                .circuitMeta(8)
+                .outputs(MACHINE_CASING.getItemVariant(MAX))
+                .duration(50).EUt(16).buildAndRegister();
 
         // Machine Hull Assembler Recipes
 
@@ -34,7 +65,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(MACHINE_CASING.getItemVariant(UHV))
                 .input(cableGtSingle, Europium, 2)
-                .fluidInputs(Teflon.getFluid(2592))
+                .fluidInputs(Teflon.getFluid(288))
                 .output(HULL[GTValues.UHV])
                 .duration(50).EUt(16).buildAndRegister();
 
@@ -48,21 +79,21 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(MACHINE_CASING.getItemVariant(UIV))
                 .input(cableGtSingle, Signalium, 2)
-                .fluidInputs(RadoxPolymer.getFluid(576))
+                .fluidInputs(RadoxPolymer.getFluid(288))
                 .output(HULL[GTValues.UIV])
                 .duration(50).EUt(16).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(MACHINE_CASING.getItemVariant(UXV))
                 .input(cableGtSingle, Bedrockium, 2)
-                .fluidInputs(RadoxPolymer.getFluid(576))
+                .fluidInputs(RadoxPolymer.getFluid(288))
                 .output(HULL[GTValues.UXV])
                 .duration(50).EUt(16).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(MACHINE_CASING.getItemVariant(OpV))
                 .input(cableGtSingle, Quantium, 2)
-                .fluidInputs(RadoxPolymer.getFluid(2592))
+                .fluidInputs(RadoxPolymer.getFluid(288))
                 .output(HULL[GTValues.OpV])
                 .duration(50).EUt(16).buildAndRegister();
 
@@ -174,7 +205,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Europium)
                 .input(springSmall, Europium)
                 .input(spring, Lafium)
-                .fluidInputs(Lubricant.getFluid(4000))
+                .fluidInputs(OmniversalLubricant.getFluid(1000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UHV])
                 .duration(200).EUt(VA[GTValues.UHV]).buildAndRegister();
 
@@ -185,7 +216,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Lafium)
                 .input(springSmall, Lafium)
                 .input(spring, Signalium)
-                .fluidInputs(Lubricant.getFluid(8000))
+                .fluidInputs(OmniversalLubricant.getFluid(2000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UEV])
                 .duration(200).EUt(VA[GTValues.UEV]).buildAndRegister();
 
@@ -196,7 +227,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Signalium)
                 .input(springSmall, Signalium)
                 .input(spring, Bedrockium)
-                .fluidInputs(Lubricant.getFluid(16000))
+                .fluidInputs(OmniversalLubricant.getFluid(4000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UIV])
                 .duration(200).EUt(VA[GTValues.UIV]).buildAndRegister();
 
@@ -207,7 +238,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Bedrockium)
                 .input(springSmall, Bedrockium)
                 .input(spring, Quantium)
-                .fluidInputs(Lubricant.getFluid(32000))
+                .fluidInputs(OmniversalLubricant.getFluid(8000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UXV])
                 .duration(200).EUt(VA[GTValues.UXV]).buildAndRegister();
 
@@ -218,7 +249,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Quantium)
                 .input(springSmall, Quantium)
                 .input(spring, Infinity)
-                .fluidInputs(Lubricant.getFluid(64000))
+                .fluidInputs(OmniversalLubricant.getFluid(16000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.OpV])
                 .duration(200).EUt(VA[GTValues.OpV]).buildAndRegister();
 
@@ -231,7 +262,7 @@ public class HTMachineRecipes {
                 'D', new ItemStack(SUPREME_SMD_DIODE.getStackForm());
         */
 
-
+        // The stuff below is commented out because none of these things actually get generated at high tiers, probably by mistake. Uncomment it if that gets changed
         // 4A Energy Hatches
         /*
         ASSEMBLER_RECIPES.recipeBuilder()

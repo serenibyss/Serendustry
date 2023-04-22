@@ -92,6 +92,96 @@ public class SmallFusionReactorRecipes {
 				.duration(200).EUt(VA[EV]).buildAndRegister();
 
 		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Niobium, 1).input(ingot, Silver, 1)
+				.output(ingot, Radium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Technetium, 1).input(ingot, Ruthenium, 1)
+				.output(ingot, Francium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Rhodium, 1).input(dust, Calcium, 1)
+				.output(ingot, Terbium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Yttrium, 1).input(ingot, Zinc, 1)
+				.output(ingot, Thulium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Palladium, 1).input(ingot, Manganese, 1)
+				.output(ingot, Lutetium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Molybdenum, 1).input(ingot, Iron, 1)
+				.output(ingot, Erbium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Chrome, 1).input(ingot, Molybdenum, 1)
+				.output(ingot, Dysprosium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Copper, 1).input(ingot, Zinc, 1)
+				.output(ingot, Praseodymium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Tantalum, 1).input(dust, Sulfur, 1)
+				.output(ingot, Actinium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Osmium, 1).input(dust, Calcium, 1)
+				.output(ingot, Curium, 1)
+				.duration(200).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Tungsten, 1).input(ingot, Vanadium, 1)
+				.output(ingot, Berkelium, 1)
+				.duration(200).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Zirconium, 1).input(ingot, Iodine, 1)
+				.output(ingot, Neptunium, 1)
+				.duration(200).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Cadmium, 1).input(ingot, Tin, 1)
+				.output(ingot, Californium, 1)
+				.duration(200).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Titanium, 1).input(dust, Gallium, 1)
+				.output(ingot, Iodine, 1)
+				.duration(400).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Iron, 1).input(dust, Oxygen, 1)
+				.output(ingot, Selenium, 1)
+				.duration(400).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Gold, 1).input(dust, Carbon, 1)
+				.output(ingot, Astatine, 1)
+				.duration(400).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Yttrium, 1).input(dust, Arsenic, 1)
+				.output(ingot, Hafnium, 1)
+				.duration(400).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Tantalum, 1).input(dust, Oxygen, 1)
+				.output(ingot, Thallium, 1)
+				.duration(400).EUt(VA[LuV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
 				.input(ingot, Yttrium, 1).input(ingot, Neodymium, 1)
                 .output(ingot, Einsteinium, 1)
                 .duration(300).EUt(VA[ZPM] + 1).buildAndRegister();
@@ -105,7 +195,77 @@ public class SmallFusionReactorRecipes {
 				.input(ingot, Tungsten, 1).input(ingot, Cobalt, 1)
                 .output(ingot, Mendelevium, 1)
                 .duration(300).EUt(VA[ZPM] + 1).buildAndRegister();
-		
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Yttrium, 1).input(ingot, Dysprosium, 1)
+				.output(ingot, Dubnium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Palladium, 1).input(dust, Barium, 1)
+				.output(ingot, Nobelium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Niobium, 1).input(ingot, Samarium, 1)
+				.output(ingot, Lawrencium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Yttrium, 1).input(ingot, Dysprosium, 1)
+				.output(ingot, Dubnium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Tungsten, 1).input(ingot, Germanium, 1)
+				.output(ingot, Seaborgium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Technetium, 1).input(ingot, Gadolinium, 1)
+				.output(ingot, Bohrium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Osmium, 1).input(ingot, Germanium, 1)
+				.output(ingot, Hassium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Rhodium, 1).input(ingot, Gadolinium, 1)
+				.output(ingot, Meitnerium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Yttrium, 1).input(ingot, Dysprosium, 1)
+				.output(ingot, Dubnium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Actinium, 1).input(ingot, Titanium, 1)
+				.output(ingot, Roentgenium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Indium, 1).input(ingot, Europium, 1)
+				.output(ingot, Copernicium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Silver, 1).input(ingot, Dysprosium, 1)
+				.output(ingot, Nihonium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Gold, 1).input(ingot, Rubidium, 1)
+				.output(ingot, Livermorium, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Iridium, 1).input(ingot, Zirconium, 1)
+				.output(ingot, Tennessine, 1)
+				.duration(400).EUt(VA[ZPM] + 2).buildAndRegister();
+
 		ALLOY_SMELTER_RECIPES.recipeBuilder()
 				.input(ingot, Yttrium, 1).input(ingot, Dysprosium, 1)
                 .output(ingot, Dubnium, 1)

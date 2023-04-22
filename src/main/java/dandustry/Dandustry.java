@@ -67,6 +67,7 @@ public class Dandustry {
     public static MetaItem<?>.MetaValueItem SUPREME_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem SUPREME_SMD_INDUCTOR;
     public static MetaItem<?>.MetaValueItem QUANTUM_ANOMALY;
+    public static MetaItem<?>.MetaValueItem QUANTIUM_STAR;
 
     public static ResourceLocation ID(String path) {
         return new ResourceLocation(ID, path);
@@ -121,6 +122,7 @@ public class Dandustry {
         SUPREME_SMD_DIODE = items.addItem(26, "supreme_smd_diode");
         SUPREME_SMD_INDUCTOR = items.addItem(27, "supreme_smd_inductor");
         QUANTUM_ANOMALY = items.addItem(28, "quantum_anomaly");
+        QUANTIUM_STAR = items.addItem(29, "quantium_star");
     }
 
     @SubscribeEvent
@@ -133,6 +135,7 @@ public class Dandustry {
 		LargeAlloySmelterRecipes.init();
         MagnetoResonaticRecipes.init();
         MiscRecipes.init();
+        PeriodiciumChain.init();
         PlasmaFuels.init();
         RadoxChain.init();
 		SmallFusionReactorRecipes.init();

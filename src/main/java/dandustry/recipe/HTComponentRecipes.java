@@ -2,6 +2,7 @@ package dandustry.recipe;
 
 import gregtech.api.unification.material.MarkerMaterials.Tier;
 
+import static dandustry.Dandustry.QUANTIUM_STAR;
 import static dandustry.item.DDMaterials.*;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
@@ -91,7 +92,7 @@ public class HTComponentRecipes {
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(OmniversalLubricant.getPlasma(8000))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(ELECTRIC_MOTOR_OpV)
 				.duration(3200).EUt(20000000).buildAndRegister();
 				
@@ -163,7 +164,7 @@ public class HTComponentRecipes {
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(RadoxPolymer.getFluid(2304))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(CONVEYOR_MODULE_OpV)
 				.duration(3200).EUt(20000000).buildAndRegister();
 				
@@ -236,7 +237,7 @@ public class HTComponentRecipes {
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(OmniversalLubricant.getPlasma(8000))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(ELECTRIC_PUMP_OpV)
 				.duration(3200).EUt(20000000).buildAndRegister();
 				
@@ -314,7 +315,7 @@ public class HTComponentRecipes {
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(OmniversalLubricant.getPlasma(8000))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(ELECTRIC_PISTON_OpV)
 				.duration(2400).EUt(6000000).buildAndRegister();
 				
@@ -397,7 +398,7 @@ public class HTComponentRecipes {
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(OmniversalLubricant.getPlasma(8000))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(ROBOT_ARM_OpV)
 				.duration(3600).EUt(20000000).buildAndRegister();
 				
@@ -422,7 +423,7 @@ public class HTComponentRecipes {
 			ASSEMBLY_LINE_RECIPES.recipeBuilder()
 				.input(frameGt, HastelloyK243)
 				.input(plate, TastyNeutronium, 6)
-				.input(GRAVI_STAR, 2)
+				.input(GRAVI_STAR, 4)
 				.input(EMITTER_UEV, 2)
 				.input(circuit, Tier.UEV, 2)
                 .input(wireFine, MagnetoResonaticCinobitePikyoniumAluminum, 64)
@@ -438,7 +439,7 @@ public class HTComponentRecipes {
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
 				.input(frameGt, Enderiiium)
 				.input(plate, Signalium, 6)
-				.input(GRAVI_STAR, 4)
+				.input(GRAVI_STAR, 6)
 				.input(EMITTER_UIV, 2)
 				.input(circuit, Tier.UIV, 2)
 				.input(wireFine, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase, 64)
@@ -468,19 +469,19 @@ public class HTComponentRecipes {
 				.duration(2400).EUt(6000000).buildAndRegister();
 
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
-				.input(frameGt, Infinity)
+				.input(frameGt, Quantum)
 				.input(plate, Quantium, 6)
-				.input(GRAVI_STAR, 16)
+				.input(QUANTIUM_STAR, 1)
 				.input(EMITTER_OpV, 2)
 				.input(circuit, Tier.OpV, 2)
 				.input(wireFine, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 64)
 				.input(wireFine, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 64)
-				.input(wireFine, Infinity, 64)
+				.input(wireFine, Quantium, 64)
 				.input(wireFine, Infinity, 64)
 				.input(cableGtSingle, Quantium, 4)
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(FIELD_GENERATOR_OpV)
 				.duration(3600).EUt(20000000).buildAndRegister();
 				
@@ -518,7 +519,7 @@ public class HTComponentRecipes {
 				.input(frameGt, Enderiiium)
 				.input(ELECTRIC_MOTOR_UIV)
 				.input(plate, Lumiium, 4)
-				.input(GRAVI_STAR, 8)
+				.input(GRAVI_STAR, 6)
 				.input(circuit, Tier.UIV, 2)
 				.input(foil, Signalium, 64)
 				.input(foil, Signalium, 32)
@@ -532,7 +533,7 @@ public class HTComponentRecipes {
 				.input(frameGt, InfinityCatalyst)
 				.input(ELECTRIC_MOTOR_UXV)
 				.input(plate, CrystalMatrix, 4)
-				.input(GRAVI_STAR, 16)
+				.input(GRAVI_STAR, 8)
 				.input(circuit, Tier.UXV, 2)
 				.input(foil, Bedrockium, 64)
 				.input(foil, Bedrockium, 32)
@@ -543,17 +544,17 @@ public class HTComponentRecipes {
 				.duration(2400).EUt(6000000).buildAndRegister();
 
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
-				.input(frameGt, Infinity)
+				.input(frameGt, Quantum)
 				.input(ELECTRIC_MOTOR_OpV)
 				.input(plate, Ledox, 4)
-				.input(GRAVI_STAR, 32)
+				.input(QUANTIUM_STAR)
 				.input(circuit, Tier.OpV, 2)
-				.input(foil, Infinity, 64)
+				.input(foil, Quantium, 64)
 				.input(foil, Infinity, 32)
 				.input(cableGtSingle, Quantium, 4)
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(SENSOR_OpV)
 				.duration(3600).EUt(20000000).buildAndRegister();
 				
@@ -591,7 +592,7 @@ public class HTComponentRecipes {
 				.input(frameGt, Enderiiium)
 				.input(ELECTRIC_MOTOR_UIV)
 				.input(stickLong, Lumiium, 4)
-				.input(GRAVI_STAR, 8)
+				.input(GRAVI_STAR, 6)
 				.input(circuit, Tier.UIV, 2)
 				.input(foil, Signalium, 64)
 				.input(foil, Signalium, 32)
@@ -605,7 +606,7 @@ public class HTComponentRecipes {
 				.input(frameGt, InfinityCatalyst)
 				.input(ELECTRIC_MOTOR_UXV)
 				.input(stickLong, CrystalMatrix, 4)
-				.input(GRAVI_STAR, 16)
+				.input(GRAVI_STAR, 8)
 				.input(circuit, Tier.UXV, 2)
 				.input(foil, Bedrockium, 64)
 				.input(foil, Bedrockium, 32)
@@ -616,17 +617,17 @@ public class HTComponentRecipes {
 				.duration(2400).EUt(6000000).buildAndRegister();
 
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
-				.input(frameGt, Infinity)
+				.input(frameGt, Quantum)
 				.input(ELECTRIC_MOTOR_OpV)
 				.input(stickLong, Ledox, 4)
-				.input(GRAVI_STAR, 32)
+				.input(QUANTIUM_STAR)
 				.input(circuit, Tier.OpV, 2)
-				.input(foil, Infinity, 64)
+				.input(foil, Quantium, 64)
 				.input(foil, Infinity, 32)
 				.input(cableGtSingle, Quantium, 4)
 				.fluidInputs(MutatedLivingSolder.getFluid(2304))
 				.fluidInputs(Quantium.getFluid(576))
-				.fluidInputs(Infinity.getFluid(144))
+				.fluidInputs(Shirabon.getFluid(144))
 				.output(EMITTER_OpV)
 				.duration(3600).EUt(20000000).buildAndRegister();
     }
