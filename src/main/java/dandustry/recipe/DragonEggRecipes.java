@@ -5,6 +5,7 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
 import gregtech.api.GTValues;
+import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.init.Blocks;
 
 public class DragonEggRecipes {
@@ -14,12 +15,14 @@ public class DragonEggRecipes {
                 .input(dust, Endstone, 64).input(dust, Neutronium, 16)
                 .fluidInputs(SterileGrowthMedium.getFluid(2000))
                 .output(Blocks.DRAGON_EGG)
+                .requireInside(MetaTileEntities.CHEMICAL_REACTOR[GTValues.UV])
                 .duration(3000).EUt(GTValues.UHV).buildAndRegister();
 
         LABORATORY_RECIPES.recipeBuilder()
                 .input(Blocks.DRAGON_EGG).input(dust, Oganesson)
                 .fluidInputs(SterileGrowthMedium.getFluid(1000))
                 .output(Blocks.DRAGON_EGG, 2)
+                .requireInside(MetaTileEntities.CHEMICAL_REACTOR[GTValues.UV])
                 .duration(240).EUt(GTValues.UHV).buildAndRegister();
     }
 }

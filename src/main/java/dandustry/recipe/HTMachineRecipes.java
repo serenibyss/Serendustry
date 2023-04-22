@@ -4,7 +4,6 @@ import gregtech.api.GTValues;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.stack.UnificationEntry;
-import gregtech.common.blocks.MetaBlocks;
 
 import static dandustry.item.DDMaterials.*;
 import static gregtech.api.GTValues.VA;
@@ -13,6 +12,7 @@ import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.blocks.BlockMachineCasing.MachineCasingType.*;
+import static gregtech.common.blocks.MetaBlocks.MACHINE_CASING;
 import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.*;
 
@@ -21,10 +21,57 @@ public class HTMachineRecipes {
 
         // Machine Casings
 
-        ModHandler.addShapedRecipe(true, "casing_uev", MetaBlocks.MACHINE_CASING.getItemVariant(UEV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, HastelloyK243));
-        ModHandler.addShapedRecipe(true, "casing_uiv", MetaBlocks.MACHINE_CASING.getItemVariant(UIV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, Enderiiium));
-        ModHandler.addShapedRecipe(true, "casing_uxv", MetaBlocks.MACHINE_CASING.getItemVariant(UXV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, AwakenedDraconium));
-        ModHandler.addShapedRecipe(true, "casing_opv", MetaBlocks.MACHINE_CASING.getItemVariant(OpV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, Quantum));
+        ModHandler.addShapedRecipe(true, "casing_uev", MACHINE_CASING.getItemVariant(UEV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, HastelloyK243));
+        ModHandler.addShapedRecipe(true, "casing_uiv", MACHINE_CASING.getItemVariant(UIV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, Enderiiium));
+        ModHandler.addShapedRecipe(true, "casing_uxv", MACHINE_CASING.getItemVariant(UXV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, AwakenedDraconium));
+        ModHandler.addShapedRecipe(true, "casing_opv", MACHINE_CASING.getItemVariant(OpV), "PPP", "PwP", "PPP", 'P', new UnificationEntry(plate, Quantum));
+
+        // Machine Hull Assembler Recipes
+
+        // TODO: idk how this works someone help
+        //GTRecipeHandler.removeRecipesByInputs(ASSEMBLER_RECIPES, MACHINE_CASING.getItemVariant(UHV), new UnificationEntry(cableGtSingle, Europium), Polybenzimidazole.getFluid(288));
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MACHINE_CASING.getItemVariant(UHV))
+                .input(cableGtSingle, Europium, 2)
+                .fluidInputs(Teflon.getFluid(2592))
+                .output(HULL[GTValues.UHV])
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MACHINE_CASING.getItemVariant(UEV))
+                .input(cableGtSingle, Lafium, 2)
+                .fluidInputs(RadoxPolymer.getFluid(288))
+                .output(HULL[GTValues.UEV])
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MACHINE_CASING.getItemVariant(UIV))
+                .input(cableGtSingle, Signalium, 2)
+                .fluidInputs(RadoxPolymer.getFluid(576))
+                .output(HULL[GTValues.UIV])
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MACHINE_CASING.getItemVariant(UXV))
+                .input(cableGtSingle, Bedrockium, 2)
+                .fluidInputs(RadoxPolymer.getFluid(576))
+                .output(HULL[GTValues.UXV])
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MACHINE_CASING.getItemVariant(OpV))
+                .input(cableGtSingle, Quantium, 2)
+                .fluidInputs(RadoxPolymer.getFluid(2592))
+                .output(HULL[GTValues.OpV])
+                .duration(50).EUt(16).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(MACHINE_CASING.getItemVariant(MAX))
+                .input(wireGtHex, Floppa, 2)
+                .fluidInputs(Floppa.getFluid(2592))
+                .output(HULL[GTValues.MAX])
+                .duration(50).EUt(16).buildAndRegister();
 
         // Energy Output Hatches
 
@@ -175,8 +222,16 @@ public class HTMachineRecipes {
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.OpV])
                 .duration(200).EUt(VA[GTValues.OpV]).buildAndRegister();
 
-        // TODO: Diode block recipe replacement to use Supreme SMD Diodes
-        
+        // TODO: Remove existing diode block recipes for UXV / OpV and replace them. i clearly have no idea what i am doing
+        /*
+        ModHandler.addShapedRecipe(true, "casing_uev", MACHINE_CASING.getItemVariant(UXV), "CDC", "DHD", "PDP",
+                'C', new UnificationEntry(cableGtQuadruple, Bedrockium)
+                'P', new UnificationEntry(plate, AwakenedDraconium))
+                'H', new ItemStack(MACHINE_CASING.getItemVariant(UEV))
+                'D', new ItemStack(SUPREME_SMD_DIODE.getStackForm());
+        */
+
+
         // 4A Energy Hatches
         /*
         ASSEMBLER_RECIPES.recipeBuilder()

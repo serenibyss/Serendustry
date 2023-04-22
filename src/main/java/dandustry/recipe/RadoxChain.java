@@ -1,5 +1,8 @@
 package dandustry.recipe;
 
+import gregtech.api.GTValues;
+import gregtech.common.metatileentities.MetaTileEntities;
+
 import static dandustry.item.DDMaterials.*;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
 import static gregtech.api.GTValues.UV;
@@ -17,6 +20,7 @@ public class RadoxChain {
                 .input(dust, Osmium, 16)
                 .fluidInputs(Oil.getFluid(1000))
                 .fluidOutputs(Xenoxene.getFluid(250))
+                .requireInside(MetaTileEntities.CHEMICAL_REACTOR[GTValues.UV])
                 .duration(80).EUt(VA[UV]).buildAndRegister();
 
         DISTILLERY_RECIPES.recipeBuilder()
@@ -65,6 +69,7 @@ public class RadoxChain {
                 .input(dust, Amogus, 4)
                 .fluidInputs(PurifiedRadox.getFluid(144), Argon.getPlasma(500))
                 .fluidOutputs(RadoxPolymer.getFluid(144))
+                .requireInside(MetaTileEntities.CHEMICAL_REACTOR[GTValues.UV])
                 .duration(1600).EUt(VA[UV]).buildAndRegister();
     }
 }

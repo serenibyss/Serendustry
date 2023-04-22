@@ -82,6 +82,17 @@ public class DDMaterials {
 	public static Material PurifiedRadox;
 	public static Material RadoxPolymer;
 	public static Material Floppa;
+	public static Material KerrBlackHole;
+	public static Material DestabilizedMatter;
+	public static Material ExoticMatter;
+	public static Material DarkMatter;
+	public static Material RedMatter;
+	public static Material AtomicResonanceCatalyst;
+	public static Material ChromaticGlass;
+	public static Material Shirabon;
+	public static Material Teflon;
+	public static Material EnrichedHolmium;
+	public static Material EnrichedTeflon;
 
 	public static void init() {
 		
@@ -101,12 +112,15 @@ public class DDMaterials {
 		Zirconium.setProperty(PropertyKey.DUST, new DustProperty());
 		Germanium.setProperty(PropertyKey.DUST, new DustProperty());
 		Scandium.setProperty(PropertyKey.DUST, new DustProperty());
+		Protactinium.setProperty(PropertyKey.DUST, new DustProperty());
+		Holmium.setProperty(PropertyKey.DUST, new DustProperty());
 
 		Einsteinium.setProperty(PropertyKey.DUST, new DustProperty());
 		Fermium.setProperty(PropertyKey.DUST, new DustProperty());
 		Mendelevium.setProperty(PropertyKey.DUST, new DustProperty());
 		Dubnium.setProperty(PropertyKey.DUST, new DustProperty());
 		Rutherfordium.setProperty(PropertyKey.DUST, new DustProperty());
+		Flerovium.setProperty(PropertyKey.DUST, new DustProperty());
 		Oganesson.setProperty(PropertyKey.DUST, new DustProperty());
 		
 		Oxygen.setProperty(PropertyKey.INGOT, new IngotProperty());
@@ -125,26 +139,33 @@ public class DDMaterials {
 		Zirconium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Germanium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Scandium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Protactinium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Holmium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		
 		Einsteinium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Fermium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Mendelevium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Dubnium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Rutherfordium.setProperty(PropertyKey.INGOT, new IngotProperty());
+		Flerovium.setProperty(PropertyKey.INGOT, new IngotProperty());
 		Oganesson.setProperty(PropertyKey.INGOT, new IngotProperty());
+
+		Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+
+		Sodium.setProperty(PropertyKey.FLUID, new FluidProperty());
 
 		TinAlloy.addFlags(GENERATE_FINE_WIRE);
 		Oxygen.addFlags(GENERATE_FOIL);
 		RutheniumTriniumAmericiumNeutronate.addFlags(GENERATE_FINE_WIRE);
 		Europium.addFlags(GENERATE_SPRING_SMALL);
-
-		Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+		PolyvinylChloride.addFlags(GENERATE_LENS);
 
 		/*Cupronickel.addFlags(DISABLE_DECOMPOSITION);
 		Cupronickel.setFormula("Cu40Ni22Fe1Mn1");*/
 		
         animalWaste = new Material.Builder(19000, "animal_waste")
                 .ingot().fluid().color(0x7B5C00)
+				.flags(STD_METAL, GENERATE_LENS)
                 .build();
 		
 		InfusedGold = new Material.Builder(19001, "infused_gold")
@@ -161,7 +182,7 @@ public class DDMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW)
                 .components(RoseGold, 1, SterlingSilver, 1, Electrum, 2, InfusedGold, 2, Naquadria, 4, SolderingAlloy, 10)
                 .blastTemp(8000, GasTier.HIGHEST, VA[UV], 8000)
-				.cableProperties(VA[UEV], 2, 512, false, 3)
+				.cableProperties(VA[UEV], 1, 1536, false, 3)
                 .fluidTemp(8000)
                 .build();
 		
@@ -190,6 +211,8 @@ public class DDMaterials {
                 .components(HastelloyX78, 5, Tritanium, 4, TungstenCarbide, 4, Promethium, 4, NiobiumNitride, 2, Mendelevium, 1)
                 .blastTemp(9000, GasTier.HIGHEST, VA[UHV], 12000)
                 .fluidTemp(8500)
+				.toolStats(ToolProperty.Builder.of(160.0F, 110.0F, 65535, 7)
+						.attackSpeed(0.5F).enchantability(33).magnetic().build())
                 .build();
 				
 		Technetium22 = new Material.Builder(19006, "technetium_22")
@@ -205,7 +228,7 @@ public class DDMaterials {
 		Zeron100 = new Material.Builder(19007, "zeron_100")
                 .ingot(3).fluid()
                 .color(0xA8A813).iconSet(SHINY)
-                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Steel, 20, Chrome, 13, Copper, 10, Nickel, 3, Molybdenum, 2, Tungsten, 2)
                 .blastTemp(3000, GasTier.HIGH, VA[IV], 1000)
                 .fluidTemp(5000)
@@ -269,14 +292,14 @@ public class DDMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_SMALL_GEAR)
                 .components(Inconel792, 8, EglinSteel, 5, NaquadahEnriched, 4, TungstenSteel, 4, Cerium, 3, Onionium, 7)
                 .blastTemp(9000, GasTier.HIGHEST, VA[UV], 2000)
-				.cableProperties(VA[UHV], 2, 512)
+				.cableProperties(V[UHV], 2, 512)
                 .fluidTemp(6000)
                 .build();
 				
 		HastelloyN = new Material.Builder(19015, "hastelloyn")
                 .ingot(3).fluid()
                 .color(0xB3B3B3).iconSet(SHINY)
-                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Nickel, 15, Molybdenum, 4, Yttrium, 2, Chrome, 2, Titanium, 2)
                 .blastTemp(1200, GasTier.MID, VA[EV], 600)
                 .fluidTemp(3000)
@@ -294,7 +317,7 @@ public class DDMaterials {
                 .color(0x0D0D60).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME, GENERATE_RING, GENERATE_ROUND, GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_BOLT_SCREW)
                 .components(HastelloyN, 8, Nickel, 8, Aluminum, 6, Naquadah, 4, Tungsten, 4, Samarium, 2, Carbon, 2, Argon, 2)
-				.cableProperties(VA[UEV], 2, 2048)
+				.cableProperties(V[UEV], 2, 2048)
 				.fluidPipeProperties(65000, 5000, true, true, true, true)
                 .blastTemp(1800, GasTier.HIGHEST, VA[UHV], 900)
                 .fluidTemp(3450)
@@ -330,7 +353,7 @@ public class DDMaterials {
 		MagnetoResonatic = new Material.Builder(19022, "magneto_resonatic")
                 .gem().fluid()
                 .color(0xD37DD3).iconSet(MAGNETIC)
-                .flags(STD_METAL, NO_SMASHING, NO_SMELTING, GENERATE_LENS)
+                .flags(STD_METAL, NO_SMASHING, NO_SMELTING, GENERATE_LENS, GENERATE_FOIL)
                 .components(BismuthTellurite, 4, Prasiolite, 3, CubicZirconia, 1, SamariumMagnetic, 1)
                 .fluidTemp(500)
                 .build();
@@ -349,7 +372,7 @@ public class DDMaterials {
                 .color(0x9B46BA).iconSet(BRIGHT)
                 .flags(DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(MagnetoResonatic, 3, Cinobite, 1, Pikyonium, 1, Aluminum, 1)
-                .cableProperties(VA[UEV], 24, 0, true, 3)
+                .cableProperties(V[UEV], 24, 0, true, 3)
                 .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 2000)
                 .fluidTemp(26000)
                 .build();
@@ -386,7 +409,7 @@ public class DDMaterials {
 				.components(Lumiium, 3, Aluminum, 2, FluxedElectrum, 1, Phosphate, 1)
 				.blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3500)
 				.fluidTemp(35000)
-				.cableProperties(VA[UIV], 2, 8192)
+				.cableProperties(V[UIV], 2, 8192)
 				.build();
 
 		EnderiiumBase = new Material.Builder(19029, "enderiium_base")
@@ -441,6 +464,8 @@ public class DDMaterials {
 				.components(VibrantAlloy, 8, TastyNeutronium, 2, Aluminum, 2, AluminiumSulfite, 1)
 				.fluidPipeProperties(80000, 7500, true, true, true, true)
 				.blastTemp(8000, GasTier.HIGHEST, VA[UHV], 4000)
+				.toolStats(ToolProperty.Builder.of(200.0F, 120.0F, 65535, 8)
+						.attackSpeed(0.5F).enchantability(33).magnetic().build())
 				.fluidTemp(12000)
 				.build();
 
@@ -449,7 +474,7 @@ public class DDMaterials {
 				.color(0xFF66A3).iconSet(BRIGHT)
 				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
 				.components(VibrantAlloy, 3, Naquadria, 2, FluxedElectrum, 2, EnderiiumBase, 2)
-				.cableProperties(VA[UIV], 24, 0, true)
+				.cableProperties(V[UIV], 24, 0, true)
 				.blastTemp(8500, GasTier.HIGHEST, VA[UHV], 6000)
 				.fluidTemp(50000)
 				.build();
@@ -511,6 +536,8 @@ public class DDMaterials {
 				.components(Draconium, 1)
 				.blastTemp(8950, GasTier.HIGHEST, VA[UIV], 8500)
 				.fluidTemp(65000)
+				.toolStats(ToolProperty.Builder.of(240.0F, 160.0F, 65535, 9)
+						.attackSpeed(0.5F).enchantability(33).magnetic().build())
 				.build()
 				.setFormula("Dc*", true);
 
@@ -519,7 +546,7 @@ public class DDMaterials {
 				.color(0x262626).iconSet(BRIGHT)
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_SPRING, GENERATE_SPRING_SMALL)
 				.components(SiliconDioxide, 384)
-				.cableProperties(VA[UXV], 2, 32768)
+				.cableProperties(V[UXV], 2, 32768)
 				.blastTemp(9000, GasTier.HIGHEST, VA[UIV], 6000)
 				.fluidTemp(45000)
 				.build();
@@ -529,7 +556,7 @@ public class DDMaterials {
 				.color(0xFF4F4F).iconSet(BRIGHT)
 				.flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
 				.components(ChargedDraconium, 4, StellarAlloy, 4, Luminessence, 3, InfinityCatalyst, 2)
-				.cableProperties(VA[UXV], 24, 0, true)
+				.cableProperties(V[UXV], 24, 0, true)
 				.blastTemp(10000, GasTier.HIGHEST, VA[UIV], 7000)
 				.fluidTemp(48000)
 				.build();
@@ -565,6 +592,8 @@ public class DDMaterials {
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_BOLT_SCREW)
 				.components(StellarAlloy, 15, ArceusAlloy2B, 10, Lafium, 10, Jasper, 5, Americium, 5, Pikyonium, 5, Germanium, 5, SiliconCarbide, 5, AssemblyLine, 1)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 8000)
+				.toolStats(ToolProperty.Builder.of(220.0F, 125.0F, 65535, 9)
+						.attackSpeed(0.5F).enchantability(33).magnetic().build())
 				.fluidTemp(48000)
 				.build();
 
@@ -575,7 +604,7 @@ public class DDMaterials {
 				.components(Quantum, 1)
 				.itemPipeProperties(16, 256)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 9500)
-				.cableProperties(VA[OpV], 2, 131072)
+				.cableProperties(V[OpV], 2, 131072)
 				.fluidTemp(70000)
 				.build()
 				.setFormula("Qt");
@@ -616,7 +645,7 @@ public class DDMaterials {
 				.flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE)
 				.components(Quantum, 5, AwakenedDraconium, 3, Ledox, 3, Enderiiium, 3, Infinity, 3, NaquadriaticTaranium, 3, Amogus, 2)
 				.blastTemp(10800, GasTier.HIGHEST, VA[UXV], 11000)
-				.cableProperties(VA[OpV], 24, 0, true)
+				.cableProperties(V[OpV], 24, 0, true)
 				.fluidTemp(90000)
 				.build();
 
@@ -720,11 +749,89 @@ public class DDMaterials {
 
 		Floppa = new Material.Builder(19067, "floppa")
 				.ingot(3).fluid()
-				.color(0x6D0054).iconSet(DULL) // change color
+				.color(0x9E5625).iconSet(SHINY)
 				.flags(STD_METAL, GENERATE_DENSE)
-				.components(Flerovium, 1, Oxygen, 1, Phosphorus, 1, Protactinium, 1) // add recipes for these components
+				.components(Flerovium, 1, Oxygen, 1, Phosphorus, 1, Protactinium, 1)
 				.blastTemp(10800, GasTier.HIGHEST, VA[OpV], 50000)
-				.fluidTemp(12000)
+				.fluidTemp(800000)
+				.cableProperties(V[MAX], 24, 0, true)
 				.build();
+
+		KerrBlackHole = new Material.Builder(19068, "kerr_black_hole")
+				.ingot(3).fluid()
+				.color(0x000000).iconSet(MAGNETIC)
+				.flags(STD_METAL, GENERATE_LONG_ROD)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UIV], 10000)
+				.fluidTemp(0)
+				.build();
+
+		DestabilizedMatter = new Material.Builder(19069, "destabilized_matter")
+				.fluid().plasma()
+				.color(0x5E609B)
+				.build();
+
+		ExoticMatter = new Material.Builder(19070, "exotic_matter")
+				.fluid().plasma()
+				.color(0x5E2B9B)
+				.build();
+
+		DarkMatter = new Material.Builder(19071, "dark_matter")
+				.fluid().plasma()
+				.color(0x180B28)
+				.build();
+
+		RedMatter = new Material.Builder(19072, "red_matter")
+				.fluid().plasma()
+				.color(0xFF0000)
+				.build();
+
+		AtomicResonanceCatalyst = new Material.Builder(19073, "atomic_resonance_catalyst")
+				.dust().fluid()
+				.color(0xEC4E42)
+				.build();
+
+		ChromaticGlass = new Material.Builder(19074, "chromatic_glass") // TODO: add recipe
+				.ingot(3).fluid()
+				.color(0xFFFFFF).iconSet(GLASS) // TODO: Give it animated rainbow colors
+				.flags(STD_METAL)
+				.blastTemp(10800, GasTier.HIGHEST, VA[UV], 6000)
+				.fluidTemp(35000)
+				.build();
+
+		Shirabon = new Material.Builder(19075, "shirabon")
+				.ingot(3).fluid()
+				.color(0xE0156D).iconSet(BRIGHT)
+				.flags(STD_METAL)
+				.blastTemp(10800, GasTier.HIGHEST, VA[OpV], 30000)
+				.fluidTemp(600000)
+				.build()
+				.setFormula("Sh");
+
+		Teflon = new Material.Builder(19076, "teflon")
+				.polymer(3)
+				.color(0x222222)
+				.flags(DISABLE_DECOMPOSITION, GENERATE_DENSE, GENERATE_RING, GENERATE_FOIL)
+				.components(Polytetrafluoroethylene, 15, Polyethylene, 3, Carbon, 1, Sodium, 1)
+				.build();
+
+		EnrichedHolmium = new Material.Builder(19077, "enriched_holmium")
+				.ingot(3).fluid()
+				.color(0x5D15EE).iconSet(SHINY)
+				.flags(STD_METAL, GENERATE_FOIL)
+				.components(NaquadahEnriched, 8, Holmium, 1)
+				.blastTemp(6000, GasTier.HIGHER, VA[LuV], 2000)
+				.fluidTemp(4200)
+				.build();
+
+		EnrichedTeflon = new Material.Builder(19078, "enriched_teflon")
+				.polymer(3)
+				.color(0xE34500)
+				.flags(DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_RING)
+				.components(NaquadahEnriched, 1, Teflon, 1, EnrichedHolmium, 1, EnrichedNaquadahAlloy, 1, EglinSteel, 1, Zeron100, 1, HastelloyN, 1, MagnetoResonatic, 1, TungstenSteel, 1)
+				.build();
+
+		// TODO: Periodicium
+		// TODO: Quantum Anomaly recipe (for Chromatic Glass & etc)
+		// TODO: New lube tier (Xenoxene + Omniversal Redstone (Redstone + Quantum Anomaly)?)
     }
 }

@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static dandustry.item.DDMaterials.*;
+import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.CraftingComponent.*;
 
@@ -30,6 +31,12 @@ public class DandustryEventHandler {
         LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.CHEMICAL_REACTOR);
         LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.CHEMICAL_BATH);
         LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.ELECTROLYZER);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.FLUID_SOLIDIFIER);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.ALLOY_SMELTER);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.ELECTRIC_FURNACE);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.POLARIZER);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.CANNER);
+        LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.ELECTROMAGNETIC_SEPARATOR);
     }
 
     @SubscribeEvent
@@ -40,26 +47,27 @@ public class DandustryEventHandler {
     @SubscribeEvent
     public static void appendCraftingComponent(GregTechAPI.RegisterEvent<CraftingComponent> event) {
         // Wires / Cables
-        appendToComponent(WIRE_ELECTRIC, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(WIRE_QUAD, wireGtQuadruple, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(WIRE_OCT, wireGtOctal, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(WIRE_HEX, wireGtHex, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(CABLE, cableGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(CABLE_QUAD, cableGtQuadruple, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(CABLE_OCT, cableGtOctal, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(CABLE_HEX, cableGtHex, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
-        appendToComponent(GTValues.UV, CABLE_TIER_UP, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
+        appendToComponent(GTValues.UEV, WIRE_ELECTRIC, wireGtSingle, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, WIRE_QUAD, wireGtQuadruple, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, WIRE_OCT, wireGtOctal, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, WIRE_HEX, wireGtHex, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, CABLE, cableGtSingle, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, CABLE_QUAD, cableGtQuadruple, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, CABLE_OCT, cableGtOctal, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UEV, CABLE_HEX, cableGtHex, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(GTValues.UV, CABLE_TIER_UP, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium, Floppa);
 
         // Pipes
         appendToComponent(PIPE_NORMAL, pipeNormalFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, CallistoIce);
         appendToComponent(PIPE_LARGE, pipeLargeFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, CallistoIce);
 
         // Glass
-        // todo: add chromatic glass?
+        appendToComponent(GLASS, block, ChromaticGlass, ChromaticGlass, ChromaticGlass, ChromaticGlass, ChromaticGlass);
 
         // Plates
         appendToComponent(GTValues.UEV, PLATE, plate, HastelloyK243, Enderiiium, AwakenedDraconium, Quantum);
         appendToComponent(GTValues.UEV, DOUBLE_PLATE, plateDouble, HastelloyK243, Enderiiium, AwakenedDraconium, Quantum);
+        appendToComponent(HULL_PLATE, plateDense, Teflon);
         appendToComponent(GTValues.UEV, HULL_PLATE, plate, RadoxPolymer);
         appendToComponent(GTValues.UIV, HULL_PLATE, plateDouble, RadoxPolymer, RadoxPolymer);
         appendToComponent(GTValues.OpV, HULL_PLATE, plateDense, RadoxPolymer);
@@ -68,13 +76,23 @@ public class DandustryEventHandler {
         // Rotor
         appendToComponent(ROTOR, rotor, EnrichedNaquadahAlloy, TastyNeutronium, EnderiiumBase, InfinityCatalyst, Quantium);
 
+        // Grinder
+        // TODO: More Grinding Head tiers?
+
+        // Sawblade
+        appendToComponent(SAWBLADE, toolHeadBuzzSaw, Neutronium, HastelloyK243, StellarAlloy, AwakenedDraconium, Quantum);
+
         // Coils
         appendToComponent(COIL_HEATING, wireGtDouble, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
+        appendToComponent(COIL_HEATING_DOUBLE, wireGtQuadruple, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
 
         // Sticks
-        // todo: magnetic rods past samarium
-        // STICK_MAGNETIC, STICK_ELECTROMAGNETIC, STICK_RADIOACTIVE
-        appendToComponent(STICK_DISTILLATION, spring, Lafium, Signalium, Bedrockium, Quantium, Infinity);
+        // todo: STICK_RADIOACTIVE
+        appendToComponent(STICK_MAGNETIC, stickLong, SamariumMagnetic, SamariumMagnetic);
+        appendToComponent(GTValues.UIV, STICK_MAGNETIC, stick, KerrBlackHole);
+        appendToComponent(GTValues.UXV, STICK_MAGNETIC, stickLong, KerrBlackHole, KerrBlackHole);
+        appendToComponent(STICK_ELECTROMAGNETIC, stickLong, EnrichedNaquadahAlloy, Aluminum, Lumiium, CrystalMatrix, Ledox);
+        appendToComponent(STICK_DISTILLATION, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium, Infinity);
 
         // Reactor Pipe
         appendToComponent(GTValues.UHV, PIPE_REACTOR, pipeTinyFluid, RadoxPolymer);

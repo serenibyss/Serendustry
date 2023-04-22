@@ -20,6 +20,17 @@ public class MagnetoResonaticRecipes {
     }
 
     private static void waferRecipes() {
+
+        LATHE_RECIPES.recipeBuilder()
+                .input(plate, animalWaste)
+                .output(lens, animalWaste)
+                .duration(1200).EUt(120).buildAndRegister();
+
+        LATHE_RECIPES.recipeBuilder()
+                .input(plate, PolyvinylChloride)
+                .output(lens, PolyvinylChloride)
+                .duration(1200).EUt(120).buildAndRegister();
+
         BLAST_RECIPES.recipeBuilder()
                 .input(dust, MagnetoResonatic, 32)
                 .input(dust, Quartzite, 8)
@@ -37,6 +48,8 @@ public class MagnetoResonaticRecipes {
         LASER_ENGRAVER_RECIPES.recipeBuilder()
                 .input(MAGNETO_RESONATIC_WAFER)
                 .notConsumable(lens, MagnetoResonatic)
+                .notConsumable(lens, animalWaste)
+                .notConsumable(lens, PolyvinylChloride)
                 .output(RESONANCE_WAFER)
                 .cleanroom(CleanroomType.CLEANROOM)
                 .duration(900).EUt(VA[HV]).buildAndRegister();
@@ -52,7 +65,7 @@ public class MagnetoResonaticRecipes {
         CHEMICAL_RECIPES.recipeBuilder()
                 .input(plate, RadoxPolymer)
                 .input(foil, TastyNeutronium, 4)
-                .fluidInputs(MagnetoResonatic.getFluid(144))
+                .fluidInputs(MagnetoResonatic.getFluid(144)).fluidInputs(EnrichedHolmium.getFluid(144))
                 .output(COSMIC_CIRCUIT_BOARD)
                 .EUt(VA[UV]).duration(400).buildAndRegister();
     }
@@ -64,35 +77,35 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, AwakenedDraconium, 4)
                 .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_RESISTOR, 8)
-                .EUt(VA[UV]).duration(320).buildAndRegister();
+                .EUt(VA[UHV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(foil, ChargedDraconium)
                 .input(wireFine, StellarAlloy, 8)
                 .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_TRANSISTOR, 8)
-                .EUt(VA[UV]).duration(320).buildAndRegister();
+                .EUt(VA[UHV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(foil, Bedrockium, 2)
                 .input(foil, CrystalMatrix)
                 .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_CAPACITOR, 8)
-                .EUt(VA[UV]).duration(320).buildAndRegister();
+                .EUt(VA[UHV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(dust, AwakenedDraconium)
                 .input(wireFine, ChargedDraconium, 4)
                 .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_DIODE, 8)
-                .EUt(VA[UV]).duration(320).buildAndRegister();
+                .EUt(VA[UHV]).duration(320).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ring, ChargedDraconium)
                 .input(wireFine, Bedrockium, 4)
                 .fluidInputs(RadoxPolymer.getFluid(72))
                 .output(SUPREME_SMD_INDUCTOR, 8)
-                .EUt(VA[UV]).duration(320).buildAndRegister();
+                .EUt(VA[UHV]).duration(320).buildAndRegister();
     }
     private static void circuitRecipes() {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -151,7 +164,7 @@ public class MagnetoResonaticRecipes {
                 .duration(100).EUt(VA[IV]).buildAndRegister();
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .input(ELITE_CIRCUIT_BOARD)
+                .input(EXTREME_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_EV)
                 .input(wireFine, TinAlloy, 32)
                 .input(ADVANCED_SMD_RESISTOR, 16)
@@ -162,7 +175,7 @@ public class MagnetoResonaticRecipes {
                 .duration(100).EUt(VA[LuV]).buildAndRegister();
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .input(WETWARE_CIRCUIT_BOARD)
+                .input(ELITE_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_IV)
                 .input(wireFine, TinAlloy, 64)
                 .input(ADVANCED_SMD_RESISTOR, 24)
@@ -173,7 +186,7 @@ public class MagnetoResonaticRecipes {
                 .duration(100).EUt(VA[ZPM]).buildAndRegister();
 
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .input(COSMIC_CIRCUIT_BOARD)
+                .input(ELITE_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_LuV)
                 .input(wireFine, TinAlloy, 64)
                 .input(ADVANCED_SMD_RESISTOR, 32)
@@ -185,11 +198,12 @@ public class MagnetoResonaticRecipes {
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, Tritanium)
-                .input(COSMIC_CIRCUIT_BOARD)
+                .input(WETWARE_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_ZPM)
                 .input(RESONANCE_CHIP, 4)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 32)
+                .input(ring, Teflon, 8)
                 .input(ADVANCED_SMD_RESISTOR, 32)
                 .input(ADVANCED_SMD_TRANSISTOR, 32)
                 .input(ADVANCED_SMD_CAPACITOR, 32)
@@ -202,11 +216,12 @@ public class MagnetoResonaticRecipes {
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, HighDurabilityCompoundSteel)
-                .input(COSMIC_CIRCUIT_BOARD)
+                .input(WETWARE_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_UV)
                 .input(RESONANCE_CHIP, 4)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
+                .input(ring, Teflon, 16)
                 .input(ADVANCED_SMD_RESISTOR, 32)
                 .input(ADVANCED_SMD_TRANSISTOR, 32)
                 .input(ADVANCED_SMD_CAPACITOR, 32)
@@ -226,6 +241,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 32)
+                .input(ring, Teflon, 24)
                 .input(ADVANCED_SMD_RESISTOR, 48)
                 .input(ADVANCED_SMD_TRANSISTOR, 48)
                 .input(ADVANCED_SMD_CAPACITOR, 48)
@@ -245,6 +261,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
+                .input(ring, Teflon, 32)
                 .input(ADVANCED_SMD_RESISTOR, 64)
                 .input(ADVANCED_SMD_TRANSISTOR, 64)
                 .input(ADVANCED_SMD_CAPACITOR, 64)
@@ -265,6 +282,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 32)
+                .input(ring, Teflon, 48)
                 .input(SUPREME_SMD_RESISTOR, 24)
                 .input(SUPREME_SMD_TRANSISTOR, 24)
                 .input(SUPREME_SMD_CAPACITOR, 24)
@@ -285,6 +303,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
+                .input(ring, Teflon, 64)
                 .input(SUPREME_SMD_RESISTOR, 32)
                 .input(SUPREME_SMD_TRANSISTOR, 32)
                 .input(SUPREME_SMD_CAPACITOR, 32)
@@ -306,6 +325,8 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
+                .input(ring, Teflon, 64)
+                .input(foil, EnrichedTeflon, 8)
                 .input(SUPREME_SMD_RESISTOR, 64)
                 .input(SUPREME_SMD_TRANSISTOR, 64)
                 .input(SUPREME_SMD_CAPACITOR, 64)

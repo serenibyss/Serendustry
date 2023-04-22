@@ -82,6 +82,16 @@ public class SmallFusionReactorRecipes {
 				.duration(200).EUt(VA[EV]).buildAndRegister();
 
 		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Rhodium, 1).input(ingot, Palladium, 1)
+				.output(ingot, Protactinium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Chrome, 1).input(ingot, Technetium, 1)
+				.output(ingot, Holmium, 1)
+				.duration(200).EUt(VA[EV]).buildAndRegister();
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
 				.input(ingot, Yttrium, 1).input(ingot, Neodymium, 1)
                 .output(ingot, Einsteinium, 1)
                 .duration(300).EUt(VA[ZPM] + 1).buildAndRegister();
@@ -105,7 +115,12 @@ public class SmallFusionReactorRecipes {
 				.input(ingot, Promethium, 1).input(ingot, Technetium22, 1)
                 .output(ingot, Rutherfordium, 1)
                 .duration(500).EUt(VA[ZPM] + 2).buildAndRegister();
-				
+
+		ALLOY_SMELTER_RECIPES.recipeBuilder()
+				.input(ingot, Iridium, 1).input(ingot, Rubidium, 1)
+				.output(ingot, Flerovium, 1)
+				.duration(600).EUt(VA[ZPM]).buildAndRegister();
+
         ALLOY_SMELTER_RECIPES.recipeBuilder()
 				.input(ingot, Osmium, 1).input(ingot, Molybdenum, 1)
                 .output(ingot, Oganesson, 1)

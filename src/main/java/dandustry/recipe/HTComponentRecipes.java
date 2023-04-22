@@ -47,7 +47,7 @@ public class HTComponentRecipes {
                 .duration(1200).EUt(800000).buildAndRegister();
 
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
-				.input(stickLong, SamariumMagnetic, 8)
+				.input(stickLong, KerrBlackHole, 2)
 				.input(stickLong, Enderiiium, 4)
 				.input(ring, StellarAlloy, 4)
 				.input(round, StellarAlloy, 8)
@@ -63,7 +63,7 @@ public class HTComponentRecipes {
 				.duration(1600).EUt(2000000).buildAndRegister();
 
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
-				.input(stickLong, SamariumMagnetic, 16)
+				.input(stickLong, KerrBlackHole, 4)
 				.input(stickLong, AwakenedDraconium, 4)
 				.input(ring, ChargedDraconium, 4)
 				.input(round, ChargedDraconium, 8)
@@ -79,7 +79,7 @@ public class HTComponentRecipes {
 				.duration(2400).EUt(6000000).buildAndRegister();
 
 		ASSEMBLY_LINE_RECIPES.recipeBuilder()
-				.input(stickLong, SamariumMagnetic, 32)
+				.input(stickLong, KerrBlackHole, 8)
 				.input(stickLong, Quantum, 4)
 				.input(ring, CallistoIce, 4)
 				.input(round, CallistoIce, 8)
