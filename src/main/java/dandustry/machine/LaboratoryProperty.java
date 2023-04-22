@@ -1,11 +1,15 @@
 package dandustry.machine;
 
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Table;
 import dandustry.machine.LaboratoryProperty.LaboratoryEntry;
-import gregtech.api.GregTechAPI;
+import gregtech.api.GTValues;
 import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.metatileentity.TieredMetaTileEntity;
+import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
+import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
@@ -16,6 +20,7 @@ public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
 
     public static final String KEY = "laboratory_internal";
 
+    // todo remove
     private static final Set<ResourceLocation> ALLOWED_MACHINES = new HashSet<>();
 
     private static LaboratoryProperty INSTANCE;
@@ -34,50 +39,40 @@ public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
     // todo display better
     @Override
     public void drawInfo(Minecraft minecraft, int x, int y, int color, Object value) {
-        int yOffset = y;
         LaboratoryEntry entry = castValue(value);
-        if (entry.getMachines().size() != 0) {
-            for (ResourceLocation rl : entry.getMachines()) {
-                MetaTileEntity mte = GregTechAPI.MTE_REGISTRY.getObject(rl);
-                if (mte != null) {
-                    minecraft.fontRenderer.drawString("Machine Required: " + I18n.format(mte.getMetaFullName()), x, yOffset, color);
-                    yOffset += 10;
-                }
+        if (entry.getMachineTable().size() != 0) {
+            minecraft.fontRenderer.drawString("Machines Required:", x, y, color);
+            int yOffset = y + 10;
+            for (Table.Cell<RecipeMap<?>, Integer, Integer> cell : entry.getMachineTable().cellSet()) {
+                RecipeMap<?> map = cell.getRowKey();
+                Integer tier = cell.getColumnKey();
+                Integer count = cell.getValue();
+                minecraft.fontRenderer.drawString(count + "x " + GTValues.VN[tier] + " " + map.getLocalizedName(), x, yOffset, color);
+                yOffset += 10;
             }
         }
     }
 
+    // todo remove
     public static void registerLaboratoryMachine(MetaTileEntity... machines) {
         ALLOWED_MACHINES.addAll(Arrays.stream(machines).filter(Objects::nonNull).map(mte -> mte.metaTileEntityId).collect(Collectors.toList()));
     }
 
     public static boolean isMachineAllowed(@Nonnull MetaTileEntity machine) {
-        return ALLOWED_MACHINES.contains(machine.metaTileEntityId);
+        if (machine instanceof MultiblockControllerBase) return false;
+        return machine instanceof TieredMetaTileEntity && machine.getRecipeMap() != null;
     }
 
     public static class LaboratoryEntry {
 
-        private final Set<ResourceLocation> machines;
+        private final Table<RecipeMap<?>, Integer, Integer> machines;
 
-        public LaboratoryEntry(MetaTileEntity... machines) {
-            this(Arrays.stream(machines).map(mte -> mte.metaTileEntityId).toArray(ResourceLocation[]::new));
+        public LaboratoryEntry(ImmutableTable.Builder<RecipeMap<?>, Integer, Integer> tableBuilder) {
+            this.machines = tableBuilder.build();
         }
 
-        public LaboratoryEntry(ResourceLocation... machines) {
-            this.machines = new HashSet<>();
-            this.machines.addAll(Arrays.asList(machines));
-        }
-
-        public void addMachine(MetaTileEntity machine) {
-            machines.add(machine.metaTileEntityId);
-        }
-
-        public Set<ResourceLocation> getMachines() {
+        public Table<RecipeMap<?>, Integer, Integer> getMachineTable() {
             return machines;
-        }
-
-        public void merge(LaboratoryEntry other) {
-            machines.addAll(other.machines);
         }
     }
 }

@@ -3,6 +3,7 @@ package dandustry.recipe;
 import dandustry.Dandustry;
 import dandustry.item.DDMaterials;
 import gregtech.api.GTValues;
+import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.blocks.BlockWarningSign;
@@ -44,7 +45,8 @@ public class WasteFluidRecipes {
         LABORATORY_RECIPES.recipeBuilder()
                 .input(OrePrefix.ingot, Materials.Iron)
                 .output(OrePrefix.dust, Materials.Gold)
-                .requireInside(MetaTileEntities.CHEMICAL_REACTOR[GTValues.HV])
+                .requireInside(RecipeMaps.CHEMICAL_RECIPES, GTValues.HV, 2)
+                .requireInside(RecipeMaps.ELECTROLYZER_RECIPES, GTValues.HV)
                 .duration(50).EUt(480).buildAndRegister();
     }
 }
