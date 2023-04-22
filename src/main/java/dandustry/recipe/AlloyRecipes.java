@@ -337,10 +337,5 @@ public class AlloyRecipes {
 				.input(dust, EnrichedTeflon)
 				.output(foil, NaquadahEnriched, 8).output(foil, Teflon).output(foil, EnrichedHolmium).output(foil, EnrichedNaquadahAlloy).output(foil, EglinSteel).output(foil, Zeron100).output(foil, HastelloyN).output(foil, MagnetoResonatic).output(foil, TungstenSteel)
 				.duration(120).EUt(60).buildAndRegister();
-
-		/*CENTRIFUGE_RECIPES.recipeBuilder()
-				.input(dust, Cupronickel, 64)
-				.output(dust, Copper, 40).output(dust, Nickel, 22).output(dust, Iron, 1).output(dust, Manganese, 1)
-				.duration(1600).EUt(24).buildAndRegister();*/
     }
 }

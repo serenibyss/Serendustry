@@ -55,7 +55,7 @@ public class DandustryEventHandler {
         appendToComponent(GTValues.UEV, CABLE_QUAD, cableGtQuadruple, Lafium, Signalium, Bedrockium, Quantium, Floppa);
         appendToComponent(GTValues.UEV, CABLE_OCT, cableGtOctal, Lafium, Signalium, Bedrockium, Quantium, Floppa);
         appendToComponent(GTValues.UEV, CABLE_HEX, cableGtHex, Lafium, Signalium, Bedrockium, Quantium, Floppa);
-        appendToComponent(GTValues.UV, CABLE_TIER_UP, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium, Floppa);
+        appendToComponent(CABLE_TIER_UP, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium, Floppa);
 
         // Pipes
         appendToComponent(PIPE_NORMAL, pipeNormalFluid, Cinobite, Lafium, StellarAlloy, ChargedDraconium, CallistoIce);
@@ -87,7 +87,7 @@ public class DandustryEventHandler {
         appendToComponent(COIL_HEATING_DOUBLE, wireGtQuadruple, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
 
         // Sticks
-        // todo: STICK_RADIOACTIVE
+        // TODO: STICK_RADIOACTIVE
         appendToComponent(STICK_MAGNETIC, stickLong, SamariumMagnetic, SamariumMagnetic);
         appendToComponent(GTValues.UIV, STICK_MAGNETIC, stick, KerrBlackHole);
         appendToComponent(GTValues.UXV, STICK_MAGNETIC, stickLong, KerrBlackHole, KerrBlackHole);
@@ -102,10 +102,10 @@ public class DandustryEventHandler {
         appendToComponent(GTValues.OpV, PIPE_REACTOR, pipeHugeFluid, RadoxPolymer);
 
         // Power Component
-        // Add something past UHPIC?
+        // TODO: Add something past UHPIC?
 
         // Voltage Coil
-        // todo
+        // TODO
 
         // Spring
         appendToComponent(GTValues.UEV, SPRING, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);

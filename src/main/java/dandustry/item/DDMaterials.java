@@ -93,6 +93,8 @@ public class DDMaterials {
 	public static Material Teflon;
 	public static Material EnrichedHolmium;
 	public static Material EnrichedTeflon;
+	public static Material OmniversalRedstone;
+	public static Material OmniversalLubricant;
 
 	public static void init() {
 		
@@ -159,9 +161,6 @@ public class DDMaterials {
 		RutheniumTriniumAmericiumNeutronate.addFlags(GENERATE_FINE_WIRE);
 		Europium.addFlags(GENERATE_SPRING_SMALL);
 		PolyvinylChloride.addFlags(GENERATE_LENS);
-
-		/*Cupronickel.addFlags(DISABLE_DECOMPOSITION);
-		Cupronickel.setFormula("Cu40Ni22Fe1Mn1");*/
 		
         animalWaste = new Material.Builder(19000, "animal_waste")
                 .ingot().fluid().color(0x7B5C00)
@@ -830,8 +829,18 @@ public class DDMaterials {
 				.components(NaquadahEnriched, 1, Teflon, 1, EnrichedHolmium, 1, EnrichedNaquadahAlloy, 1, EglinSteel, 1, Zeron100, 1, HastelloyN, 1, MagnetoResonatic, 1, TungstenSteel, 1)
 				.build();
 
+		OmniversalRedstone = new Material.Builder(19079, "omniversal_redstone")
+				.dust()
+				.color(0xD13830)
+				.build();
+
+		OmniversalLubricant = new Material.Builder(19080, "omniversal_lubricant")
+				.fluid().plasma()
+				.color(0x97D344)
+				.build();
+
+
 		// TODO: Periodicium
 		// TODO: Quantum Anomaly recipe (for Chromatic Glass & etc)
-		// TODO: New lube tier (Xenoxene + Omniversal Redstone (Redstone + Quantum Anomaly)?)
     }
 }
