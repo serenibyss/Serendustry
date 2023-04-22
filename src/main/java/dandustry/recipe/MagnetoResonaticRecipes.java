@@ -1,11 +1,10 @@
 package dandustry.recipe;
 
-import static gregtech.api.GTValues.*;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 
-import static dandustry.Dandustry.*;
-import static dandustry.Dandustry.SUPREME_SMD_INDUCTOR;
-import static dandustry.item.DDMaterials.*;
+import static dandustry.item.DandustryMaterials.*;
+import static dandustry.item.DandustryMetaItems.*;
+import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -107,6 +106,7 @@ public class MagnetoResonaticRecipes {
                 .output(SUPREME_SMD_INDUCTOR, 8)
                 .EUt(VA[UHV]).duration(320).buildAndRegister();
     }
+
     private static void circuitRecipes() {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GOOD_CIRCUIT_BOARD)

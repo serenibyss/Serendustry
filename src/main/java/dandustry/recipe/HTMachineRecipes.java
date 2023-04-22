@@ -5,11 +5,12 @@ import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.stack.UnificationEntry;
 
-import static dandustry.item.DDMaterials.*;
+import static dandustry.item.DandustryMaterials.*;
 import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
-import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.material.Materials.Europium;
+import static gregtech.api.unification.material.Materials.SodiumPotassium;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.blocks.BlockMachineCasing.MachineCasingType.*;
 import static gregtech.common.blocks.MetaBlocks.MACHINE_CASING;
@@ -17,7 +18,7 @@ import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.*;
 
 public class HTMachineRecipes {
-    public static void init(){
+    public static void init() {
 
         // Machine Casings
 

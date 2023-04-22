@@ -3,9 +3,9 @@ package dandustry.recipe;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
 
-import static dandustry.Dandustry.QUANTIUM_STAR;
-import static dandustry.Dandustry.QUANTUM_ANOMALY;
-import static dandustry.item.DDMaterials.*;
+import static dandustry.item.DandustryMaterials.*;
+import static dandustry.item.DandustryMetaItems.QUANTIUM_STAR;
+import static dandustry.item.DandustryMetaItems.QUANTUM_ANOMALY;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -14,6 +14,7 @@ import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.common.items.MetaItems.GRAVI_STAR;
 
 public class MiscRecipes {
+
     public static void init() {
         LABORATORY_RECIPES.recipeBuilder()
                 .input(dust, Polytetrafluoroethylene, 15).input(dust, Polyethylene, 3).input(dust, Carbon)

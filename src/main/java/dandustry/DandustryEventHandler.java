@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-import static dandustry.item.DDMaterials.*;
+import static dandustry.item.DandustryMaterials.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.CraftingComponent.*;
@@ -22,9 +22,9 @@ import static gregtech.loaders.recipe.CraftingComponent.*;
 public class DandustryEventHandler {
 
     @SubscribeEvent
-	public static void enableHighTierEvent(HighTierEvent event) {
-		event.enableHighTier();
-	}
+    public static void enableHighTierEvent(HighTierEvent event) {
+        event.enableHighTier();
+    }
 
     @SubscribeEvent
     public static void appendCraftingComponent(GregTechAPI.RegisterEvent<CraftingComponent> event) {

@@ -1,18 +1,14 @@
 package dandustry.recipe;
 
-import dandustry.Dandustry;
-import dandustry.item.DDMaterials;
+import dandustry.item.DandustryMaterials;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.common.blocks.BlockWarningSign;
-import gregtech.common.blocks.MetaBlocks;
-import gregtech.common.items.MetaItems;
-import gregtech.common.metatileentities.MetaTileEntities;
 
+import static dandustry.item.DandustryMetaItems.wasteFluidExtractor;
+import static dandustry.item.DandustryMetaItems.wasteFluidExtractorFilled;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.EXTRACTOR_RECIPES;
 
 public class WasteFluidRecipes {
@@ -20,9 +16,9 @@ public class WasteFluidRecipes {
     public static void init() {
 
         EXTRACTOR_RECIPES.recipeBuilder()
-                .input(Dandustry.wasteFluidExtractorFilled)
-                .output(Dandustry.wasteFluidExtractor)
-                .fluidOutputs(DDMaterials.animalWaste.getFluid(1000))
+                .input(wasteFluidExtractorFilled)
+                .output(wasteFluidExtractor)
+                .fluidOutputs(DandustryMaterials.animalWaste.getFluid(1000))
                 .duration(400).EUt(30).buildAndRegister();
 
         //ASSEMBLY_LINE_RECIPES.recipeBuilder()

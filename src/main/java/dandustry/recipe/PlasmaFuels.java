@@ -2,8 +2,9 @@ package dandustry.recipe;
 
 import gregtech.api.recipes.RecipeMaps;
 
-import static dandustry.item.DDMaterials.*;
-import static gregtech.api.GTValues.*;
+import static dandustry.item.DandustryMaterials.*;
+import static gregtech.api.GTValues.EV;
+import static gregtech.api.GTValues.V;
 import static gregtech.api.unification.material.Materials.Water;
 
 public class PlasmaFuels {

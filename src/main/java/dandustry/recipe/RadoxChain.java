@@ -3,7 +3,7 @@ package dandustry.recipe;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
 
-import static dandustry.item.DDMaterials.*;
+import static dandustry.item.DandustryMaterials.*;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
 import static gregtech.api.GTValues.UV;
 import static gregtech.api.GTValues.VA;

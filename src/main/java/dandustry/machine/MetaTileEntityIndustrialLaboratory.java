@@ -28,7 +28,8 @@ import net.minecraft.util.math.BlockPos;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MetaTileEntityIndustrialLaboratory extends RecipeMapMultiblockController {
 
@@ -101,7 +102,8 @@ public class MetaTileEntityIndustrialLaboratory extends RecipeMapMultiblockContr
             }
 
             MetaTileEntity metaTileEntity = ((IGregTechTileEntity) tileEntity).getMetaTileEntity();
-            if (!LaboratoryProperty.isMachineAllowed(metaTileEntity) || !(metaTileEntity instanceof TieredMetaTileEntity)) return false;
+            if (!LaboratoryProperty.isMachineAllowed(metaTileEntity) || !(metaTileEntity instanceof TieredMetaTileEntity))
+                return false;
             TieredMetaTileEntity tieredMte = (TieredMetaTileEntity) metaTileEntity;
 
             // insert into resources map if it doesn't exist, or if the machine at position somehow got changed

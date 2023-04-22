@@ -3,13 +3,14 @@ package dandustry.recipe;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
 
-import static dandustry.Dandustry.QUANTUM_ANOMALY;
-import static dandustry.item.DDMaterials.*;
+import static dandustry.item.DandustryMaterials.*;
+import static dandustry.item.DandustryMetaItems.QUANTUM_ANOMALY;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.stickLong;
 
 public class DestabilizedMatterChain {
     public static void init() {

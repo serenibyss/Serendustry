@@ -1,12 +1,12 @@
 package dandustry.recipe;
 
-import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
-import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.dust;
-
 import gregtech.api.GTValues;
 import gregtech.api.recipes.RecipeMaps;
 import net.minecraft.init.Blocks;
+
+import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
+import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
 
 public class DragonEggRecipes {
 
