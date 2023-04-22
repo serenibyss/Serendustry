@@ -26,6 +26,7 @@ import static gregtech.loaders.recipe.CraftingComponent.*;
 @Mod.EventBusSubscriber(modid = Dandustry.ID)
 public class DandustryEventHandler {
 
+    // todo remove
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void registerAllowedLaboratoryMachines(RegistryEvent.Register<IRecipe> event) {
         LaboratoryProperty.registerLaboratoryMachine(MetaTileEntities.CHEMICAL_REACTOR);

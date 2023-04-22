@@ -1,20 +1,18 @@
 package dandustry.machine;
 
+import com.google.common.collect.ImmutableTable;
 import dandustry.machine.LaboratoryProperty.LaboratoryEntry;
-import gregtech.api.GregTechAPI;
-import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipes.RecipeBuilder;
+import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.recipeproperties.CleanroomProperty;
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
-import gregtech.api.recipes.recipeproperties.RecipePropertyStorage;
-import gregtech.api.util.EnumValidationResult;
-import gregtech.api.util.GTLog;
-import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class LaboratoryRecipeBuilder extends RecipeBuilder<LaboratoryRecipeBuilder> {
+
+    private final ImmutableTable.Builder<RecipeMap<?>, Integer, Integer> internalBuilder = ImmutableTable.builder();
 
     public LaboratoryRecipeBuilder() {
     }
@@ -31,12 +29,29 @@ public class LaboratoryRecipeBuilder extends RecipeBuilder<LaboratoryRecipeBuild
     @Override
     public boolean applyProperty(@Nonnull String key, @Nullable Object value) {
         if (key.equals(LaboratoryProperty.KEY)) {
-            if (value instanceof MetaTileEntity) {
-                this.requireInside((MetaTileEntity) value);
-            } else if (value instanceof String) {
-                this.requireInside(GregTechAPI.MTE_REGISTRY.getObject(new ResourceLocation((String) value)));
-            } else {
-                return this.applyProperty(CleanroomProperty.getInstance(), value);
+            if (value instanceof LaboratoryEntry) {
+                return applyProperty(LaboratoryProperty.getInstance(), value);
+            }
+            if (value instanceof String) { // from GrS or CT
+                String[] stringPair = ((String) value).split(",");
+                if (stringPair.length == 2 || stringPair.length == 3) {
+                    RecipeMap<?> map = RecipeMap.getByName(stringPair[0].trim());
+                    if (map == null) return false;
+                    int tier;
+                    try {
+                        tier = Integer.parseInt(stringPair[1].trim());
+                    } catch (NumberFormatException e) {
+                        return false;
+                    }
+                    int amount = 1;
+                    if (stringPair.length == 3) {
+                        try {
+                            amount = Integer.parseInt(stringPair[2].trim());
+                        } catch (NumberFormatException ignored) {}
+                    }
+                    this.requireInside(map, tier, amount);
+                    return true;
+                } else return false;
             }
         }
         if (key.equals(CleanroomProperty.KEY)) return false; // this should not be in the cleanroom,
@@ -45,36 +60,22 @@ public class LaboratoryRecipeBuilder extends RecipeBuilder<LaboratoryRecipeBuild
 
     @Override
     public boolean applyProperty(@Nonnull RecipeProperty<?> property, @Nullable Object value) {
-        if (property == LaboratoryProperty.getInstance()) {
-            if (value == null) {
-                if (this.recipePropertyStorage != null) {
-                    return this.recipePropertyStorage.remove(property);
-                }
-            } else {
-                if (this.recipePropertyStorage == null) {
-                    this.recipePropertyStorage = new RecipePropertyStorage();
-                }
-                // dont use the default value here as it will log a warning in some cases
-                LaboratoryEntry entry = this.recipePropertyStorage.getRecipePropertyValue(LaboratoryProperty.getInstance(), null);
-                if (entry == null) {
-                    boolean stored = this.recipePropertyStorage.store(LaboratoryProperty.getInstance(), value);
-                    if (!stored) {
-                        this.recipePropertyStorageErrored = true;
-                    }
-                    return stored;
-                } else entry.merge((LaboratoryEntry) value);
-            }
-            return true;
-        }
+        if (property == CleanroomProperty.getInstance()) return false; // this should not be in the cleanroom
         return super.applyProperty(property, value);
     }
 
-    public LaboratoryRecipeBuilder requireInside(MetaTileEntity machine) {
-        if (!LaboratoryProperty.isMachineAllowed(machine)) {
-            GTLog.logger.error("Invalid machine attempted to be added to Industrial Laboratory Recipe! Machine: {}", machine.metaTileEntityId, new IllegalArgumentException());
-            recipeStatus = EnumValidationResult.INVALID;
-        }
-        this.applyProperty(LaboratoryProperty.getInstance(), new LaboratoryEntry(machine));
+    @Override
+    public void buildAndRegister() {
+        super.applyProperty(LaboratoryProperty.getInstance(), new LaboratoryEntry(internalBuilder));
+        super.buildAndRegister();
+    }
+
+    public LaboratoryRecipeBuilder requireInside(@Nonnull RecipeMap<?> map, int tier, int amount) {
+        internalBuilder.put(map, tier, amount);
         return this;
+    }
+
+    public LaboratoryRecipeBuilder requireInside(@Nonnull RecipeMap<?> map, int tier) {
+        return requireInside(map, tier, 1);
     }
 }
