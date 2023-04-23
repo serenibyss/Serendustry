@@ -5,7 +5,7 @@ import gregtech.api.recipes.RecipeMaps;
 import static dandustry.item.DandustryMaterials.*;
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.V;
-import static gregtech.api.unification.material.Materials.Water;
+import static gregtech.api.unification.material.Materials.*;
 
 public class PlasmaFuels {
 
@@ -56,6 +56,69 @@ public class PlasmaFuels {
                 .fluidInputs(RedMatter.getPlasma(1))
                 .fluidOutputs(RedMatter.getFluid(1))
                 .duration(72)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Flerovium.getPlasma(1))
+                .fluidOutputs(Flerovium.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Phosphorus.getPlasma(1))
+                .fluidOutputs(Phosphorus.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Protactinium.getPlasma(1))
+                .fluidOutputs(Protactinium.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Redstone.getPlasma(1))
+                .fluidOutputs(Redstone.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Glass.getPlasma(1))
+                .fluidOutputs(Glass.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Lead.getPlasma(1))
+                .fluidOutputs(Lead.getFluid(1))
+                .duration(32)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Periodicium.getPlasma(1))
+                .fluidOutputs(Periodicium.getFluid(1))
+                .duration(48)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Infinity.getPlasma(1))
+                .fluidOutputs(Infinity.getFluid(1))
+                .duration(48)
+                .EUt((int) V[EV])
+                .buildAndRegister();
+
+        RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
+                .fluidInputs(Shirabon.getPlasma(1))
+                .fluidOutputs(Shirabon.getFluid(1))
+                .duration(64)
                 .EUt((int) V[EV])
                 .buildAndRegister();
     }

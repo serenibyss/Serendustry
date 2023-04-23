@@ -13,6 +13,7 @@ public class DandustryRecipes {
         MiscRecipes.init();
         PeriodiciumChain.init();
         PlasmaFuels.init();
+        PlasmaMixerRecipes.init();
         RadoxChain.init();
         SmallFusionReactorRecipes.init();
         WasteFluidRecipes.init();

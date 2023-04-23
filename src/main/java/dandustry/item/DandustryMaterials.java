@@ -108,10 +108,14 @@ public class DandustryMaterials {
 
     public static Material PartialNobleGases;
     public static Material NobleGases;
-    public static Material SuperheavyLAlloy;
-    public static Material SuperheavyHAlloy;
+    public static Material PartialSuperheavies;
+    public static Material Superheavies;
     public static Material Periodicium;
     public static Material MultiversalAlloy;
+    public static Material TransCataCrude;
+    public static Material TransCataExcited;
+    public static Material TransCataResplendent;
+    public static Material TransResidue;
 
     public static void registerMaterials() {
 
@@ -232,10 +236,19 @@ public class DandustryMaterials {
 
         Lutetium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
-        Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
-
         Sodium.setProperty(PropertyKey.FLUID, new FluidProperty());
         Bromine.setProperty(PropertyKey.FLUID, new FluidProperty());
+        Flerovium.setProperty(PropertyKey.FLUID, new FluidProperty());
+        Phosphorus.setProperty(PropertyKey.FLUID, new FluidProperty());
+        Protactinium.setProperty(PropertyKey.FLUID, new FluidProperty());
+
+        Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+        Flerovium.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+        Phosphorus.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+        Protactinium.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+        Redstone.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+        Glass.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
+        Lead.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
 
         TinAlloy.addFlags(GENERATE_FINE_WIRE, GENERATE_FOIL);
         Oxygen.addFlags(GENERATE_FOIL);
@@ -579,7 +592,7 @@ public class DandustryMaterials {
                 .setFormula("If");
 
         Infinity = new Material.Builder(19038, "infinity")
-                .ingot(3).fluid()
+                .ingot(3).fluid().plasma()
                 .color(0xFFFFFF).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE)
                 .components(InfinityCatalyst, 1)
@@ -612,7 +625,7 @@ public class DandustryMaterials {
         AwakenedDraconium = new Material.Builder(19041, "awakened_draconium")
                 .ingot(3).fluid()
                 .color(0xDD520C).iconSet(BRIGHT)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_DENSE)
                 .components(Draconium, 1)
                 .blastTemp(8950, GasTier.HIGHEST, VA[UIV], 8500)
                 .fluidTemp(65000)
@@ -694,9 +707,9 @@ public class DandustryMaterials {
                 .color(0x00D1FF).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_ROUND, GENERATE_RING, GENERATE_BOLT_SCREW)
                 .components(Water, 1)
+                .fluidTemp(1)
                 .fluidPipeProperties(800000, 15000, true, true, true, true)
                 .blastTemp(273, GasTier.HIGHEST, VA[UXV], 2000)
-                .fluidTemp(0)
                 .build()
                 .setFormula("(SpH2O)", true);
 
@@ -821,7 +834,7 @@ public class DandustryMaterials {
         Floppa = new Material.Builder(19067, "floppa")
                 .ingot(3).fluid()
                 .color(0x9E5625).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_DENSE)
+                .flags(STD_METAL, GENERATE_DENSE, GENERATE_LONG_ROD, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_FOIL)
                 .components(Flerovium, 1, Oxygen, 1, Phosphorus, 1, Protactinium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 50000)
                 .fluidTemp(800000)
@@ -870,10 +883,11 @@ public class DandustryMaterials {
                 .build();
 
         Shirabon = new Material.Builder(19075, "shirabon")
-                .ingot(3).fluid()
+                .ingot(3).fluid().plasma()
                 .color(0xE0156D).iconSet(BRIGHT)
-                .flags(STD_METAL, GENERATE_SPRING)
+                .flags(STD_METAL, GENERATE_SPRING, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_ROTOR, GENERATE_ROUND, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_FRAME, GENERATE_FOIL, GENERATE_LONG_ROD)
                 .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 30000)
+                .fluidPipeProperties(3200000, 40000, true, true, true, true)
                 .fluidTemp(600000)
                 .build()
                 .setFormula("Sh");
@@ -902,7 +916,7 @@ public class DandustryMaterials {
                 .build();
 
         OmniversalRedstone = new Material.Builder(19079, "omniversal_redstone")
-                .dust()
+                .dust().fluid()
                 .color(0xD13830)
                 .build();
 
@@ -1046,29 +1060,29 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        SuperheavyLAlloy = new Material.Builder(19096, "superheavy_l_alloy")
+        PartialSuperheavies = new Material.Builder(19096, "partial_superheavies")
                 .ingot(3).fluid()
                 .color(0xCC0A00).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Nobelium, 1, Lawrencium, 1, Rutherfordium, 1, Dubnium, 1, Seaborgium, 1, Bohrium, 1, Hassium, 1, Meitnerium, 1)
+                .components(Nobelium, 1, Lawrencium, 1, Rutherfordium, 1, Dubnium, 1, Seaborgium, 1, Bohrium, 1, Hassium, 1, Meitnerium, 1, Darmstadtium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
-        SuperheavyHAlloy = new Material.Builder(19097, "superheavy_h_alloy")
+        Superheavies = new Material.Builder(19097, "superheavies")
                 .ingot(3).fluid()
-                .color(0x223388).iconSet(SHINY)
+                .color(0xCC0A00).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Darmstadtium, 1, Roentgenium, 1, Copernicium, 1, Nihonium, 1, Flerovium, 1, Moscovium, 1, Livermorium, 1, Tennessine, 1, Oganesson, 1)
+                .components(PartialSuperheavies, 1, Roentgenium, 1, Copernicium, 1, Nihonium, 1, Flerovium, 1, Moscovium, 1, Livermorium, 1, Tennessine, 1, Oganesson, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
         Periodicium = new Material.Builder(19098, "periodicium")
-                .ingot(3).fluid()
+                .ingot(3).fluid().plasma()
                 .color(0x1111FF).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Alkalis, 1, RefractoryMetals, 1, LightTransitionMetals, 1, PreciousMetals, 1, PostTransitionMetals, 1, Lanthanoids, 1, Actinoids, 1, SuperheavyLAlloy, 1, SuperheavyHAlloy, 1, Gases, 1, NonMetals, 1, NobleGases, 1)
+                .components(Alkalis, 1, RefractoryMetals, 1, LightTransitionMetals, 1, PreciousMetals, 1, PostTransitionMetals, 1, Lanthanoids, 1, Actinoids, 1, Superheavies, 1, Gases, 1, NonMetals, 1, NobleGases, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
@@ -1077,9 +1091,33 @@ public class DandustryMaterials {
                 .ingot(3).fluid()
                 .color(0xE04A2C).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
-                .components(Infinity, 5, Quantium, 3, ScOpv, 2, StellarAlloy, 2, ScUxv, 1, Quantum, 1, Actinoids, 1, Lanthanoids, 1, Periodicium, 1)
+                .components(Infinity, 5, Shirabon, 3, ScOpv, 2, StellarAlloy, 2, ScUxv, 1, Quantum, 1, Actinoids, 1, Lanthanoids, 1, Periodicium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 16000)
                 .fluidTemp(130000)
+                .build();
+
+        TransCataCrude = new Material.Builder(19100, "trans_cata_crude")
+                .fluid()
+                .color(0x631B45)
+                .fluidTemp(800000)
+                .build();
+
+        TransCataExcited = new Material.Builder(19101, "trans_cata_excited")
+                .fluid()
+                .color(0xD88842)
+                .fluidTemp(2400000)
+                .build();
+
+        TransCataResplendent = new Material.Builder(19102, "trans_cata_resplendent")
+                .fluid()
+                .color(0x4CFF71)
+                .fluidTemp(3200000)
+                .build();
+
+        TransResidue = new Material.Builder(19103, "trans_residue")
+                .fluid()
+                .color(0x4944AF)
+                .fluidTemp(2800000)
                 .build();
     }
 }

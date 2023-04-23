@@ -39,10 +39,5 @@ public class LargeAlloySmelterRecipes {
                 .fluidInputs(InfinityCatalyst.getFluid(128)).fluidInputs(TastyNeutronium.getFluid(64))
                 .fluidOutputs(Infinity.getFluid(32))
                 .duration(400).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
-
-        FUSION_RECIPES.recipeBuilder()
-                .fluidInputs(Infinity.getFluid(64)).fluidInputs(Quantium.getFluid(128))
-                .fluidOutputs(Shirabon.getFluid(32))
-                .duration(600).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
     }
 }

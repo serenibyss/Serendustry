@@ -277,7 +277,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
-                .input(plate, SuperheavyLAlloy, 4)
+                .input(plate, Superheavies, 8)
                 .input(ring, Teflon, 48)
                 .input(SUPREME_SMD_RESISTOR, 24)
                 .input(SUPREME_SMD_TRANSISTOR, 24)
@@ -298,7 +298,7 @@ public class MagnetoResonaticRecipes {
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
                 .input(wireFine, TinAlloy, 64)
-                .input(plate, SuperheavyHAlloy, 6)
+                .input(plate, Periodicium, 8)
                 .input(ring, Teflon, 64)
                 .input(SUPREME_SMD_RESISTOR, 32)
                 .input(SUPREME_SMD_TRANSISTOR, 32)
@@ -308,6 +308,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(MagnetoResonatic.getFluid(144 * 64))
                 .fluidInputs(TinAlloy.getFluid(144 * 32))
                 .fluidInputs(animalWaste.getFluid(144 * 24))
+                .fluidInputs(Periodicium.getFluid(144 * 8))
                 .output(MAGNETO_RESONATIC_OpV)
                 .duration(2500).EUt(VA[MAX]).buildAndRegister();
 
@@ -315,7 +316,7 @@ public class MagnetoResonaticRecipes {
                 .input(frameGt, MultiversalAlloy)
                 .input(COSMIC_CIRCUIT_BOARD)
                 .input(MAGNETO_RESONATIC_OpV)
-                .input(plate, Periodicium, 4)
+                .input(plate, Floppa, 2)
                 .input(plate, MultiversalAlloy, 8)
                 .input(RESONANCE_CHIP, 64)
                 .input(wireFine, TinAlloy, 64)
@@ -331,7 +332,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(MagnetoResonatic.getFluid(144 * 128))
                 .fluidInputs(TinAlloy.getFluid(144 * 64))
                 .fluidInputs(animalWaste.getFluid(144 * 64))
-                .fluidInputs(Shirabon.getFluid(144 * 8))
+                .fluidInputs(Shirabon.getFluid(144 * 4))
                 .output(MAGNETO_RESONATIC_MAX)
                 .duration(5000).EUt(VA[MAX]).buildAndRegister();
     }

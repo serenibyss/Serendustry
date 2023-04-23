@@ -5,13 +5,14 @@ import gregtech.api.GTValues;
 import static dandustry.item.DandustryMaterials.*;
 import static dandustry.item.DandustryMetaItems.QUANTIUM_STAR;
 import static dandustry.item.DandustryMetaItems.QUANTUM_ANOMALY;
+import static dandustry.machine.DandustryMetaTileEntities.TRANSCENDENT_PLASMA_MIXER;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.dust;
-import static gregtech.api.unification.ore.OrePrefix.gem;
-import static gregtech.common.items.MetaItems.GRAVI_STAR;
+import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.common.items.MetaItems.*;
+import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 
 public class MiscRecipes {
 
@@ -66,5 +67,73 @@ public class MiscRecipes {
                 .fluidInputs(Quantium.getFluid(1250))
                 .output(QUANTIUM_STAR)
                 .duration(1920).EUt(VA[UXV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Infinity.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Infinity.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Periodicium.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Periodicium.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Shirabon.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Shirabon.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Flerovium.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Flerovium.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Phosphorus.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Phosphorus.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Protactinium.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Protactinium.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Redstone.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Redstone.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Glass.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Glass.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        BLAST_RECIPES.recipeBuilder()
+                .fluidInputs(Lead.getFluid(100), LiquidHelium.getFluid(100))
+                .fluidOutputs(Lead.getPlasma(100), Helium.getPlasma(100))
+                .blastFurnaceTemp(10800)
+                .duration(100).EUt(VA[UHV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UXV])
+                .input(FIELD_GENERATOR_UXV)
+                .input(ROBOT_ARM_UXV, 2)
+                .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 64)
+                .input(plateDense, AwakenedDraconium, 2)
+                .input(plateDouble, CrystalMatrix, 8)
+                .input(wireGtQuadruple, Bedrockium, 8)
+                .fluidInputs(MutatedLivingSolder.getFluid(4608))
+                .fluidInputs(OmniversalLubricant.getPlasma(16000))
+                .fluidInputs(RadoxPolymer.getFluid(4608))
+                .output(TRANSCENDENT_PLASMA_MIXER)
+                .duration(1600).EUt(VA[OpV]).buildAndRegister();
     }
 }
