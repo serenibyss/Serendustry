@@ -184,11 +184,12 @@ public class PeriodiciumChain {
                 .input(dust, Bohrium)
                 .input(dust, Hassium)
                 .input(dust, Meitnerium)
-                .output(dust, SuperheavyLAlloy)
+                .input(dust, Darmstadtium)
+                .output(dust, PartialSuperheavies)
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(180).EUt(250000)
-                .input(dust, Darmstadtium)
+                .input(dust, PartialSuperheavies)
                 .input(dust, Roentgenium)
                 .input(dust, Copernicium)
                 .input(dust, Nihonium)
@@ -197,7 +198,7 @@ public class PeriodiciumChain {
                 .input(dust, Livermorium)
                 .input(dust, Tennessine)
                 .input(dust, Oganesson)
-                .output(dust, SuperheavyHAlloy)
+                .output(dust, Superheavies)
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(360).EUt(5400000)
@@ -208,9 +209,9 @@ public class PeriodiciumChain {
                 .input(dust, PostTransitionMetals)
                 .input(dust, Lanthanoids)
                 .input(dust, Actinoids)
-                .input(dust, SuperheavyLAlloy)
-                .input(dust, SuperheavyHAlloy)
-                .fluidInputs(Gases.getFluid(144), NonMetals.getFluid(144), NobleGases.getFluid(144))
+                .input(dust, Superheavies)
+                .input(dust, Gases)
+                .fluidInputs(NonMetals.getFluid(144), NobleGases.getFluid(144), TransCataCrude.getFluid(500))
                 .output(dust, Periodicium)
                 .buildAndRegister();
     }

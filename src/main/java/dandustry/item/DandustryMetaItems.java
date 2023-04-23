@@ -42,6 +42,14 @@ public class DandustryMetaItems {
     public static MetaItem<?>.MetaValueItem SUPREME_SMD_INDUCTOR;
     public static MetaItem<?>.MetaValueItem QUANTUM_ANOMALY;
     public static MetaItem<?>.MetaValueItem QUANTIUM_STAR;
+    public static MetaItem<?>.MetaValueItem ELECTRIC_MOTOR_MAX;
+    public static MetaItem<?>.MetaValueItem CONVEYOR_MODULE_MAX;
+    public static MetaItem<?>.MetaValueItem ELECTRIC_PUMP_MAX;
+    public static MetaItem<?>.MetaValueItem ELECTRIC_PISTON_MAX;
+    public static MetaItem<?>.MetaValueItem ROBOT_ARM_MAX;
+    public static MetaItem<?>.MetaValueItem FIELD_GENERATOR_MAX;
+    public static MetaItem<?>.MetaValueItem SENSOR_MAX;
+    public static MetaItem<?>.MetaValueItem EMITTER_MAX;
 
     public static void preInit() {
         items = new StandardMetaItem();
@@ -79,5 +87,13 @@ public class DandustryMetaItems {
         SUPREME_SMD_INDUCTOR = items.addItem(27, "supreme_smd_inductor");
         QUANTUM_ANOMALY = items.addItem(28, "quantum_anomaly");
         QUANTIUM_STAR = items.addItem(29, "quantium_star");
+        ELECTRIC_MOTOR_MAX = items.addItem(30, "electric_motor_max");
+        CONVEYOR_MODULE_MAX = items.addItem(31, "conveyor_module_max");
+        ELECTRIC_PUMP_MAX = items.addItem(32, "electric_pump_max");
+        ELECTRIC_PISTON_MAX = items.addItem(33, "electric_piston_max");
+        ROBOT_ARM_MAX = items.addItem(34, "robot_arm_max");
+        FIELD_GENERATOR_MAX = items.addItem(35, "field_generator_max");
+        SENSOR_MAX = items.addItem(36, "sensor_max");
+        EMITTER_MAX = items.addItem(37, "emitter_max");
     }
 }
