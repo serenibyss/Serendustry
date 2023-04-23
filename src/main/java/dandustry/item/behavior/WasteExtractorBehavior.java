@@ -1,6 +1,6 @@
 package dandustry.item.behavior;
 
-import dandustry.Dandustry;
+import dandustry.item.DandustryMetaItems;
 import gregtech.api.items.metaitem.stats.IItemBehaviour;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityCow;
@@ -13,7 +13,7 @@ public class WasteExtractorBehavior implements IItemBehaviour {
     @Override
     public boolean onLeftClickEntity(ItemStack itemStack, EntityPlayer player, Entity entity) {
         if (entity instanceof EntityCow) { // todo just a test?
-            player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, Dandustry.wasteFluidExtractorFilled.getStackForm());
+            player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, DandustryMetaItems.wasteFluidExtractorFilled.getStackForm());
         }
         // false because this will still apply the "hit"
         return false;

@@ -21,7 +21,7 @@ public class LargeAlloySmelterRecipes {
                 .duration(100).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
         FUSION_RECIPES.recipeBuilder()
-                .fluidInputs(Aluminium.getFluid(128)).fluidInputs(Neutronium.getFluid(128))
+                .fluidInputs(Aluminium.getFluid(512)).fluidInputs(Neutronium.getFluid(64))
                 .fluidOutputs(Aluminum.getFluid(64))
                 .duration(200).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
@@ -31,12 +31,12 @@ public class LargeAlloySmelterRecipes {
                 .duration(260).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
         FUSION_RECIPES.recipeBuilder()
-                .fluidInputs(ChargedDraconium.getFluid(64)).fluidInputs(TastyNeutronium.getFluid(64))
+                .fluidInputs(ChargedDraconium.getFluid(64)).fluidInputs(TastyNeutronium.getFluid(32))
                 .fluidOutputs(AwakenedDraconium.getFluid(32))
                 .duration(260).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
         FUSION_RECIPES.recipeBuilder()
-                .fluidInputs(InfinityCatalyst.getFluid(128)).fluidInputs(TastyNeutronium.getFluid(128))
+                .fluidInputs(InfinityCatalyst.getFluid(128)).fluidInputs(TastyNeutronium.getFluid(64))
                 .fluidOutputs(Infinity.getFluid(32))
                 .duration(400).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 

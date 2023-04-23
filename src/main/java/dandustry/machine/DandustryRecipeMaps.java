@@ -10,7 +10,7 @@ public class DandustryRecipeMaps {
 
     public static void preInit() {
         RecipeMaps.MIXER_RECIPES.setMaxInputs(9);
-        RecipeMaps.MIXER_RECIPES.setMaxFluidInputs(6);
+        RecipeMaps.MIXER_RECIPES.setMaxFluidInputs(3);
         RecipeMaps.CENTRIFUGE_RECIPES.setMaxOutputs(9);
         RecipeMaps.BLAST_RECIPES.setMaxFluidInputs(2);
         RecipeMaps.BLAST_RECIPES.setMaxFluidOutputs(2);

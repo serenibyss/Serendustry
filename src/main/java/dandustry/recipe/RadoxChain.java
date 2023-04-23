@@ -1,7 +1,6 @@
 package dandustry.recipe;
 
 import gregtech.api.GTValues;
-import gregtech.api.recipes.RecipeMaps;
 
 import static dandustry.item.DandustryMaterials.*;
 import static dandustry.machine.DandustryRecipeMaps.LABORATORY_RECIPES;
@@ -15,12 +14,11 @@ public class RadoxChain {
 
     public static void init() {
 
-        LABORATORY_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, Iridium, 16)
                 .input(dust, Osmium, 16)
                 .fluidInputs(Oil.getFluid(1000))
                 .fluidOutputs(Xenoxene.getFluid(250))
-                .requireInside(RecipeMaps.CHEMICAL_RECIPES, GTValues.UV, 1)
                 .duration(80).EUt(VA[UV]).buildAndRegister();
 
         DISTILLERY_RECIPES.recipeBuilder()
@@ -66,10 +64,11 @@ public class RadoxChain {
                 .duration(3200).EUt(VA[UV]).buildAndRegister();
 
         LABORATORY_RECIPES.recipeBuilder()
-                .input(dust, Amogus, 4)
+                .input(dust, Amogus, 4).input(dust, TinAlloy, 4)
                 .fluidInputs(PurifiedRadox.getFluid(144), Argon.getPlasma(500))
                 .fluidOutputs(RadoxPolymer.getFluid(144))
-                .requireInside(RecipeMaps.CHEMICAL_RECIPES, GTValues.UV, 1)
+                .requireInside(CHEMICAL_RECIPES, GTValues.UV, 1)
+                .requireInside(CHEMICAL_BATH_RECIPES, GTValues.UV, 1)
                 .duration(1600).EUt(VA[UV]).buildAndRegister();
     }
 }
