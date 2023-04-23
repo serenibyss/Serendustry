@@ -112,7 +112,7 @@ public class HTMachineRecipes {
                 .input(spring, Lafium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
                 .input(circuit, MarkerMaterials.Tier.UEV)
-                .input(wireGtDouble, MagnetoResonaticCinobitePikyoniumAluminum, 2)
+                .input(wireGtDouble, ScUev, 2)
                 .fluidInputs(SodiumPotassium.getFluid(18000))
                 .fluidInputs(MutatedLivingSolder.getFluid(576))
                 .output(ENERGY_OUTPUT_HATCH[GTValues.UEV])
@@ -123,7 +123,7 @@ public class HTMachineRecipes {
                 .input(spring, Signalium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 8)
                 .input(circuit, MarkerMaterials.Tier.UIV)
-                .input(wireGtDouble, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase, 2)
+                .input(wireGtDouble, ScUiv, 2)
                 .fluidInputs(SodiumPotassium.getFluid(24000))
                 .fluidInputs(MutatedLivingSolder.getFluid(1152))
                 .output(ENERGY_OUTPUT_HATCH[GTValues.UIV])
@@ -134,7 +134,7 @@ public class HTMachineRecipes {
                 .input(spring, Bedrockium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 16)
                 .input(circuit, MarkerMaterials.Tier.UXV)
-                .input(wireGtDouble, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 2)
+                .input(wireGtDouble, ScUxv, 2)
                 .fluidInputs(SodiumPotassium.getFluid(32000))
                 .fluidInputs(MutatedLivingSolder.getFluid(2304))
                 .output(ENERGY_OUTPUT_HATCH[GTValues.UXV])
@@ -145,7 +145,7 @@ public class HTMachineRecipes {
                 .input(spring, Quantium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 32)
                 .input(circuit, MarkerMaterials.Tier.OpV)
-                .input(wireGtDouble, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2)
+                .input(wireGtDouble, ScOpv, 2)
                 .fluidInputs(SodiumPotassium.getFluid(64000))
                 .fluidInputs(MutatedLivingSolder.getFluid(4608))
                 .output(ENERGY_OUTPUT_HATCH[GTValues.OpV])
@@ -158,7 +158,7 @@ public class HTMachineRecipes {
                 .input(cableGtSingle, Lafium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
                 .input(circuit, MarkerMaterials.Tier.UEV)
-                .input(wireGtDouble, MagnetoResonaticCinobitePikyoniumAluminum, 2)
+                .input(wireGtDouble, ScUev, 2)
                 .fluidInputs(SodiumPotassium.getFluid(18000))
                 .fluidInputs(MutatedLivingSolder.getFluid(576))
                 .output(ENERGY_INPUT_HATCH[GTValues.UEV])
@@ -169,7 +169,7 @@ public class HTMachineRecipes {
                 .input(cableGtSingle, Signalium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 8)
                 .input(circuit, MarkerMaterials.Tier.UIV)
-                .input(wireGtDouble, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase, 2)
+                .input(wireGtDouble, ScUiv, 2)
                 .fluidInputs(SodiumPotassium.getFluid(24000))
                 .fluidInputs(MutatedLivingSolder.getFluid(1152))
                 .output(ENERGY_INPUT_HATCH[GTValues.UIV])
@@ -180,7 +180,7 @@ public class HTMachineRecipes {
                 .input(cableGtSingle, Bedrockium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 16)
                 .input(circuit, MarkerMaterials.Tier.UXV)
-                .input(wireGtDouble, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 2)
+                .input(wireGtDouble, ScUxv, 2)
                 .fluidInputs(SodiumPotassium.getFluid(32000))
                 .fluidInputs(MutatedLivingSolder.getFluid(2304))
                 .output(ENERGY_INPUT_HATCH[GTValues.UXV])
@@ -191,7 +191,7 @@ public class HTMachineRecipes {
                 .input(cableGtSingle, Quantium, 4)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 32)
                 .input(circuit, MarkerMaterials.Tier.OpV)
-                .input(wireGtDouble, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2)
+                .input(wireGtDouble, ScOpv, 2)
                 .fluidInputs(SodiumPotassium.getFluid(64000))
                 .fluidInputs(MutatedLivingSolder.getFluid(4608))
                 .output(ENERGY_INPUT_HATCH[GTValues.OpV])
@@ -206,7 +206,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Europium)
                 .input(springSmall, Europium)
                 .input(spring, Lafium)
-                .fluidInputs(OmniversalLubricant.getFluid(1000))
+                .fluidInputs(OmniversalLubricant.getPlasma(1000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UHV])
                 .duration(200).EUt(VA[GTValues.UHV]).buildAndRegister();
 
@@ -217,7 +217,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Lafium)
                 .input(springSmall, Lafium)
                 .input(spring, Signalium)
-                .fluidInputs(OmniversalLubricant.getFluid(2000))
+                .fluidInputs(OmniversalLubricant.getPlasma(2000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UEV])
                 .duration(200).EUt(VA[GTValues.UEV]).buildAndRegister();
 
@@ -228,7 +228,7 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Signalium)
                 .input(springSmall, Signalium)
                 .input(spring, Bedrockium)
-                .fluidInputs(OmniversalLubricant.getFluid(4000))
+                .fluidInputs(OmniversalLubricant.getPlasma(4000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UIV])
                 .duration(200).EUt(VA[GTValues.UIV]).buildAndRegister();
 
@@ -239,18 +239,18 @@ public class HTMachineRecipes {
                 .input(wireGtOctal, Bedrockium)
                 .input(springSmall, Bedrockium)
                 .input(spring, Quantium)
-                .fluidInputs(OmniversalLubricant.getFluid(8000))
+                .fluidInputs(OmniversalLubricant.getPlasma(8000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.UXV])
                 .duration(200).EUt(VA[GTValues.UXV]).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(TRANSFORMER[GTValues.OpV])
                 .input(ELECTRIC_PUMP_ZPM)
-                .input(wireGtQuadruple, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus)
+                .input(wireGtQuadruple, ScOpv)
                 .input(wireGtOctal, Quantium)
                 .input(springSmall, Quantium)
-                .input(spring, Infinity)
-                .fluidInputs(OmniversalLubricant.getFluid(16000))
+                .input(spring, Shirabon)
+                .fluidInputs(OmniversalLubricant.getPlasma(16000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.OpV])
                 .duration(200).EUt(VA[GTValues.OpV]).buildAndRegister();
 
@@ -269,7 +269,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH[GTValues.UEV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
-                .input(wireGtDouble, MagnetoResonaticCinobitePikyoniumAluminum)
+                .input(wireGtDouble, ScUev)
                 .input(wireGtQuadruple, Lafium, 2)
                 .output(ENERGY_INPUT_HATCH_4A[6])
                 .duration(100).EUt(VA[GTValues.UHV]).buildAndRegister();
@@ -277,7 +277,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH[GTValues.UIV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
-                .input(wireGtDouble, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase)
+                .input(wireGtDouble, ScUiv)
                 .input(wireGtQuadruple, Signalium, 2)
                 .output(ENERGY_INPUT_HATCH_4A[7])
                 .duration(100).EUt(VA[GTValues.UEV]).buildAndRegister();
@@ -285,7 +285,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH[GTValues.UXV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 8)
-                .input(wireGtDouble, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst)
+                .input(wireGtDouble, ScUxv)
                 .input(wireGtQuadruple, Bedrockium, 2)
                 .output(ENERGY_INPUT_HATCH_4A[8])
                 .duration(100).EUt(VA[GTValues.UIV]).buildAndRegister();
@@ -293,7 +293,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH[GTValues.OpV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 16)
-                .input(wireGtDouble, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus)
+                .input(wireGtDouble, ScOpv)
                 .input(wireGtQuadruple, Bedrockium, 2)
                 .output(ENERGY_INPUT_HATCH_4A[9])
                 .duration(100).EUt(VA[GTValues.UXV]).buildAndRegister();
@@ -303,7 +303,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH_4A[6], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
-                .input(wireGtDouble, MagnetoResonaticCinobitePikyoniumAluminum)
+                .input(wireGtDouble, ScUev)
                 .input(wireGtOctal, Lafium, 2)
                 .output(ENERGY_INPUT_HATCH_16A[5])
                 .duration(200).EUt(VA[GTValues.UHV]).buildAndRegister();
@@ -311,7 +311,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH_4A[7], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 8)
-                .input(wireGtDouble, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase)
+                .input(wireGtDouble, ScUiv)
                 .input(wireGtOctal, Signalium, 2)
                 .output(ENERGY_INPUT_HATCH_16A[6])
                 .duration(200).EUt(VA[GTValues.UEV]).buildAndRegister();
@@ -319,7 +319,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH_4A[8], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 16)
-                .input(wireGtDouble, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst)
+                .input(wireGtDouble, ScUxv)
                 .input(wireGtOctal, Bedrockium, 2)
                 .output(ENERGY_INPUT_HATCH_16A[7])
                 .duration(200).EUt(VA[GTValues.UIV]).buildAndRegister();
@@ -327,7 +327,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_INPUT_HATCH_4A[9], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 32)
-                .input(wireGtDouble, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus)
+                .input(wireGtDouble, ScOpv)
                 .input(wireGtOctal, Quantium, 2)
                 .output(ENERGY_INPUT_HATCH_16A[8])
                 .duration(200).EUt(VA[GTValues.UXV]).buildAndRegister();
@@ -337,7 +337,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH[GTValues.UEV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
-                .input(wireGtDouble, MagnetoResonaticCinobitePikyoniumAluminum)
+                .input(wireGtDouble, ScUev)
                 .input(wireGtQuadruple, Lafium, 2)
                 .output(ENERGY_OUTPUT_HATCH_4A[6])
                 .duration(100).EUt(VA[GTValues.UHV]).buildAndRegister();
@@ -345,7 +345,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH[GTValues.UIV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
-                .input(wireGtDouble, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase)
+                .input(wireGtDouble, ScUiv)
                 .input(wireGtQuadruple, Signalium, 2)
                 .output(ENERGY_OUTPUT_HATCH_4A[7])
                 .duration(100).EUt(VA[GTValues.UEV]).buildAndRegister();
@@ -353,7 +353,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH[GTValues.UXV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 8)
-                .input(wireGtDouble, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst)
+                .input(wireGtDouble, ScUxv)
                 .input(wireGtQuadruple, Bedrockium, 2)
                 .output(ENERGY_OUTPUT_HATCH_4A[8])
                 .duration(100).EUt(VA[GTValues.UIV]).buildAndRegister();
@@ -361,7 +361,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH[GTValues.OpV], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 16)
-                .input(wireGtDouble, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus)
+                .input(wireGtDouble, ScOpv)
                 .input(wireGtQuadruple, Quantium, 2)
                 .output(ENERGY_OUTPUT_HATCH_4A[9])
                 .duration(100).EUt(VA[GTValues.UXV]).buildAndRegister();
@@ -371,7 +371,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH_4A[6], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 4)
-                .input(wireGtDouble, MagnetoResonaticCinobitePikyoniumAluminum)
+                .input(wireGtDouble, ScUev)
                 .input(wireGtOctal, Lafium, 2)
                 .output(ENERGY_OUTPUT_HATCH_16A[5])
                 .duration(200).EUt(VA[GTValues.UHV]).buildAndRegister();
@@ -379,7 +379,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH_4A[7], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 8)
-                .input(wireGtDouble, VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase)
+                .input(wireGtDouble, ScUiv)
                 .input(wireGtOctal, Signalium, 2)
                 .output(ENERGY_OUTPUT_HATCH_16A[6])
                 .duration(200).EUt(VA[GTValues.UEV]).buildAndRegister();
@@ -387,7 +387,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH_4A[8], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 16)
-                .input(wireGtDouble, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst)
+                .input(wireGtDouble, ScUxv)
                 .input(wireGtOctal, Bedrockium, 2)
                 .output(ENERGY_OUTPUT_HATCH_16A[7])
                 .duration(200).EUt(VA[GTValues.UIV]).buildAndRegister();
@@ -395,7 +395,7 @@ public class HTMachineRecipes {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENERGY_OUTPUT_HATCH_4A[9], 2)
                 .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 32)
-                .input(wireGtDouble, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus)
+                .input(wireGtDouble, ScOpv)
                 .input(wireGtOctal, Quantium, 2)
                 .output(ENERGY_OUTPUT_HATCH_16A[8])
                 .duration(200).EUt(VA[GTValues.UXV]).buildAndRegister();

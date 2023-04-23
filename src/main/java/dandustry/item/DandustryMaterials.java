@@ -35,7 +35,7 @@ public class DandustryMaterials {
     public static Material CubicZirconia;
     public static Material MagnetoResonatic;
     public static Material HighDurabilityCompoundSteel;
-    public static Material MagnetoResonaticCinobitePikyoniumAluminum;
+    public static Material ScUev;
     public static Material TastyNeutronium;
     public static Material Luminessence;
     public static Material Lumiium;
@@ -46,7 +46,7 @@ public class DandustryMaterials {
     public static Material EnergeticAlloy;
     public static Material VibrantAlloy;
     public static Material StellarAlloy;
-    public static Material VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase;
+    public static Material ScUiv;
     public static Material CrystalMatrix;
     public static Material InfinityCatalyst;
     public static Material Infinity;
@@ -54,7 +54,7 @@ public class DandustryMaterials {
     public static Material ChargedDraconium;
     public static Material AwakenedDraconium;
     public static Material Bedrockium;
-    public static Material ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst;
+    public static Material ScUxv;
     public static Material Jasper;
     public static Material ArceusAlloy2B;
     public static Material AssemblyLine;
@@ -63,7 +63,7 @@ public class DandustryMaterials {
     public static Material CallistoIce;
     public static Material Ledox;
     public static Material NaquadriaticTaranium;
-    public static Material QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus;
+    public static Material ScOpv;
     // EMPTY ID
     public static Material MutatedLivingSolder;
     public static Material Thaumium;
@@ -92,17 +92,24 @@ public class DandustryMaterials {
     public static Material EnrichedTeflon;
     public static Material OmniversalRedstone;
     public static Material OmniversalLubricant;
+    public static Material PartialAlkalis;
     public static Material Alkalis;
     public static Material RefractoryMetals;
     public static Material LightTransitionMetals;
     public static Material PreciousMetals;
+    public static Material PartialPostTransitionMetals;
     public static Material PostTransitionMetals;
+    public static Material PartialLanthanoids;
     public static Material Lanthanoids;
+    public static Material PartialActinoids;
     public static Material Actinoids;
+    public static Material Gases;
+    public static Material NonMetals;
+
+    public static Material PartialNobleGases;
+    public static Material NobleGases;
     public static Material SuperheavyLAlloy;
     public static Material SuperheavyHAlloy;
-    public static Material NonMetals;
-    public static Material NobleGases;
     public static Material Periodicium;
     public static Material MultiversalAlloy;
 
@@ -111,6 +118,7 @@ public class DandustryMaterials {
         // This should probably be a loop, but I never intended for it to get this big; it just kind of slowly grew over time, and now it's too late for me to want to change it
         Oxygen.setProperty(PropertyKey.DUST, new DustProperty());
         Hydrogen.setProperty(PropertyKey.DUST, new DustProperty());
+        Nitrogen.setProperty(PropertyKey.DUST, new DustProperty());
         Water.setProperty(PropertyKey.DUST, new DustProperty());
 
         Rhenium.setProperty(PropertyKey.DUST, new DustProperty());
@@ -166,6 +174,7 @@ public class DandustryMaterials {
         Oganesson.setProperty(PropertyKey.DUST, new DustProperty());
 
         Oxygen.setProperty(PropertyKey.INGOT, new IngotProperty());
+        Nitrogen.setProperty(PropertyKey.INGOT, new IngotProperty());
         Hydrogen.setProperty(PropertyKey.INGOT, new IngotProperty());
         Water.setProperty(PropertyKey.INGOT, new IngotProperty());
 
@@ -226,16 +235,7 @@ public class DandustryMaterials {
         Water.setProperty(PropertyKey.PLASMA, new PlasmaProperty());
 
         Sodium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Rubidium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Caesium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Francium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Polonium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Praseodymium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Ytterbium.setProperty(PropertyKey.FLUID, new FluidProperty());
         Bromine.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Neptunium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Mendelevium.setProperty(PropertyKey.FLUID, new FluidProperty());
-        Einsteinium.setProperty(PropertyKey.FLUID, new FluidProperty());
 
         TinAlloy.addFlags(GENERATE_FINE_WIRE, GENERATE_FOIL);
         Oxygen.addFlags(GENERATE_FOIL);
@@ -244,8 +244,8 @@ public class DandustryMaterials {
         PolyvinylChloride.addFlags(GENERATE_LENS);
 
         animalWaste = new Material.Builder(19000, "animal_waste")
-                .ingot().fluid().color(0x7B5C00)
-                .flags(STD_METAL, GENERATE_LENS)
+                .gem().fluid().color(0x7B5C00)
+                .flags(STD_METAL, NO_SMASHING, NO_SMELTING, GENERATE_LENS)
                 .build();
 
         InfusedGold = new Material.Builder(19001, "infused_gold")
@@ -259,7 +259,7 @@ public class DandustryMaterials {
         FluxedElectrum = new Material.Builder(19002, "fluxed_electrum")
                 .ingot(3).fluid()
                 .color(0xFFE049).iconSet(SHINY)
-                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW)
                 .components(RoseGold, 1, SterlingSilver, 1, Electrum, 2, InfusedGold, 2, Naquadria, 4, SolderingAlloy, 10)
                 .blastTemp(8000, GasTier.HIGHEST, VA[UV], 8000)
                 .cableProperties(VA[UEV], 1, 1536, false, 3)
@@ -305,7 +305,7 @@ public class DandustryMaterials {
                 .build()
                 .setFormula("Tc-22", false);
 
-        Zeron100 = new Material.Builder(19007, "zeron_100")
+        Zeron100 = new Material.Builder(19007, "zeron_100") // GCYM duplicates this
                 .ingot(3).fluid()
                 .color(0xA8A813).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
@@ -447,7 +447,7 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        MagnetoResonaticCinobitePikyoniumAluminum = new Material.Builder(19024, "magneto_resonatic_cinobite_pikyonium_aluminum")
+        ScUev = new Material.Builder(19024, "sc_uev")
                 .ingot().fluid()
                 .color(0x9B46BA).iconSet(BRIGHT)
                 .flags(DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
@@ -549,7 +549,7 @@ public class DandustryMaterials {
                 .fluidTemp(12000)
                 .build();
 
-        VibrantAlloyNaquadriaFluxedElectrumEnderiiumBase = new Material.Builder(19035, "vibrant_alloy_naquadria_fluxed_electrum_enderiium_base")
+        ScUiv = new Material.Builder(19035, "sc_uiv")
                 .ingot(3).fluid()
                 .color(0xFF66A3).iconSet(BRIGHT)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
@@ -581,7 +581,7 @@ public class DandustryMaterials {
         Infinity = new Material.Builder(19038, "infinity")
                 .ingot(3).fluid()
                 .color(0xFFFFFF).iconSet(BRIGHT)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE, GENERATE_SPRING)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE)
                 .components(InfinityCatalyst, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 12000)
                 .fluidTemp(500000)
@@ -631,7 +631,7 @@ public class DandustryMaterials {
                 .fluidTemp(45000)
                 .build();
 
-        ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst = new Material.Builder(19043, "charged_draconium_stellar_alloy_luminessence_infinity_catalyst")
+        ScUxv = new Material.Builder(19043, "sc_uxv")
                 .ingot(3).fluid()
                 .color(0xFF4F4F).iconSet(BRIGHT)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
@@ -719,7 +719,7 @@ public class DandustryMaterials {
                 .fluidTemp(55000)
                 .build();
 
-        QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus = new Material.Builder(19052, "quantum_awakened_draconium_ledox_enderiiium_infinity_naquadriatic_taranium_amogus")
+        ScOpv = new Material.Builder(19052, "sc_opv")
                 .ingot(3).fluid()
                 .color(0x597C8C).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE)
@@ -872,7 +872,7 @@ public class DandustryMaterials {
         Shirabon = new Material.Builder(19075, "shirabon")
                 .ingot(3).fluid()
                 .color(0xE0156D).iconSet(BRIGHT)
-                .flags(STD_METAL)
+                .flags(STD_METAL, GENERATE_SPRING)
                 .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 30000)
                 .fluidTemp(600000)
                 .build()
@@ -911,16 +911,25 @@ public class DandustryMaterials {
                 .color(0x97D344)
                 .build();
 
-        Alkalis = new Material.Builder(19081, "alkalis")
+        PartialAlkalis = new Material.Builder(19081, "partial_alkalis")
                 .ingot(3).fluid()
-                .color(0x75CE6D).iconSet(SHINY)
+                .color(0x643ECD).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Beryllium, 1, Magnesium, 1, Calcium, 1, Strontium, 1, Barium, 1, Radium, 1, Scandium, 1, Yttrium, 1, Lithium, 1, Sodium, 1, Potassium, 1, Rubidium, 1, Caesium, 1, Francium, 1)
+                .components(Lithium, 1, Sodium, 1, Potassium, 1, Rubidium, 1, Caesium, 1, Francium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
-        RefractoryMetals = new Material.Builder(19082, "refractory_metals")
+        Alkalis = new Material.Builder(19082, "alkalis")
+                .ingot(3).fluid()
+                .color(0x75CE6D).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(PartialAlkalis, 1, Beryllium, 1, Magnesium, 1, Calcium, 1, Strontium, 1, Barium, 1, Radium, 1, Scandium, 1, Yttrium, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        RefractoryMetals = new Material.Builder(19083, "refractory_metals")
                 .ingot(3).fluid()
                 .color(0x4141CC).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
@@ -929,7 +938,7 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        LightTransitionMetals = new Material.Builder(19083, "light_transition_metals")
+        LightTransitionMetals = new Material.Builder(19084, "light_transition_metals")
                 .ingot(3).fluid()
                 .color(0xCC9A3D).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
@@ -938,7 +947,7 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        PreciousMetals = new Material.Builder(19084, "precious_metals")
+        PreciousMetals = new Material.Builder(19085, "precious_metals")
                 .ingot(3).fluid()
                 .color(0xCAC9CC).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
@@ -947,34 +956,97 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        PostTransitionMetals = new Material.Builder(19085, "post_transition_metals")
+        PartialPostTransitionMetals = new Material.Builder(19086, "partial_post_transition_metals")
+                .ingot(3).fluid()
+                .color(0xBB6E1A).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(Mercury, 1, Tin, 1, Gallium, 1, Indium, 1, Bismuth, 1, Polonium, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        PostTransitionMetals = new Material.Builder(19087, "post_transition_metals")
                 .ingot(3).fluid()
                 .color(0xCC8F9F).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Zinc, 1, Cadmium, 1, Aluminum, 1, Silicon, 1, Germanium, 1, Antimony, 1, Thallium, 1, Lead, 1, Mercury, 1, Tin, 1, Gallium, 1, Indium, 1, Bismuth, 1, Polonium, 1)
+                .components(PartialPostTransitionMetals, 1, Zinc, 1, Cadmium, 1, Aluminum, 1, Silicon, 1, Germanium, 1, Antimony, 1, Thallium, 1, Lead, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
-        Lanthanoids = new Material.Builder(19086, "lanthanoids")
+        PartialLanthanoids = new Material.Builder(19088, "partial_lanthanoids")
+                .ingot(3).fluid()
+                .color(0x2A82E4).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(Dysprosium, 1, Lanthanum, 1, Cerium, 1, Praseodymium, 1, Neodymium, 1, Europium, 1, Ytterbium, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        Lanthanoids = new Material.Builder(19089, "lanthanoids")
                 .ingot(3).fluid()
                 .color(0x5DCCA3).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Samarium, 1, Gadolinium, 1, Terbium, 1, Thulium, 1, Holmium, 1, Lutetium, 1, Promethium, 1, Erbium, 1, Dysprosium, 1, Lanthanum, 1, Cerium, 1, Praseodymium, 1, Neodymium, 1, Europium, 1, Ytterbium, 1)
+                .components(PartialLanthanoids, 1, Samarium, 1, Gadolinium, 1, Terbium, 1, Thulium, 1, Holmium, 1, Lutetium, 1, Promethium, 1, Erbium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
-        Actinoids = new Material.Builder(19087, "actinoids")
+        PartialActinoids = new Material.Builder(19090, "partial_actinoids")
+                .ingot(3).fluid()
+                .color(0x02B3F2).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(Californium, 1, Neptunium, 1, Plutonium241, 1, Mendelevium, 1, Einsteinium, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        Actinoids = new Material.Builder(19091, "actinoids")
                 .ingot(3).fluid()
                 .color(0xC9CC7A).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Actinium, 1, Thorium, 1, Protactinium, 1, Uranium235, 1, Americium, 1, Curium, 1, Berkelium, 1, Fermium, 1, Californium, 1, Neptunium, 1, Plutonium241, 1, Mendelevium, 1, Einsteinium, 1)
+                .components(PartialActinoids, 1, Actinium, 1, Thorium, 1, Protactinium, 1, Uranium235, 1, Americium, 1, Curium, 1, Berkelium, 1, Fermium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
-        SuperheavyLAlloy = new Material.Builder(19088, "superheavy_l_alloy")
+        Gases = new Material.Builder(19092, "gases")
+                .ingot(3).fluid()
+                .color(0x25CBA8).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(Oxygen, 1, Nitrogen, 1, Hydrogen, 1, Fluorine, 1, Chlorine, 1, Bromine, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        NonMetals = new Material.Builder(19093, "non_metals")
+                .ingot(3).fluid()
+                .color(0xCC2AB9).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(Boron, 1, Carbon, 1, Phosphorus, 1, Sulfur, 1, Arsenic, 1, Selenium, 1, Tellurium, 1, Iodine, 1, Astatine, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        PartialNobleGases = new Material.Builder(19094, "partial_noble_gases")
+                .ingot(3).fluid()
+                .color(0xBB420F).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(Helium, 1, Neon, 1, Argon, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        NobleGases = new Material.Builder(19095, "noble_gases")
+                .ingot(3).fluid()
+                .color(0x70CC2E).iconSet(SHINY)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION)
+                .components(PartialNobleGases, 1, Krypton, 1, Xenon, 1, Radon, 1)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .fluidTemp(6000)
+                .build();
+
+        SuperheavyLAlloy = new Material.Builder(19096, "superheavy_l_alloy")
                 .ingot(3).fluid()
                 .color(0xCC0A00).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
@@ -983,7 +1055,7 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        SuperheavyHAlloy = new Material.Builder(19089, "superheavy_h_alloy")
+        SuperheavyHAlloy = new Material.Builder(19097, "superheavy_h_alloy")
                 .ingot(3).fluid()
                 .color(0x223388).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
@@ -992,38 +1064,20 @@ public class DandustryMaterials {
                 .fluidTemp(6000)
                 .build();
 
-        NonMetals = new Material.Builder(19090, "non_metals")
-                .ingot(3).fluid()
-                .color(0xCC2AB9).iconSet(SHINY)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Boron, 1, Carbon, 1, Phosphorus, 1, Sulfur, 1, Arsenic, 1, Selenium, 1, Tellurium, 1, Iodine, 1, Astatine, 1, Oxygen, 1, Nitrogen, 1, Hydrogen, 1, Fluorine, 1, Chlorine, 1, Bromine, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
-                .fluidTemp(6000)
-                .build();
-
-        NobleGases = new Material.Builder(19091, "noble_gases")
-                .ingot(3).fluid()
-                .color(0x70CC2E).iconSet(SHINY)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Helium, 1, Neon, 1, Argon, 1, Krypton, 1, Xenon, 1, Radon, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
-                .fluidTemp(6000)
-                .build();
-
-        Periodicium = new Material.Builder(19092, "periodicium")
+        Periodicium = new Material.Builder(19098, "periodicium")
                 .ingot(3).fluid()
                 .color(0x1111FF).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
-                .components(Alkalis, 1, RefractoryMetals, 1, LightTransitionMetals, 1, PreciousMetals, 1, PostTransitionMetals, 1, Lanthanoids, 1, Actinoids, 1, SuperheavyLAlloy, 1, SuperheavyHAlloy, 1, NonMetals, 1, NobleGases, 1)
+                .components(Alkalis, 1, RefractoryMetals, 1, LightTransitionMetals, 1, PreciousMetals, 1, PostTransitionMetals, 1, Lanthanoids, 1, Actinoids, 1, SuperheavyLAlloy, 1, SuperheavyHAlloy, 1, Gases, 1, NonMetals, 1, NobleGases, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
                 .fluidTemp(6000)
                 .build();
 
-        MultiversalAlloy = new Material.Builder(19093, "multiversal_alloy")
+        MultiversalAlloy = new Material.Builder(19099, "multiversal_alloy")
                 .ingot(3).fluid()
                 .color(0xE04A2C).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
-                .components(Infinity, 5, Quantium, 3, QuantumAwakenedDraconiumLedoxEnderiiiumInfinityNaquadriaticTaraniumAmogus, 2, StellarAlloy, 2, ChargedDraconiumStellarAlloyLuminessenceInfinityCatalyst, 1, Quantum, 1, Actinoids, 1, Lanthanoids, 1, Periodicium, 1)
+                .components(Infinity, 5, Quantium, 3, ScOpv, 2, StellarAlloy, 2, ScUxv, 1, Quantum, 1, Actinoids, 1, Lanthanoids, 1, Periodicium, 1)
                 .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 16000)
                 .fluidTemp(130000)
                 .build();

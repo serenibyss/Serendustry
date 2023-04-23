@@ -21,11 +21,6 @@ public class MagnetoResonaticRecipes {
     private static void waferRecipes() {
 
         LATHE_RECIPES.recipeBuilder()
-                .input(plate, animalWaste)
-                .output(lens, animalWaste).output(dustSmall, animalWaste)
-                .duration(1200).EUt(120).buildAndRegister();
-
-        LATHE_RECIPES.recipeBuilder()
                 .input(plate, PolyvinylChloride)
                 .output(lens, PolyvinylChloride).output(dustSmall, PolyvinylChloride)
                 .duration(1200).EUt(120).buildAndRegister();
@@ -66,7 +61,7 @@ public class MagnetoResonaticRecipes {
                 .input(foil, ChromaticGlass, 4)
                 .fluidInputs(MagnetoResonatic.getFluid(144), EnrichedHolmium.getFluid(144), Teflon.getFluid(288))
                 .output(COSMIC_CIRCUIT_BOARD)
-                .EUt(VA[UV]).duration(400).buildAndRegister();
+                .EUt(VA[UHV]).duration(2000).buildAndRegister();
     }
 
     private static void componentRecipes() {
@@ -212,7 +207,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(TinAlloy.getFluid(144 * 6))
                 .fluidInputs(animalWaste.getFluid(144 * 4))
                 .output(MAGNETO_RESONATIC_UV)
-                .duration(150).EUt(VA[UHV]).buildAndRegister();
+                .duration(1000).EUt(VA[UHV]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, HighDurabilityCompoundSteel)
@@ -231,7 +226,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(TinAlloy.getFluid(144 * 8))
                 .fluidInputs(animalWaste.getFluid(144 * 6))
                 .output(MAGNETO_RESONATIC_UHV)
-                .duration(150).EUt(VA[UEV]).buildAndRegister();
+                .duration(1500).EUt(VA[UEV]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, HastelloyK243)
@@ -251,7 +246,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(TinAlloy.getFluid(144 * 12))
                 .fluidInputs(animalWaste.getFluid(144 * 8))
                 .output(MAGNETO_RESONATIC_UEV)
-                .duration(150).EUt(VA[UIV]).buildAndRegister();
+                .duration(2000).EUt(VA[UIV]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder() // Doesn't work
                 .input(frameGt, Enderiiium)
@@ -272,7 +267,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(TinAlloy.getFluid(144 * 16))
                 .fluidInputs(animalWaste.getFluid(144 * 12))
                 .output(MAGNETO_RESONATIC_UIV)
-                .duration(150).EUt(VA[UXV]).buildAndRegister();
+                .duration(2000).EUt(VA[UXV]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, InfinityCatalyst)
@@ -293,7 +288,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(TinAlloy.getFluid(144 * 24))
                 .fluidInputs(animalWaste.getFluid(144 * 16))
                 .output(MAGNETO_RESONATIC_UXV)
-                .duration(150).EUt(VA[OpV]).buildAndRegister();
+                .duration(2000).EUt(VA[OpV]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, Quantum)
@@ -314,7 +309,7 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(TinAlloy.getFluid(144 * 32))
                 .fluidInputs(animalWaste.getFluid(144 * 24))
                 .output(MAGNETO_RESONATIC_OpV)
-                .duration(150).EUt(VA[MAX]).buildAndRegister();
+                .duration(2500).EUt(VA[MAX]).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, MultiversalAlloy)
@@ -338,6 +333,6 @@ public class MagnetoResonaticRecipes {
                 .fluidInputs(animalWaste.getFluid(144 * 64))
                 .fluidInputs(Shirabon.getFluid(144 * 8))
                 .output(MAGNETO_RESONATIC_MAX)
-                .duration(1500).EUt(VA[MAX]).buildAndRegister();
+                .duration(5000).EUt(VA[MAX]).buildAndRegister();
     }
 }

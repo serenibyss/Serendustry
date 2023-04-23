@@ -29,7 +29,7 @@ public class PeriodiciumChain {
                 .input(dust, Tantalum)
                 .input(dust, Molybdenum)
                 .input(dust, Tungsten)
-                .input(dust, Technetium)
+                .input(dust, Technetium22)
                 .output(dust, RefractoryMetals)
                 .buildAndRegister();
 
@@ -46,6 +46,17 @@ public class PeriodiciumChain {
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(420).EUt(250000)
+                .input(dust, Lithium)
+                .input(dust, Sodium)
+                .input(dust, Potassium)
+                .input(dust, Rubidium)
+                .input(dust, Caesium)
+                .input(dust, Francium)
+                .output(dust, PartialAlkalis)
+                .buildAndRegister();
+
+        MIXER_RECIPES.recipeBuilder().duration(420).EUt(250000)
+                .input(dust, PartialAlkalis)
                 .input(dust, Beryllium)
                 .input(dust, Magnesium)
                 .input(dust, Calcium)
@@ -54,16 +65,21 @@ public class PeriodiciumChain {
                 .input(dust, Radium)
                 .input(dust, Scandium)
                 .input(dust, Yttrium)
-                .fluidInputs(Lithium.getFluid(144))
-                .fluidInputs(Sodium.getFluid(144))
-                .fluidInputs(Potassium.getFluid(144))
-                .fluidInputs(Rubidium.getFluid(144))
-                .fluidInputs(Caesium.getFluid(144))
-                .fluidInputs(Francium.getFluid(144))
                 .output(dust, Alkalis)
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(420).EUt(250000)
+                .input(dust, Tin)
+                .input(dust, Gallium)
+                .input(dust, Indium)
+                .input(dust, Bismuth)
+                .input(dust, Polonium)
+                .fluidInputs(Mercury.getFluid(144))
+                .output(dust, PartialPostTransitionMetals)
+                .buildAndRegister();
+
+        MIXER_RECIPES.recipeBuilder().duration(420).EUt(250000)
+                .input(dust, PartialPostTransitionMetals)
                 .input(dust, Zinc)
                 .input(dust, Cadmium)
                 .input(dust, Aluminum)
@@ -72,16 +88,22 @@ public class PeriodiciumChain {
                 .input(dust, Antimony)
                 .input(dust, Thallium)
                 .input(dust, Lead)
-                .fluidInputs(Mercury.getFluid(144))
-                .fluidInputs(Tin.getFluid(144))
-                .fluidInputs(Gallium.getFluid(144))
-                .fluidInputs(Indium.getFluid(144))
-                .fluidInputs(Bismuth.getFluid(144))
-                .fluidInputs(Polonium.getFluid(144))
                 .output(dust, PostTransitionMetals)
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(450).EUt(250000)
+                .input(dust, Dysprosium)
+                .input(dust, Lanthanum)
+                .input(dust, Cerium)
+                .input(dust, Praseodymium)
+                .input(dust, Neodymium)
+                .input(dust, Europium)
+                .input(dust, Ytterbium)
+                .output(dust, PartialLanthanoids)
+                .buildAndRegister();
+
+        MIXER_RECIPES.recipeBuilder().duration(450).EUt(250000)
+                .input(dust, PartialLanthanoids)
                 .input(dust, Samarium)
                 .input(dust, Gadolinium)
                 .input(dust, Terbium)
@@ -90,17 +112,20 @@ public class PeriodiciumChain {
                 .input(dust, Lutetium)
                 .input(dust, Promethium)
                 .input(dust, Erbium)
-                .input(dust, Dysprosium)
-                .fluidInputs(Lanthanum.getFluid(144))
-                .fluidInputs(Cerium.getFluid(144))
-                .fluidInputs(Praseodymium.getFluid(144))
-                .fluidInputs(Neodymium.getFluid(144))
-                .fluidInputs(Europium.getFluid(144))
-                .fluidInputs(Ytterbium.getFluid(144))
                 .output(dust, Lanthanoids)
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(390).EUt(250000)
+                .input(dust, Californium)
+                .input(dust, Neptunium)
+                .input(dust, Plutonium241)
+                .input(dust, Mendelevium)
+                .input(dust, Einsteinium)
+                .output(dust, PartialActinoids)
+                .buildAndRegister();
+
+        MIXER_RECIPES.recipeBuilder().duration(390).EUt(250000)
+                .input(dust, PartialActinoids)
                 .input(dust, Actinium)
                 .input(dust, Thorium)
                 .input(dust, Protactinium)
@@ -109,12 +134,17 @@ public class PeriodiciumChain {
                 .input(dust, Curium)
                 .input(dust, Berkelium)
                 .input(dust, Fermium)
-                .input(dust, Californium)
-                .fluidInputs(Neptunium.getFluid(144))
-                .fluidInputs(Plutonium241.getFluid(144))
-                .fluidInputs(Mendelevium.getFluid(144))
-                .fluidInputs(Einsteinium.getFluid(144))
                 .output(dust, Actinoids)
+                .buildAndRegister();
+
+        MIXER_RECIPES.recipeBuilder().duration(450).EUt(250000)
+                .input(dust, Oxygen)
+                .input(dust, Nitrogen)
+                .input(dust, Hydrogen)
+                .fluidInputs(Fluorine.getFluid(1000))
+                .fluidInputs(Chlorine.getFluid(1000))
+                .fluidInputs(Bromine.getFluid(1000))
+                .output(dust, Gases)
                 .buildAndRegister();
 
         MIXER_RECIPES.recipeBuilder().duration(450).EUt(250000)
@@ -127,12 +157,6 @@ public class PeriodiciumChain {
                 .input(dust, Tellurium)
                 .input(dust, Iodine)
                 .input(dust, Astatine)
-                .fluidInputs(Oxygen.getFluid(1000))
-                .fluidInputs(Nitrogen.getFluid(1000))
-                .fluidInputs(Hydrogen.getFluid(1000))
-                .fluidInputs(Fluorine.getFluid(1000))
-                .fluidInputs(Chlorine.getFluid(1000))
-                .fluidInputs(Bromine.getFluid(1000))
                 .output(dust, NonMetals)
                 .buildAndRegister();
 
@@ -140,6 +164,11 @@ public class PeriodiciumChain {
                 .fluidInputs(Helium.getFluid(1000))
                 .fluidInputs(Neon.getFluid(1000))
                 .fluidInputs(Argon.getFluid(1000))
+                .output(dust, PartialNobleGases)
+                .buildAndRegister();
+
+        MIXER_RECIPES.recipeBuilder().duration(180).EUt(250000)
+                .input(dust, PartialNobleGases)
                 .fluidInputs(Krypton.getFluid(1000))
                 .fluidInputs(Xenon.getFluid(1000))
                 .fluidInputs(Radon.getFluid(1000))
@@ -181,7 +210,7 @@ public class PeriodiciumChain {
                 .input(dust, Actinoids)
                 .input(dust, SuperheavyLAlloy)
                 .input(dust, SuperheavyHAlloy)
-                .fluidInputs(NonMetals.getFluid(144), NobleGases.getFluid(144))
+                .fluidInputs(Gases.getFluid(144), NonMetals.getFluid(144), NobleGases.getFluid(144))
                 .output(dust, Periodicium)
                 .buildAndRegister();
     }

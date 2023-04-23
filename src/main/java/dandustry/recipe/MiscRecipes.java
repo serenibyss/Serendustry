@@ -1,7 +1,6 @@
 package dandustry.recipe;
 
 import gregtech.api.GTValues;
-import gregtech.api.recipes.RecipeMaps;
 
 import static dandustry.item.DandustryMaterials.*;
 import static dandustry.item.DandustryMetaItems.QUANTIUM_STAR;
@@ -11,16 +10,31 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.gem;
 import static gregtech.common.items.MetaItems.GRAVI_STAR;
 
 public class MiscRecipes {
 
     public static void init() {
+
+        AUTOCLAVE_RECIPES.recipeBuilder()
+                .input(dust, animalWaste)
+                .fluidInputs(DistilledWater.getFluid(50))
+                .output(gem, animalWaste)
+                .duration(600).EUt(24).buildAndRegister();
+
+        AUTOCLAVE_RECIPES.recipeBuilder()
+                .input(dust, MagnetoResonatic)
+                .fluidInputs(DistilledWater.getFluid(50))
+                .output(gem, MagnetoResonatic)
+                .duration(600).EUt(24).buildAndRegister();
+
         LABORATORY_RECIPES.recipeBuilder()
                 .input(dust, Polytetrafluoroethylene, 15).input(dust, Polyethylene, 3).input(dust, Carbon)
                 .fluidInputs(Sodium.getFluid(1000))
                 .fluidOutputs(Teflon.getFluid(2880))
-                .requireInside(RecipeMaps.ALLOY_SMELTER_RECIPES, GTValues.EV, 1)
+                .requireInside(ALLOY_SMELTER_RECIPES, GTValues.EV, 1)
+                .requireInside(CHEMICAL_RECIPES, GTValues.EV, 1)
                 .duration(600).EUt(VA[IV]).buildAndRegister();
 
         LASER_ENGRAVER_RECIPES.recipeBuilder()
@@ -35,11 +49,10 @@ public class MiscRecipes {
                 .output(dust, OmniversalRedstone)
                 .duration(400).EUt(VA[UV]).buildAndRegister();
 
-        LABORATORY_RECIPES.recipeBuilder()
+        BREWING_RECIPES.recipeBuilder()
                 .input(dust, OmniversalRedstone)
                 .fluidInputs(Xenoxene.getFluid(1000))
                 .fluidOutputs(OmniversalLubricant.getFluid(1000))
-                .requireInside(RecipeMaps.MIXER_RECIPES, GTValues.UV, 1)
                 .duration(400).EUt(VA[UHV]).buildAndRegister();
 
         BLAST_RECIPES.recipeBuilder()
@@ -48,10 +61,10 @@ public class MiscRecipes {
                 .blastFurnaceTemp(10800)
                 .duration(100).EUt(VA[UHV]).buildAndRegister();
 
-        CHEMICAL_BATH_RECIPES.recipeBuilder()
+        AUTOCLAVE_RECIPES.recipeBuilder()
                 .input(GRAVI_STAR, 8)
-                .fluidInputs(Quantium.getFluid(1000))
+                .fluidInputs(Quantium.getFluid(1250))
                 .output(QUANTIUM_STAR)
-                .duration(800).EUt(VA[UXV]).buildAndRegister();
+                .duration(1920).EUt(VA[UXV]).buildAndRegister();
     }
 }
