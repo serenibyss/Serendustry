@@ -66,8 +66,8 @@ public class DandustryEventHandler {
         appendToComponent(COIL_ELECTRIC, wireGtOctal, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
 
         // Sticks
-        appendToComponent(STICK_MAGNETIC, stickLong, SamariumMagnetic, SamariumMagnetic, KerrBlackHole, KerrBlackHole, KerrBlackHole);
-        appendToComponent(GTValues.IV, STICK_ELECTROMAGNETIC, stickLong, VanadiumGallium, VanadiumGallium, VanadiumGallium, VanadiumGallium, EnrichedNaquadahAlloy, Aluminum, Lumiium, CrystalMatrix, Ledox);
+        appendToComponent(STICK_MAGNETIC, stickLong, TengamAttuned, TengamAttuned, TengamAttuned, KerrBlackHole, KerrBlackHole);
+        appendToComponent(GTValues.IV, STICK_ELECTROMAGNETIC, stickLong, VanadiumGallium, VanadiumGallium, VanadiumGallium, VanadiumGallium, TengamAttuned, TengamAttuned, TengamAttuned, KerrBlackHole, KerrBlackHole);
         appendToComponent(STICK_DISTILLATION, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
 
         // Not used by base CEu

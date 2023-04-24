@@ -8,7 +8,6 @@ import static gregtech.api.GTValues.MAX;
 import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
 import static gregtech.api.unification.material.Materials.RutheniumTriniumAmericiumNeutronate;
-import static gregtech.api.unification.material.Materials.SamariumMagnetic;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 
@@ -19,7 +18,7 @@ public class HTComponentRecipes {
         // Motors
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(stickLong, SamariumMagnetic, 2)
+                .input(stickLong, TengamAttuned)
                 .input(stickLong, HighDurabilityCompoundSteel, 4)
                 .input(ring, FluxedElectrum, 4)
                 .input(round, FluxedElectrum, 8)
@@ -35,7 +34,7 @@ public class HTComponentRecipes {
                 .duration(800).EUt(300000).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(stickLong, SamariumMagnetic, 4)
+                .input(stickLong, TengamAttuned, 2)
                 .input(stickLong, HastelloyK243, 4)
                 .input(ring, Lafium, 4)
                 .input(round, Lafium, 8)
@@ -51,7 +50,7 @@ public class HTComponentRecipes {
                 .duration(1200).EUt(800000).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(stickLong, KerrBlackHole)
+                .input(stickLong, TengamAttuned, 4)
                 .input(stickLong, Enderiiium, 4)
                 .input(ring, StellarAlloy, 4)
                 .input(round, StellarAlloy, 8)
@@ -67,7 +66,7 @@ public class HTComponentRecipes {
                 .duration(1600).EUt(2000000).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(stickLong, KerrBlackHole, 2)
+                .input(stickLong, KerrBlackHole)
                 .input(stickLong, AwakenedDraconium, 4)
                 .input(ring, ChargedDraconium, 4)
                 .input(round, ChargedDraconium, 8)
@@ -83,7 +82,7 @@ public class HTComponentRecipes {
                 .duration(2400).EUt(6000000).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(stickLong, KerrBlackHole, 4)
+                .input(stickLong, KerrBlackHole, 2)
                 .input(stickLong, Quantum, 4)
                 .input(ring, CallistoIce, 4)
                 .input(round, CallistoIce, 8)
@@ -100,7 +99,7 @@ public class HTComponentRecipes {
                 .duration(3600).EUt(20000000).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(stickLong, KerrBlackHole, 16)
+                .input(stickLong, KerrBlackHole, 8)
                 .input(stickLong, Floppa, 4)
                 .input(ring, Shirabon, 4)
                 .input(round, Shirabon, 8)

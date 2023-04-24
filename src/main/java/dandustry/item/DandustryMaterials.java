@@ -116,6 +116,9 @@ public class DandustryMaterials {
     public static Material TransCataExcited;
     public static Material TransCataResplendent;
     public static Material TransResidue;
+    public static Material TengamRaw;
+    public static Material TengamPurified;
+    public static Material TengamAttuned;
 
     public static void registerMaterials() {
 
@@ -1119,5 +1122,37 @@ public class DandustryMaterials {
                 .color(0x4944AF)
                 .fluidTemp(2800000)
                 .build();
+
+        TengamRaw = new Material.Builder(19104, "tengam_raw")
+                .dust(3).ore()
+                .color(0xA0BF60).iconSet(DULL)
+                .fluidTemp(5000)
+                .build()
+                .setFormula("M");
+
+        OreProperty oreProp = TengamRaw.getProperty(PropertyKey.ORE);
+        oreProp.setOreByProducts(IronMagnetic, SteelMagnetic, NeodymiumMagnetic, SamariumMagnetic);
+        oreProp.setWashedIn(Steel);
+        oreProp.setDirectSmeltResult(NeodymiumMagnetic);
+
+        TengamPurified = new Material.Builder(19105, "tengam_purified")
+                .ingot(3).fluid()
+                .color(0xD5FF80).iconSet(SHINY)
+                .flags(STD_METAL)
+                .blastTemp(10800, GasTier.HIGHEST, VA[UV], 5000)
+                .fluidTemp(5000)
+                .build()
+                .setFormula("M");
+
+        TengamAttuned = new Material.Builder(19106, "tengam_attuned")
+                .ingot(3)
+                .color(0xD5FF80).iconSet(MAGNETIC)
+                .flags(STD_METAL, GENERATE_LONG_ROD, IS_MAGNETIC)
+                .components(TengamPurified, 1)
+                .ingotSmeltInto(TengamPurified)
+                .arcSmeltInto(TengamPurified)
+                .macerateInto(TengamPurified)
+                .build();
+        TengamPurified.getProperty(PropertyKey.INGOT).setMagneticMaterial(TengamAttuned);
     }
 }
