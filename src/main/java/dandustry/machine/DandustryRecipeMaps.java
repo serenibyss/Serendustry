@@ -11,11 +11,12 @@ public class DandustryRecipeMaps {
     // todo overlays, progress bar, sound, finalize slot counts, etc
 
     public static void preInit() {
-        RecipeMaps.MIXER_RECIPES.setMaxInputs(9);
-        RecipeMaps.MIXER_RECIPES.setMaxFluidInputs(3);
-        RecipeMaps.CENTRIFUGE_RECIPES.setMaxOutputs(9);
         RecipeMaps.BLAST_RECIPES.setMaxFluidInputs(2);
         RecipeMaps.BLAST_RECIPES.setMaxFluidOutputs(2);
+        RecipeMaps.CENTRIFUGE_RECIPES.setMaxOutputs(9);
+        RecipeMaps.ELECTROMAGNETIC_SEPARATOR_RECIPES.setMaxOutputs(6);
         RecipeMaps.LASER_ENGRAVER_RECIPES.setMaxInputs(4);
+        RecipeMaps.MIXER_RECIPES.setMaxInputs(9);
+        RecipeMaps.MIXER_RECIPES.setMaxFluidInputs(3);
     }
 }

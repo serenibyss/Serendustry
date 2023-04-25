@@ -70,11 +70,11 @@ public class DestabilizedMatterChain {
         // Kerr Black Hole
 
         LABORATORY_RECIPES.recipeBuilder()
-                .input(dust, RadoxPolymer).input(dust, TinAlloy, 4)
+                .input(stickLong, TengamAttuned, 2).input(dust, RadoxPolymer).input(dust, TinAlloy, 4)
                 .fluidInputs(AtomicResonanceCatalyst.getFluid(144), ExoticMatter.getFluid(1000), DarkMatter.getFluid(500), RedMatter.getFluid(200))
                 .output(stickLong, KerrBlackHole)
                 .fluidOutputs(ExoticMatter.getPlasma(500), DarkMatter.getPlasma(250), RedMatter.getPlasma(100))
-                .requireInside(FLUID_SOLIDFICATION_RECIPES, GTValues.UEV, 1)
-                .duration(1200).EUt(VA[UIV]).buildAndRegister();
+                .requireInside(FLUID_SOLIDFICATION_RECIPES, GTValues.UIV, 1)
+                .duration(1200).EUt(VA[UXV]).buildAndRegister();
     }
 }

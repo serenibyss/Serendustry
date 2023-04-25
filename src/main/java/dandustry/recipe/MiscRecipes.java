@@ -135,5 +135,14 @@ public class MiscRecipes {
                 .fluidInputs(RadoxPolymer.getFluid(4608))
                 .output(TRANSCENDENT_PLASMA_MIXER)
                 .duration(1600).EUt(VA[OpV]).buildAndRegister();
+
+        ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder()
+                .input(dust, TengamRaw)
+                .chancedOutput(dust, IronMagnetic, 3000,300)
+                .chancedOutput(dust, SteelMagnetic, 2500,300)
+                .chancedOutput(dust, NeodymiumMagnetic, 1800,300)
+                .chancedOutput(dust, SamariumMagnetic, 1500,300)
+                .chancedOutput(dust, TengamPurified, 1200,300)
+                .duration(120).EUt(VA[UV]).buildAndRegister();
     }
 }

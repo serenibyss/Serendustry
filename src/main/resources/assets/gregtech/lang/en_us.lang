@@ -140,6 +140,9 @@ material.trans_cata_crude=Dimensionally Transcendent Crude Catalyst (DTCC)
 material.trans_cata_excited=Dimensionally Transcendent Excited Catalyst (DTEC)
 material.trans_cata_resplendent=Dimensionally Transcendent Resplendent Catalyst (DTRC)
 material.trans_residue=Dimensionally Transcendent Residue (DTR)
+material.tengam_raw=Raw Tengam
+material.tengam_purified=Purified Tengam
+material.tengam_attuned=Attuned Tengam
 
 dandustry.machine.industrial_laboratory.name=Industrial Laboratory (IL)
 dandustry.machine.transcendent_plasma_mixer.name=Transcendent Plasma Mixer (TPM)
