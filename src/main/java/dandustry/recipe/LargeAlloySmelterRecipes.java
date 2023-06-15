@@ -21,9 +21,14 @@ public class LargeAlloySmelterRecipes {
                 .duration(100).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
         FUSION_RECIPES.recipeBuilder()
-                .fluidInputs(Aluminium.getFluid(512)).fluidInputs(Neutronium.getFluid(64))
+                .fluidInputs(Aluminium.getFluid(512)).fluidInputs(Americium.getFluid(196))
                 .fluidOutputs(Aluminum.getFluid(64))
                 .duration(200).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
+				
+		FUSION_RECIPES.recipeBuilder()
+                .fluidInputs(Aluminum.getFluid(16)).fluidInputs(Europium.getFluid(16))
+                .fluidOutputs(Aluminium.getFluid(1024))
+                .duration(50).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister();
 
         FUSION_RECIPES.recipeBuilder()
                 .fluidInputs(Uranium238.getFluid(128)).fluidInputs(Neutronium.getFluid(64))

@@ -1125,7 +1125,7 @@ public class DandustryMaterials {
 
         TengamRaw = new Material.Builder(19104, "tengam_raw")
                 .dust(3).ore()
-                .color(0xA0BF60).iconSet(DULL)
+                .color(0xA0BF60).iconSet(METALLIC)
                 .fluidTemp(5000)
                 .build()
                 .setFormula("M");
