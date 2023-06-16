@@ -138,11 +138,12 @@ public class MiscRecipes {
 
         ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder()
                 .input(dust, TengamRaw)
-                .chancedOutput(dust, IronMagnetic, 3000,300)
-                .chancedOutput(dust, SteelMagnetic, 2500,300)
-                .chancedOutput(dust, NeodymiumMagnetic, 1800,300)
-                .chancedOutput(dust, SamariumMagnetic, 1500,300)
-                .chancedOutput(dust, TengamPurified, 1200,300)
+                .chancedOutput(dust, IronMagnetic, 2700,540)
+                .chancedOutput(dust, SteelMagnetic, 2000,400)
+                .chancedOutput(dust, NeodymiumMagnetic, 1600,320)
+                .chancedOutput(dust, SamariumMagnetic, 1400,280)
+                .chancedOutput(dust, MagnetoResonatic, 1200,240)
+                .chancedOutput(dust, TengamPurified, 1100,220)
                 .duration(120).EUt(VA[UV]).buildAndRegister();
     }
 }
