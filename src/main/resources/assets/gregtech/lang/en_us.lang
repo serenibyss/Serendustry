@@ -144,5 +144,5 @@ material.tengam_raw=Raw Tengam
 material.tengam_purified=Purified Tengam
 material.tengam_attuned=Attuned Tengam
 
-dandustry.machine.industrial_laboratory.name=Industrial Laboratory (IL)
-dandustry.machine.transcendent_plasma_mixer.name=Transcendent Plasma Mixer (TPM)
+serendustry.machine.industrial_laboratory.name=Industrial Laboratory (IL)
+serendustry.machine.transcendent_plasma_mixer.name=Transcendent Plasma Mixer (TPM)

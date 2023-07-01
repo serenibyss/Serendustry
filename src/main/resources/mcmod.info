@@ -1,10 +1,10 @@
 [{
-  "modid": "dandustry",
-  "name": "Dandustry",
+  "modid": "${modid}",
+  "name": "${modname}",
   "description": "some sussy description idk",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "authorList": ["dan"],
+  "authorList": ["serenibyss, Envoidia"],
   "credits": "The many other projects relating to GT5u and GTCEu providing endless inspiration",
   "logoFile": "",
   "dependencies": []
