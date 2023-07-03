@@ -1,6 +1,6 @@
 package serendustry;
 
-import gregtech.api.GTValues;
+import gregtech.GTInternalTags;
 import gregtech.api.GregTechAPI;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -18,7 +18,7 @@ import serendustry.machine.SerendustryMetaTileEntities;
 import serendustry.machine.SerendustryRecipeMaps;
 import serendustry.recipe.SerendustryRecipes;
 
-@Mod(modid = Tags.MODID, name = Tags.MODNAME, version = Tags.VERSION, dependencies = GTValues.MOD_VERSION_DEP)
+@Mod(modid = Tags.MODID, name = Tags.MODNAME, version = Tags.VERSION, dependencies = GTInternalTags.DEP_VERSION_STRING)
 public class Serendustry {
 
     public static ResourceLocation ID(String path) {
