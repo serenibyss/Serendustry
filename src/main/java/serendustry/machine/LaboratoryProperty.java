@@ -2,6 +2,9 @@ package serendustry.machine;
 
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraftforge.fml.client.config.GuiUtils;
 import serendustry.SerendustryUtil;
 import serendustry.machine.LaboratoryProperty.LaboratoryEntry;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -15,13 +18,9 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.input.Mouse;
 
 import javax.annotation.Nonnull;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
@@ -44,11 +43,8 @@ public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
         return INSTANCE;
     }
 
-    // todo display better
     @Override
-    public void drawInfo(Minecraft minecraft, int x, int y, int color, Object value) {
-        System.out.println("X: " + x + ", Y: " + y);
-        System.out.println("mouseX: " + Mouse.getX() + ", mouseY:" + Mouse.getY());
+    public void drawInfo(Minecraft minecraft, int x, int y, int color, Object value, int mouseX, int mouseY) {
         LaboratoryEntry entry = castValue(value);
         if (entry.getMachineTable().size() != 0) {
             minecraft.fontRenderer.drawString("Machines Required:", x, y, color);
@@ -74,11 +70,28 @@ public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
                     GlStateManager.enableAlpha();
                     GlStateManager.popMatrix();
                     RenderHelper.disableStandardItemLighting();
+                    if (mouseX >= x + xOffset && mouseY >= y && x + 16 > mouseX && y + 16 > mouseY) {
+                        GlStateManager.disableDepth();
+                        GlStateManager.colorMask(true, true, true, false);
+                        Gui.drawRect(x + xOffset, y, x + xOffset + 16, y + 16, -2130706433);
+                        GlStateManager.color(1,1,1,1);
+                        GlStateManager.enableBlend();
+                        GlStateManager.colorMask(true, true, true, true);
+                        GlStateManager.enableDepth();
+
+                        List<String> tooltip = renderStack.getTooltip(minecraft.player, ITooltipFlag.TooltipFlags.NORMAL);
+                        if (!tooltip.isEmpty() && minecraft.currentScreen != null) {
+                            GuiUtils.drawHoveringText(renderStack, tooltip, mouseX, mouseY, minecraft.currentScreen.width, minecraft.currentScreen.height, -1, minecraft.fontRenderer);
+                            GlStateManager.disableLighting();
+                        }
+                    }
                     xOffset += 18;
                 }
             }
         }
     }
+
+    @Override public void drawInfo(Minecraft minecraft, int i, int i1, int i2, Object o) {}
 
     // todo remove
     public static void registerLaboratoryMachine(MetaTileEntity... machines) {

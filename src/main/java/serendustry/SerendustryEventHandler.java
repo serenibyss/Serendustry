@@ -7,8 +7,13 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.loaders.recipe.CraftingComponent;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import serendustry.entity.FriendlyCreeperEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +25,8 @@ import static gregtech.loaders.recipe.CraftingComponent.*;
 
 @Mod.EventBusSubscriber(modid = Tags.MODID)
 public class SerendustryEventHandler {
+
+    private static int serverTickTimer = 0;
 
     @SubscribeEvent
     public static void enableHighTierEvent(HighTierEvent event) {
@@ -104,5 +111,33 @@ public class SerendustryEventHandler {
             appendMap.put(index++, new UnificationEntry(prefix, material));
         }
         component.appendIngredients(appendMap);
+    }
+
+    @SubscribeEvent
+    public static void onTick(TickEvent.WorldTickEvent event) {
+        if (event.phase != TickEvent.Phase.END || event.side != Side.SERVER) {
+            return;
+        }
+        if (++serverTickTimer % 10000 == 0) {
+            for (EntityPlayer player : event.world.playerEntities) {
+                if (event.world.rand.nextInt(200) == 0) {
+                    for (int i = 0; i < 6; i++) {
+                        int targetX = (int) player.posX + event.world.rand.nextInt(4) - event.world.rand.nextInt(4);
+                        int targetY = (int) player.posY + event.world.rand.nextInt(4) - event.world.rand.nextInt(4);
+                        int targetZ = (int) player.posZ + event.world.rand.nextInt(4) - event.world.rand.nextInt(4);
+                        if (event.world.isAirBlock(new BlockPos(targetX, targetY, targetZ)) && event.world.isAirBlock(new BlockPos(targetX, targetY + 1, targetZ))) {
+                            FriendlyCreeperEntity creeper = new FriendlyCreeperEntity(event.world);
+                            try {
+                                creeper.setCustomNameTag(FriendlyCreeperEntity.getName(event.world.rand));
+                            } catch (Exception ignored) {}
+                            creeper.playLivingSound();
+                            creeper.setLocationAndAngles((double) targetX + event.world.rand.nextDouble(), (double) targetY + event.world.rand.nextDouble(), (double) targetZ + event.world.rand.nextDouble(), event.world.rand.nextFloat(), event.world.rand.nextFloat());
+                            event.world.spawnEntity(creeper);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

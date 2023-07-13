@@ -146,3 +146,5 @@ material.tengam_attuned=Attuned Tengam
 
 serendustry.machine.industrial_laboratory.name=Industrial Laboratory (IL)
 serendustry.machine.transcendent_plasma_mixer.name=Transcendent Plasma Mixer (TPM)
+
+entity.serendustry.friendly_creeper.name=Friendly Creeper
