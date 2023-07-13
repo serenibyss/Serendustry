@@ -2,6 +2,8 @@ package serendustry;
 
 import gregtech.GTInternalTags;
 import gregtech.api.GregTechAPI;
+import gregtech.api.unification.material.event.MaterialEvent;
+import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import net.minecraft.client.renderer.entity.RenderCreeper;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -59,7 +61,12 @@ public class Serendustry {
     }
 
     @SubscribeEvent
-    public void registerMaterials(GregTechAPI.MaterialEvent event) {
+    public void registerMaterialRegistry(MaterialRegistryEvent event) {
+        GregTechAPI.materialManager.createRegistry(Serendustry.MODID);
+    }
+
+    @SubscribeEvent
+    public void registerMaterials(MaterialEvent event) {
         SerendustryMaterials.registerMaterials();
     }
 

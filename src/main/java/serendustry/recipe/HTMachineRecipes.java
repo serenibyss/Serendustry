@@ -197,8 +197,8 @@ public class HTMachineRecipes {
                 .output(ENERGY_INPUT_HATCH[GTValues.OpV])
                 .duration(1000).EUt(VA[GTValues.OpV]).buildAndRegister();
 
-        // Adjustable Transformers
-
+        // Adjustable Transformers todo
+/*
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(TRANSFORMER[GTValues.UHV])
                 .input(ELECTRIC_PUMP_IV)
@@ -252,7 +252,7 @@ public class HTMachineRecipes {
                 .input(spring, Shirabon)
                 .fluidInputs(OmniversalLubricant.getPlasma(16000))
                 .output(ADJUSTABLE_TRANSFORMER[GTValues.OpV])
-                .duration(200).EUt(VA[GTValues.OpV]).buildAndRegister();
+                .duration(200).EUt(VA[GTValues.OpV]).buildAndRegister();*/
 
         // TODO: Remove existing diode block recipes for UXV / OpV and replace them. i clearly have no idea what i am doing
         /*
