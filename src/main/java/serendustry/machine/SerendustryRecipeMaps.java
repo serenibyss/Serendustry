@@ -2,12 +2,13 @@ package serendustry.machine;
 
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 
 public class SerendustryRecipeMaps {
 
     public static final RecipeMap<LaboratoryRecipeBuilder> LABORATORY_RECIPES = new RecipeMapIndustrialLaboratory("industrial_laboratory", 4, 4, 4, 4, false);
     public static final RecipeMap<TranscendentPlasmaMixerRecipeBuilder> PLASMA_MIXER_RECIPES = new RecipeMapTranscendentPlasmaMixer("transcendent_plasma_mixer", 0, 0, 9, 2, false);
-
+    public static final RecipeMap<SimpleRecipeBuilder> DIGESTER_RECIPES = new RecipeMap<>("digester", 3, 9, 3, 3, new SimpleRecipeBuilder(), false);
     // todo overlays, progress bar, sound, finalize slot counts, etc
 
     public static void preInit() {

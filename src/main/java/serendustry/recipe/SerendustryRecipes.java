@@ -3,6 +3,7 @@ package serendustry.recipe;
 public class SerendustryRecipes {
 
     public static void registerRecipes() {
+        //PrefixHandlers.register(); todo
         AlloyRecipes.init();
         DestabilizedMatterChain.init();
         DragonEggRecipes.init();
