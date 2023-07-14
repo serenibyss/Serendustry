@@ -3,6 +3,7 @@ package serendustry.machine;
 import com.google.common.collect.ImmutableTable;
 import com.google.common.collect.Table;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraftforge.fml.client.config.GuiUtils;
 import serendustry.SerendustryUtil;
@@ -47,7 +48,7 @@ public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
     public void drawInfo(Minecraft minecraft, int x, int y, int color, Object value, int mouseX, int mouseY) {
         LaboratoryEntry entry = castValue(value);
         if (entry.getMachineTable().size() != 0) {
-            minecraft.fontRenderer.drawString("Machines Required:", x, y, color);
+            minecraft.fontRenderer.drawString(I18n.format("serendustry.machine.industrial_laboratory.jei_header"), x, y, color);
             y += 10;
             int xOffset = x;
             for (Table.Cell<RecipeMap<?>, Integer, Integer> cell : entry.getMachineTable().cellSet()) {

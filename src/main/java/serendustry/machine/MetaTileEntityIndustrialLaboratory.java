@@ -1,6 +1,8 @@
 package serendustry.machine;
 
 import com.google.common.collect.Table;
+import gregtech.api.metatileentity.multiblock.ParallelLogicType;
+import org.jetbrains.annotations.NotNull;
 import serendustry.machine.LaboratoryProperty.LaboratoryEntry;
 import gregtech.api.GTValues;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;

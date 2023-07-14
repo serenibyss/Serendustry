@@ -121,6 +121,50 @@ public class SerendustryMaterials {
     public static Material TengamPurified;
     public static Material TengamAttuned;
 
+    // lanthanides stuff
+    public static Material DissolutionWater;
+    public static Material MonaziteSludge;
+    public static Material MonaziteSulfate;
+    public static Material InsolubleMonaziteSludge;
+    public static Material SodiumOxalate;
+    public static Material AmmoniumHydroxide;
+    public static Material OxalicAcid;
+    public static Material OxylatedMonazite;
+    public static Material AlkalineOxalateMixture;
+    public static Material UraniumSulfate;
+    public static Material PhosphateFiltrate;
+    public static Material ThoriumHydroxide;
+    public static Material LanthanumHydroxide;
+    public static Material CeriumHydroxide; // todo cerium is special
+    public static Material PraseodymiumHydroxide;
+    public static Material NeodymiumHydroxide;
+    public static Material PromethiumHydroxide;
+    public static Material SamariumHydroxide;
+    public static Material EuropiumHydroxide;
+    public static Material GadoliniumHydroxide;
+    public static Material TerbiumHydroxide;
+    public static Material DysprosiumHydroxide;
+    public static Material HolmiumHydroxide;
+    public static Material ErbiumHydroxide;
+    public static Material ThuliumHydroxide;
+    public static Material YtterbiumHydroxide;
+    public static Material LutetiumHydroxide;
+    public static Material ScandiumHydroxide;
+    public static Material YttriumHydroxide;
+
+    // animal waste stuff
+    public static Material DriedEarth;
+    public static Material ManureByproduct;
+    public static Material ManureSlurry;
+    public static Material FertileManureSlurry;
+    public static Material Blood;
+    public static Material OrganicFertilizer;
+    public static Material Peat;
+    public static Material SulfuricApatiteMix;
+    public static Material ISSulfuricAcid;
+    public static Material ISHydrochloricAcid;
+    public static Material ISHydrofluoricAcid;
+
     public static void registerMaterials() {
 
         // This should probably be a loop, but I never intended for it to get this big; it just kind of slowly grew over time, and now it's too late for me to want to change it
@@ -1155,5 +1199,41 @@ public class SerendustryMaterials {
                 .macerateInto(TengamPurified)
                 .build();
         TengamPurified.getProperty(PropertyKey.INGOT).setMagneticMaterial(TengamAttuned);
+
+        DissolutionWater = new Material.Builder(107, Serendustry.ID("dissolution_water"))
+                .fluid().build();
+
+        MonaziteSludge = new Material.Builder(108, Serendustry.ID("monazite_sludge"))
+                .fluid().build().setFormula("??????");
+
+        MonaziteSulfate = new Material.Builder(109, Serendustry.ID("monazite_sulfate"))
+                .fluid().build().setFormula("??????SO4", true);
+
+        InsolubleMonaziteSludge = new Material.Builder(110, Serendustry.ID("insoluble_monazite_sludge"))
+                .dust().build().setFormula("??????");
+
+        SodiumOxalate = new Material.Builder(111, Serendustry.ID("sodium_oxalate"))
+                .dust()
+                .components(Sodium, 2, Carbon, 2, Oxygen, 4)
+                .flags(DISABLE_DECOMPOSITION)
+                .build();
+
+        AmmoniumHydroxide = new Material.Builder(112, Serendustry.ID("ammonium_hydroxide"))
+                .fluid()
+                .components(Nitrogen, 1, Hydrogen, 5, Oxygen, 1)
+                .build()
+                .setFormula("NH4OH", true);
+
+        OxalicAcid = new Material.Builder(113, Serendustry.ID("oxalic_acid"))
+                .dust()
+                .components(Carbon, 2, Hydrogen, 2, Oxygen, 4)
+                .flags(DISABLE_DECOMPOSITION)
+                .build();
+
+        OxylatedMonazite = new Material.Builder(114, Serendustry.ID("oxylated_monazite"))
+                .fluid().build().setFormula("??????O4");
+
+        AlkalineOxalateMixture = new Material.Builder(115, Serendustry.ID("alkaline_oxalate_mixture"))
+                .fluid().build().setFormula("?????O4");
     }
 }
