@@ -17,6 +17,8 @@ import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.client.config.GuiUtils
+import net.minecraftforge.fml.relauncher.Side
+import net.minecraftforge.fml.relauncher.SideOnly
 import serendustry.getMachineStack
 import serendustry.machine.LaboratoryProperty.LaboratoryEntry
 import java.util.*
@@ -45,6 +47,7 @@ class LaboratoryProperty private constructor(): RecipeProperty<LaboratoryEntry>(
     }
 
 
+    @SideOnly(Side.CLIENT)
     override fun drawInfo(minecraft: Minecraft, x: Int, y: Int, color: Int, value: Any, mouseX: Int, mouseY: Int) {
         val entry = castValue(value)
         if (entry.getMachineTable().size() != 0) {
@@ -117,6 +120,7 @@ class LaboratoryProperty private constructor(): RecipeProperty<LaboratoryEntry>(
         }
     }
 
+    @SideOnly(Side.CLIENT)
     override fun drawInfo(p0: Minecraft?, p1: Int, p2: Int, p3: Int, p4: Any?) {}
 
     class LaboratoryEntry(tableBuilder: ImmutableTable.Builder<RecipeMap<*>, Int, Int>) {

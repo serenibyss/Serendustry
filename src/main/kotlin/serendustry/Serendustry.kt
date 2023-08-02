@@ -28,18 +28,17 @@ import serendustry.machine.SerendustryMetaTileEntities
 import serendustry.machine.SerendustryRecipeMaps
 import serendustry.recipe.SerendustryRecipes
 
+const val MODID = Tags.MODID
+lateinit var logger: Logger
+
 @Mod(modid = Tags.MODID, name = Tags.MODNAME, version = Tags.VERSION,
     dependencies = GTInternalTags.DEP_VERSION_STRING,
     modLanguageAdapter = "serendustry.adapter.KotlinAdapter")
 class Serendustry {
 
     companion object {
-        const val MODID = Tags.MODID
-
         fun ID(path: String) = ResourceLocation(MODID, path)
     }
-
-    lateinit var logger: Logger
 
     @EventHandler
     fun onConstruction(event: FMLConstructionEvent) {
