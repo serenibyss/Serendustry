@@ -45,6 +45,8 @@ class FriendlyCreeperEntity(world: World): EntityCreeper(world) {
             .add("Samsung Galaxy Note 7")
             .add("MinecraftForge")
             .add("Whos steve jobs")
+            .add("epicgamerjamer")
+            .add("spunchbop")
             .build()
 
         fun getName(random: Random) = NAMES[random.nextInt(NAMES.size)]
