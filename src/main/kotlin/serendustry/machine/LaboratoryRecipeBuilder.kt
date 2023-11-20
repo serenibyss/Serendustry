@@ -21,7 +21,7 @@ class LaboratoryRecipeBuilder : RecipeBuilder<LaboratoryRecipeBuilder> {
     override fun applyProperty(key: String, value: Any?): Boolean {
         if (key == LaboratoryProperty.KEY) {
             if (value is LaboratoryEntry) {
-                return applyProperty(LaboratoryProperty.getInstance(), value)
+                return applyProperty(LaboratoryProperty.instance, value)
             }
             if (value is String) { // from GrS or CT
                 val stringPair = value.split(",")
@@ -52,7 +52,7 @@ class LaboratoryRecipeBuilder : RecipeBuilder<LaboratoryRecipeBuilder> {
     }
 
     override fun buildAndRegister() {
-        super.applyProperty(LaboratoryProperty.getInstance(), LaboratoryEntry(internalBuilder))
+        super.applyProperty(LaboratoryProperty.instance, LaboratoryEntry(internalBuilder))
         super.buildAndRegister()
     }
 

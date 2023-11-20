@@ -16,7 +16,7 @@ internal fun wasteFluidRecipes() {
         .input(WASTE_FLUID_EXTRACTOR_FILLED)
         .output(WASTE_FLUID_EXTRACTOR)
         .fluidOutputs(AnimalWaste.getFluid(1000))
-        .duration(400).EUt(30).buildAndRegister();
+        .duration(400).EUt(30).buildAndRegister()
 
     //ASSEMBLY_LINE_RECIPES.recipeBuilder()
     //        .input(MetaItems.BATTERY_ULV_TANTALUM).input(OrePrefix.pipeNonupleFluid, Materials.Lead).inputs(MetaBlocks.WARNING_SIGN.getItemVariant(BlockWarningSign.SignType.SMALL_YELLOW_STRIPES)).input(MetaItems.BATTERY_ULV_TANTALUM)

@@ -11,6 +11,7 @@ import gregtech.api.unification.ore.OrePrefix.*
 import gregtech.api.unification.stack.UnificationEntry
 import gregtech.loaders.recipe.CraftingComponent
 import gregtech.loaders.recipe.CraftingComponent.*
+import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.gameevent.TickEvent
@@ -86,7 +87,7 @@ class SerendustryEventHandler {
         // TODO
 
         // Spring
-        appendToComponent(GTValues.UEV, SPRING, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
+        appendToComponent(GTValues.UEV, SPRING, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium)
     }
 
     private fun appendToComponent(component: Component, prefix: OrePrefix, vararg materials: Material) =

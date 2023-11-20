@@ -1,6 +1,5 @@
 package serendustry.item.material
 
-import codechicken.lib.vec.uv.UV
 import gregtech.api.GTValues.*
 import gregtech.api.unification.material.Material
 import gregtech.api.unification.material.Materials.*

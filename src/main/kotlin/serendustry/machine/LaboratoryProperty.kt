@@ -1,13 +1,14 @@
 package serendustry.machine
 
+import com.google.common.collect.HashBasedTable
 import com.google.common.collect.ImmutableTable
 import com.google.common.collect.Table
+import gregtech.api.GTValues
 import gregtech.api.metatileentity.MetaTileEntity
 import gregtech.api.metatileentity.TieredMetaTileEntity
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase
 import gregtech.api.recipes.RecipeMap
 import gregtech.api.recipes.recipeproperties.RecipeProperty
-import gregtech.client.renderer.handler.TerminalARRenderer
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui
 import net.minecraft.client.renderer.GlStateManager
@@ -15,37 +16,30 @@ import net.minecraft.client.renderer.RenderHelper
 import net.minecraft.client.resources.I18n
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
-import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.client.config.GuiUtils
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
-import serendustry.getMachineStack
+import org.jetbrains.annotations.NotNull
 import serendustry.machine.LaboratoryProperty.LaboratoryEntry
-import java.util.*
-import java.util.stream.Collectors
-import javax.annotation.Nonnull
-
 
 class LaboratoryProperty private constructor(): RecipeProperty<LaboratoryEntry>(KEY, LaboratoryEntry::class.java) {
     companion object {
 
         const val KEY = "laboratory_internal"
 
-        private val ALLOWED_MACHINES = HashSet<ResourceLocation>()
+        val instance: LaboratoryProperty by lazy { LaboratoryProperty() }
 
-        private var instance: LaboratoryProperty? = null
-
-        fun getInstance() = instance ?: LaboratoryProperty().also { instance = it }
-
-        // todo remove
-        fun registerLaboratoryMachine(vararg machines: MetaTileEntity) =
-            ALLOWED_MACHINES.addAll(Arrays.stream(machines).filter(Objects::nonNull).map { mte -> mte.metaTileEntityId }
-                .collect(Collectors.toList()))
-
-        fun isMachineAllowed(@Nonnull machine: MetaTileEntity) =
+        fun isMachineAllowed(@NotNull machine: MetaTileEntity) =
             if (machine is MultiblockControllerBase) false else machine is TieredMetaTileEntity && machine.getRecipeMap() != null
-    }
 
+        private val mapTierToMachineStack: Table<RecipeMap<*>, Int, ItemStack> = HashBasedTable.create()
+
+        fun getMachineStack(map: RecipeMap<*>, tier: Int?, count: Int?): ItemStack? {
+            if (tier !in 0..GTValues.MAX) return ItemStack.EMPTY
+            val stack = mapTierToMachineStack.get(map, tier)?.copy() ?: return ItemStack.EMPTY
+            return stack.also { it.count = count ?: 1 }
+        }
+    }
 
     @SideOnly(Side.CLIENT)
     override fun drawInfo(minecraft: Minecraft, x: Int, y: Int, color: Int, value: Any, mouseX: Int, mouseY: Int) {
@@ -53,12 +47,12 @@ class LaboratoryProperty private constructor(): RecipeProperty<LaboratoryEntry>(
         if (entry.getMachineTable().size() != 0) {
             minecraft.fontRenderer.drawString(
                 I18n.format("serendustry.machine.industrial_laboratory.jei_header"),
-                TerminalARRenderer.x,
-                TerminalARRenderer.y,
+                x,
+                y,
                 color
             )
-            TerminalARRenderer.y += 10
-            var xOffset = TerminalARRenderer.x
+            val y = y + 10
+            var xOffset = x
             for (cell in entry.getMachineTable().cellSet()) {
                 val map = cell.rowKey ?: continue
                 val tier = cell.columnKey
@@ -74,25 +68,25 @@ class LaboratoryProperty private constructor(): RecipeProperty<LaboratoryEntry>(
                     RenderHelper.enableGUIStandardItemLighting()
                     GlStateManager.pushMatrix()
                     val itemRender = minecraft.renderItem
-                    itemRender.renderItemAndEffectIntoGUI(renderStack, xOffset, TerminalARRenderer.y)
+                    itemRender.renderItemAndEffectIntoGUI(renderStack, xOffset, y)
                     itemRender.renderItemOverlayIntoGUI(
                         minecraft.fontRenderer,
                         renderStack,
                         xOffset,
-                        TerminalARRenderer.y,
+                        y,
                         null
                     )
                     GlStateManager.enableAlpha()
                     GlStateManager.popMatrix()
                     RenderHelper.disableStandardItemLighting()
-                    if (mouseX >= TerminalARRenderer.x + xOffset && mouseY >= TerminalARRenderer.y && TerminalARRenderer.x + 16 > mouseX && TerminalARRenderer.y + 16 > mouseY) {
+                    if (mouseX >= x + xOffset && mouseY >= y && x + 16 > mouseX && y + 16 > mouseY) {
                         GlStateManager.disableDepth()
                         GlStateManager.colorMask(true, true, true, false)
                         Gui.drawRect(
-                            TerminalARRenderer.x + xOffset,
-                            TerminalARRenderer.y,
-                            TerminalARRenderer.x + xOffset + 16,
-                            TerminalARRenderer.y + 16,
+                            x + xOffset,
+                            y,
+                            x + xOffset + 16,
+                            y + 16,
                             -2130706433
                         )
                         GlStateManager.color(1f, 1f, 1f, 1f)
@@ -123,13 +117,9 @@ class LaboratoryProperty private constructor(): RecipeProperty<LaboratoryEntry>(
     @SideOnly(Side.CLIENT)
     override fun drawInfo(p0: Minecraft?, p1: Int, p2: Int, p3: Int, p4: Any?) {}
 
-    class LaboratoryEntry(tableBuilder: ImmutableTable.Builder<RecipeMap<*>, Int, Int>) {
+    data class LaboratoryEntry(private val tableBuilder: ImmutableTable.Builder<RecipeMap<*>, Int, Int>) {
 
-        private var machines: Table<RecipeMap<*>, Int, Int>
-
-        init {
-            machines = tableBuilder.build()
-        }
+        private var machines: Table<RecipeMap<*>, Int, Int> = tableBuilder.build()
 
         fun getMachineTable() = machines
     }

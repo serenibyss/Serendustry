@@ -98,7 +98,7 @@ class MetaTileEntityIndustrialLaboratory(id: ResourceLocation): RecipeMapMultibl
 
         override fun checkRecipe(recipe: Recipe): Boolean {
             if (!super.checkRecipe(recipe)) return false
-            val entry = recipe.getProperty(LaboratoryProperty.getInstance(), null) ?: return true
+            val entry = recipe.getProperty(LaboratoryProperty.instance, null) ?: return true
             return getMetaTileEntity().laboratoryResources.matchesEntry(entry)
         }
     }
