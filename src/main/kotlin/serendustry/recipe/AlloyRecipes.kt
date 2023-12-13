@@ -1,6 +1,7 @@
 package serendustry.recipe
 
 import gregtech.api.GTValues.*
+import gregtech.api.fluids.store.FluidStorageKeys
 import gregtech.api.recipes.RecipeMaps.*
 import gregtech.api.unification.material.Materials.*
 import gregtech.api.unification.ore.OrePrefix.*
@@ -219,7 +220,7 @@ internal fun alloyRecipes() {
         .duration(1000).EUt(VA[UEV]).buildAndRegister()
 
     BLAST_RECIPES.recipeBuilder()
-        .fluidInputs(AssemblyLine.getFluid(100), LiquidHelium.getFluid(100))
+        .fluidInputs(AssemblyLine.getFluid(100), Helium.getFluid(FluidStorageKeys.LIQUID, 100))
         .fluidOutputs(AssemblyLine.getPlasma(100), Helium.getPlasma(100))
         .blastFurnaceTemp(10800)
         .duration(1200).EUt(VA[UEV]).buildAndRegister()
