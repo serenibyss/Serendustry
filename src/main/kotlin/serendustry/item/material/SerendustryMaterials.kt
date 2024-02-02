@@ -285,22 +285,30 @@ class SerendustryMaterials {
             Livermorium.setProperty(PropertyKey.INGOT, IngotProperty())
             Tennessine.setProperty(PropertyKey.INGOT, IngotProperty())
             Oganesson.setProperty(PropertyKey.INGOT, IngotProperty())
-
             Lutetium.setProperty(PropertyKey.INGOT, IngotProperty())
 
             Sodium.setProperty(PropertyKey.FLUID, FluidProperty())
             Bromine.setProperty(PropertyKey.FLUID, FluidProperty())
-            Flerovium.setProperty(PropertyKey.FLUID, FluidProperty())
-            Phosphorus.setProperty(PropertyKey.FLUID, FluidProperty())
-            Protactinium.setProperty(PropertyKey.FLUID, FluidProperty())
 
             Water.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
-            Flerovium.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
-            Phosphorus.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
-            Protactinium.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
             Redstone.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
             Glass.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
             Lead.getProperty(PropertyKey.FLUID).storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
+
+            var fp = FluidProperty()
+            fp.storage.enqueueRegistration(FluidStorageKeys.LIQUID, FluidBuilder())
+            fp.storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
+            Flerovium.setProperty(PropertyKey.FLUID, fp)
+
+            fp = FluidProperty()
+            fp.storage.enqueueRegistration(FluidStorageKeys.LIQUID, FluidBuilder())
+            fp.storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
+            Phosphorus.setProperty(PropertyKey.FLUID, fp)
+
+            fp = FluidProperty()
+            fp.storage.enqueueRegistration(FluidStorageKeys.LIQUID, FluidBuilder())
+            fp.storage.enqueueRegistration(FluidStorageKeys.PLASMA, FluidBuilder())
+            Protactinium.setProperty(PropertyKey.FLUID, fp)
 
             TinAlloy.addFlags(GENERATE_FINE_WIRE, GENERATE_FOIL)
             Oxygen.addFlags(GENERATE_FOIL)
@@ -831,7 +839,7 @@ class SerendustryMaterials {
                 .build()
 
             RadoxPolymer = Material.Builder(66, Serendustry.ID("radox_polymer"))
-                .polymer(3)
+                .polymer(3).fluid()
                 .color(0xBB2BE0)
                 .flags(GENERATE_FOIL, GENERATE_RING, GENERATE_DENSE)
                 .fluidPipeProperties(8000, 5000, true, true, true, false)
@@ -895,7 +903,7 @@ class SerendustryMaterials {
                 .setFormula("Sh")
 
             Teflon = Material.Builder(76, Serendustry.ID("teflon"))
-                .polymer(3)
+                .polymer(3).fluid()
                 .color(0x222222)
                 .flags(DISABLE_DECOMPOSITION, GENERATE_DENSE, GENERATE_RING, GENERATE_FOIL)
                 .components(Polytetrafluoroethylene, 15, Polyethylene, 3, Carbon, 1, Sodium, 1)
