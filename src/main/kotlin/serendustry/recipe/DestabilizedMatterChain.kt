@@ -1,6 +1,7 @@
 package serendustry.recipe
 
 import gregtech.api.GTValues.*
+import gregtech.api.fluids.store.FluidStorageKeys
 import gregtech.api.recipes.RecipeMaps.*
 import gregtech.api.unification.material.Materials.*
 import gregtech.api.unification.ore.OrePrefix.*
@@ -22,7 +23,7 @@ internal fun destabilizedMatterChain() {
         .duration(50).EUt(VA[UV]).EUToStart(640_000_000).buildAndRegister()
 
     BLAST_RECIPES.recipeBuilder()
-        .fluidInputs(DestabilizedMatter.getFluid(100), LiquidHelium.getFluid(100))
+        .fluidInputs(DestabilizedMatter.getFluid(100), Helium.getFluid(FluidStorageKeys.LIQUID, 100))
         .fluidOutputs(DestabilizedMatter.getPlasma(100), Helium.getPlasma(100))
         .blastFurnaceTemp(10800)
         .duration(250).EUt(VA[UV]).buildAndRegister()
