@@ -2,29 +2,43 @@ package serendustry.recipe
 
 import gregtech.api.GTValues.*
 import gregtech.api.fluids.store.FluidStorageKeys
+import gregtech.api.recipes.ModHandler
 import gregtech.api.recipes.RecipeMaps.*
+import gregtech.api.unification.OreDictUnifier
+import gregtech.api.unification.material.MarkerMaterials
 import gregtech.api.unification.material.Materials.*
 import gregtech.api.unification.ore.OrePrefix.*
+import gregtech.api.unification.stack.UnificationEntry
 import gregtech.common.items.MetaItems.*
 import gregtech.common.metatileentities.MetaTileEntities.HULL
+import net.minecraft.init.Blocks
+import serendustry.item.HOT_WOOD_INGOT
 import serendustry.item.QUANTIUM_STAR
 import serendustry.item.QUANTUM_ANOMALY
 import serendustry.item.material.*
+import serendustry.machine.INDUSTRIAL_LABORATORY
 import serendustry.machine.LABORATORY_RECIPES
 import serendustry.machine.TRANSCENDENT_PLASMA_MIXER
 
 internal fun miscRecipes() {
-    AUTOCLAVE_RECIPES.recipeBuilder()
-        .input(dust, AnimalWaste)
-        .fluidInputs(DistilledWater.getFluid(50))
-        .output(gem, AnimalWaste)
-        .duration(600).EUt(24).buildAndRegister()
 
     AUTOCLAVE_RECIPES.recipeBuilder()
         .input(dust, MagnetoResonatic)
         .fluidInputs(DistilledWater.getFluid(50))
         .output(gem, MagnetoResonatic)
         .duration(600).EUt(24).buildAndRegister()
+
+    ASSEMBLER_RECIPES.recipeBuilder()
+        .input(HULL[EV])
+        .input(circuit, MarkerMaterials.Tier.EV, 4)
+        .input(circuit, MarkerMaterials.Tier.HV, 8)
+        .input(gear, Titanium, 4)
+        .input(stickLong, Rhopalthenit, 12)
+        .input(foil, Polytetrafluoroethylene, 32)
+        .input(wireFine, Niobium, 32)
+        .fluidInputs(SolderingAlloy.getFluid(2592))
+        .output(INDUSTRIAL_LABORATORY)
+        .duration(2400).EUt(VA[EV]).buildAndRegister()
 
     LABORATORY_RECIPES.recipeBuilder()
         .input(dust, Polytetrafluoroethylene, 15).input(dust, Polyethylene, 3).input(dust, Carbon)
@@ -141,4 +155,11 @@ internal fun miscRecipes() {
         .chancedOutput(dust, MagnetoResonatic, 1200,240)
         .chancedOutput(dust, TengamPurified, 1100,220)
         .duration(120).EUt(VA[UV]).buildAndRegister()
+
+    ModHandler.addSmeltingRecipe(OreDictUnifier.get(nugget, Neutronium), OreDictUnifier.get(nugget, WroughtNeutronium))
+
+    // todo: hot wood ingot
+    /*VACUUM_RECIPES.recipeBuilder()
+        .input(HOT_WOOD_INGOT)
+        .duration(65535).EUt(MAX).buildAndRegister()*/
 }
