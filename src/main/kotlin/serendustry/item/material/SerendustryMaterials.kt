@@ -167,6 +167,24 @@ lateinit var ISSulfuricAcid: Material
 lateinit var ISHydrochloricAcid: Material
 lateinit var ISHydrofluoricAcid: Material
 
+lateinit var ErrorSerenibyss: Material
+lateinit var ErrorEnvoidia: Material
+
+lateinit var PrimedAir: Material
+lateinit var ArgonPrime: Material
+lateinit var HeliumPrime: Material
+lateinit var HydrogenPrime: Material
+lateinit var KryptonPrime: Material
+lateinit var NeonPrime: Material
+lateinit var NitrogenPrime: Material
+lateinit var OxygenPrime: Material
+
+lateinit var Rhopalthenit: Material
+lateinit var Cheese: Material
+lateinit var WroughtNeutronium: Material
+lateinit var AmmoniumNitrate: Material
+lateinit var SulfurousAcid: Material
+
 class SerendustryMaterials {
     companion object {
         fun registerMaterials() {
@@ -610,7 +628,7 @@ class SerendustryMaterials {
             CrystalMatrix = Material.Builder(37, Serendustry.ID("crystal_matrix"))
                 .ingot(3).liquid(FluidBuilder().temperature(45000))
                 .color(0x8EFFE6).iconSet(NETHERSTAR)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD, GENERATE_FOIL)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD, GENERATE_FOIL, GENERATE_DOUBLE_PLATE)
                 .components(Diamond, 1, NetherStar, 1)
                 .blastTemp(8800, GasTier.HIGHEST, VA[UHV], 8000)
                 .build()
@@ -697,10 +715,13 @@ class SerendustryMaterials {
                 .build()
 
             AssemblyLine = Material.Builder(47, Serendustry.ID("assembly_line"))
-                .liquid(FluidBuilder().temperature(32768)).plasma()
+                .dust().liquid(FluidBuilder().temperature(32768)).plasma()
                 .color(0x6C6D7A).iconSet(DULL)
-                .flags(DISABLE_DECOMPOSITION)
+                .flags(EXT2_METAL, DISABLE_DECOMPOSITION)
                 .components(Iron, 1)
+                .toolStats(ToolProperty.Builder.of(80.0f, 15.0f, 6400, 5)
+                    .attackSpeed(0.5f).enchantability(1).build())
+                .rotorStats(9.5f, 4.0f, 4800)
                 .build()
                 .setFormula("Assembly Line")
 
@@ -912,7 +933,7 @@ class SerendustryMaterials {
             EnrichedHolmium = Material.Builder(77, Serendustry.ID("enriched_holmium"))
                 .ingot(3).liquid(FluidBuilder().temperature(4200))
                 .color(0x5D15EE).iconSet(SHINY)
-                .flags(STD_METAL, GENERATE_FOIL)
+                .flags(STD_METAL, GENERATE_FOIL, GENERATE_GEAR)
                 .components(NaquadahEnriched, 8, Holmium, 1)
                 .blastTemp(6000, GasTier.HIGHER, VA[LuV], 2000)
                 .build()
@@ -1171,6 +1192,116 @@ class SerendustryMaterials {
 
             AlkalineOxalateMixture = Material.Builder(115, Serendustry.ID("alkaline_oxalate_mixture"))
                 .fluid().build().setFormula("?????O4")
+
+            ErrorSerenibyss = Material.Builder(116, Serendustry.ID("error_serenibyss"))
+                .flags(EXT2_METAL, MORTAR_GRINDABLE, GENERATE_ROTOR, GENERATE_SMALL_GEAR, GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FRAME, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_DOUBLE_PLATE, GENERATE_DENSE)
+                .fluid().color(0xc565f6)
+                .toolStats(ToolProperty.Builder.of(480.0f, 320.0f, 65535, 9)
+                .attackSpeed(0.5f).enchantability(33).magnetic().build())
+                .rotorStats(100.0f, 100.0f, 65535)
+                .build().setFormula("REPORT ERROR TO SERENIBYSS")
+
+            ErrorEnvoidia = Material.Builder(117, Serendustry.ID("error_envoidia"))
+                    .flags(EXT2_METAL, MORTAR_GRINDABLE, GENERATE_ROTOR, GENERATE_SMALL_GEAR, GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FRAME, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_DOUBLE_PLATE, GENERATE_DENSE)
+                    .fluid().color(0xe9aae4)
+                    .toolStats(ToolProperty.Builder.of(480.0f, 320.0f, 65535, 9)
+                    .attackSpeed(0.5f).enchantability(33).magnetic().build())
+                    .rotorStats(100.0f, 100.0f, 65535)
+                    .build().setFormula("REPORT ERROR TO ENVOIDIA")
+
+            PrimedAir = Material.Builder(118, Serendustry.ID("primed_air"))
+                .fluid().color(0xbb9898).build().setFormula("SiO2")
+
+            ArgonPrime = Material.Builder(119, Serendustry.ID("argon_prime"))
+                .fluid().color(0x1eff00).build().setFormula("ArΨ")
+
+            HeliumPrime = Material.Builder(120, Serendustry.ID("helium_prime"))
+                .fluid().color(0xefff59).build().setFormula("HeΨ")
+
+            HydrogenPrime = Material.Builder(121, Serendustry.ID("hydrogen_prime"))
+                .fluid().color(0x037cff).build().setFormula("HΨ")
+
+            KryptonPrime = Material.Builder(122, Serendustry.ID("krypton_prime"))
+                .fluid().color(0x06ff03).build().setFormula("KrΨ")
+
+            NeonPrime = Material.Builder(123, Serendustry.ID("neon_prime"))
+                .fluid().color(0xe15ee6).build().setFormula("NeΨ")
+
+            NitrogenPrime = Material.Builder(124, Serendustry.ID("nitrogen_prime"))
+                .fluid().color(0x5ee2e6).build().setFormula("NΨ")
+
+            OxygenPrime = Material.Builder(125, Serendustry.ID("oxygen_prime"))
+                .fluid().color(0x03a1c0).build().setFormula("OΨ")
+
+            Rhopalthenit = Material.Builder(126, Serendustry.ID("rhopalthenit"))
+                .ingot(3).liquid(FluidBuilder().temperature(8500))
+                .color(0x03c073).iconSet(SHINY)
+                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FRAME, GENERATE_RING, GENERATE_FINE_WIRE, GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
+                .components(Rhodium, 1, Palladium, 1, Ruthenium, 1)
+                .blastTemp(3500, GasTier.MID, VA[IV])
+                .toolStats(ToolProperty.Builder.of(50.0f, 10.0f, 3600, 4)
+                    .attackSpeed(0.5f).enchantability(29).build())
+                .rotorStats(7.5f, 3.0f, 2500)
+                .build()
+
+            Cheese = Material.Builder(127, Serendustry.ID("cheese"))
+                .fluid().dust(3).ore()
+                .color(0xfffb00).iconSet(DULL)
+                .flags(EXT2_METAL, GENERATE_FINE_WIRE)
+                .toolStats(ToolProperty.Builder.of(5.0f, 1.0f, 360, 2)
+                    .attackSpeed(0.5f).enchantability(666).build())
+                .rotorStats(1.0f, 500.0f, 250)
+                .build()
+                .setFormula("Ch")
+
+            val oreProp2 = Cheese.getProperty(PropertyKey.ORE)
+            oreProp2.setOreByProducts(Cheese, Cheese, Cheese, Cheese)
+            oreProp2.setWashedIn(Cheese)
+            oreProp2.directSmeltResult = Cheese
+
+            WroughtNeutronium = Material.Builder(128, Serendustry.ID("wrought_neutronium"))
+                .ingot(3).liquid(FluidBuilder().temperature(200000))
+                .color(0xffffff).iconSet(SHINY)
+                .flags(EXT2_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_FOIL, GENERATE_SMALL_GEAR)
+                .components(Neutronium, 1)
+                .blastTemp(19800, GasTier.HIGHEST, VA[UHV], 10000)
+                .build()
+                .setFormula("Nt*")
+
+            AmmoniumNitrate = Material.Builder(129, Serendustry.ID("ammonium_nitrate"))
+                .dust().color(0xa147c3).iconSet(DULL)
+                .components(Ammonia, 1, Hydrogen, 1, Nitrogen, 1, Oxygen, 3)
+                .build()
+                .setFormula("(NH4NO3)")
+
+            SulfurousAcid = Material.Builder(130, Serendustry.ID("sulfurous_acid"))
+                .fluid().color(0xebb33c)
+                .components(Hydrogen, 2, Sulfur, 1, Oxygen, 3)
+                .build()
+
+            DriedEarth = Material.Builder(131, Serendustry.ID("dried_earth"))
+                .dust().color(0x5a2e01).iconSet(DULL)
+                .build()
+
+            SulfuricApatiteMix = Material.Builder(132, Serendustry.ID("sulfuric_apatite_mix"))
+                .fluid().color(0x006a99)
+                .build()
+                .setFormula("(Ca5(PO4)3(F,Cl,OH))S?")
+
+            ISSulfuricAcid = Material.Builder(133, Serendustry.ID("is_sulfuric_acid"))
+                .fluid().color(0xffb15d)
+                .components(SulfuricAcid, 1).flags(DISABLE_DECOMPOSITION)
+                .build()
+
+            ISHydrochloricAcid = Material.Builder(134, Serendustry.ID("is_hydrochloric_acid"))
+                .fluid().color(0x8bfc7c)
+                .components(HydrochloricAcid, 1).flags(DISABLE_DECOMPOSITION)
+                .build()
+
+            ISHydrofluoricAcid = Material.Builder(135, Serendustry.ID("is_hydrofluoric_acid"))
+                .fluid().color(0x7cfcc8)
+                .components(HydrofluoricAcid, 1).flags(DISABLE_DECOMPOSITION)
+                .build()
         }
     }
 }

@@ -5,13 +5,15 @@ class SerendustryRecipes {
         fun registerRecipes() {
             //registerPrefixHandlers() todo
             alloyRecipes()
+            animalWasteRecipes()
             destabilizedMatterChain()
             dragonEggRecipes()
             htComponentRecipes()
             htMachineRecipes()
             largeAlloySmelterRecipes()
-            maagnetoResonaticRecipes()
+            magnetoResonaticRecipes()
             miscRecipes()
+            mysteriousBlobRecipes()
             periodiciumChain()
             plasmaFuels()
             plasmaMixerRecipes()

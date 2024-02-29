@@ -9,10 +9,10 @@ internal fun plasmaMixerRecipes() {
 
     // Gates Periodicium, which gates OpV circuits. Also gates Ledox and Callisto Ice, OpV materials
     PLASMA_MIXER_RECIPES.recipeBuilder()
-        .fluidInputs(Helium.getPlasma(1000),
-            Nitrogen.getPlasma(1000),
-            Oxygen.getPlasma(1000),
-            Argon.getPlasma(1000),
+        .fluidInputs(HeliumPrime.getFluid(100),
+            NitrogenPrime.getFluid(100),
+            OxygenPrime.getFluid(100),
+            NeonPrime.getFluid(100),
             Iron.getPlasma(1000),
             Nickel.getPlasma(1000),
             Water.getPlasma(1000))
@@ -61,6 +61,7 @@ internal fun plasmaMixerRecipes() {
     // Gates Shirabon, which gates OpV components
     PLASMA_MIXER_RECIPES.recipeBuilder()
         .fluidInputs(TransCataCrude.getFluid(1000),
+            ArgonPrime.getFluid(100),
             Periodicium.getPlasma(144),
             AssemblyLine.getPlasma(144),
             DestabilizedMatter.getPlasma(1000),
@@ -82,11 +83,11 @@ internal fun plasmaMixerRecipes() {
     // Gates Floppa, which gates MAX components and circuits
     PLASMA_MIXER_RECIPES.recipeBuilder()
         .fluidInputs(TransCataExcited.getFluid(1000),
+            KryptonPrime.getFluid(100),
             Shirabon.getPlasma(144),
             Infinity.getPlasma(144),
             Periodicium.getPlasma(144),
             AssemblyLine.getPlasma(144),
-            Iron.getPlasma(1000),
             Nickel.getPlasma(1000),
             Water.getPlasma(1000),
             RedMatter.getPlasma(1000))

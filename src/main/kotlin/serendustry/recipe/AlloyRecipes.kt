@@ -15,6 +15,11 @@ import serendustry.machine.LABORATORY_RECIPES
 
 internal fun alloyRecipes() {
     MIXER_RECIPES.recipeBuilder()
+            .input(dust, Gallium, 1).input(dust, Yttrium, 1)
+            .output(dust, GalliumYttrium, 2)
+            .duration(90).EUt(VA[LV]).buildAndRegister()
+
+    MIXER_RECIPES.recipeBuilder()
         .input(dust, RoseGold, 1).input(dust, SterlingSilver, 1).input(dust, Electrum, 2).input(dust, InfusedGold, 2).input(dust, Naquadria, 4)
         .fluidInputs(SolderingAlloy.getFluid(1440))
         .output(dust, FluxedElectrum, 4)
@@ -318,4 +323,9 @@ internal fun alloyRecipes() {
         .input(dust, MultiversalAlloy, 17)
         .output(dust, Infinity, 5).output(dust, Shirabon, 3).output(dust, ScOpv, 2).output(dust, StellarAlloy, 2).output(dust, ScUxv, 1).output(dust, TastyNeutronium).output(dust, Quantum).output(dust, Periodicium).output(dust, Alkalis)
         .duration(1820).EUt(60).buildAndRegister()
+
+    MIXER_RECIPES.recipeBuilder()
+        .input(dust, Rhodium, 1).input(dust, Palladium, 1).input(dust, Ruthenium, 1)
+        .output(dust, Rhopalthenit, 3)
+        .duration(400).EUt(VA[IV]).buildAndRegister()
 }
