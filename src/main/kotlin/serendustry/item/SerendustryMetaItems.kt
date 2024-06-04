@@ -49,6 +49,14 @@ lateinit var ROBOT_ARM_MAX: MetaItem<*>.MetaValueItem
 lateinit var FIELD_GENERATOR_MAX: MetaItem<*>.MetaValueItem
 lateinit var SENSOR_MAX: MetaItem<*>.MetaValueItem
 lateinit var EMITTER_MAX: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_ARGON: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_HELIUM: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_HYDROGEN: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_KRYPTON: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_NEON: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_NITROGEN: MetaItem<*>.MetaValueItem
+lateinit var MYSTERIOUS_BLOB_OXYGEN: MetaItem<*>.MetaValueItem
+lateinit var HOT_WOOD_INGOT: MetaItem<*>.MetaValueItem
 
 class SerendustryMetaItems {
 
@@ -99,6 +107,14 @@ class SerendustryMetaItems {
             FIELD_GENERATOR_MAX = ITEMS.addItem(35, "field_generator_max")
             SENSOR_MAX = ITEMS.addItem(36, "sensor_max")
             EMITTER_MAX = ITEMS.addItem(37, "emitter_max")
+            MYSTERIOUS_BLOB_ARGON = ITEMS.addItem(38, "mysterious_blob_argon")
+            MYSTERIOUS_BLOB_HELIUM = ITEMS.addItem(39, "mysterious_blob_helium")
+            MYSTERIOUS_BLOB_HYDROGEN = ITEMS.addItem(40, "mysterious_blob_hydrogen")
+            MYSTERIOUS_BLOB_KRYPTON = ITEMS.addItem(41, "mysterious_blob_krypton")
+            MYSTERIOUS_BLOB_NEON = ITEMS.addItem(42, "mysterious_blob_neon")
+            MYSTERIOUS_BLOB_NITROGEN = ITEMS.addItem(43, "mysterious_blob_nitrogen")
+            MYSTERIOUS_BLOB_OXYGEN = ITEMS.addItem(44, "mysterious_blob_oxygen")
+            HOT_WOOD_INGOT = ITEMS.addItem(45, "hot_wood_ingot")
         }
     }
 }
