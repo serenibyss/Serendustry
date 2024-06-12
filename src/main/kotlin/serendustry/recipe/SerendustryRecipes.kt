@@ -18,6 +18,7 @@ class SerendustryRecipes {
             plasmaFuels()
             plasmaMixerRecipes()
             radoxChain()
+            registerToolPrefixHandler()
             smallFusionReactorRecipes()
             wasteFluidRecipes()
         }
