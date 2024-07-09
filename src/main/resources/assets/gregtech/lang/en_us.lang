@@ -176,3 +176,5 @@ serendustry.machine.industrial_laboratory.jei_header=Machines Required:
 serendustry.machine.transcendent_plasma_mixer.name=Transcendent Plasma Mixer (TPM)
 
 entity.serendustry.friendly_creeper.name=Friendly Creeper
+
+item.gt.tool.skookum_choocher.name=Skookum Choocher

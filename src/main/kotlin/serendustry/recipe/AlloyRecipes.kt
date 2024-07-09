@@ -96,7 +96,7 @@ internal fun alloyRecipes() {
     MIXER_RECIPES.recipeBuilder()
         .input(dust, Silicon, 5).input(dust, Oxygen, 10).input(dust, Iron, 1)
         .output(dust, Prasiolite, 16)
-        .duration(600).EUt(VA[HV]).buildAndRegister();
+        .duration(600).EUt(VA[HV]).buildAndRegister()
 
     MIXER_RECIPES.recipeBuilder()
         .input(dust, Zirconium, 1).input(dust, Oxygen, 2)
@@ -282,7 +282,7 @@ internal fun alloyRecipes() {
         EXTRACTOR_RECIPES.recipeBuilder()
             .input(ELECTROLYZER[i])
             .fluidOutputs(Magic2.getFluid((V[i] / 32).toInt()))
-            .duration(500).EUt(VA[i]).buildAndRegister();
+            .duration(500).EUt(VA[i]).buildAndRegister()
     }
 
     MIXER_RECIPES.recipeBuilder()

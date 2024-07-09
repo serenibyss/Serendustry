@@ -6,6 +6,7 @@ import gregtech.api.recipes.builders.SimpleRecipeBuilder
 
 val LABORATORY_RECIPES = RecipeMapIndustrialLaboratory("industrial_laboratory", 4, 4, 4, 4, false)
 val PLASMA_MIXER_RECIPES = RecipeMapTranscendentPlasmaMixer("transcendent_plasma_mixer", 0, 0, 9, 2, false)
+val SPACE_ELEVATOR_RECIPES = RecipeMapSpaceElevator("space_elevator", 2, 28, 1, 3, false)
 val DIGESTER_RECIPES = RecipeMap("digester", 3, 9, 3, 3, SimpleRecipeBuilder(), false)
 
 class SerendustryRecipeMaps {

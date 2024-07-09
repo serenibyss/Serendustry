@@ -671,13 +671,13 @@ private fun matterCreationRecipes() {
         .fluidOutputs(Uranium238.getFluid(1296))
         .duration(400).EUt(VA[LV]).buildAndRegister()
 
-    MIXER_RECIPES.recipeBuilder()
+    /*MIXER_RECIPES.recipeBuilder()
         .fluidInputs(SterlingSilver.getFluid(4608), HydrogenPrime.getFluid(300))
-        .output(ore, Cheese, 64)
-        .duration(800).EUt(VA[MV]).buildAndRegister()
+        .output(ore, CheeseCheddar, 64)
+        .duration(800).EUt(VA[MV]).buildAndRegister()*/
 
-    MIXER_RECIPES.recipeBuilder()
+   /* MIXER_RECIPES.recipeBuilder()
         .fluidInputs(Samarium.getFluid(2304), Neodymium.getFluid(2304), NeonPrime.getFluid(300))
         .output(ore, TengamRaw, 32)
-        .duration(2400).EUt(VA[ZPM]).buildAndRegister()
+        .duration(2400).EUt(VA[ZPM]).buildAndRegister()*/
 }

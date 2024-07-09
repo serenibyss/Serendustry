@@ -10,6 +10,21 @@ import gregtech.api.unification.material.info.MaterialIconSet.*
 import gregtech.api.unification.material.properties.*
 import gregtech.api.unification.material.properties.BlastProperty.GasTier
 import serendustry.Serendustry
+import com.sun.jna.platform.mac.Carbon
+import gregtech.api.unification.material.Materials
+import gregtech.api.unification.material.info.MaterialFlags.DISABLE_DECOMPOSITION
+import gregtech.api.unification.material.info.MaterialFlags.EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES
+import gregtech.api.unification.material.info.MaterialFlags.MORTAR_GRINDABLE
+import gregtech.api.unification.material.info.MaterialFlags.NO_SMASHING
+import gregtech.api.unification.material.info.MaterialFlags.NO_SMELTING
+import gregtech.api.unification.material.info.MaterialFlags.FLAMMABLE
+import gregtech.api.unification.material.info.MaterialIconSet.LIGNITE
+import gregtech.api.util.GTUtility.gregtechId
+import gregtech.api.unification.material.Materials.Coal
+import gregtech.api.unification.material.info.MaterialFlags
+import gregtech.api.unification.material.info.MaterialIconSet
+import gregtech.api.util.GTUtility
+import net.minecraft.init.Enchantments
 
 
 lateinit var AnimalWaste: Material
@@ -180,10 +195,29 @@ lateinit var NitrogenPrime: Material
 lateinit var OxygenPrime: Material
 
 lateinit var Rhopalthenit: Material
-lateinit var Cheese: Material
+lateinit var CheeseCheddar: Material
 lateinit var WroughtNeutronium: Material
 lateinit var AmmoniumNitrate: Material
 lateinit var SulfurousAcid: Material
+
+lateinit var YellowStarMatter: Material
+lateinit var RedStarMatter: Material
+lateinit var BlueStarMatter: Material
+lateinit var WhiteStarMatter: Material
+lateinit var BrownStarMatter: Material
+lateinit var BlackStarMatter: Material
+lateinit var PulsarStarMatter: Material
+lateinit var CondensedStarMatter: Material
+
+lateinit var LigniteCoal: Material
+lateinit var AnthraciteCoal: Material
+lateinit var BituminousCoal: Material
+lateinit var SubBituminousCoal: Material
+lateinit var PeatCoal: Material
+
+lateinit var CheeseAmerican: Material
+lateinit var CheeseMozzarella: Material
+lateinit var CheeseSwiss: Material
 
 class SerendustryMaterials {
     companion object {
@@ -350,7 +384,7 @@ class SerendustryMaterials {
             FluxedElectrum = Material.Builder(3, Serendustry.ID("fluxed_electrum"))
                 .ingot(3).liquid(FluidBuilder().temperature(8000))
                 .color(0xFFE049).iconSet(SHINY)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW)
+                .flags(EXT2_METAL, DISABLE_DECOMPOSITION, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW, GENERATE_FINE_WIRE)
                 .components(RoseGold, 1, SterlingSilver, 1, Electrum, 2, InfusedGold, 2, Naquadria, 4, SolderingAlloy, 10)
                 .blastTemp(8000, GasTier.HIGHEST, VA[UV], 8000)
                 .cableProperties(VA[UEV].toLong(), 1, 1536, false, 3)
@@ -405,7 +439,7 @@ class SerendustryMaterials {
             Cinobite = Material.Builder(9, Serendustry.ID("cinobite"))
                 .ingot(3).liquid(FluidBuilder().temperature(6000))
                 .color(0x010101).iconSet(SHINY)
-                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
+                .flags(EXT2_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Zeron100, 8, Titanium, 6, Naquadria, 4, Gadolinium, 3, Osmiridium, 1, Mercury, 1)
                 .blastTemp(2500, GasTier.HIGHEST, VA[UV], 2000)
                 .fluidPipeProperties(30000, 3500, true, true, true, true)
@@ -452,7 +486,7 @@ class SerendustryMaterials {
             Pikyonium = Material.Builder(15, Serendustry.ID("pikyonium"))
                 .ingot(3).liquid(FluidBuilder().temperature(6000))
                 .color(0x3160AE).iconSet(SHINY)
-                .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_SMALL_GEAR)
+                .flags(EXT2_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_SMALL_GEAR)
                 .components(Inconel792, 8, EglinSteel, 5, NaquadahEnriched, 4, TungstenSteel, 4, Cerium, 3, Onionium, 7)
                 .blastTemp(9000, GasTier.HIGHEST, VA[UV], 2000)
                 .cableProperties(V.get(UHV), 2, 512)
@@ -521,6 +555,8 @@ class SerendustryMaterials {
                 .color(0x304030).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FRAME, GENERATE_RING, GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
                 .components(TungstenSteel, 12, HSSS, 9, HSSG, 6, Ruridit, 3, MagnetoResonatic, 2, Plutonium239, 1)
+                .toolStats(ToolProperty.Builder.of(100.0f, 70.0f, 65535, 6)
+                    .attackSpeed(0.5f).enchantability(33).magnetic().build())
                 .blastTemp(5000, GasTier.HIGHEST, VA[ZPM], 1200)
                 .build()
 
@@ -1128,12 +1164,12 @@ class SerendustryMaterials {
                 .build()
 
             TengamRaw = Material.Builder(104, Serendustry.ID("tengam_raw"))
-                .dust(3).ore()
+                .dust(3).ore(1, 1).fluid()
                 .color(0xA0BF60).iconSet(METALLIC)
                 .build()
                 .setFormula("M")
 
-            val oreProp = TengamRaw.getProperty(PropertyKey.ORE)
+            var oreProp = TengamRaw.getProperty(PropertyKey.ORE)
             oreProp.setOreByProducts(IronMagnetic, SteelMagnetic, NeodymiumMagnetic, SamariumMagnetic)
             oreProp.setWashedIn(Steel)
             oreProp.directSmeltResult = NeodymiumMagnetic
@@ -1244,8 +1280,8 @@ class SerendustryMaterials {
                 .rotorStats(7.5f, 3.0f, 2500)
                 .build()
 
-            Cheese = Material.Builder(127, Serendustry.ID("cheese"))
-                .fluid().dust(3).ore()
+            CheeseCheddar = Material.Builder(127, Serendustry.ID("cheese_american"))
+                .fluid().dust(3)/*.ore(2, 1)*/
                 .color(0xfffb00).iconSet(DULL)
                 .flags(EXT2_METAL, GENERATE_FINE_WIRE)
                 .toolStats(ToolProperty.Builder.of(5.0f, 1.0f, 360, 2)
@@ -1253,11 +1289,6 @@ class SerendustryMaterials {
                 .rotorStats(1.0f, 500.0f, 250)
                 .build()
                 .setFormula("Ch")
-
-            val oreProp2 = Cheese.getProperty(PropertyKey.ORE)
-            oreProp2.setOreByProducts(Cheese, Cheese, Cheese, Cheese)
-            oreProp2.setWashedIn(Cheese)
-            oreProp2.directSmeltResult = Cheese
 
             WroughtNeutronium = Material.Builder(128, Serendustry.ID("wrought_neutronium"))
                 .ingot(3).liquid(FluidBuilder().temperature(200000))
@@ -1302,6 +1333,183 @@ class SerendustryMaterials {
                 .fluid().color(0x7cfcc8)
                 .components(HydrofluoricAcid, 1).flags(DISABLE_DECOMPOSITION)
                 .build()
+
+            // todo: custom star matter textures
+            YellowStarMatter = Material.Builder(136, Serendustry.ID("yellow_star_matter"))
+                .fluid().color(0xffff00)
+                .build()
+
+            RedStarMatter = Material.Builder(137, Serendustry.ID("red_star_matter"))
+                .fluid().color(0xff0000)
+                .build()
+
+            BlueStarMatter = Material.Builder(138, Serendustry.ID("blue_star_matter"))
+                .fluid().color(0x0000ff)
+                .build()
+
+            WhiteStarMatter = Material.Builder(139, Serendustry.ID("white_star_matter"))
+                .fluid().color(0xffffff)
+                .build()
+
+            BrownStarMatter = Material.Builder(140, Serendustry.ID("brown_star_matter"))
+                .fluid().color(0x842f00)
+                .build()
+
+            BlackStarMatter = Material.Builder(141, Serendustry.ID("black_star_matter"))
+                .fluid().color(0x000000)
+                .build()
+
+            PulsarStarMatter = Material.Builder(142, Serendustry.ID("pulsar_star_matter"))
+                .fluid().color(0x878787)
+                .build()
+
+            CondensedStarMatter = Material.Builder(143, Serendustry.ID("condensed_star_matter"))
+                .ingot(3).liquid(FluidBuilder().temperature(9000))
+                .color(0x00ffd8).iconSet(SHINY)
+                .flags(EXT2_METAL, GENERATE_FRAME)
+                .toolStats(ToolProperty.Builder.of(120.0f, 140.0f, 10000, 7)
+                    .attackSpeed(0.5f).enchantability(33).magnetic().build())
+                .build()
+
+            LigniteCoal = Material.Builder(144, Serendustry.ID("lignite_coal"))
+                .gem(1, 1200)/*.ore(2, 1)*/
+                .color(0x452200).iconSet(LIGNITE)
+                .flags(
+                    FLAMMABLE, NO_SMELTING, NO_SMASHING, MORTAR_GRINDABLE, EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES,
+                    DISABLE_DECOMPOSITION
+                )
+                .toolStats(ToolProperty.Builder.of(0.0F, 0.5F, 48, 1)
+                    .enchantability(2).ignoreCraftingTools()
+                    .enchantment(Enchantments.FIRE_ASPECT, 1).build())
+                .components(Carbon, 1)
+                .build()
+
+            AnthraciteCoal = Material.Builder(145, Serendustry.ID("anthracite_coal"))
+                .gem(1, 1200)/*.ore(2, 1)*/
+                .color(0x535f77).iconSet(LIGNITE)
+                .flags(
+                    FLAMMABLE, NO_SMELTING, NO_SMASHING, MORTAR_GRINDABLE, EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES,
+                    DISABLE_DECOMPOSITION
+                )
+                .toolStats(ToolProperty.Builder.of(0.0F, 0.5F, 48, 1)
+                    .enchantability(2).ignoreCraftingTools()
+                    .enchantment(Enchantments.FIRE_ASPECT, 1).build())
+                .components(Carbon, 1)
+                .build()
+
+            BituminousCoal = Material.Builder(146, Serendustry.ID("butuminous_coal"))
+                .gem(1, 1200)/*.ore(2, 1)*/
+                .color(0x451C90).iconSet(LIGNITE)
+                .flags(
+                    FLAMMABLE, NO_SMELTING, NO_SMASHING, MORTAR_GRINDABLE, EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES,
+                    DISABLE_DECOMPOSITION
+                )
+                .toolStats(ToolProperty.Builder.of(0.0F, 0.5F, 48, 1)
+                    .enchantability(2).ignoreCraftingTools()
+                    .enchantment(Enchantments.FIRE_ASPECT, 1).build())
+                .components(Carbon, 1)
+                .build()
+
+            SubBituminousCoal = Material.Builder(147, Serendustry.ID("sub_bitunimous_coal"))
+                .gem(1, 1200)/*.ore(2, 1)*/
+                .color(0x451C3F).iconSet(LIGNITE)
+                .flags(
+                    FLAMMABLE, NO_SMELTING, NO_SMASHING, MORTAR_GRINDABLE, EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES,
+                    DISABLE_DECOMPOSITION
+                )
+                .toolStats(ToolProperty.Builder.of(0.0F, 0.5F, 48, 1)
+                    .enchantability(2).ignoreCraftingTools()
+                    .enchantment(Enchantments.FIRE_ASPECT, 1).build())
+                .components(Carbon, 1)
+                .build()
+
+            PeatCoal = Material.Builder(148, Serendustry.ID("peat_coal"))
+                .gem(1, 1200)/*.ore(2, 1)*/
+                .color(0x454800).iconSet(LIGNITE)
+                .flags(
+                    FLAMMABLE, NO_SMELTING, NO_SMASHING, MORTAR_GRINDABLE, EXCLUDE_BLOCK_CRAFTING_BY_HAND_RECIPES,
+                    DISABLE_DECOMPOSITION
+                )
+                .toolStats(ToolProperty.Builder.of(0.0F, 0.5F, 48, 1)
+                    .enchantability(2).ignoreCraftingTools()
+                    .enchantment(Enchantments.FIRE_ASPECT, 1).build())
+                .components(Carbon, 1)
+                .build()
+
+            oreProp = AnthraciteCoal.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(AnthraciteCoal, LigniteCoal, BituminousCoal, SubBituminousCoal)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = AnthraciteCoal
+
+            oreProp = LigniteCoal.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(LigniteCoal, AnthraciteCoal, BituminousCoal, SubBituminousCoal)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = LigniteCoal
+
+            oreProp = BituminousCoal.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(BituminousCoal, PeatCoal, LigniteCoal, SubBituminousCoal)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = BituminousCoal
+
+            oreProp = SubBituminousCoal.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(SubBituminousCoal, PeatCoal, AnthraciteCoal, BituminousCoal)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = SubBituminousCoal
+
+            oreProp = PeatCoal.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(PeatCoal, LigniteCoal, AnthraciteCoal, SubBituminousCoal)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = PeatCoal
+
+            CheeseAmerican = Material.Builder(149, Serendustry.ID("cheese_american"))
+                .fluid().ingot(0).ore(2, 1)
+                .color(0xffe500).iconSet(SHINY)
+                .flags(EXT2_METAL, GENERATE_FINE_WIRE)
+                .toolStats(ToolProperty.Builder.of(5.0f, 1.0f, 360, 2)
+                    .attackSpeed(0.5f).enchantability(666).build())
+                .rotorStats(1.0f, 500.0f, 250)
+                .build()
+                .setFormula("Ch")
+
+            CheeseSwiss = Material.Builder(150, Serendustry.ID("cheese_swiss"))
+                .fluid().ingot(0).ore(2, 1)
+                .color(0xffff9f).iconSet(DULL)
+                .flags(EXT2_METAL, GENERATE_FINE_WIRE)
+                .toolStats(ToolProperty.Builder.of(5.0f, 1.0f, 360, 2)
+                    .attackSpeed(0.5f).enchantability(666).build())
+                .rotorStats(1.0f, 500.0f, 250)
+                .build()
+                .setFormula("Ch")
+
+            CheeseMozzarella = Material.Builder(151, Serendustry.ID("cheese_mozzarella"))
+                .fluid().ingot(0).ore(2, 1)
+                .color(0xffffda).iconSet(DULL)
+                .flags(EXT2_METAL, GENERATE_FINE_WIRE)
+                .toolStats(ToolProperty.Builder.of(5.0f, 1.0f, 360, 2)
+                    .attackSpeed(0.5f).enchantability(666).build())
+                .rotorStats(1.0f, 500.0f, 250)
+                .build()
+                .setFormula("Ch")
+
+            oreProp = CheeseAmerican.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(CheeseAmerican, Polyethylene, CheeseSwiss, CheeseMozzarella)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = CheeseAmerican
+
+            oreProp = CheeseSwiss.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(CheeseSwiss, CheeseCheddar, CheeseAmerican, CheeseMozzarella)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = CheeseSwiss
+
+            oreProp = CheeseCheddar.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(CheeseCheddar, CheeseAmerican, CheeseSwiss, CheeseMozzarella)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = CheeseCheddar
+
+            oreProp = CheeseMozzarella.getProperty(PropertyKey.ORE)
+            oreProp.setOreByProducts(CheeseMozzarella, CheeseCheddar, CheeseSwiss, CheeseAmerican)
+            oreProp.setWashedIn(Water)
+            oreProp.directSmeltResult = CheeseMozzarella
         }
     }
 }

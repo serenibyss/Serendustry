@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+	"layer0": "gregtech:items/void",
+    "layer1": "serendustry:item/tools/skookum_choocher"
+  }
+}

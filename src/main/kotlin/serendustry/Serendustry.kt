@@ -4,6 +4,7 @@ import gregtech.GTInternalTags
 import gregtech.api.GregTechAPI
 import gregtech.api.unification.material.event.MaterialEvent
 import gregtech.api.unification.material.event.MaterialRegistryEvent
+import gregtech.common.items.SerendustryToolItems
 import net.minecraft.client.renderer.entity.RenderCreeper
 import net.minecraft.entity.Entity
 import net.minecraft.item.Item
@@ -53,6 +54,7 @@ class Serendustry {
         SerendustryRecipeMaps.preInit()
         SerendustryMetaItems.preInit()
         SerendustryMetaTileEntities.preInit()
+        SerendustryToolItems.init()
         if (event.side == Side.CLIENT) {
             RenderingRegistry.registerEntityRenderingHandler(FriendlyCreeperEntity::class.java, ::RenderCreeper)
         }
