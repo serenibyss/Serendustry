@@ -57,6 +57,50 @@ lateinit var MYSTERIOUS_BLOB_NEON: MetaItem<*>.MetaValueItem
 lateinit var MYSTERIOUS_BLOB_NITROGEN: MetaItem<*>.MetaValueItem
 lateinit var MYSTERIOUS_BLOB_OXYGEN: MetaItem<*>.MetaValueItem
 lateinit var HOT_WOOD_INGOT: MetaItem<*>.MetaValueItem
+lateinit var PLANETOID_SCANNING_DRONE: MetaItem<*>.MetaValueItem
+lateinit var PLANETOID_HARVESTING_DRONE: MetaItem<*>.MetaValueItem
+
+// todo: data should have x durability and lose 1 per craft
+lateinit var STONE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var OBSIDIAN_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+
+lateinit var MAGNETITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var CHALCOPYRITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var PYROLUSITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var COAL_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var GRAPHITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var CASSITERITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var APATITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var NICKEL_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var COOPERITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var MONAZITE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var NAQUADAH_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var GALENA_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var TENGAM_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var CHEESE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+
+lateinit var GEM_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var SALT_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var LAPIS_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+
+lateinit var YELLOW_DWARF_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var RED_DWARF_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var RED_GIANT_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var RED_SUPERGIANT_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var BLUE_GIANT_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var WHITE_DWARF_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var BROWN_DWARF_STAR_DATA: MetaItem<*>.MetaValueItem
+
+lateinit var BLACK_DWARF_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var NEUTRON_STAR_DATA: MetaItem<*>.MetaValueItem
+lateinit var PULSAR_STAR_DATA: MetaItem<*>.MetaValueItem
+
+// this is messy but i didn't want to move IDs around
+lateinit var STAR_SCANNING_DRONE: MetaItem<*>.MetaValueItem
+lateinit var NETHERRACK_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var PITCHBLENDE_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var QUARTZ_PLANETOID_DATA: MetaItem<*>.MetaValueItem
+lateinit var STAR_HARVESTING_DRONE: MetaItem<*>.MetaValueItem
 
 class SerendustryMetaItems {
 
@@ -115,6 +159,42 @@ class SerendustryMetaItems {
             MYSTERIOUS_BLOB_NITROGEN = ITEMS.addItem(43, "mysterious_blob_nitrogen")
             MYSTERIOUS_BLOB_OXYGEN = ITEMS.addItem(44, "mysterious_blob_oxygen")
             HOT_WOOD_INGOT = ITEMS.addItem(45, "hot_wood_ingot")
+            PLANETOID_SCANNING_DRONE = ITEMS.addItem(46, "planetoid_scanning_drone")
+            PLANETOID_HARVESTING_DRONE = ITEMS.addItem(47, "planetoid_harvesting_drone")
+            STONE_PLANETOID_DATA = ITEMS.addItem(48, "stone_planetoid_data")
+            OBSIDIAN_PLANETOID_DATA = ITEMS.addItem(49, "obsidian_planetoid_data")
+            MAGNETITE_PLANETOID_DATA = ITEMS.addItem(50, "magnetite_planetoid_data")
+            CHALCOPYRITE_PLANETOID_DATA = ITEMS.addItem(51, "chalcopyrite_planetoid_data")
+            PYROLUSITE_PLANETOID_DATA = ITEMS.addItem(52, "pyrolusite_planetoid_data")
+            COAL_PLANETOID_DATA = ITEMS.addItem(53, "coal_planetoid_data")
+            GRAPHITE_PLANETOID_DATA = ITEMS.addItem(54, "graphite_planetoid_data")
+            CASSITERITE_PLANETOID_DATA = ITEMS.addItem(55, "cassiterite_planetoid_data")
+            APATITE_PLANETOID_DATA = ITEMS.addItem(56, "apatite_planetoid_data")
+            NICKEL_PLANETOID_DATA = ITEMS.addItem(57, "nickel_planetoid_data")
+            COOPERITE_PLANETOID_DATA = ITEMS.addItem(58, "cooperite_planetoid_data")
+            MONAZITE_PLANETOID_DATA = ITEMS.addItem(59, "monazite_planetoid_data")
+            NAQUADAH_PLANETOID_DATA = ITEMS.addItem(60, "naquadah_planetoid_data")
+            GALENA_PLANETOID_DATA = ITEMS.addItem(61, "galena_planetoid_data")
+            TENGAM_PLANETOID_DATA = ITEMS.addItem(62, "tengam_planetoid_data")
+            CHEESE_PLANETOID_DATA = ITEMS.addItem(63, "cheese_planetoid_data")
+            GEM_PLANETOID_DATA = ITEMS.addItem(64, "gem_planetoid_data")
+            SALT_PLANETOID_DATA = ITEMS.addItem(65, "salt_planetoid_data")
+            LAPIS_PLANETOID_DATA = ITEMS.addItem(66, "lapis_planetoid_data")
+            YELLOW_DWARF_STAR_DATA = ITEMS.addItem(67, "yellow_dwarf_star_data")
+            RED_DWARF_STAR_DATA = ITEMS.addItem(68, "red_dwarf_star_data")
+            RED_GIANT_STAR_DATA = ITEMS.addItem(69, "red_giant_star_data")
+            RED_SUPERGIANT_STAR_DATA = ITEMS.addItem(70, "red_supergiant_star_data")
+            BLUE_GIANT_STAR_DATA = ITEMS.addItem(71, "blue_giant_star_data")
+            WHITE_DWARF_STAR_DATA = ITEMS.addItem(72, "white_dwarf_star_data")
+            BROWN_DWARF_STAR_DATA = ITEMS.addItem(73, "brown_dwarf_star_data")
+            BLACK_DWARF_STAR_DATA = ITEMS.addItem(74, "black_dwarf_star_data")
+            NEUTRON_STAR_DATA = ITEMS.addItem(75, "neutron_star_data")
+            PULSAR_STAR_DATA = ITEMS.addItem(76, "pulsar_star_data")
+            STAR_SCANNING_DRONE = ITEMS.addItem(77, "star_scanning_drone")
+            NETHERRACK_PLANETOID_DATA = ITEMS.addItem(78, "netherrack_planetoid_data")
+            PITCHBLENDE_PLANETOID_DATA = ITEMS.addItem(79, "pitchblende_planetoid_data")
+            QUARTZ_PLANETOID_DATA = ITEMS.addItem(80, "quartz_planetoid_data")
+            STAR_HARVESTING_DRONE = ITEMS.addItem(81, "star_harvesting_drone")
         }
     }
 }

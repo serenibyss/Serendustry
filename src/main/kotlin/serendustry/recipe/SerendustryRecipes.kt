@@ -20,6 +20,8 @@ class SerendustryRecipes {
             radoxChain()
             registerToolPrefixHandler()
             smallFusionReactorRecipes()
+            spaceElevatorRecipes()
+            starMatterRecipes()
             wasteFluidRecipes()
         }
     }

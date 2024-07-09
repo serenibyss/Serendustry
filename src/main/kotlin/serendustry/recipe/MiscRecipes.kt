@@ -4,6 +4,7 @@ import gregtech.api.GTValues.*
 import gregtech.api.fluids.store.FluidStorageKeys
 import gregtech.api.recipes.ModHandler
 import gregtech.api.recipes.RecipeMaps.*
+import gregtech.api.recipes.chance.output.ChancedOutputLogic
 import gregtech.api.unification.OreDictUnifier
 import gregtech.api.unification.material.MarkerMaterials
 import gregtech.api.unification.material.Materials.*
@@ -132,28 +133,15 @@ internal fun miscRecipes() {
         .blastFurnaceTemp(10800)
         .duration(100).EUt(VA[UHV]).buildAndRegister()
 
-    ASSEMBLY_LINE_RECIPES.recipeBuilder()
-        .input(HULL[UXV])
-        .input(FIELD_GENERATOR_UXV)
-        .input(ROBOT_ARM_UXV, 2)
-        .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 64)
-        .input(plateDense, AwakenedDraconium, 2)
-        .input(plateDouble, CrystalMatrix, 8)
-        .input(wireGtQuadruple, Bedrockium, 8)
-        .fluidInputs(MutatedLivingSolder.getFluid(4608))
-        .fluidInputs(OmniversalLubricant.getPlasma(16000))
-        .fluidInputs(RadoxPolymer.getFluid(4608))
-        .output(TRANSCENDENT_PLASMA_MIXER)
-        .duration(1600).EUt(VA[OpV]).buildAndRegister()
-
     ELECTROMAGNETIC_SEPARATOR_RECIPES.recipeBuilder()
         .input(dust, TengamRaw)
-        .chancedOutput(dust, IronMagnetic, 2700,540)
-        .chancedOutput(dust, SteelMagnetic, 2000,400)
-        .chancedOutput(dust, NeodymiumMagnetic, 1600,320)
-        .chancedOutput(dust, SamariumMagnetic, 1400,280)
-        .chancedOutput(dust, MagnetoResonatic, 1200,240)
-        .chancedOutput(dust, TengamPurified, 1100,220)
+        .chancedOutput(dust, IronMagnetic, 2700,0)
+        .chancedOutput(dust, SteelMagnetic, 2000,0)
+        .chancedOutput(dust, NeodymiumMagnetic, 1600,0)
+        .chancedOutput(dust, SamariumMagnetic, 1400,0)
+        .chancedOutput(dust, MagnetoResonatic, 1200,0)
+        .chancedOutput(dust, TengamPurified, 1100,0)
+        .chancedOutputLogic(ChancedOutputLogic.XOR)
         .duration(120).EUt(VA[UV]).buildAndRegister()
 
     ModHandler.addSmeltingRecipe(OreDictUnifier.get(nugget, Neutronium), OreDictUnifier.get(nugget, WroughtNeutronium))

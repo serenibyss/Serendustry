@@ -1,11 +1,30 @@
 package serendustry.recipe
 
 import gregtech.api.GTValues.*
+import gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES
 import gregtech.api.unification.material.Materials.*
+import gregtech.api.unification.ore.OrePrefix.*
+import gregtech.common.items.MetaItems.*
+import gregtech.common.metatileentities.MetaTileEntities.HULL
 import serendustry.item.material.*
 import serendustry.machine.PLASMA_MIXER_RECIPES
+import serendustry.machine.TRANSCENDENT_PLASMA_MIXER
 
 internal fun plasmaMixerRecipes() {
+
+    ASSEMBLY_LINE_RECIPES.recipeBuilder()
+        .input(HULL[UXV])
+        .input(FIELD_GENERATOR_UXV)
+        .input(ROBOT_ARM_UXV, 2)
+        .input(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 64)
+        .input(plateDense, AwakenedDraconium, 2)
+        .input(plateDouble, CrystalMatrix, 8)
+        .input(wireGtQuadruple, Bedrockium, 8)
+        .fluidInputs(MutatedLivingSolder.getFluid(4608))
+        .fluidInputs(OmniversalLubricant.getPlasma(16000))
+        .fluidInputs(RadoxPolymer.getFluid(4608))
+        .output(TRANSCENDENT_PLASMA_MIXER)
+        .duration(1600).EUt(VA[OpV]).buildAndRegister()
 
     // Gates Periodicium, which gates OpV circuits. Also gates Ledox and Callisto Ice, OpV materials
     PLASMA_MIXER_RECIPES.recipeBuilder()
