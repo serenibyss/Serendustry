@@ -29,11 +29,4 @@ dependencies {
     // Soft Dependencies
     compileOnlyApi rfg.deobf("curse.maven:ctm-267602:2915363") // CTM 1.0.2.31
     compileOnlyApi rfg.deobf("curse.maven:ae2-extended-life-570458:5047265") // AE2UEL 0.56.2
-
-    // Kotlin
-    shadowCompile "org.jetbrains.kotlin:kotlin-stdlib:1.8.0"
-    shadowCompile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0"
-    shadowCompile "org.jetbrains.kotlin:kotlin-reflect:1.8.0"
-    shadowCompile "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
-    shadowCompile "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4"
 }
