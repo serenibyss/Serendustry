@@ -3,9 +3,9 @@ package serendustry.recipe;
 import static gregtech.api.recipes.RecipeMaps.MIXER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static serendustry.item.material.*;
+import static serendustry.item.material.SerendustryMaterials.*;
 
-public class periodiciumChain() {
+public class PeriodiciumChain {
     public static void init() {
 
         MIXER_RECIPES.recipeBuilder().duration(270).EUt(250000)

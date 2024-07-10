@@ -4,10 +4,10 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static serendustry.item.material.*;
-import static serendustry.machine.LABORATORY_RECIPES;
+import static serendustry.item.material.SerendustryMaterials.*;
+import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
-public class radoxChain() {
+public class RadoxChain {
     public static void init() {
 
         CHEMICAL_RECIPES.recipeBuilder()

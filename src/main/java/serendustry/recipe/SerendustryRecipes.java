@@ -1,28 +1,26 @@
 package serendustry.recipe;
 
-class SerendustryRecipes {
-    companion object {
-        fun registerRecipes() {
+public class SerendustryRecipes {
+        public static void registerRecipes() {
             //registerPrefixHandlers() todo
-            alloyRecipes();
-            animalWasteRecipes();
-            destabilizedMatterChain();
-            dragonEggRecipes();
-            htComponentRecipes();
-            htMachineRecipes();
-            largeAlloySmelterRecipes();
-            magnetoResonaticRecipes();
-            miscRecipes();
-            mysteriousBlobRecipes();
-            periodiciumChain();
-            plasmaFuels();
-            plasmaMixerRecipes();
-            radoxChain();
-            registerToolPrefixHandler();
-            smallFusionReactorRecipes();
-            spaceElevatorRecipes();
-            starMatterRecipes();
-            wasteFluidRecipes();
+            AlloyRecipes.init();
+            AnimalWasteRecipes.init();
+            DestabilizedMatterChain.init();
+            DragonEggRecipes.init();
+            HTComponentRecipes.init();
+            HTMachineRecipes.init();
+            LargeAlloySmelterRecipes.init();
+            MagnetoResonaticRecipes.init();
+            MiscRecipes.init();
+            MysteriousBlobRecipes.init();
+            PeriodiciumChain.init();
+            PlasmaFuels.init();
+            PlasmaMixerRecipes.init();
+            RadoxChain.init();
+            ToolPrefixHandlers.registerToolPrefixHandler();
+            SmallFusionReactorRecipes.init();
+            SpaceElevatorRecipes.init();
+            StarMatterRecipes.init();
+            WasteFluidRecipes.init();
         }
-    }
 }

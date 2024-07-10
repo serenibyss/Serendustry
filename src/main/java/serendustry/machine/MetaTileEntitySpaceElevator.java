@@ -11,22 +11,36 @@ import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-class MetaTileEntitySpaceElevator(rl: ResourceLocation): RecipeMapMultiblockController(rl, SPACE_ELEVATOR_RECIPES) {
+public class MetaTileEntitySpaceElevator extends RecipeMapMultiblockController {
+    public MetaTileEntitySpaceElevator(ResourceLocation rl) {
+        super(rl, SerendustryRecipeMaps.SPACE_ELEVATOR_RECIPES);
+    }
 
-    override fun createMetaTileEntity(te: IGregTechTileEntity) = MetaTileEntitySpaceElevator(metaTileEntityId)
+    @Override
+    public MetaTileEntitySpaceElevator createMetaTileEntity(IGregTechTileEntity te) {
+        return new MetaTileEntitySpaceElevator(metaTileEntityId);
+    }
 
-    override fun createStructurePattern(): BlockPattern =
-        FactoryBlockPattern.start()
-            .aisle("XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX")
-            .aisle("XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX")
-            .aisle("XXX", "XXX", "XXX", "XXX", "XSX", "XXX", "XXX", "XXX", "XXX")
-            .where('S', selfPredicate())
-            .where('X', states(getCasingState()).setMinGlobalLimited(60).or(autoAbilities()))
-            .build()
+    @Override
+    public @NotNull BlockPattern createStructurePattern() {
+        return FactoryBlockPattern.start()
+                .aisle("XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX")
+                .aisle("XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX", "XXX")
+                .aisle("XXX", "XXX", "XXX", "XXX", "XSX", "XXX", "XXX", "XXX", "XXX")
+                .where('S', selfPredicate())
+                .where('X', states(getCasingState()).setMinGlobalLimited(60).or(autoAbilities()))
+                .build();
+    }
 
-    override fun getBaseTexture(part: IMultiblockPart?): ICubeRenderer = Textures.INERT_PTFE_CASING // todo
+    public ICubeRenderer getBaseTexture(@Nullable IMultiblockPart part) {
+        return Textures.INERT_PTFE_CASING; // todo
+    }
 
     // todo: add custom ??? Casing
-    private fun getCasingState(): IBlockState = MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UV)
+    private IBlockState getCasingState() {
+        return MetaBlocks.MACHINE_CASING.getState(BlockMachineCasing.MachineCasingType.UV);
+    }
 }

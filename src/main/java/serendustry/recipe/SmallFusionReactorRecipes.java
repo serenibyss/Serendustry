@@ -5,9 +5,9 @@ import static gregtech.api.recipes.RecipeMaps.ALLOY_SMELTER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingot;
-import static serendustry.item.material.*;
+import static serendustry.item.material.SerendustryMaterials.*;
 
-public class smallFusionReactorRecipes() {
+public class SmallFusionReactorRecipes {
     public static void init() {
 
         ALLOY_SMELTER_RECIPES.recipeBuilder()

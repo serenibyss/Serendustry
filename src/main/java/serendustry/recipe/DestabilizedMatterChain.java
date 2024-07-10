@@ -5,11 +5,11 @@ import gregtech.api.fluids.store.FluidStorageKeys;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static serendustry.item.QUANTUM_ANOMALY;
-import static serendustry.item.material.*;
-import static serendustry.machine.LABORATORY_RECIPES;
+import static serendustry.item.SerendustryMetaItems.QUANTUM_ANOMALY;
+import static serendustry.item.material.SerendustryMaterials.*;
+import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
-public class destabilizedMatterChain() {
+public class DestabilizedMatterChain {
     public static void init() {
 
         CHEMICAL_BATH_RECIPES.recipeBuilder()

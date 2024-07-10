@@ -9,15 +9,17 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.stack.UnificationEntry;
+import gregtech.api.unification.stack.UnificationEntry;
 import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
-import static net.minecraft.init.Blocks;
-import serendustry.item.*;
-import serendustry.item.material.*;
-import serendustry.machine.*;
+import static net.minecraft.init.Blocks.*;
 
-public class miscRecipes() {
+import static serendustry.item.SerendustryMetaItems.*;
+import static serendustry.item.material.SerendustryMaterials.*;
+import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
+import static serendustry.machine.SerendustryMetaTileEntities.*;
+
+public class MiscRecipes {
     public static void init() {
 
     AUTOCLAVE_RECIPES.recipeBuilder()
@@ -141,7 +143,7 @@ public class miscRecipes() {
         .chancedOutputLogic(ChancedOutputLogic.XOR)
         .duration(120).EUt(VA[UV]).buildAndRegister();
 
-    ModHandler.addSmeltingRecipe(OreDictUnifier.get(nugget, Neutronium), OreDictUnifier.get(nugget, WroughtNeutronium))
+    ModHandler.addSmeltingRecipe(OreDictUnifier.get(nugget, Neutronium), OreDictUnifier.get(nugget, WroughtNeutronium));
 
     // todo: hot wood ingot
     /*VACUUM_RECIPES.recipeBuilder()

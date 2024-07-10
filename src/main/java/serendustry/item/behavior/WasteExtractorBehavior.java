@@ -6,15 +6,18 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import serendustry.item.WASTE_FLUID_EXTRACTOR_FILLED;
+import org.jetbrains.annotations.Nullable;
+import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR_FILLED;
 
-class WasteExtractorBehavior: IItemBehaviour {
+public class WasteExtractorBehavior implements IItemBehaviour {
 
-    override fun onLeftClickEntity(itemStack: ItemStack?, player: EntityPlayer?, entity: Entity?): Boolean {
-        if (entity is EntityCow) { // todo just a test?
-            player?.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, WASTE_FLUID_EXTRACTOR_FILLED.getStackForm())
+    public boolean onLeftClickEntity(@Nullable ItemStack itemStack, @Nullable EntityPlayer player, @Nullable Entity entity) {
+        if (entity instanceof EntityCow) { // todo just a test?
+            if(player != null) {
+                player.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, WASTE_FLUID_EXTRACTOR_FILLED.getStackForm());
+            }
         }
         // false because this will still apply the "hit"
-        return false
+        return false;
     }
 }

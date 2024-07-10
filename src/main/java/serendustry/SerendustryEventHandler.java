@@ -6,23 +6,36 @@ import gregtech.api.event.HighTierEvent;
 import gregtech.api.unification.material.Material;
 import static gregtech.api.unification.material.Materials.Neutronium;
 import static gregtech.api.unification.material.Materials.VanadiumGallium;
+import static gregtech.api.unification.ore.OrePrefix.*;
+
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.loaders.recipe.CraftingComponent;
-import gregtech.loaders.recipe.CraftingComponent.*;
+import static gregtech.loaders.recipe.CraftingComponent.*;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import static serendustry.entity.FriendlyCreeperEntity;
+import serendustry.entity.FriendlyCreeperEntity;
 
-class SerendustryEventHandler {
+import java.util.HashMap;
+import java.util.Map;
 
-    private var serverTickTimer = 0;
+import static serendustry.item.material.SerendustryMaterials.*;
+
+public class SerendustryEventHandler {
+
+    private static int serverTickTimer = 0;
 
     @SubscribeEvent
-    fun enableHighTier(event: HighTierEvent) = event.enableHighTier()
+    public void enableHighTier(HighTierEvent event) {
+        event.enableHighTier();
+    }
 
     @SubscribeEvent
-    fun appendCraftingComponent(event: GregTechAPI.RegisterEvent<CraftingComponent>) {
+    public void appendCraftingComponent(GregTechAPI.RegisterEvent<CraftingComponent> event) {
         // Wires / Cables
         appendToComponent(WIRE_ELECTRIC, wireGtSingle, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
         appendToComponent(WIRE_QUAD, wireGtQuadruple, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
@@ -85,41 +98,47 @@ class SerendustryEventHandler {
         appendToComponent(GTValues.UEV, SPRING, spring, Pikyonium, Lafium, Signalium, Bedrockium, Quantium);
     }
 
-    private fun appendToComponent(component: Component, prefix: OrePrefix, vararg materials: Material) =
-        appendToComponent(GTValues.UHV, component, prefix, *materials)
+    private void appendToComponent(Component component, OrePrefix prefix, Material... materials) {
+        appendToComponent(GTValues.UHV, component, prefix, materials);
+    }
 
-    private void appendToComponent(startTier: Int, component: Component, prefix: OrePrefix, vararg materials: Material) {
-        if (startTier !in 0..GTValues.MAX) { return; }
-        val map = mutableMapOf<Int, Any>();
-        materials.forEachIndexed { index, material ->
-            val tier = (index + startTier).takeUnless { it > GTValues.MAX } ?: return@forEachIndexed
-            map[tier] = UnificationEntry(prefix, material);
+    private void appendToComponent(int startTier, Component component, OrePrefix prefix, Material... materials) {
+        if (startTier > GTValues.MAX) { return; }
+        Map<Integer, Object> map = new HashMap<>();
+        for(int i = 0; i < materials.length; i++) {
+            Material material = materials[i];
+            int tier = (i + startTier);
+            if(tier > GTValues.MAX) {
+                return;
+            }
+            map.put(tier, new UnificationEntry(prefix, material));
         }
+
         component.appendIngredients(map);
     }
 
     @SubscribeEvent
-    fun onTick(event: TickEvent.WorldTickEvent) {
+    public void onTick(TickEvent.WorldTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.side != Side.SERVER) {
-            return
+            return;
         }
         if (++serverTickTimer % 10000 == 0) {
-            for (player in event.world.playerEntities) {
+            for (EntityPlayer player : event.world.playerEntities) {
                 if (event.world.rand.nextInt(200) == 0) {
-                    for (i in 0..5) {
-                        val targetX = player.posX.toInt() + event.world.rand.nextInt(4) - event.world.rand.nextInt(4)
-                        val targetY = player.posY.toInt() + event.world.rand.nextInt(4) - event.world.rand.nextInt(4)
-                        val targetZ = player.posZ.toInt() + event.world.rand.nextInt(4) - event.world.rand.nextInt(4)
-                        if (event.world.isAirBlock(BlockPos(targetX, targetY, targetZ)) && event.world.isAirBlock(BlockPos(targetX, targetY + 1, targetZ))) {
-                            val creeper = FriendlyCreeperEntity(event.world);
+                    for (int i = 0; i <= 5; i++) {
+                        int targetX = (int) player.posX + event.world.rand.nextInt(4) - event.world.rand.nextInt(4);
+                        int targetY = (int) player.posY + event.world.rand.nextInt(4) - event.world.rand.nextInt(4);
+                        int targetZ = (int) player.posZ + event.world.rand.nextInt(4) - event.world.rand.nextInt(4);
+                        if (event.world.isAirBlock(new BlockPos(targetX, targetY, targetZ)) && event.world.isAirBlock(new BlockPos(targetX, targetY + 1, targetZ))) {
+                            FriendlyCreeperEntity creeper = new FriendlyCreeperEntity(event.world);
                             try {
-                                creeper.customNameTag = FriendlyCreeperEntity.getName(event.world.rand)
-                            } catch (ignored: Exception) {}
+                                creeper.setCustomNameTag(FriendlyCreeperEntity.getName(event.world.rand));
+                            } catch (Exception ignored) {}
                             creeper.playLivingSound();
                             creeper.setLocationAndAngles(
-                                targetX.toDouble() + event.world.rand.nextDouble(),
-                                targetY.toDouble() + event.world.rand.nextDouble(),
-                                targetZ.toDouble() + event.world.rand.nextDouble(),
+                                targetX + event.world.rand.nextDouble(),
+                                targetY + event.world.rand.nextDouble(),
+                                targetZ + event.world.rand.nextDouble(),
                                 event.world.rand.nextFloat(),
                                 event.world.rand.nextFloat());
                             event.world.spawnEntity(creeper);

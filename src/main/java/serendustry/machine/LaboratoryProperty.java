@@ -6,6 +6,8 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraftforge.fml.client.config.GuiUtils;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import serendustry.SerendustryUtil;
 import serendustry.machine.LaboratoryProperty.LaboratoryEntry;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -27,9 +29,6 @@ import java.util.stream.Collectors;
 public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
 
     public static final String KEY = "laboratory_internal";
-
-    // todo remove
-    private static final Set<ResourceLocation> ALLOWED_MACHINES = new HashSet<>();
 
     private static LaboratoryProperty INSTANCE;
 
@@ -92,12 +91,9 @@ public class LaboratoryProperty extends RecipeProperty<LaboratoryEntry> {
         }
     }
 
-    @Override public void drawInfo(Minecraft minecraft, int i, int i1, int i2, Object o) {}
-
-    // todo remove
-    public static void registerLaboratoryMachine(MetaTileEntity... machines) {
-        ALLOWED_MACHINES.addAll(Arrays.stream(machines).filter(Objects::nonNull).map(mte -> mte.metaTileEntityId).collect(Collectors.toList()));
-    }
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void drawInfo(Minecraft minecraft, int i, int i1, int i2, Object o) {}
 
     public static boolean isMachineAllowed(@Nonnull MetaTileEntity machine) {
         if (machine instanceof MultiblockControllerBase) return false;

@@ -1,14 +1,14 @@
-package serendustry.recipe
+package serendustry.recipe;
 
-import gregtech.api.GTValues
-import gregtech.api.recipes.ModHandler
-import gregtech.api.recipes.RecipeMaps.*
-import gregtech.api.unification.ore.OrePrefix.*
-import gregtech.api.unification.stack.UnificationEntry
-import gregtech.common.blocks.MetaBlocks.MACHINE_CASING
-import serendustry.item.material.*
+import gregtech.api.GTValues;
+import gregtech.api.recipes.ModHandler;
+import gregtech.api.recipes.RecipeMaps.*;
+import gregtech.api.unification.ore.OrePrefix.*;
+import gregtech.api.unification.stack.UnificationEntry;
+import static gregtech.common.blocks.MetaBlocks.MACHINE_CASING;
+import serendustry.item.material.*;
 
-public class htMachineRecipes() {
+public class HTMachineRecipes {
     public static void init() {/* todo
 
     // Machine Casings

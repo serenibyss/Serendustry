@@ -4,7 +4,6 @@ import gregtech.GTInternalTags;
 import gregtech.api.GregTechAPI;
 import gregtech.api.unification.material.event.MaterialEvent;
 import gregtech.api.unification.material.event.MaterialRegistryEvent;
-import static gregtech.common.items.SerendustryToolItems;
 import net.minecraft.client.renderer.entity.RenderCreeper;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -22,62 +21,70 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Logger;
-import static serendustry.entity.FriendlyCreeperEntity;
-import static serendustry.item.SerendustryMetaItems;
+import serendustry.entity.FriendlyCreeperEntity;
+import serendustry.item.SerendustryMetaItems;
+import serendustry.item.SerendustryToolItems;
 import serendustry.item.material.SerendustryMaterials;
-import static serendustry.machine.SerendustryMetaTileEntities;
-import static serendustry.machine.SerendustryRecipeMaps;
+import serendustry.machine.SerendustryMetaTileEntities;
+import serendustry.machine.SerendustryRecipeMaps;
 import serendustry.recipe.SerendustryRecipes;
 
-const val MODID = Tags.MODID;
-lateinit var logger: Logger
-
 @Mod(modid = Tags.MODID, name = Tags.MODNAME, version = Tags.VERSION,
-    dependencies = GTInternalTags.DEP_VERSION_STRING,
-    modLanguageAdapter = "serendustry.adapter.KotlinAdapter");
-class Serendustry {
+    dependencies = GTInternalTags.DEP_VERSION_STRING)
+public class Serendustry {
+    public static final String MODID = Tags.MODID;
+    public static Logger logger = null;
 
-    companion object {
-        fun ID(path: String) = ResourceLocation(MODID, path);
+    public static ResourceLocation ID(String path) {
+        return new ResourceLocation(MODID, path);
     }
 
     @EventHandler
-    fun onConstruction(event: FMLConstructionEvent) {
+    public void onConstruction(FMLConstructionEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
-        MinecraftForge.EVENT_BUS.register(SerendustryEventHandler());
+        MinecraftForge.EVENT_BUS.register(new SerendustryEventHandler());
     }
 
     @EventHandler
-    fun preInit(event: FMLPreInitializationEvent) {
-        logger = event.modLog;
+    public void preInit(FMLPreInitializationEvent event) {
+        logger = event.getModLog();
         logger.info("Serendustry PreInitialization");
         SerendustryRecipeMaps.preInit();
         SerendustryMetaItems.preInit();
         SerendustryMetaTileEntities.preInit();
         SerendustryToolItems.init();
-        if (event.side == Side.CLIENT) {
-            RenderingRegistry.registerEntityRenderingHandler(FriendlyCreeperEntity::class.java, ::RenderCreeper);
+        if (event.getSide() == Side.CLIENT) {
+            RenderingRegistry.registerEntityRenderingHandler(FriendlyCreeperEntity.class, RenderCreeper::new);
         }
     }
 
     @SubscribeEvent
-    fun registerItems(event: RegistryEvent.Register<Item>) = SerendustryMetaItems.registerItems()
+    public void registerItems(RegistryEvent.Register<Item> event) {
+        SerendustryMetaItems.registerItems();
+    }
 
     @SubscribeEvent
-    fun registerRecipes(event: RegistryEvent.Register<IRecipe>) = SerendustryRecipes.registerRecipes()
+    public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        SerendustryRecipes.registerRecipes();
+    }
 
     @SubscribeEvent
-    fun registerMaterialRegistry(event: MaterialRegistryEvent) = GregTechAPI.materialManager.createRegistry(MODID)
+    public void registerMaterialRegistry(MaterialRegistryEvent event) {
+        GregTechAPI.materialManager.createRegistry(MODID);
+    }
 
     @SubscribeEvent
-    fun registerMaterials(event: MaterialEvent) = SerendustryMaterials.registerMaterials()
+    public void registerMaterials(MaterialEvent event) {
+        SerendustryMaterials.init();
+    }
 
     @SubscribeEvent
-    fun registerEntities(event: RegistryEvent.Register<EntityEntry>) =
-        event.registry.register(EntityEntryBuilder.create<Entity>()
-            .entity(FriendlyCreeperEntity::class.java)
-            .id(ResourceLocation(MODID, "friendly_creeper"), 0)
-            .name("$MODID.friendly_creeper")
-            .tracker(64, 1, true)
-            .build());
+    public void registerEntities(RegistryEvent.Register<EntityEntry> event) {
+        event.getRegistry().register(EntityEntryBuilder.<Entity>create()
+                .entity(FriendlyCreeperEntity.class)
+                .id(ID("friendly_creeper"), 0)
+                .name("$MODID.friendly_creeper")
+                .tracker(64, 1, true)
+                .build());
+    }
 }

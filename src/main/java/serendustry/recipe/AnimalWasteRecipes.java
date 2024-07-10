@@ -1,14 +1,14 @@
-package serendustry.recipe
+package serendustry.recipe;
 
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import net.minecraft.init.Blocks;
-import static serendustry.item.WASTE_FLUID_EXTRACTOR;
-import static serendustry.item.WASTE_FLUID_EXTRACTOR_FILLED;
-import static serendustry.item.material.*;
+import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR;
+import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR_FILLED;
+import static serendustry.item.material.SerendustryMaterials.*;
 
-public class animalWasteRecipes() {
+public class AnimalWasteRecipes {
     public static void init() {
 
         ASSEMBLER_RECIPES.recipeBuilder()

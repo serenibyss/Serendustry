@@ -6,11 +6,11 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
-import static serendustry.item.material.*;
-import static serendustry.machine.PLASMA_MIXER_RECIPES;
-import static serendustry.machine.TRANSCENDENT_PLASMA_MIXER;
+import static serendustry.item.material.SerendustryMaterials.*;
+import static serendustry.machine.SerendustryRecipeMaps.PLASMA_MIXER_RECIPES;
+import static serendustry.machine.SerendustryMetaTileEntities.TRANSCENDENT_PLASMA_MIXER;
 
-public class plasmaMixerRecipes() {
+public class PlasmaMixerRecipes {
     public static void init() {
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
@@ -121,6 +121,6 @@ public class plasmaMixerRecipes() {
                         Phosphorus.getPlasma(144),
                         Protactinium.getPlasma(144))
                 .fluidOutputs(Floppa.getFluid(144), TransResidue.getFluid(1000))
-                .duration(4800).EUt(V[MAX].toInt()).buildAndRegister();
+                .duration(4800).EUt((int) V[MAX]).buildAndRegister();
     }
 }

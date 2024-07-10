@@ -1,41 +1,44 @@
 package serendustry.recipe;
 
 import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.properties.PropertyKey;
+
 import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static gregtech.api.unification.material.properties.PropertyKey;
 import static gregtech.api.unification.material.properties.PropertyKey.GEM;
-import static gregtech.api.unification.material.properties.ToolProperty;
-import static gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.material.properties.ToolProperty;
+import gregtech.api.unification.ore.OrePrefix;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.stack.UnificationEntry;
-import static gregtech.common.items.SerendustryToolItems;
-import static gregtech.loaders.recipe.handlers.ToolRecipeHandler;
+import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.loaders.recipe.handlers.ToolRecipeHandler;
+import serendustry.item.SerendustryToolItems;
 
-internal fun registerToolPrefixHandler() {
-       plate.addProcessingHandler(PropertyKey.TOOL, ::processTool)
-}
+public class ToolPrefixHandlers {
+    public static void registerToolPrefixHandler() {
+        plate.addProcessingHandler(PropertyKey.TOOL, ToolPrefixHandlers::processTool);
+    }
 
-private fun processTool(prefix: OrePrefix, material: Material, property: ToolProperty) {
-    val block = UnificationEntry(OrePrefix.block, material)
-    val plate = UnificationEntry(OrePrefix.plate, material)
-    val ingot = UnificationEntry(
-        if (material.hasProperty(GEM)) gem else OrePrefix.ingot,
-        material
-    )
-    val stickLong = UnificationEntry(OrePrefix.stickLong, material)
-    val screw = UnificationEntry(OrePrefix.screw, material)
+    private static void processTool(OrePrefix prefix, Material material, ToolProperty property) {
+        UnificationEntry block = new UnificationEntry(OrePrefix.block, material);
+        UnificationEntry plate = new UnificationEntry(OrePrefix.plate, material);
+        UnificationEntry ingot = new UnificationEntry(
+                (material.hasProperty(GEM)) ? gem : OrePrefix.ingot,
+                material
+        );
+        UnificationEntry stickLong = new UnificationEntry(OrePrefix.stickLong, material);
+        UnificationEntry screw = new UnificationEntry(OrePrefix.screw, material);
 
-    if (material.hasFlag(GENERATE_PLATE) && material.hasFlag(GENERATE_ROD) && material.hasFlag(GENERATE_BOLT_SCREW)) {
-        SerendustryToolItems.SKOOKUM_CHOOCHER?.let {
+        if (material.hasFlag(GENERATE_PLATE) && material.hasFlag(GENERATE_ROD) && material.hasFlag(GENERATE_BOLT_SCREW)) {
+
             ToolRecipeHandler.addToolRecipe(
-                material, it, true,
-                "BdP", "IPP", "LS ",
-                'B', block,
-                'P', plate,
-                'I', ingot,
-                'L', stickLong,
-                'S', screw
-            )
+                    material, SerendustryToolItems.SKOOKUM_CHOOCHER, true,
+                    "BdP", "IPP", "LS ",
+                    'B', block,
+                    'P', plate,
+                    'I', ingot,
+                    'L', stickLong,
+                    'S', screw
+            );
+
         }
     }
 }

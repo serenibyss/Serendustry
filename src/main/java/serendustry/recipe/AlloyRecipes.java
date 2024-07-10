@@ -1,7 +1,7 @@
 package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
-import gregtech.api.fluids.store.FluidStorageKeys
+import gregtech.api.fluids.store.FluidStorageKeys;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -10,10 +10,10 @@ import static gregtech.common.items.MetaItems.STEM_CELLS;
 import static gregtech.common.metatileentities.MetaTileEntities.ASSEMBLY_LINE;
 import static gregtech.common.metatileentities.MetaTileEntities.ELECTROLYZER;
 import net.minecraft.init.Blocks;
-import static serendustry.item.material.*;
-import static serendustry.machine.LABORATORY_RECIPES;
+import static serendustry.item.material.SerendustryMaterials.*;
+import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
-public class alloyRecipes() {
+public class AlloyRecipes {
     public static void init() {
         MIXER_RECIPES.recipeBuilder()
                 .input(dust, Gallium, 1).input(dust, Yttrium, 1)
@@ -279,10 +279,10 @@ public class alloyRecipes() {
                 .output(dust, Thaumium)
                 .duration(300).EUt(VA[ZPM]).buildAndRegister();
 
-        for (i in LV..OpV){
+        for (int i = LV; i <= OpV; i++){
             EXTRACTOR_RECIPES.recipeBuilder()
                     .input(ELECTROLYZER[i])
-                    .fluidOutputs(Magic2.getFluid((V[i] / 32).toInt()))
+                    .fluidOutputs(Magic2.getFluid((int) (V[i] / 32)))
                     .duration(500).EUt(VA[i]).buildAndRegister();
         }
 

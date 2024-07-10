@@ -5,12 +5,12 @@ import gregtech.api.recipes.RecipeMaps;
 import static gregtech.api.recipes.RecipeMaps.EXTRACTOR_RECIPES;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
-import static serendustry.item.WASTE_FLUID_EXTRACTOR;
-import static serendustry.item.WASTE_FLUID_EXTRACTOR_FILLED;
-import static serendustry.item.material.AnimalWaste;
-import static serendustry.machine.LABORATORY_RECIPES;
+import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR;
+import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR_FILLED;
+import static serendustry.item.material.SerendustryMaterials.AnimalWaste;
+import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
-public class wasteFluidRecipes() {
+public class WasteFluidRecipes {
     public static void init() {
 
         EXTRACTOR_RECIPES.recipeBuilder()

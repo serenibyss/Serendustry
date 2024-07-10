@@ -1,75 +1,85 @@
 package serendustry.recipe;
 
+import com.google.common.collect.ImmutableMap;
 import gregtech.api.GTValues;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.ConfigHolder;
 import net.minecraft.item.ItemStack;
-import static serendustry.item.material.ISHydrochloricAcid;
-import static serendustry.item.material.ISHydrofluoricAcid;
-import static serendustry.item.material.ISSulfuricAcid;
-import static serendustry.machine.DIGESTER_RECIPES;
 
-internal fun registerPrefixHandlers() {
+import java.util.Map;
 
-    OrePrefix.ore.addProcessingHandler(PropertyKey.ORE, ::processOre)
-    OrePrefix.oreNetherrack.addProcessingHandler(PropertyKey.ORE, ::processOre)
-    OrePrefix.oreEndstone.addProcessingHandler(PropertyKey.ORE, ::processOre)
-    if (ConfigHolder.worldgen.allUniqueStoneTypes) {
-        OrePrefix.oreGranite.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreDiorite.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreAndesite.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreBasalt.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreBlackgranite.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreMarble.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreRedgranite.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreSand.addProcessingHandler(PropertyKey.ORE, ::processOre)
-        OrePrefix.oreRedSand.addProcessingHandler(PropertyKey.ORE, ::processOre)
+import static serendustry.item.material.SerendustryMaterials.ISHydrochloricAcid;
+import static serendustry.item.material.SerendustryMaterials.ISHydrofluoricAcid;
+import static serendustry.item.material.SerendustryMaterials.ISSulfuricAcid;
+import static serendustry.machine.SerendustryRecipeMaps.DIGESTER_RECIPES;
+
+public class PrefixHandlers {
+    static void registerPrefixHandlers() {
+        OrePrefix.ore.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+        OrePrefix.oreNetherrack.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+        OrePrefix.oreEndstone.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+        if (ConfigHolder.worldgen.allUniqueStoneTypes) {
+            OrePrefix.oreGranite.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreDiorite.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreAndesite.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreBasalt.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreBlackgranite.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreMarble.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreRedgranite.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreSand.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+            OrePrefix.oreRedSand.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
+        }
     }
-}
 
-private val fluids = mapOf(
-    Pair(ISSulfuricAcid, 2),
-    Pair(ISHydrochloricAcid, 3),
-    Pair(ISHydrofluoricAcid, 4),
-)
+    private static final ImmutableMap<Material, Integer> fluids = ImmutableMap.of(
+            ISSulfuricAcid, 2,
+            ISHydrochloricAcid, 3,
+            ISHydrofluoricAcid, 4
+    );
 
-private fun processOre(prefix: OrePrefix, material: Material, property: OreProperty) {
-    val amountOfCrushedOre = property.oreMultiplier
-    val oreTypeMultiplier = if (prefix == OrePrefix.oreNetherrack || prefix == OrePrefix.oreEndstone) 2 else 1
-    val byproduct = property.getOreByProduct(0, material)
-    val byproductStack = OreDictUnifier.get(OrePrefix.gem, byproduct, 32).takeUnless { it.isEmpty() }
-        ?: OreDictUnifier.get(OrePrefix.dust, byproduct, 32)
-
-    val outputCrushed = amountOfCrushedOre * 8 * oreTypeMultiplier
-
-    val builder = DIGESTER_RECIPES.recipeBuilder()
-        .input(prefix, material, 8)
-        .duration(500)
-        .EUt(GTValues.VA[GTValues.HV])
-
-    for (entry in fluids.entries) {
-        val builder2 = builder.copy()
-        val byproductStack2: ItemStack = byproductStack.copy()
-        byproductStack2.count = byproductStack.count * entry.value
-        builder2.chancedOutput(byproductStack2, 1400, 850)
-        var outputCrushed2: Int = outputCrushed * entry.value
-        while (outputCrushed2 > 0) {
-            val amountToDo = outputCrushed2.coerceAtMost(64)
-            builder2.output(OrePrefix.crushed, material, amountToDo)
-            outputCrushed2 -= amountToDo
+    private static void processOre(OrePrefix prefix, Material material, OreProperty property) {
+        int amountOfCrushedOre = property.getOreMultiplier();
+        int oreTypeMultiplier = (prefix == OrePrefix.oreNetherrack || prefix == OrePrefix.oreEndstone) ? 2 : 1;
+        Material byproduct = property.getOreByProduct(0, material);
+        ItemStack byproductStack = OreDictUnifier.get(OrePrefix.gem, byproduct, 32);
+        if(byproductStack.isEmpty()) {
+            byproductStack = OreDictUnifier.get(OrePrefix.dust, byproduct, 32);
         }
-        for (secondary in prefix.secondaryMaterials) {
-            if (secondary.material.hasProperty(PropertyKey.DUST)) {
-                val dustStack = OreDictUnifier.getGem(secondary)
-                dustStack.count = 16 * entry.value
-                builder2.chancedOutput(dustStack, 6700, 800)
+
+        int outputCrushed = amountOfCrushedOre * 8 * oreTypeMultiplier;
+
+        SimpleRecipeBuilder builder = DIGESTER_RECIPES.recipeBuilder()
+                .input(prefix, material, 8)
+                .duration(500)
+                .EUt(GTValues.VA[GTValues.HV]);
+
+        for (Map.Entry<Material, Integer> entry : fluids.entrySet()) {
+            int intValue = entry.getValue();
+            SimpleRecipeBuilder builder2 = builder.copy();
+            ItemStack byproductStack2 = byproductStack.copy();
+            byproductStack2.setCount(byproductStack.getCount() * intValue);
+            builder2.chancedOutput(byproductStack2, 1400, 850);
+            int outputCrushed2 = outputCrushed * intValue;
+            while (outputCrushed2 > 0) {
+                int amountToDo = Math.min(outputCrushed2, 64);
+                builder2.output(OrePrefix.crushed, material, amountToDo);
+                outputCrushed2 -= amountToDo;
             }
+            for (MaterialStack secondary : prefix.secondaryMaterials) {
+                if (secondary.material.hasProperty(PropertyKey.DUST)) {
+                    ItemStack dustStack = OreDictUnifier.getGem(secondary);
+                    dustStack.setCount(16 * intValue);
+                    builder2.chancedOutput(dustStack, 6700, 800);
+                }
+            }
+            builder2.fluidInputs(entry.getKey().getFluid(1000));
+            builder2.buildAndRegister();
         }
-        builder2.fluidInputs(entry.key.getFluid(1000))
-        builder2.buildAndRegister();
     }
 }

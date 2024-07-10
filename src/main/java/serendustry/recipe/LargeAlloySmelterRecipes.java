@@ -3,9 +3,9 @@ package serendustry.recipe;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.FUSION_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
-import static serendustry.item.material.*;
+import static serendustry.item.material.SerendustryMaterials.*;
 
-public class largeAlloySmelterRecipes() {
+public class LargeAlloySmelterRecipes {
     public static void init() {
 
         FUSION_RECIPES.recipeBuilder()

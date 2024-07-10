@@ -1,9 +1,10 @@
-package serendustry.machine
+package serendustry.machine;
 
-import gregtech.api.recipes.RecipeMap
+import gregtech.api.recipes.RecipeMap;
 
-class RecipeMapIndustrialLaboratory(name: String, inputs: Int, outputs: Int, fluidInputs: Int, fluidOutputs: Int, hidden: Boolean):
-    RecipeMap<LaboratoryRecipeBuilder>(name, inputs, outputs, fluidInputs, fluidOutputs, LaboratoryRecipeBuilder(), hidden) {
-
+public class RecipeMapIndustrialLaboratory extends RecipeMap<LaboratoryRecipeBuilder> {
+    public RecipeMapIndustrialLaboratory(String name, int inputs, int outputs, int fluidInputs, int fluidOutputs, boolean hidden) {
+        super(name, inputs, outputs, fluidInputs, fluidOutputs, new LaboratoryRecipeBuilder(), hidden);
+    }
     // todo custom layout
 }

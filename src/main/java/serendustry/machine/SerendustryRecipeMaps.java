@@ -4,21 +4,20 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 
-val LABORATORY_RECIPES = RecipeMapIndustrialLaboratory("industrial_laboratory", 4, 4, 4, 4, false)
-val PLASMA_MIXER_RECIPES = RecipeMapTranscendentPlasmaMixer("transcendent_plasma_mixer", 0, 0, 9, 2, false)
-val SPACE_ELEVATOR_RECIPES = RecipeMapSpaceElevator("space_elevator", 2, 28, 1, 3, false)
-val DIGESTER_RECIPES = RecipeMap("digester", 3, 9, 3, 3, SimpleRecipeBuilder(), false)
+public class SerendustryRecipeMaps {
+    public static final RecipeMapIndustrialLaboratory LABORATORY_RECIPES = new RecipeMapIndustrialLaboratory("industrial_laboratory", 4, 4, 4, 4, false);
+    public static final RecipeMapTranscendentPlasmaMixer PLASMA_MIXER_RECIPES = new RecipeMapTranscendentPlasmaMixer("transcendent_plasma_mixer", 0, 0, 9, 2, false);
+    public static final RecipeMapSpaceElevator SPACE_ELEVATOR_RECIPES = new RecipeMapSpaceElevator("space_elevator", 2, 28, 1, 3, false);
+    public static final RecipeMap<SimpleRecipeBuilder> DIGESTER_RECIPES = new RecipeMap<>("digester", 3, 9, 3, 3, new SimpleRecipeBuilder(), false);
 
-class SerendustryRecipeMaps {
-    companion object {
-        fun preInit() {
-            RecipeMaps.BLAST_RECIPES.maxFluidInputs = 2
-            RecipeMaps.BLAST_RECIPES.maxFluidOutputs = 2
-            RecipeMaps.CENTRIFUGE_RECIPES.maxOutputs = 9
-            RecipeMaps.ELECTROMAGNETIC_SEPARATOR_RECIPES.maxOutputs = 6
-            RecipeMaps.LASER_ENGRAVER_RECIPES.maxInputs = 4
-            RecipeMaps.MIXER_RECIPES.maxInputs = 9
-            RecipeMaps.MIXER_RECIPES.maxFluidInputs = 3
+        public static void preInit() {
+            RecipeMaps.BLAST_RECIPES.setMaxFluidInputs(2);
+            RecipeMaps.BLAST_RECIPES.setMaxFluidOutputs(2);
+            RecipeMaps.CENTRIFUGE_RECIPES.setMaxOutputs(9);
+            RecipeMaps.ELECTROMAGNETIC_SEPARATOR_RECIPES.setMaxOutputs(6);
+            RecipeMaps.LASER_ENGRAVER_RECIPES.setMaxInputs(4);
+            RecipeMaps.MIXER_RECIPES.setMaxInputs(9);
+            RecipeMaps.MIXER_RECIPES.setMaxFluidInputs(3);
         }
-    }
+
 }

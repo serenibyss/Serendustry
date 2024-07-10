@@ -5,21 +5,26 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Random;
 
-class FriendlyCreeperEntity(world: World): EntityCreeper(world) {
-
-    init {
-        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).baseValue = 100.0
+public class FriendlyCreeperEntity extends EntityCreeper {
+    public FriendlyCreeperEntity(World world) {
+        super(world);
+        getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0);
     }
 
-    override fun getCreeperState() = -1
+    @Override
+    public int getCreeperState() {
+        return -1;
+    }
 
-    override fun canBeLeashedTo(player: EntityPlayer) = true
-
-    companion object {
-
-        private val NAMES = ImmutableList.builder<String>()
+    @Override
+    public boolean canBeLeashedTo(@NotNull EntityPlayer player) {
+        return true;
+    }
+        private static final ImmutableList<String> NAMES = ImmutableList.<String>builder()
             .add("Amogus")
             .add("John Cena")
             .add("Floppa")
@@ -49,6 +54,7 @@ class FriendlyCreeperEntity(world: World): EntityCreeper(world) {
             .add("spunchbop")
             .build();
 
-        fun getName(random: Random) = NAMES[random.nextInt(NAMES.size)]
+    public static String getName(Random random) {
+        return NAMES.get(random.nextInt(NAMES.size()));
     }
 }

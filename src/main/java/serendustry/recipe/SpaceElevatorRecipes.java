@@ -8,12 +8,12 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import net.minecraft.init.Blocks;
-import static serendustry.item.*;
-import static serendustry.item.material.*;
-import static serendustry.machine.SPACE_ELEVATOR;
-import static serendustry.machine.SPACE_ELEVATOR_RECIPES;
+import static serendustry.item.SerendustryMetaItems.*;
+import static serendustry.item.material.SerendustryMaterials.*;
+import static serendustry.machine.SerendustryMetaTileEntities.SPACE_ELEVATOR;
+import static serendustry.machine.SerendustryRecipeMaps.SPACE_ELEVATOR_RECIPES;
 
-public class spaceElevatorRecipes() {
+public class SpaceElevatorRecipes {
     public static void init() {
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
