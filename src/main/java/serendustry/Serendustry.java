@@ -1,9 +1,5 @@
 package serendustry;
 
-import gregtech.GTInternalTags;
-import gregtech.api.GregTechAPI;
-import gregtech.api.unification.material.event.MaterialEvent;
-import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import net.minecraft.client.renderer.entity.RenderCreeper;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -20,7 +16,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.relauncher.Side;
+
 import org.apache.logging.log4j.Logger;
+
+import gregtech.GTInternalTags;
+import gregtech.api.GregTechAPI;
+import gregtech.api.unification.material.event.MaterialEvent;
+import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import serendustry.entity.FriendlyCreeperEntity;
 import serendustry.item.SerendustryMetaItems;
 import serendustry.item.SerendustryToolItems;
@@ -29,9 +31,12 @@ import serendustry.machine.SerendustryMetaTileEntities;
 import serendustry.machine.SerendustryRecipeMaps;
 import serendustry.recipe.SerendustryRecipes;
 
-@Mod(modid = Tags.MODID, name = Tags.MODNAME, version = Tags.VERSION,
-    dependencies = GTInternalTags.DEP_VERSION_STRING)
+@Mod(modid = Tags.MODID,
+     name = Tags.MODNAME,
+     version = Tags.VERSION,
+     dependencies = GTInternalTags.DEP_VERSION_STRING)
 public class Serendustry {
+
     public static final String MODID = Tags.MODID;
     public static Logger logger = null;
 

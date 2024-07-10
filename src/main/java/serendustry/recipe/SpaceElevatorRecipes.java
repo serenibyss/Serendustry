@@ -2,20 +2,22 @@ package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
-import gregtech.api.recipes.chance.output.ChancedOutputLogic;
-import gregtech.api.unification.material.MarkerMaterials;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
-import net.minecraft.init.Blocks;
 import static serendustry.item.SerendustryMetaItems.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 import static serendustry.machine.SerendustryMetaTileEntities.SPACE_ELEVATOR;
 import static serendustry.machine.SerendustryRecipeMaps.SPACE_ELEVATOR_RECIPES;
 
-public class SpaceElevatorRecipes {
-    public static void init() {
+import net.minecraft.init.Blocks;
 
+import gregtech.api.recipes.chance.output.ChancedOutputLogic;
+import gregtech.api.unification.material.MarkerMaterials;
+
+public class SpaceElevatorRecipes {
+
+    public static void init() {
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(circuit, MarkerMaterials.Tier.UHV, 1)
                 .input(circuit, MarkerMaterials.Tier.UV, 4)

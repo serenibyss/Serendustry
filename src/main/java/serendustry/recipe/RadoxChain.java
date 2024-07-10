@@ -8,8 +8,8 @@ import static serendustry.item.material.SerendustryMaterials.*;
 import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
 public class RadoxChain {
-    public static void init() {
 
+    public static void init() {
         CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, Iridium, 16)
                 .input(dust, Osmium, 16)

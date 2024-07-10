@@ -1,17 +1,18 @@
 package serendustry.recipe;
 
-import gregtech.api.unification.material.Material;
-
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.ELECTROLYZER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 
-public class StarMatterRecipes {
-    public static void init() {
+import gregtech.api.unification.material.Material;
 
-        float[] amount = {1F, 1.2F, 1.4F, 1.4F, 1.4F, 1.8F};
-        Material[] matter = {YellowStarMatter, RedStarMatter, BlueStarMatter, WhiteStarMatter, BrownStarMatter, BlackStarMatter};
+public class StarMatterRecipes {
+
+    public static void init() {
+        float[] amount = { 1F, 1.2F, 1.4F, 1.4F, 1.4F, 1.8F };
+        Material[] matter = { YellowStarMatter, RedStarMatter, BlueStarMatter, WhiteStarMatter, BrownStarMatter,
+                BlackStarMatter };
 
         for (int i = 0; i < amount.length; i++) {
             ELECTROLYZER_RECIPES.recipeBuilder()

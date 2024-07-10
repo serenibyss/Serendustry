@@ -1,9 +1,18 @@
 package serendustry.machine;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+
 import com.google.common.collect.Table;
-import gregtech.api.metatileentity.multiblock.ParallelLogicType;
-import org.jetbrains.annotations.NotNull;
-import serendustry.machine.LaboratoryProperty.LaboratoryEntry;
+
 import gregtech.api.GTValues;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -23,15 +32,7 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Map;
+import serendustry.machine.LaboratoryProperty.LaboratoryEntry;
 
 public class MetaTileEntityIndustrialLaboratory extends RecipeMapMultiblockController {
 
@@ -39,8 +40,7 @@ public class MetaTileEntityIndustrialLaboratory extends RecipeMapMultiblockContr
 
     private final LaboratoryResources laboratoryResources = new LaboratoryResources();
 
-    //private final Map<BlockPos, MetaTileEntity> laboratoryResources = new HashMap<>();
-
+    // private final Map<BlockPos, MetaTileEntity> laboratoryResources = new HashMap<>();
 
     public MetaTileEntityIndustrialLaboratory(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, SerendustryRecipeMaps.LABORATORY_RECIPES);
@@ -104,7 +104,8 @@ public class MetaTileEntityIndustrialLaboratory extends RecipeMapMultiblockContr
             }
 
             MetaTileEntity metaTileEntity = ((IGregTechTileEntity) tileEntity).getMetaTileEntity();
-            if (!LaboratoryProperty.isMachineAllowed(metaTileEntity) || !(metaTileEntity instanceof TieredMetaTileEntity))
+            if (!LaboratoryProperty.isMachineAllowed(metaTileEntity) ||
+                    !(metaTileEntity instanceof TieredMetaTileEntity))
                 return false;
             TieredMetaTileEntity tieredMte = (TieredMetaTileEntity) metaTileEntity;
 
@@ -121,7 +122,8 @@ public class MetaTileEntityIndustrialLaboratory extends RecipeMapMultiblockContr
     }
 
     private enum Mode {
-        NORMAL, PARALLEL_REACTOR, // todo more modes
+        NORMAL,
+        PARALLEL_REACTOR, // todo more modes
     }
 
     private static class IndustrialLaboratoryRecipeLogic extends MultiblockRecipeLogic {

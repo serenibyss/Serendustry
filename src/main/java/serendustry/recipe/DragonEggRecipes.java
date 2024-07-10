@@ -1,13 +1,16 @@
 package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
-import gregtech.api.recipes.RecipeMaps;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import net.minecraft.init.Blocks;
 import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
+import net.minecraft.init.Blocks;
+
+import gregtech.api.recipes.RecipeMaps;
+
 public class DragonEggRecipes {
+
     public static void init() {
         LABORATORY_RECIPES.recipeBuilder()
                 .input(dust, Endstone, 64).input(dust, Neutronium, 16)
@@ -24,6 +27,5 @@ public class DragonEggRecipes {
                 .requireInside(RecipeMaps.CHEMICAL_RECIPES, UV, 1)
                 .requireInside(RecipeMaps.CHEMICAL_BATH_RECIPES, UV, 1)
                 .duration(240).EUt(VA[UHV]).buildAndRegister();
-
     }
 }

@@ -5,11 +5,13 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
-import net.minecraft.init.Blocks;
 import static serendustry.item.SerendustryMetaItems.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 
+import net.minecraft.init.Blocks;
+
 public class MysteriousBlobRecipes {
+
     public static void init() {
         primeRecipes();
         machineHullRecipes();
@@ -17,7 +19,6 @@ public class MysteriousBlobRecipes {
     }
 
     private static void primeRecipes() {
-
         CHEMICAL_BATH_RECIPES.recipeBuilder()
                 .input(Blocks.TNT, 1)
                 .fluidInputs(Air.getFluid(1000))
@@ -122,7 +123,6 @@ public class MysteriousBlobRecipes {
     }
 
     private static void machineHullRecipes() {
-
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(screw, Tin, 8)
                 .fluidInputs(HydrogenPrime.getFluid(10))
@@ -673,16 +673,18 @@ public class MysteriousBlobRecipes {
                 .fluidOutputs(Uranium238.getFluid(1296))
                 .duration(400).EUt(VA[LV]).buildAndRegister();
 
-    /*MIXER_RECIPES.recipeBuilder()
-        .fluidInputs(SterlingSilver.getFluid(4608), HydrogenPrime.getFluid(300))
-        .output(ore, CheeseCheddar, 64)
-        .duration(800).EUt(VA[MV]).buildAndRegister();*/
+        /*
+         * MIXER_RECIPES.recipeBuilder()
+         * .fluidInputs(SterlingSilver.getFluid(4608), HydrogenPrime.getFluid(300))
+         * .output(ore, CheeseCheddar, 64)
+         * .duration(800).EUt(VA[MV]).buildAndRegister();
+         */
 
-   /* MIXER_RECIPES.recipeBuilder()
-        .fluidInputs(Samarium.getFluid(2304), Neodymium.getFluid(2304), NeonPrime.getFluid(300))
-        .output(ore, TengamRaw, 32)
-        .duration(2400).EUt(VA[ZPM]).buildAndRegister();*/
+        /*
+         * MIXER_RECIPES.recipeBuilder()
+         * .fluidInputs(Samarium.getFluid(2304), Neodymium.getFluid(2304), NeonPrime.getFluid(300))
+         * .output(ore, TengamRaw, 32)
+         * .duration(2400).EUt(VA[ZPM]).buildAndRegister();
+         */
     }
 }
-
-

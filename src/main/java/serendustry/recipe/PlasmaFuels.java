@@ -1,13 +1,14 @@
 package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
-import gregtech.api.recipes.RecipeMaps;
 import static gregtech.api.unification.material.Materials.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 
-public class PlasmaFuels {
-    public static void init() {
+import gregtech.api.recipes.RecipeMaps;
 
+public class PlasmaFuels {
+
+    public static void init() {
         RecipeMaps.PLASMA_GENERATOR_FUELS.recipeBuilder()
                 .fluidInputs(OmniversalLubricant.getPlasma(1))
                 .fluidOutputs(OmniversalLubricant.getFluid(1))

@@ -1,15 +1,18 @@
 package serendustry.entity;
 
-import com.google.common.collect.ImmutableList;
+import java.util.Random;
+
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
+import com.google.common.collect.ImmutableList;
 
 public class FriendlyCreeperEntity extends EntityCreeper {
+
     public FriendlyCreeperEntity(World world) {
         super(world);
         getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0);
@@ -24,7 +27,8 @@ public class FriendlyCreeperEntity extends EntityCreeper {
     public boolean canBeLeashedTo(@NotNull EntityPlayer player) {
         return true;
     }
-        private static final ImmutableList<String> NAMES = ImmutableList.<String>builder()
+
+    private static final ImmutableList<String> NAMES = ImmutableList.<String>builder()
             .add("Amogus")
             .add("John Cena")
             .add("Floppa")

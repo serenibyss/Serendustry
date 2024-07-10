@@ -3,14 +3,15 @@ package serendustry.recipe;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import net.minecraft.init.Blocks;
 import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR;
 import static serendustry.item.SerendustryMetaItems.WASTE_FLUID_EXTRACTOR_FILLED;
 import static serendustry.item.material.SerendustryMaterials.*;
 
-public class AnimalWasteRecipes {
-    public static void init() {
+import net.minecraft.init.Blocks;
 
+public class AnimalWasteRecipes {
+
+    public static void init() {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Polyethylene, 8)
                 .input(plate, Bronze, 4)
@@ -18,7 +19,6 @@ public class AnimalWasteRecipes {
                 .input(foil, TinAlloy, 16)
                 .output(WASTE_FLUID_EXTRACTOR)
                 .duration(90).EUt(24).buildAndRegister();
-
 
         CANNER_RECIPES.recipeBuilder()
                 .input(WASTE_FLUID_EXTRACTOR_FILLED)
@@ -54,6 +54,5 @@ public class AnimalWasteRecipes {
                 .input(dust, DriedEarth, 9)
                 .output(Blocks.DIRT)
                 .duration(100).EUt(60).buildAndRegister();
-
     }
 }

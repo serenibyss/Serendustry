@@ -1,8 +1,6 @@
 package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
-import gregtech.api.unification.material.MarkerMaterials.Tier;
-
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
 import static gregtech.api.unification.material.Materials.RutheniumTriniumAmericiumNeutronate;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -10,9 +8,11 @@ import static gregtech.common.items.MetaItems.*;
 import static serendustry.item.SerendustryMetaItems.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 
-public class HTComponentRecipes {
-    public static void init() {
+import gregtech.api.unification.material.MarkerMaterials.Tier;
 
+public class HTComponentRecipes {
+
+    public static void init() {
         // Motors
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()

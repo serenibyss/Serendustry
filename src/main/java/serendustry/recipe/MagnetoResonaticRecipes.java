@@ -1,7 +1,6 @@
 package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
-import gregtech.api.metatileentity.multiblock.CleanroomType;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -9,7 +8,10 @@ import static gregtech.common.items.MetaItems.*;
 import static serendustry.item.SerendustryMetaItems.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 
+import gregtech.api.metatileentity.multiblock.CleanroomType;
+
 public class MagnetoResonaticRecipes {
+
     public static void init() {
         waferRecipes();
         componentRecipes();
@@ -334,5 +336,3 @@ public class MagnetoResonaticRecipes {
                 .duration(5000).EUt(VA[MAX]).buildAndRegister();
     }
 }
-
-

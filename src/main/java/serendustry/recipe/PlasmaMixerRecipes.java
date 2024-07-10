@@ -7,12 +7,12 @@ import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 import static serendustry.item.material.SerendustryMaterials.*;
-import static serendustry.machine.SerendustryRecipeMaps.PLASMA_MIXER_RECIPES;
 import static serendustry.machine.SerendustryMetaTileEntities.TRANSCENDENT_PLASMA_MIXER;
+import static serendustry.machine.SerendustryRecipeMaps.PLASMA_MIXER_RECIPES;
 
 public class PlasmaMixerRecipes {
-    public static void init() {
 
+    public static void init() {
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(HULL[UXV])
                 .input(FIELD_GENERATOR_UXV)

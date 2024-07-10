@@ -6,8 +6,8 @@ import static gregtech.api.unification.material.Materials.*;
 import static serendustry.item.material.SerendustryMaterials.*;
 
 public class LargeAlloySmelterRecipes {
-    public static void init() {
 
+    public static void init() {
         FUSION_RECIPES.recipeBuilder()
                 .fluidInputs(Gold.getFluid(128)).fluidInputs(Thaumium.getFluid(128))
                 .fluidOutputs(InfusedGold.getFluid(64))

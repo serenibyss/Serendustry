@@ -6,8 +6,8 @@ import static gregtech.api.unification.ore.OrePrefix.dust;
 import static serendustry.item.material.SerendustryMaterials.*;
 
 public class PeriodiciumChain {
-    public static void init() {
 
+    public static void init() {
         MIXER_RECIPES.recipeBuilder().duration(270).EUt(250000)
                 .input(dust, Ruthenium)
                 .input(dust, Rhodium)

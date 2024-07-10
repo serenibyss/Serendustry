@@ -1,7 +1,6 @@
 package serendustry.recipe;
 
 import static gregtech.api.GTValues.*;
-import gregtech.api.fluids.store.FluidStorageKeys;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -9,9 +8,11 @@ import static serendustry.item.SerendustryMetaItems.QUANTUM_ANOMALY;
 import static serendustry.item.material.SerendustryMaterials.*;
 import static serendustry.machine.SerendustryRecipeMaps.LABORATORY_RECIPES;
 
-public class DestabilizedMatterChain {
-    public static void init() {
+import gregtech.api.fluids.store.FluidStorageKeys;
 
+public class DestabilizedMatterChain {
+
+    public static void init() {
         CHEMICAL_BATH_RECIPES.recipeBuilder()
                 .input(dust, Thaumium)
                 .fluidInputs(Magic2.getFluid(1000))
@@ -58,7 +59,8 @@ public class DestabilizedMatterChain {
 
         LABORATORY_RECIPES.recipeBuilder()
                 .input(dust, Neutronium).input(dust, TinAlloy, 4)
-                .fluidInputs(AtomicResonanceCatalyst.getFluid(72), ExoticMatter.getFluid(500), DarkMatter.getFluid(250), RedMatter.getFluid(100))
+                .fluidInputs(AtomicResonanceCatalyst.getFluid(72), ExoticMatter.getFluid(500), DarkMatter.getFluid(250),
+                        RedMatter.getFluid(100))
                 .output(QUANTUM_ANOMALY)
                 .fluidOutputs(ExoticMatter.getPlasma(250), DarkMatter.getPlasma(125), RedMatter.getPlasma(50))
                 .requireInside(LASER_ENGRAVER_RECIPES, UV, 1)
@@ -68,7 +70,8 @@ public class DestabilizedMatterChain {
 
         LABORATORY_RECIPES.recipeBuilder()
                 .input(stickLong, TengamAttuned, 2).input(dust, RadoxPolymer).input(dust, TinAlloy, 4)
-                .fluidInputs(AtomicResonanceCatalyst.getFluid(144), ExoticMatter.getFluid(1000), DarkMatter.getFluid(500), RedMatter.getFluid(200))
+                .fluidInputs(AtomicResonanceCatalyst.getFluid(144), ExoticMatter.getFluid(1000),
+                        DarkMatter.getFluid(500), RedMatter.getFluid(200))
                 .output(stickLong, KerrBlackHole)
                 .fluidOutputs(ExoticMatter.getPlasma(500), DarkMatter.getPlasma(250), RedMatter.getPlasma(100))
                 .requireInside(FLUID_SOLIDFICATION_RECIPES, UIV, 1)

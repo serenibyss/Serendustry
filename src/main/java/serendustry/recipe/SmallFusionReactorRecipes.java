@@ -8,8 +8,8 @@ import static gregtech.api.unification.ore.OrePrefix.ingot;
 import static serendustry.item.material.SerendustryMaterials.*;
 
 public class SmallFusionReactorRecipes {
-    public static void init() {
 
+    public static void init() {
         ALLOY_SMELTER_RECIPES.recipeBuilder()
                 .input(ingot, Platinum, 3).input(ingot, Aluminium, 1)
                 .output(ingot, Platinium, 4)

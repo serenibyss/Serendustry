@@ -1,6 +1,16 @@
 package serendustry.recipe;
 
+import static serendustry.item.material.SerendustryMaterials.ISHydrochloricAcid;
+import static serendustry.item.material.SerendustryMaterials.ISHydrofluoricAcid;
+import static serendustry.item.material.SerendustryMaterials.ISSulfuricAcid;
+import static serendustry.machine.SerendustryRecipeMaps.DIGESTER_RECIPES;
+
+import java.util.Map;
+
+import net.minecraft.item.ItemStack;
+
 import com.google.common.collect.ImmutableMap;
+
 import gregtech.api.GTValues;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.unification.OreDictUnifier;
@@ -10,16 +20,9 @@ import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.common.ConfigHolder;
-import net.minecraft.item.ItemStack;
-
-import java.util.Map;
-
-import static serendustry.item.material.SerendustryMaterials.ISHydrochloricAcid;
-import static serendustry.item.material.SerendustryMaterials.ISHydrofluoricAcid;
-import static serendustry.item.material.SerendustryMaterials.ISSulfuricAcid;
-import static serendustry.machine.SerendustryRecipeMaps.DIGESTER_RECIPES;
 
 public class PrefixHandlers {
+
     static void registerPrefixHandlers() {
         OrePrefix.ore.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
         OrePrefix.oreNetherrack.addProcessingHandler(PropertyKey.ORE, PrefixHandlers::processOre);
@@ -40,15 +43,14 @@ public class PrefixHandlers {
     private static final ImmutableMap<Material, Integer> fluids = ImmutableMap.of(
             ISSulfuricAcid, 2,
             ISHydrochloricAcid, 3,
-            ISHydrofluoricAcid, 4
-    );
+            ISHydrofluoricAcid, 4);
 
     private static void processOre(OrePrefix prefix, Material material, OreProperty property) {
         int amountOfCrushedOre = property.getOreMultiplier();
         int oreTypeMultiplier = (prefix == OrePrefix.oreNetherrack || prefix == OrePrefix.oreEndstone) ? 2 : 1;
         Material byproduct = property.getOreByProduct(0, material);
         ItemStack byproductStack = OreDictUnifier.get(OrePrefix.gem, byproduct, 32);
-        if(byproductStack.isEmpty()) {
+        if (byproductStack.isEmpty()) {
             byproductStack = OreDictUnifier.get(OrePrefix.dust, byproduct, 32);
         }
 
