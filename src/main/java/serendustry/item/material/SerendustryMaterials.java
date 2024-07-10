@@ -386,7 +386,9 @@ public class SerendustryMaterials {
                         GENERATE_FINE_WIRE)
                 .components(RoseGold, 1, SterlingSilver, 1, Electrum, 2, InfusedGold, 2, Naquadria, 4, SolderingAlloy,
                         10)
-                .blastTemp(8000, GasTier.HIGHEST, VA[UV], 8000)
+                .blast(b -> b
+                        .temp(8000, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 8000))
                 .cableProperties(VA[UEV], 1, 1536, false, 3)
                 .build();
 
@@ -395,7 +397,9 @@ public class SerendustryMaterials {
                 .color(0x15703F).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(Americium, 1, Oganesson, 1, Uranium238, 1, Sulfur, 1)
-                .blastTemp(7000, GasTier.HIGHEST, VA[UV], 5000)
+                .blast(b -> b
+                        .temp(7000, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 5000))
                 .build();
 
         HastelloyX78 = new Material.Builder(5, Serendustry.ID("hastelloyx_78"))
@@ -403,7 +407,9 @@ public class SerendustryMaterials {
                 .color(0x5F90C9).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(NaquadahAlloy, 10, Rhenium, 5, Naquadria, 4, Polonium, 3, Rutherfordium, 2, Fermium, 1)
-                .blastTemp(8500, GasTier.HIGHEST, VA[UV], 10000)
+                .blast(b -> b
+                        .temp(8500, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 10000))
                 .build();
 
         HastelloyK243 = new Material.Builder(6, Serendustry.ID("hastelloyk_243"))
@@ -413,7 +419,9 @@ public class SerendustryMaterials {
                         GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
                 .components(HastelloyX78, 5, Tritanium, 4, TungstenCarbide, 4, Promethium, 4, NiobiumNitride, 2,
                         Mendelevium, 1)
-                .blastTemp(9000, GasTier.HIGHEST, VA[UHV], 12000)
+                .blast(b -> b
+                        .temp(9000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 12000))
                 .toolStats(ToolProperty.Builder.of(160.0f, 110.0f, 65535, 7)
                         .attackSpeed(0.5f).enchantability(33).magnetic().build())
                 .build();
@@ -423,12 +431,9 @@ public class SerendustryMaterials {
                 .color(0xC6AA14).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Technetium, 22)
-                .blast(
-                        b -> {
-                            return b.temp(9000, GasTier.HIGH)
-                                    .blastStats(VA[ULV], 120000);
-
-                        })
+                .blast(b -> b
+                        .temp(9000, GasTier.HIGH)
+                        .blastStats(VA[ULV], 120000))
                 .build()
                 .setFormula("Tc-22", false);
 
@@ -437,7 +442,9 @@ public class SerendustryMaterials {
                 .color(0xA8A813).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Steel, 20, Chrome, 13, Copper, 10, Nickel, 3, Molybdenum, 2, Tungsten, 2)
-                .blastTemp(3000, GasTier.HIGH, VA[IV], 1000)
+                .blast(b -> b
+                        .temp(3000, GasTier.HIGH)
+                        .blastStats(VA[IV], 1000))
                 .build();
 
         Cinobite = new Material.Builder(9, Serendustry.ID("cinobite"))
@@ -445,7 +452,9 @@ public class SerendustryMaterials {
                 .color(0x010101).iconSet(SHINY)
                 .flags(EXT2_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Zeron100, 8, Titanium, 6, Naquadria, 4, Gadolinium, 3, Osmiridium, 1, Mercury, 1)
-                .blastTemp(2500, GasTier.HIGHEST, VA[UV], 2000)
+                .blast(b -> b
+                        .temp(2500, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 2000))
                 .fluidPipeProperties(30000, 3500, true, true, true, true)
                 .build();
 
@@ -454,7 +463,9 @@ public class SerendustryMaterials {
                 .color(0x66E370).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_BOLT_SCREW)
                 .components(Nickel, 2, Aluminium, 2, Niobium, 1, Nichrome, 1)
-                .blastTemp(1500, GasTier.MID, VA[EV], 800)
+                .blast(b -> b
+                        .temp(1500, GasTier.MID)
+                        .blastStats(VA[EV], 800))
                 .build();
 
         EglinSteel = new Material.Builder(11, Serendustry.ID("eglin_steel"))
@@ -462,7 +473,9 @@ public class SerendustryMaterials {
                 .color(0x733910).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Invar, 5, Iron, 4, Kanthal, 1, Sulfur, 1, Silicon, 1, Carbon, 1)
-                .blastTemp(1200, GasTier.MID, VA[EV], 800)
+                .blast(b -> b
+                        .temp(1200, GasTier.MID)
+                        .blastStats(VA[EV], 800))
                 .build();
 
         Platinium = new Material.Builder(12, Serendustry.ID("platinium"))
@@ -470,7 +483,9 @@ public class SerendustryMaterials {
                 .color(0xDDEECD).iconSet(SHINY)
                 .flags(STD_METAL)
                 .components(Platinum, 3, Aluminium, 1)
-                .blastTemp(1100, GasTier.MID, VA[EV], 600)
+                .blast(b -> b
+                        .temp(1100, GasTier.MID)
+                        .blastStats(VA[EV], 600))
                 .build();
 
         SiliconCarbide = new Material.Builder(13, Serendustry.ID("silicon_carbide"))
@@ -484,7 +499,9 @@ public class SerendustryMaterials {
                 .color(0xFE82A3).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(Antimony, 2, Platinium, 2, Ytterbium, 1, Nichrome, 1, SiliconCarbide, 1)
-                .blastTemp(3500, GasTier.HIGHER, VA[ZPM], 2000)
+                .blast(b -> b
+                        .temp(3500, GasTier.HIGHER)
+                        .blastStats(VA[ZPM], 2000))
                 .build();
 
         Pikyonium = new Material.Builder(15, Serendustry.ID("pikyonium"))
@@ -492,7 +509,9 @@ public class SerendustryMaterials {
                 .color(0x3160AE).iconSet(SHINY)
                 .flags(EXT2_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_SMALL_GEAR)
                 .components(Inconel792, 8, EglinSteel, 5, NaquadahEnriched, 4, TungstenSteel, 4, Cerium, 3, Onionium, 7)
-                .blastTemp(9000, GasTier.HIGHEST, VA[UV], 2000)
+                .blast(b -> b
+                        .temp(9000, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 2000))
                 .cableProperties(V[UHV], 2, 512)
                 .build();
 
@@ -501,7 +520,9 @@ public class SerendustryMaterials {
                 .color(0xB3B3B3).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FOIL)
                 .components(Nickel, 15, Molybdenum, 4, Yttrium, 2, Chrome, 2, Titanium, 2)
-                .blastTemp(1200, GasTier.MID, VA[EV], 600)
+                .blast(b -> b
+                        .temp(1200, GasTier.MID)
+                        .blastStats(VA[EV], 600))
                 .build();
 
         Aluminum = new Material.Builder(17, Serendustry.ID("aluminum"))
@@ -521,7 +542,9 @@ public class SerendustryMaterials {
                         Argon, 2)
                 .cableProperties(V[UEV], 2, 2048)
                 .fluidPipeProperties(65000, 5000, true, true, true, true)
-                .blastTemp(1800, GasTier.HIGHEST, VA[UHV], 900)
+                .blast(b -> b
+                        .temp(1800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 900))
                 .build();
 
         EnrichedNaquadahAlloy = new Material.Builder(19, Serendustry.ID("enriched_naquadah_alloy"))
@@ -530,7 +553,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_ROTOR, GENERATE_GEAR,
                         GENERATE_LONG_ROD)
                 .components(NaquadahEnriched, 4, Rhodium, 2, Ruthenium, 2, Rubidium, 2, Dubnium, 1, Einsteinium, 1)
-                .blastTemp(6000, GasTier.HIGHEST, VA[UV], 1800)
+                .blast(b -> b
+                        .temp(6000, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 1800))
                 .build();
 
         BismuthTellurite = new Material.Builder(20, Serendustry.ID("bismuth_tellurite"))
@@ -566,7 +591,9 @@ public class SerendustryMaterials {
                 .components(TungstenSteel, 12, HSSS, 9, HSSG, 6, Ruridit, 3, MagnetoResonatic, 2, Plutonium239, 1)
                 .toolStats(ToolProperty.Builder.of(100.0f, 70.0f, 65535, 6)
                         .attackSpeed(0.5f).enchantability(33).magnetic().build())
-                .blastTemp(5000, GasTier.HIGHEST, VA[ZPM], 1200)
+                .blast(b -> b
+                        .temp(5000, GasTier.HIGHEST)
+                        .blastStats(VA[ZPM], 1200))
                 .build();
 
         ScUev = new Material.Builder(25, Serendustry.ID("sc_uev"))
@@ -575,7 +602,9 @@ public class SerendustryMaterials {
                 .flags(DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(MagnetoResonatic, 3, Cinobite, 1, Pikyonium, 1, Aluminum, 1)
                 .cableProperties(V[UEV], 24, 0, true, 3)
-                .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 2000)
+                .blast(b -> b
+                        .temp(11000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 2000))
                 .build();
 
         TastyNeutronium = new Material.Builder(26, Serendustry.ID("tasty_neutronium"))
@@ -584,7 +613,9 @@ public class SerendustryMaterials {
                 .components(Neutronium, 1)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD,
                         GENERATE_ROTOR)
-                .blastTemp(14000, GasTier.HIGHEST, VA[UHV], 8000)
+                .blast(b -> b
+                        .temp(14000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 8000))
                 .build()
                 .setFormula("Nt:tooth:", true);
 
@@ -599,7 +630,9 @@ public class SerendustryMaterials {
                 .color(0xFFE100).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD)
                 .components(Luminessence, 2, TinAlloy, 1, RoseGold, 1, Phosphate, 1)
-                .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3000)
+                .blast(b -> b
+                        .temp(11000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 3000))
                 .build();
 
         Signalium = new Material.Builder(29, Serendustry.ID("signalium"))
@@ -608,7 +641,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_FOIL, GENERATE_LONG_ROD,
                         GENERATE_SPRING, GENERATE_SPRING_SMALL)
                 .components(Lumiium, 3, Aluminum, 2, FluxedElectrum, 1, Phosphate, 1)
-                .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3500)
+                .blast(b -> b
+                        .temp(11000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 3500))
                 .cableProperties(V[UIV], 2, 8192)
                 .build();
 
@@ -617,7 +652,9 @@ public class SerendustryMaterials {
                 .color(0x3B7A9F).iconSet(DULL)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_ROTOR)
                 .components(Signalium, 4, EnderPearl, 2, TastyNeutronium, 2, Phosphate, 1)
-                .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 3800)
+                .blast(b -> b
+                        .temp(11000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 3800))
                 .build();
 
         Enderiiium = new Material.Builder(31, Serendustry.ID("enderiiium"))
@@ -626,7 +663,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_FRAME,
                         GENERATE_BOLT_SCREW)
                 .components(EnderiiumBase, 4, InfusedGold, 1, Phosphate, 1)
-                .blastTemp(11000, GasTier.HIGHEST, VA[UHV], 4200)
+                .blast(b -> b
+                        .temp(11000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 4200))
                 .build();
 
         PulsatingIron = new Material.Builder(32, Serendustry.ID("pulsating_iron"))
@@ -634,7 +673,9 @@ public class SerendustryMaterials {
                 .color(0x5ACE92).iconSet(BRIGHT)
                 .flags(STD_METAL)
                 .components(Iron, 1, EnderPearl, 1, Uraninite, 1)
-                .blastTemp(6000, GasTier.HIGHER, VA[IV], 2500)
+                .blast(b -> b
+                        .temp(6000, GasTier.HIGHER)
+                        .blastStats(VA[IV], 2500))
                 .build();
 
         EnergeticAlloy = new Material.Builder(33, Serendustry.ID("energetic_alloy"))
@@ -642,7 +683,9 @@ public class SerendustryMaterials {
                 .color(0xFF8752).iconSet(BRIGHT)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(PulsatingIron, 4, Zeolite, 1, GarnetSand, 1, HSSS, 1, Mercury, 1)
-                .blastTemp(6500, GasTier.HIGHER, VA[LuV], 2800)
+                .blast(b -> b
+                        .temp(6500, GasTier.HIGHER)
+                        .blastStats(VA[LuV], 2800))
                 .build();
 
         VibrantAlloy = new Material.Builder(34, Serendustry.ID("vibrant_alloy"))
@@ -650,7 +693,9 @@ public class SerendustryMaterials {
                 .color(0x75FF66).iconSet(BRIGHT)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR)
                 .components(EnergeticAlloy, 5, Zeolite, 1, BasalticMineralSand, 1, GraniticMineralSand, 1)
-                .blastTemp(7000, GasTier.HIGHEST, VA[UV], 3000)
+                .blast(b -> b
+                        .temp(7000, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 3000))
                 .build();
 
         StellarAlloy = new Material.Builder(35, Serendustry.ID("stellar_alloy"))
@@ -660,7 +705,9 @@ public class SerendustryMaterials {
                         GENERATE_BOLT_SCREW)
                 .components(VibrantAlloy, 8, TastyNeutronium, 2, Aluminum, 2, AluminiumSulfite, 1)
                 .fluidPipeProperties(80000, 7500, true, true, true, true)
-                .blastTemp(8000, GasTier.HIGHEST, VA[UHV], 4000)
+                .blast(b -> b
+                        .temp(8000, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 4000))
                 .toolStats(ToolProperty.Builder.of(200.0f, 120.0f, 65535, 8)
                         .attackSpeed(0.5f).enchantability(33).magnetic().build())
                 .build();
@@ -671,7 +718,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(VibrantAlloy, 3, Naquadria, 2, FluxedElectrum, 2, EnderiiumBase, 2)
                 .cableProperties(V[UIV], 24, 0, true)
-                .blastTemp(8500, GasTier.HIGHEST, VA[UHV], 6000)
+                .blast(b -> b
+                        .temp(8500, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 6000))
                 .build();
 
         CrystalMatrix = new Material.Builder(37, Serendustry.ID("crystal_matrix"))
@@ -680,7 +729,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_GEAR, GENERATE_LONG_ROD,
                         GENERATE_FOIL, GENERATE_DOUBLE_PLATE)
                 .components(Diamond, 1, NetherStar, 1)
-                .blastTemp(8800, GasTier.HIGHEST, VA[UHV], 8000)
+                .blast(b -> b
+                        .temp(8800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 8000))
                 .build();
 
         InfinityCatalyst = new Material.Builder(38, Serendustry.ID("infinity_catalyst"))
@@ -688,7 +739,9 @@ public class SerendustryMaterials {
                 .color(0xFFFFFF).iconSet(NETHERSTAR)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_ROTOR, GENERATE_FRAME)
                 .components(CrystalMatrix, 8, Neutronium, 8)
-                .blastTemp(8800, GasTier.HIGHEST, VA[UEV], 8000)
+                .blast(b -> b
+                        .temp(8800, GasTier.HIGHEST)
+                        .blastStats(VA[UEV], 8000))
                 .build()
                 .setFormula("If");
 
@@ -697,7 +750,9 @@ public class SerendustryMaterials {
                 .color(0xFFFFFF).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE)
                 .components(InfinityCatalyst, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 12000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 12000))
                 .build()
                 .setFormula("If*", true);
 
@@ -706,7 +761,9 @@ public class SerendustryMaterials {
                 .color(0x8E52E6).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_SMALL_GEAR)
                 .components(TinAlloy, 8)
-                .blastTemp(8800, GasTier.HIGHEST, VA[UEV], 7000)
+                .blast(b -> b
+                        .temp(8800, GasTier.HIGHEST)
+                        .blastStats(VA[UEV], 7000))
                 .build()
                 .setFormula("Dc", true);
 
@@ -717,7 +774,9 @@ public class SerendustryMaterials {
                         GENERATE_BOLT_SCREW, GENERATE_FOIL)
                 .components(Draconium, 1)
                 .fluidPipeProperties(95000, 9000, true, true, true, true)
-                .blastTemp(8850, GasTier.HIGHEST, VA[UEV], 7500)
+                .blast(b -> b
+                        .temp(8850, GasTier.HIGHEST)
+                        .blastStats(VA[UEV], 7500))
                 .build()
                 .setFormula("Dc+", true);
 
@@ -727,7 +786,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_LONG_ROD, GENERATE_FINE_WIRE, GENERATE_RING,
                         GENERATE_BOLT_SCREW, GENERATE_DENSE)
                 .components(Draconium, 1)
-                .blastTemp(8950, GasTier.HIGHEST, VA[UIV], 8500)
+                .blast(b -> b
+                        .temp(8950, GasTier.HIGHEST)
+                        .blastStats(VA[UIV], 8500))
                 .toolStats(ToolProperty.Builder.of(240.0f, 160.0f, 65535, 9)
                         .attackSpeed(0.5f).enchantability(33).magnetic().build())
                 .build()
@@ -740,7 +801,9 @@ public class SerendustryMaterials {
                         GENERATE_SPRING_SMALL)
                 .components(SiliconDioxide, 384)
                 .cableProperties(V[UXV], 2, 32768)
-                .blastTemp(9000, GasTier.HIGHEST, VA[UIV], 6000)
+                .blast(b -> b
+                        .temp(9000, GasTier.HIGHEST)
+                        .blastStats(VA[UIV], 6000))
                 .build();
 
         ScUxv = new Material.Builder(44, Serendustry.ID("sc_uxv"))
@@ -749,7 +812,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FINE_WIRE)
                 .components(ChargedDraconium, 4, StellarAlloy, 4, Luminessence, 3, InfinityCatalyst, 2)
                 .cableProperties(V[UXV], 24, 0, true)
-                .blastTemp(10000, GasTier.HIGHEST, VA[UIV], 7000)
+                .blast(b -> b
+                        .temp(10000, GasTier.HIGHEST)
+                        .blastStats(VA[UIV], 7000))
                 .build();
 
         Jasper = new Material.Builder(45, Serendustry.ID("jasper"))
@@ -764,7 +829,9 @@ public class SerendustryMaterials {
                 .color(0xC4A415).iconSet(SHINY)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(Trinium, 3, HSSS, 4, TungstenCarbide, 2, Osmiridium, 1, Strontium, 1)
-                .blastTemp(10200, GasTier.HIGHER, VA[LuV], 7000)
+                .blast(b -> b
+                        .temp(10200, GasTier.HIGHER)
+                        .blastStats(VA[LuV], 7000))
                 .build();
 
         AssemblyLine = new Material.Builder(47, Serendustry.ID("assembly_line"))
@@ -785,7 +852,9 @@ public class SerendustryMaterials {
                         GENERATE_FRAME)
                 .components(StellarAlloy, 15, ArceusAlloy2B, 10, Lafium, 10, Jasper, 5, Americium, 5, Pikyonium, 5,
                         Germanium, 5, SiliconCarbide, 5, AssemblyLine, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 8000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 8000))
                 .toolStats(ToolProperty.Builder.of(220.0f, 125.0f, 65535, 9)
                         .attackSpeed(0.5f).enchantability(33).magnetic().build())
                 .build();
@@ -797,7 +866,9 @@ public class SerendustryMaterials {
                         GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FOIL)
                 .components(Quantum, 1)
                 .itemPipeProperties(16, 256f)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 9500)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 9500))
                 .cableProperties(V[OpV], 2, 131072)
                 .build()
                 .setFormula("Qt");
@@ -808,7 +879,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_ROUND, GENERATE_RING, GENERATE_BOLT_SCREW)
                 .components(Water, 1)
                 .fluidPipeProperties(800000, 15000, true, true, true, true)
-                .blastTemp(273, GasTier.HIGHEST, VA[UXV], 2000)
+                .blast(b -> b
+                        .temp(273, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 2000))
                 .build()
                 .setFormula("(SpH2O)", true);
 
@@ -817,7 +890,9 @@ public class SerendustryMaterials {
                 .color(0x1B2FE2).iconSet(DULL)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD)
                 .components(Lead, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 7000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 7000))
                 .build()
                 .setFormula("(SpPb)", true);
 
@@ -826,7 +901,9 @@ public class SerendustryMaterials {
                 .color(0x000000).iconSet(DULL)
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING)
                 .components(Naquadria, 4, CoalTar, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 8000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 8000))
                 .build();
 
         ScOpv = new Material.Builder(53, Serendustry.ID("sc_opv"))
@@ -835,7 +912,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE)
                 .components(Quantum, 5, AwakenedDraconium, 3, Ledox, 3, Enderiiium, 3, Infinity, 3,
                         NaquadriaticTaranium, 3, Amogus, 2)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UXV], 11000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UXV], 11000))
                 .cableProperties(V[OpV], 24, 0, true)
                 .build();
 
@@ -844,7 +923,9 @@ public class SerendustryMaterials {
                 .color(0x785B7E).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(SolderingAlloy, 1)
-                .blastTemp(6000, GasTier.HIGHEST, VA[UV], 5000)
+                .blast(b -> b
+                        .temp(6000, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 5000))
                 .build()
                 .setFormula("?");
 
@@ -853,7 +934,9 @@ public class SerendustryMaterials {
                 .color(0x802BA8).iconSet(BRIGHT)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(SolderingAlloy, 1)
-                .blastTemp(6000, GasTier.HIGHER, VA[UV], 5000)
+                .blast(b -> b
+                        .temp(6000, GasTier.HIGHER)
+                        .blastStats(VA[UV], 5000))
                 .build()
                 .setFormula("DsMa");
 
@@ -862,7 +945,9 @@ public class SerendustryMaterials {
                 .color(0x6D0054).iconSet(DULL)
                 .flags(STD_METAL, GENERATE_RING)
                 .components(Gallium, 1, Yttrium, 1)
-                .blastTemp(3000, GasTier.MID, VA[HV], 1000)
+                .blast(b -> b
+                        .temp(4000, GasTier.MID)
+                        .blastStats(VA[HV], 1000))
                 .build();
 
         Magic2 = new Material.Builder(57, Serendustry.ID("magic_2"))
@@ -929,7 +1014,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, GENERATE_DENSE, GENERATE_LONG_ROD, GENERATE_FINE_WIRE, GENERATE_SMALL_GEAR,
                         GENERATE_FOIL)
                 .components(Flerovium, 1, Oxygen, 1, Phosphorus, 1, Protactinium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 50000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[OpV], 50000))
                 .cableProperties(V[MAX], 24, 0, true)
                 .build();
 
@@ -937,7 +1024,9 @@ public class SerendustryMaterials {
                 .ingot(3).liquid(new FluidBuilder().temperature(1))
                 .color(0x000000).iconSet(MAGNETIC)
                 .flags(STD_METAL, GENERATE_LONG_ROD)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UIV], 10000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UIV], 10000))
                 .build();
 
         DestabilizedMatter = new Material.Builder(69, Serendustry.ID("destabilized_matter"))
@@ -969,7 +1058,9 @@ public class SerendustryMaterials {
                 .ingot(3).liquid(new FluidBuilder().temperature(35000))
                 .color(0xFFFFFF).iconSet(GLASS) // TODO: Give it animated rainbow colors
                 .flags(STD_METAL, GENERATE_FOIL)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UV], 6000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 6000))
                 .build();
 
         Shirabon = new Material.Builder(75, Serendustry.ID("shirabon"))
@@ -977,7 +1068,9 @@ public class SerendustryMaterials {
                 .color(0xE0156D).iconSet(BRIGHT)
                 .flags(STD_METAL, GENERATE_SPRING, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_ROTOR, GENERATE_ROUND,
                         GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_FRAME, GENERATE_FOIL, GENERATE_LONG_ROD)
-                .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 30000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[OpV], 30000))
                 .fluidPipeProperties(3200000, 40000, true, true, true, true)
                 .build()
                 .setFormula("Sh");
@@ -994,7 +1087,9 @@ public class SerendustryMaterials {
                 .color(0x5D15EE).iconSet(SHINY)
                 .flags(STD_METAL, GENERATE_FOIL, GENERATE_GEAR)
                 .components(NaquadahEnriched, 8, Holmium, 1)
-                .blastTemp(6000, GasTier.HIGHER, VA[LuV], 2000)
+                .blast(b -> b
+                        .temp(6000, GasTier.HIGHER)
+                        .blastStats(VA[LuV], 2000))
                 .build();
 
         EnrichedTeflon = new Material.Builder(78, Serendustry.ID("enriched_teflon"))
@@ -1020,7 +1115,9 @@ public class SerendustryMaterials {
                 .color(0x643ECD).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Lithium, 1, Sodium, 1, Potassium, 1, Rubidium, 1, Caesium, 1, Francium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         Alkalis = new Material.Builder(82, Serendustry.ID("alkalis"))
@@ -1029,7 +1126,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(PartialAlkalis, 1, Beryllium, 1, Magnesium, 1, Calcium, 1, Strontium, 1, Barium, 1, Radium,
                         1, Scandium, 1, Yttrium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         RefractoryMetals = new Material.Builder(83, Serendustry.ID("refractory_metals"))
@@ -1038,7 +1137,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Zirconium, 1, Hafnium, 1, Niobium, 1, Tantalum, 1, Molybdenum, 1, Tungsten, 1, Technetium,
                         1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         LightTransitionMetals = new Material.Builder(84, Serendustry.ID("light_transition_metals"))
@@ -1046,7 +1147,9 @@ public class SerendustryMaterials {
                 .color(0xCC9A3D).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Titanium, 1, Vanadium, 1, Manganese, 1, Chrome, 1, Iron, 1, Nickel, 1, Cobalt, 1, Copper, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PreciousMetals = new Material.Builder(85, Serendustry.ID("precious_metals"))
@@ -1055,7 +1158,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Ruthenium, 1, Rhodium, 1, Palladium, 1, Silver, 1, Rhenium, 1, Osmium, 1, Iridium, 1,
                         Platinum, 1, Gold, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PartialPostTransitionMetals = new Material.Builder(86, Serendustry.ID("partial_post_transition_metals"))
@@ -1063,7 +1168,9 @@ public class SerendustryMaterials {
                 .color(0xBB6E1A).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Mercury, 1, Tin, 1, Gallium, 1, Indium, 1, Bismuth, 1, Polonium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PostTransitionMetals = new Material.Builder(87, Serendustry.ID("post_transition_metals"))
@@ -1072,7 +1179,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(PartialPostTransitionMetals, 1, Zinc, 1, Cadmium, 1, Aluminum, 1, Silicon, 1, Germanium, 1,
                         Antimony, 1, Thallium, 1, Lead, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PartialLanthanoids = new Material.Builder(88, Serendustry.ID("partial_lanthanoids"))
@@ -1081,7 +1190,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Dysprosium, 1, Lanthanum, 1, Cerium, 1, Praseodymium, 1, Neodymium, 1, Europium, 1,
                         Ytterbium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         Lanthanoids = new Material.Builder(89, Serendustry.ID("lanthanoids"))
@@ -1090,7 +1201,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(PartialLanthanoids, 1, Samarium, 1, Gadolinium, 1, Terbium, 1, Thulium, 1, Holmium, 1,
                         Lutetium, 1, Promethium, 1, Erbium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PartialActinoids = new Material.Builder(90, Serendustry.ID("partial_actinoids"))
@@ -1098,7 +1211,9 @@ public class SerendustryMaterials {
                 .color(0x02B3F2).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Californium, 1, Neptunium, 1, Plutonium241, 1, Mendelevium, 1, Einsteinium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         Actinoids = new Material.Builder(91, Serendustry.ID("actinoids"))
@@ -1107,7 +1222,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(PartialActinoids, 1, Actinium, 1, Thorium, 1, Protactinium, 1, Uranium235, 1, Americium, 1,
                         Curium, 1, Berkelium, 1, Fermium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         Gases = new Material.Builder(92, Serendustry.ID("gases"))
@@ -1115,7 +1232,9 @@ public class SerendustryMaterials {
                 .color(0x25CBA8).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Oxygen, 1, Nitrogen, 1, Hydrogen, 1, Fluorine, 1, Chlorine, 1, Bromine, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         NonMetals = new Material.Builder(93, Serendustry.ID("non_metals"))
@@ -1124,7 +1243,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Boron, 1, Carbon, 1, Phosphorus, 1, Sulfur, 1, Arsenic, 1, Selenium, 1, Tellurium, 1,
                         Iodine, 1, Astatine, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PartialNobleGases = new Material.Builder(94, Serendustry.ID("partial_noble_gases"))
@@ -1132,7 +1253,9 @@ public class SerendustryMaterials {
                 .color(0xBB420F).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Helium, 1, Neon, 1, Argon, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         NobleGases = new Material.Builder(95, Serendustry.ID("noble_gases"))
@@ -1140,7 +1263,9 @@ public class SerendustryMaterials {
                 .color(0x70CC2E).iconSet(SHINY)
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(PartialNobleGases, 1, Krypton, 1, Xenon, 1, Radon, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         PartialSuperheavies = new Material.Builder(96, Serendustry.ID("partial_superheavies"))
@@ -1149,7 +1274,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(Nobelium, 1, Lawrencium, 1, Rutherfordium, 1, Dubnium, 1, Seaborgium, 1, Bohrium, 1,
                         Hassium, 1, Meitnerium, 1, Darmstadtium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         Superheavies = new Material.Builder(97, Serendustry.ID("superheavies"))
@@ -1158,7 +1285,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION)
                 .components(PartialSuperheavies, 1, Roentgenium, 1, Copernicium, 1, Nihonium, 1, Flerovium, 1,
                         Moscovium, 1, Livermorium, 1, Tennessine, 1, Oganesson, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         Periodicium = new Material.Builder(98, Serendustry.ID("periodicium"))
@@ -1168,7 +1297,9 @@ public class SerendustryMaterials {
                 .components(Alkalis, 1, RefractoryMetals, 1, LightTransitionMetals, 1, PreciousMetals, 1,
                         PostTransitionMetals, 1, Lanthanoids, 1, Actinoids, 1, Superheavies, 1, Gases, 1, NonMetals, 1,
                         NobleGases, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UHV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 5000))
                 .build();
 
         MultiversalAlloy = new Material.Builder(99, Serendustry.ID("multiversal_alloy"))
@@ -1177,7 +1308,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FRAME)
                 .components(Infinity, 5, Shirabon, 3, ScOpv, 2, StellarAlloy, 2, ScUxv, 1, Quantum, 1, Actinoids, 1,
                         Lanthanoids, 1, Periodicium, 1)
-                .blastTemp(10800, GasTier.HIGHEST, VA[OpV], 16000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[OpV], 16000))
                 .build();
 
         TransCataCrude = new Material.Builder(100, Serendustry.ID("trans_cata_crude"))
@@ -1215,7 +1348,9 @@ public class SerendustryMaterials {
                 .ingot(3).liquid(new FluidBuilder().temperature(5000))
                 .color(0xD5FF80).iconSet(SHINY)
                 .flags(STD_METAL)
-                .blastTemp(10800, GasTier.HIGHEST, VA[UV], 5000)
+                .blast(b -> b
+                        .temp(10800, GasTier.HIGHEST)
+                        .blastStats(VA[UV], 5000))
                 .build()
                 .setFormula("M");
 
@@ -1316,7 +1451,9 @@ public class SerendustryMaterials {
                 .flags(STD_METAL, DECOMPOSITION_BY_CENTRIFUGING, GENERATE_FRAME, GENERATE_RING, GENERATE_FINE_WIRE,
                         GENERATE_LONG_ROD, GENERATE_BOLT_SCREW)
                 .components(Rhodium, 1, Palladium, 1, Ruthenium, 1)
-                .blastTemp(3500, GasTier.MID, VA[IV])
+                .blast(b -> b
+                        .temp(3500, GasTier.MID)
+                        .blastStats(VA[IV]))
                 .toolStats(ToolProperty.Builder.of(50.0f, 10.0f, 3600, 4)
                         .attackSpeed(0.5f).enchantability(29).build())
                 .rotorStats(7.5f, 3.0f, 2500)
@@ -1338,7 +1475,9 @@ public class SerendustryMaterials {
                 .flags(EXT2_METAL, DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE, GENERATE_RING, GENERATE_FOIL,
                         GENERATE_SMALL_GEAR)
                 .components(Neutronium, 1)
-                .blastTemp(19800, GasTier.HIGHEST, VA[UHV], 10000)
+                .blast(b -> b
+                        .temp(19800, GasTier.HIGHEST)
+                        .blastStats(VA[UHV], 10000))
                 .build()
                 .setFormula("Nt*");
 
